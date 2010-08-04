@@ -22,8 +22,6 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.friark.mvcore.generators.grails.*;
 
-import MVCore.MVCoreFactory;
-import MVCore.impl.MVCoreFactoryImpl;
 
 //import MVCore.presentation.MVCoreEditor;
 
@@ -58,7 +56,7 @@ public class GenerateHandler extends AbstractHandler{
 			}
 			org.friark.mvcore.generators.Generator generator = new GrailsGenerator();
 			generator.generate(res, projectName);
-			
+		 	
 		}catch(Throwable t){
 			t.printStackTrace();
 			StringWriter sw = new StringWriter();
@@ -67,7 +65,13 @@ public class GenerateHandler extends AbstractHandler{
 					window.getShell(),
 					"MVCore Plug-in",
 					"Generation failed: "+t.getMessage());
+			return null;
 		}
+		MessageDialog.openInformation(
+					window.getShell(),
+					"MVCore Plug-in",
+					"All done :)");
+
 		return null;
 	}
 

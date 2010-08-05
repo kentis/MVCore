@@ -48,14 +48,21 @@ class GrailsGenerator implements Generator{
 		 
 		def klassContent = template.toString()
 		writeKlassToFile(klassContent, klass, "controller", packageName, project)
-		
 		 
 	}
 	
 	private String getDefaultTemplate(){
 		Bundle bundle = Platform.getBundle("MVCore")
+		
+		//Plugins behave a bit differently, depending on how they are run. Therfore, this little hack.
 		Path path =  new Path("src/org/friark/mvcore/generators/grails/templates/EControllerTemplate.tmpl")
 		URL fileURL = FileLocator.find(bundle, path, null);
+		if(fileURL == null){
+			path =  new Path("org/friark/mvcore/generators/grails/templates/EControllerTemplate.tmpl")
+			fileURL = FileLocator.find(bundle, path, null);
+		}
+		
+		println "fileURL: ${fileURL}"
 		InputStream is = fileURL.openStream();
 		return is.getText()
 	}

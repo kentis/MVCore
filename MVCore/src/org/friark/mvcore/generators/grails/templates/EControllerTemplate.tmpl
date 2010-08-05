@@ -40,7 +40,7 @@ class ${klass.name}Controller {
 		<% } else if("index" == action.name) {%>
 			redirect(action: "list", params: params)
 		<% } else if("create" == action.name) {%>
-		${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance = new ${action.EType.name}()
+		def ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance = new ${action.EType.name}()
 		${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance.properties = params
 		return [${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance: ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance]
 		<% } else if("save" == action.name) {%>
@@ -64,7 +64,7 @@ class ${klass.name}Controller {
 	        }
 	    }		
 		<% } else if("edit" == action.name) {%>
-        def ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance = ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}.get(params.id)
+        def ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance = ${action.EType.name}.get(params.id)
         if (!${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance) {
             flash.message = "\${message(code: 'default.not.found.message', args: [message(code: '${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}.label', default: '${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}'), params.id])}"
             redirect(action: "list")
@@ -81,7 +81,7 @@ class ${klass.name}Controller {
 			
 			}
 		} else {
-			def ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance = ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}.get(params.id)
+			def ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance = ${action.EType.name}.get(params.id)
 			if (${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance) {
         	    if (params.version) {
             	    def version = params.version.toLong()
@@ -97,7 +97,10 @@ class ${klass.name}Controller {
         	        flash.message = "\${message(code: 'default.updated.message', args: [message(code: '${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}.label', default: '${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}'), ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance.id])}"
             	    withFormat {
             	    	html { 
-            	    		redirect(action: "show", id: ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance.id)
+            	    		render(view: "edit", model: [${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance: ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance])
+            			}
+            			form { 
+            	    		render(view: "edit", model: [${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance: ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance])
             			}
             			xml { render ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance as XML }
             		}
@@ -105,6 +108,9 @@ class ${klass.name}Controller {
             	else {
             		withFormat {
             	    	html { 
+            	    		render(view: "edit", model: [${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance: ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance])
+            			}
+            			form { 
             	    		render(view: "edit", model: [${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance: ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance])
             			}
             			xml { render text:"<errors>\${flash.message}</errors>", contentType:"text/xml",encoding:"UTF-8" }

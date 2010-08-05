@@ -40,6 +40,7 @@ class GrailsGenerator implements Generator{
 	}
 	
 	void handleEControllerClass(EControllerClass klass, String packageName, project){
+		println "ECOntorller"
 	 	def defaultTemplate = getDefaultTemplate()
 		 
 		def engine = new SimpleTemplateEngine()
@@ -64,7 +65,7 @@ class GrailsGenerator implements Generator{
 	}
 	
 	String buildEDomainClass(EDomainClass klass, String packageName){
-		println "EDomain class: ${klass.name}"
+		//println "EDomain class: ${klass.name}"
 		//Create the GormBuilder
 		StringWriter writer = new StringWriter()
 		def builder = new GormBuilder(writer)
@@ -166,6 +167,7 @@ class GrailsGenerator implements Generator{
 	 */
 	def translateType(type) {
 		if(type == "DateTime") return "Date"
+		if(type == "EString") return "String"
 		if(type == null || type == "null") return "String"
 		return type
 	}

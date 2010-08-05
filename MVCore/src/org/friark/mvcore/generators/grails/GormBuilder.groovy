@@ -70,7 +70,7 @@ class GormBuilder extends BuilderSupport {
 	}  
 	
 	protected Object createNode(Object name, Map attrs, Object value) {
-		println "name: ${name}, attrs: ${attrs}, value: ${value}"
+		//println "name: ${name}, attrs: ${attrs}, value: ${value}"
 		switch(state){
 			case CLASS:
 			if(attrs && attrs['packageName']) out.println "package ${attrs['packageName']}"

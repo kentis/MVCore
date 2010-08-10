@@ -6,12 +6,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import javax.annotation.Resources;
-
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
-import org.eclipse.emf.codegen.ecore.Generator;
+
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -21,6 +19,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.PopupDialog;
+import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -32,9 +31,12 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
-import org.friark.mvcore.generators.grails.*;
 
+
+import MVCore.EAction;
+import MVCore.EControllerClass;
 import MVCore.EDomainClass;
+import MVCore.impl.MVCoreFactoryImpl;
 
 
 //import MVCore.presentation.MVCoreEditor;
@@ -45,7 +47,9 @@ public class AddCrudHandler extends AbstractHandler{
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		System.out.println("AddCrudHandler");
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
-//		MessageDialog.openInformation(
+		EControllerClass eController = (EControllerClass) ((TreeSelection) window.getSelectionService().getSelection()).getFirstElement();
+	
+		//MessageDialog.openInformation(
 	//			window.getShell(),
 		//		"MVCore Plug-in",
 			//	"HI");
@@ -88,13 +92,14 @@ public class AddCrudHandler extends AbstractHandler{
 		    b.setText("OK");
 
 		    
-		    b.addSelectionListener(new CrudSelectionAdapter(window, res));
-			
+		    b.addSelectionListener(new CrudSelectionAdapter(window, res, eController, editor));
+		    diag.getShell().redraw();
 			/*MessageDialog.openInformation(
 					window.getShell(),
 					"MVCore Plug-in",
 					"OK then...");
 	*/
+		    
 		}catch(Throwable t){
 			t.printStackTrace();
 			StringWriter sw = new StringWriter();
@@ -110,6 +115,7 @@ public class AddCrudHandler extends AbstractHandler{
 					"MVCore Plug-in",
 					"All done :)");
 	*/
+		
 		return null;
 	}
 
@@ -133,13 +139,60 @@ public class AddCrudHandler extends AbstractHandler{
 		}
 	}
 	
+	
+	private EDomainClass[] getDomainClasss(Resource res){
+		List<EDomainClass> retvals = new ArrayList<EDomainClass>();
+		
+		for(EObject obj :res.getContents()){
+			getDomainClasssFromPackage(retvals, (EPackage) obj);
+		}
+		
+		return retvals.toArray(new EDomainClass[0]);
+	}
+	
+	private void getDomainClasssFromPackage(List<EDomainClass> retvals, EPackage pack){
+		for(EObject obj :pack.eContents()){
+			if(obj instanceof EPackage){
+				getDomainClasssFromPackage(retvals, (EPackage)obj);
+			} else if(obj instanceof EDomainClass){
+				retvals.add((EDomainClass)obj);
+			}
+		}
+	}
+	
+	
+	
+	public List<EAction> getGrailsCrudActions(EDomainClass domain){
+		List<EAction> actions = new ArrayList<EAction>();
+		addActionToList(actions, "index", domain);
+		addActionToList(actions, "list", domain);
+		addActionToList(actions, "show", domain);
+		addActionToList(actions, "delete", domain);
+		addActionToList(actions, "edit", domain);
+		addActionToList(actions, "update", domain);
+		addActionToList(actions, "create", domain);
+		addActionToList(actions, "save", domain);
+		return actions;
+	}
+	
+	private void addActionToList(List<EAction> actions, String name, EDomainClass domain){
+		EAction action = MVCoreFactoryImpl.eINSTANCE.createEAction();
+		action.setName(name);
+		action.setEType(domain);
+		actions.add(action);
+	}
+	
 	class CrudSelectionAdapter extends SelectionAdapter {
 		public IWorkbenchWindow window;
 		public Resource res;
-		public CrudSelectionAdapter(IWorkbenchWindow window, Resource res){
+		public EControllerClass eController;
+		public IEditorPart editor;
+		public CrudSelectionAdapter(IWorkbenchWindow window, Resource res, EControllerClass eController, IEditorPart editor){
 			super();
 			this.window = window;
 			this.res = res;
+			this.eController = eController;
+			this.editor = editor;
 		}
 	      public void widgetSelected(SelectionEvent e) {
 		    	System.out.println(e.getSource());
@@ -158,7 +211,26 @@ public class AddCrudHandler extends AbstractHandler{
 							"Only grails style currently supported");
 		        	return;
 		        }
+		        for(EAction action : getGrailsCrudActions(getDomainClass(domainClass))){
+		        	eController.getEOperations().add(action);
+		        }
+		        editor.doSave(null);
+		        
+				MessageDialog.openInformation(
+				window.getShell(),
+				"MVCore Plug-in",
+				"All done :)");
+				
 		        
 		      }
+	      
+	      private EDomainClass getDomainClass(String name){
+	    	  for(EDomainClass domain : getDomainClasss(res)){
+	    		  if(domain.getName().equals(name)) return domain;
+	    	  }
+	    	  return null;
+	      }
 		    };
+		    
+		    
 }

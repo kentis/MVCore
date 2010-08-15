@@ -18,7 +18,7 @@ class GrailsGenerator implements Generator{
 	void generate(Resource resource, String projectName){
 		IProject project = org.eclipse.core.resources.ResourcesPlugin.getWorkspace().getRoot().getProject(projectName)
 		resource.getContents().each{
-			handlePackage(it, "org", project);
+			handlePackage(it, "", project);
 		}
 	}
 	

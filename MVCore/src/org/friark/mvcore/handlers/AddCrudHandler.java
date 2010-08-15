@@ -220,7 +220,6 @@ public class AddCrudHandler extends AbstractHandler{
 				window.getShell(),
 				"MVCore Plug-in",
 				"All done :)");
-				
 		        
 		      }
 	      

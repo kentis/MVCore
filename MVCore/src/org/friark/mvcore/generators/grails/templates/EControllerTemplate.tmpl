@@ -16,7 +16,7 @@ class ${klass.name}Controller {
 	 
 	<% klass.EOperations.each{ action ->
 	%>
-	@Generated
+	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def ${action.name} = {
 		<% if("list" == action.name){ %>
 		params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)

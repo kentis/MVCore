@@ -23,7 +23,7 @@ class GrailsGenerator implements Generator{
 	}
 	
 	void handlePackage(EPackage pack, prefix, IProject project){
-		def packageName = "${prefix}.${pack.name}"
+		def packageName = "${prefix}${prefix.size() > 0 ? '.' : ''}${pack.name}"
 		pack.eContents().each {
 			switch( it ) {
 				case EPackage:
@@ -175,6 +175,7 @@ class GrailsGenerator implements Generator{
 	def translateType(type) {
 		if(type == "DateTime") return "Date"
 		if(type == "EString") return "String"
+		if(type == "EByteArray") return "byte[]"
 		if(type == null || type == "null") return "String"
 		return type
 	}

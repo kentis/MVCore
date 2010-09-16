@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gmftool:ToolRegistry xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:gmftool="http://www.eclipse.org/gmf/2005/ToolDefinition">
+  <palette
+      title="Ecore Palette"
+      description="Ecore Diagram Palette">
+    <tools
+        xsi:type="gmftool:ToolGroup"
+        title="Nodes"
+        description="Diagram Nodes">
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="EClass"
+          description="Create Class"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="EPackage"
+          description="Create Package"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="EAnnotation"
+          description="Create Annotation"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="EDataType"
+          description="Create DataType"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="EEnum"
+          description="Create Enumeration"/>
+    </tools>
+    <tools
+        xsi:type="gmftool:ToolGroup"
+        title="Child Nodes"
+        description="Child Nodes">
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="EAttribute"
+          description="Create Attribute"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="EOperation"
+          description="Create Operation"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Annotation details"
+          description="Create Annotation details"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="EEnumLiteral"
+          description="Create Enumeration literal"/>
+    </tools>
+    <tools
+        xsi:type="gmftool:ToolGroup"
+        title="Links"
+        description="Links">
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="EAnnotation reference"
+          description="Create Annotation reference link"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Association"
+          description="Create Association link"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Aggregation"
+          description="Create Aggregation link"/>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="Generalization"
+          description="Create Generalization link"/>
+    </tools>
+  </palette>
+</gmftool:ToolRegistry>

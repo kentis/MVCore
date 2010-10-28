@@ -12,7 +12,9 @@
         eType="#//EMVCAttribute"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EControllerClass" eSuperTypes="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass"/>
-  <eClassifiers xsi:type="ecore:EClass" name="EAction" eSuperTypes="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EOperation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EAction" eSuperTypes="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EOperation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EAttribute0"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EMVCPackage" eSuperTypes="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EPackage"/>
   <eClassifiers xsi:type="ecore:EClass" name="EMVCAttribute" eSuperTypes="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EAttribute"/>
 </ecore:EPackage>

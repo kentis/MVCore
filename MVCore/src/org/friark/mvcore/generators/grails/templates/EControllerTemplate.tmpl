@@ -4,14 +4,14 @@ import grails.converters.XML
 import javax.annotation.Generated
 <% def imports = []
 klass.EOperations.each { action -> 
-		if(action.EType && !imports.contains("${action.EType.EPackage.nsURI}.${action.EType.name}")){
-			imports << "${action.EType.EPackage.nsURI}.${action.EType.name}"
+		if(action.EType && !imports.contains("${action.EType.EPackage?.name}.${action.EType.name}")){
+			imports << "${action.EType.EPackage.name}.${action.EType.name}"
 %>
-import ${action.EType.EPackage.nsURI}.${action.EType.name}
+import ${action.EType.EPackage.name}.${action.EType.name}
 <% } } 
 service = "${klass.name[0].toLowerCase()}${klass.name[1..(klass.name.length() - 1)]}Service"
 %>
-class ${klass.name}Controller {
+class ${klass.name}${klass.name.endsWith('Controller') ? '' : 'Controller'} {
 	def ${service}
 	 
 	<% klass.EOperations.each{ action ->

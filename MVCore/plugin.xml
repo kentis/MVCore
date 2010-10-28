@@ -95,6 +95,41 @@
       </menuContribution>
 	</extension>
 	
+   <extension
+         point="org.eclipse.ui.menus">
+     
+         <menuContribution
+            locationURI="popup:MVCore.diagram.part.MVCoreDiagramEditorID">
+          <menu
+               label="MVCore"
+               mnemonic="M"
+               id="mvcore.menus.generateMenu2"> 
+            <command
+                  commandId="mvcore.editorCommand"
+                  mnemonic="S"
+                  id="mvcore.editorCommand">
+            </command>
+           <command
+                  commandId="mvcore.crudCommand"
+                  mnemonic="S"
+                  
+                  id="mvcore.crudCommand">
+                    <visibleWhen>
+               <with
+                     variable="activeMenuSelection">
+                  <iterate>
+                     <adapt
+                           type="MVCore.EControllerClass">
+                     </adapt>
+                  </iterate>
+               </with>
+            </visibleWhen>
+                  
+            </command>
+            
+         </menu>
+      </menuContribution>
+	</extension>
 	
 	
 	<extension point="org.eclipse.ui.propertyPages">

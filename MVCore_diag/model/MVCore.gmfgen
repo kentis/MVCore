@@ -58,30 +58,97 @@
     </childNodes>
     <childNodes
         xsi:type="gmfgen:GenChildLabelNode"
-        visualID="3001"
-        editPartClassName="EAttributeEditPart"
-        itemSemanticEditPolicyClassName="EAttributeItemSemanticEditPolicy"
-        notationViewFactoryClassName="EAttributeViewFactory"
-        canonicalEditPolicyClassName="EAttributeCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="EAttributeGraphicalNodeEditPolicy"
-        createCommandClassName="EAttributeCreateCommand"
+        visualID="3005"
+        editPartClassName="EMVCAttributeEditPart"
+        itemSemanticEditPolicyClassName="EMVCAttributeItemSemanticEditPolicy"
+        notationViewFactoryClassName="EMVCAttributeViewFactory"
+        canonicalEditPolicyClassName="EMVCAttributeCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="EMVCAttributeGraphicalNodeEditPolicy"
+        createCommandClassName="EMVCAttributeCreateCommand"
         containers="//@diagram/@topLevelNodes.1"
         labelElementIcon="true">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="EAttributeEditHelper"/>
+          editHelperClassName="EMVCAttributeEditHelper"/>
       <viewmap
           xsi:type="gmfgen:FigureViewmap"
           figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
       <modelFacet>
         <metaClass
-            href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore/EAttribute"/>
+            href="MVCore.genmodel#//MVCore/EMVCAttribute"/>
         <containmentMetaFeature
             href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore/EClass/eStructuralFeatures"/>
         <childMetaFeature
             href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore/EClass/eAllAttributes"/>
+      </modelFacet>
+      <labelModelFacet
+          xsi:type="gmfgen:FeatureLabelModelFacet"
+          parser="//@labelParsers/@implementations.0">
+        <metaFeatures
+            href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore/ENamedElement/name"/>
+      </labelModelFacet>
+    </childNodes>
+    <childNodes
+        xsi:type="gmfgen:GenChildLabelNode"
+        visualID="3006"
+        editPartClassName="EClassEditPart"
+        itemSemanticEditPolicyClassName="EClassItemSemanticEditPolicy"
+        canonicalEditPolicyClassName="EClassCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="EClassGraphicalNodeEditPolicy"
+        createCommandClassName="EClassCreateCommand"
+        containers="//@diagram/@topLevelNodes.2"
+        labelElementIcon="true">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="EClassEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:FigureViewmap"
+          figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+      <modelFacet>
+        <metaClass
+            href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore/EClass"/>
+        <containmentMetaFeature
+            href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore/EPackage/eClassifiers"/>
+        <childMetaFeature
+            href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore/EPackage/eClassifiers"/>
+      </modelFacet>
+      <labelModelFacet
+          xsi:type="gmfgen:FeatureLabelModelFacet"
+          parser="//@labelParsers/@implementations.0">
+        <metaFeatures
+            href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore/ENamedElement/name"/>
+      </labelModelFacet>
+    </childNodes>
+    <childNodes
+        xsi:type="gmfgen:GenChildLabelNode"
+        visualID="3007"
+        editPartClassName="EPackage2EditPart"
+        itemSemanticEditPolicyClassName="EPackage2ItemSemanticEditPolicy"
+        notationViewFactoryClassName="EPackageViewFactory"
+        canonicalEditPolicyClassName="EPackage2CanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="EPackage2GraphicalNodeEditPolicy"
+        createCommandClassName="EPackage2CreateCommand"
+        containers="//@diagram/@topLevelNodes.2"
+        labelElementIcon="true">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:SpecializationType"
+          metamodelType="//@diagram/@topLevelNodes.2/@elementType"/>
+      <viewmap
+          xsi:type="gmfgen:FigureViewmap"
+          figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+      <modelFacet>
+        <metaClass
+            href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore/EPackage"/>
+        <containmentMetaFeature
+            href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore/EPackage/eSubpackages"/>
+        <childMetaFeature
+            href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore/EPackage/eSubpackages"/>
       </modelFacet>
       <labelModelFacet
           xsi:type="gmfgen:FeatureLabelModelFacet"
@@ -189,31 +256,54 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="2002"
-        editPartClassName="EMVCPackage2EditPart"
-        itemSemanticEditPolicyClassName="EMVCPackage2ItemSemanticEditPolicy"
-        notationViewFactoryClassName="EMVCPackageViewFactory"
-        canonicalEditPolicyClassName="EMVCPackage2CanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="EMVCPackageGraphicalNodeEditPolicy"
-        createCommandClassName="EMVCPackageCreateCommand">
+        visualID="2004"
+        editPartClassName="EPackageEditPart"
+        itemSemanticEditPolicyClassName="EPackageItemSemanticEditPolicy"
+        notationViewFactoryClassName="EPackageViewFactory"
+        canonicalEditPolicyClassName="EPackageCanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.2 //@diagram/@childNodes.3"
+        compartments="//@diagram/@compartments.0 //@diagram/@compartments.1"
+        graphicalNodeEditPolicyClassName="EPackageGraphicalNodeEditPolicy"
+        createCommandClassName="EPackageCreateCommand">
       <diagramRunTimeClass
           href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
-          xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@elementType"/>
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="EPackageEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
-          layoutType="FLOW_LAYOUT"
-          className="MVCoreNode"
-          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class MVCoreNode extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fName; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public MVCoreNode() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(false);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fName = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fName.setText(&quot;&quot;);&#xA;&#xA;this.add(fName);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel Name() {&#xA;&#x9;&#x9;return fName;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+          layoutType="TOOLBAR_LAYOUT"
+          className="NamedNodeRectangle"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class NamedNodeRectangle extends org.eclipse.draw2d.RectangleFigure {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fName; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public NamedNodeRectangle() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.ToolbarLayout layoutThis = new org.eclipse.draw2d.ToolbarLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(true);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.ToolbarLayout.ALIGN_CENTER&#xA;);&#xA;&#xA;&#x9;layoutThis.setSpacing(0);&#xA;&#x9;layoutThis.setVertical(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fName = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fName.setText(&quot;&quot;);&#xA;&#xA;this.add(fName);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel Name() {&#xA;&#x9;&#x9;return fName;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <behaviour
+          xsi:type="gmfgen:OpenDiagramBehaviour"/>
       <modelFacet>
         <metaClass
-            href="MVCore.genmodel#//MVCore/EMVCPackage"/>
+            href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore/EPackage"/>
         <containmentMetaFeature
             href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore/EPackage/eSubpackages"/>
         <childMetaFeature
             href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore/EPackage/eSubpackages"/>
       </modelFacet>
+      <labels
+          visualID="5003"
+          editPartClassName="EPackageNameEditPart"
+          itemSemanticEditPolicyClassName="EPackageNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="EPackageNameViewFactory"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="Name"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore/ENamedElement/name"/>
+        </modelFacet>
+      </labels>
     </topLevelNodes>
     <links
         visualID="4002"
@@ -433,13 +523,43 @@
       <creationConstraints
           targetEnd="//@expressionProviders/@providers.0/@expressions.4"/>
     </links>
+    <compartments
+        visualID="7001"
+        editPartClassName="EPackageClassesEditPart"
+        itemSemanticEditPolicyClassName="EPackageClassesItemSemanticEditPolicy"
+        notationViewFactoryClassName="EPackageClassesViewFactory"
+        canonicalEditPolicyClassName="EPackageClassesCanonicalEditPolicy"
+        title="classes"
+        needsTitle="false"
+        node="//@diagram/@topLevelNodes.2">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:FigureViewmap"
+          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+    </compartments>
+    <compartments
+        visualID="7002"
+        editPartClassName="EPackagePackagesEditPart"
+        itemSemanticEditPolicyClassName="EPackagePackagesItemSemanticEditPolicy"
+        notationViewFactoryClassName="EPackagePackagesViewFactory"
+        canonicalEditPolicyClassName="EPackagePackagesCanonicalEditPolicy"
+        title="packages"
+        needsTitle="false"
+        node="//@diagram/@topLevelNodes.2">
+      <diagramRunTimeClass
+          href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:FigureViewmap"
+          figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+    </compartments>
     <palette>
       <groups
           title="Create">
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Controller"
-            genNodes="//@diagram/@topLevelNodes.0 //@diagram/@topLevelNodes.2"/>
+            genNodes="//@diagram/@topLevelNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Domain class"
@@ -448,6 +568,16 @@
       <groups
           title="-- Mis-referenced tools --"
           description="Mapping element referenced tools from palette other than one specified in Mapping instance">
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="EPackage"
+            description="Create Package"
+            genNodes="//@diagram/@topLevelNodes.2 //@diagram/@childNodes.3"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="EClass"
+            description="Create Class"
+            genNodes="//@diagram/@childNodes.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="EAnnotation reference"
@@ -516,6 +646,12 @@
     <childReferences
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.1"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.2"
+        child="//@diagram/@childNodes.2"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.2"
+        child="//@diagram/@childNodes.3"/>
     <childReferences
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.2"/>
@@ -773,7 +909,7 @@
       extensibleViaService="true">
     <implementations
         xsi:type="gmfgen:PredefinedParser"
-        uses="//@diagram/@childNodes.0/@labelModelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.1/@labelModelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@links.1/@labels.0/@modelFacet //@diagram/@links.1/@labels.1/@modelFacet //@diagram/@links.2/@labels.0/@modelFacet //@diagram/@links.2/@labels.1/@modelFacet"/>
+        uses="//@diagram/@childNodes.0/@labelModelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.1/@labelModelFacet //@diagram/@topLevelNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.2/@labelModelFacet //@diagram/@childNodes.3/@labelModelFacet //@diagram/@topLevelNodes.2/@labels.0/@modelFacet //@diagram/@links.1/@labels.0/@modelFacet //@diagram/@links.1/@labels.1/@modelFacet //@diagram/@links.2/@labels.0/@modelFacet //@diagram/@links.2/@labels.1/@modelFacet"/>
   </labelParsers>
   <contextMenus
       context="//@diagram">

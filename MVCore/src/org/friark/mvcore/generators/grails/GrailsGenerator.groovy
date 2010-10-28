@@ -40,7 +40,7 @@ class GrailsGenerator implements Generator{
 	}
 	
 	void handleEControllerClass(EControllerClass klass, String packageName, project){
-		println "ECOntorller"
+		println "EContorller"
 	 	def defaultTemplate = getDefaultTemplate()
 		 
 		def engine = new SimpleTemplateEngine()
@@ -96,6 +96,10 @@ class GrailsGenerator implements Generator{
 					default:
 						def mul = findMultiplicity(it)
 					//call the builder with the current attribute
+						println it
+						println it.name
+						println it.eType
+
 						"${it.name}"(type: translateType(it.eType.name) ,multiplicity: mul, unique: it.isUnique())
 						break
 				}//end switch
@@ -108,7 +112,7 @@ class GrailsGenerator implements Generator{
 	void writeKlassToFile(String klassContent, def klass, String type, String packageName, project){
 		//Write the class to file
 		
-		
+		println "writing"
 		def src = getSrc(project, type)
 		
 		def pkg = src
@@ -127,21 +131,24 @@ class GrailsGenerator implements Generator{
 		
 		def f
 		if( pkg instanceof File){
-			f = new File( pkg.getAbsolutePath() + File.separator +  "${klass.name}${type == 'controller' ? 'Controller':''}.groovy")
+			f = new File( pkg.getAbsolutePath() + File.separator +  "${klass.name}${type == 'controller' && !klass.name.endsWith('Controller') ? 'Controller':''}.groovy")
 			if(f.exists()) f.delete()
 		} else {
 			f = pkg.getFile("${klass.name}${type == 'controller' ? 'Controller':''}.groovy")
 			if(f.exists()) f.delete true, null
 		}
 		
-		
+		println "file: " + f.toString()
 		//if(f.exists()) f.delete true, null
 		ByteArrayInputStream is = new ByteArrayInputStream(klassContent.getBytes());
 		if(f instanceof File){
+			println "f is File"
 			f.append is
 		} else {
+			println "f is not File"
 			f.create(is, true, null)
 		}
+		println "file is generated"
 	}
 	
 	/**
@@ -176,6 +183,7 @@ class GrailsGenerator implements Generator{
 		if(type == "DateTime") return "Date"
 		if(type == "EString") return "String"
 		if(type == "EByteArray") return "byte[]"
+		if(type == "EDouble") return "double"
 		if(type == null || type == "null") return "String"
 		return type
 	}

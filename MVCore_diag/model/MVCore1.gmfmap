@@ -66,14 +66,15 @@
           href="MVCore.gmftool#//@palette/@tools.0/@tools.1"/>
       <diagramNode
           href="MVCore.gmfgraph#EDomainClass"/>
-      <children>
+      <children
+          compartment="//@nodes.2/@ownedChild/@compartments.0">
         <containmentFeature
             href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass/eStructuralFeatures"/>
         <childrenFeature
             href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass/eAllAttributes"/>
         <ownedChild>
           <domainMetaElement
-              href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EAttribute"/>
+              href="MVCore.ecore#//EMVCAttribute"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping">
             <diagramLabel
@@ -90,34 +91,74 @@
   <nodes>
     <containmentFeature
         href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EPackage/eSubpackages"/>
-    <ownedChild>
+    <ownedChild
+        relatedDiagrams="//@diagram">
       <domainMetaElement
-          href="MVCore.ecore#//EMVCPackage"/>
+          href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EPackage"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="../../../plugin/org.eclipse.gmf.graphdef/models/basic.gmfgraph#NamedNode_Name"/>
+        <features
+            href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//ENamedElement/name"/>
+      </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="MVCore.gmftool#//@palette/@tools.0/@tools.0"/>
+          href="ecore.gmftool#//@palette/@tools.0/@tools.1"/>
       <diagramNode
-          href="MVCore.gmfgraph#EDomainClass"/>
+          href="../../../plugin/org.eclipse.gmf.graphdef/models/basic.gmfgraph#NamedNode"/>
+      <children>
+        <containmentFeature
+            href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EPackage/eClassifiers"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="../../../plugin/org.eclipse.gmf.graphdef/models/basic.gmfgraph#Label"/>
+            <features
+                href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//ENamedElement/name"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="ecore.gmftool#//@palette/@tools.0/@tools.0"/>
+          <diagramNode
+              href="../../../plugin/org.eclipse.gmf.graphdef/models/basic.gmfgraph#Label"/>
+        </ownedChild>
+      </children>
+      <children>
+        <containmentFeature
+            href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EPackage/eSubpackages"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EPackage"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="../../../plugin/org.eclipse.gmf.graphdef/models/basic.gmfgraph#Label"/>
+            <features
+                href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//ENamedElement/name"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="ecore.gmftool#//@palette/@tools.0/@tools.1"/>
+          <diagramNode
+              href="../../../plugin/org.eclipse.gmf.graphdef/models/basic.gmfgraph#Label"/>
+        </ownedChild>
+      </children>
+      <compartments
+          children="//@nodes.1/@ownedChild/@children.0">
+        <compartment
+            href="ecore.gmfgraph#classes"/>
+      </compartments>
+      <compartments>
+        <compartment
+            href="ecore.gmfgraph#packages"/>
+      </compartments>
     </ownedChild>
   </nodes>
-<!--  <links>
-    <domainMetaElement
-        href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EReference"/>
-    <labelMappings
-        xsi:type="gmfmap:DesignLabelMapping">
-      <diagramLabel
-          href="../../org.eclipse.gmf.ecore.editor/models/ecore.gmfgraph#MultiplicityLabel"/>
-    </labelMappings>
-    <containmentFeature
-        href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass/eStructuralFeatures"/>
-    <diagramLink
-        href="../../../plugin/org.eclipse.gmf.graphdef/models/basic.gmfgraph#Link"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="../../../plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//ETypedElement/eType"/> 
-   
-   <links> -->
-   <links>
+  <links>
     <tool
         xsi:type="gmftool:CreationTool"
         href="ecore.gmftool#//@palette/@tools.2/@tools.0"/>
@@ -241,7 +282,6 @@
           body="self &lt;> oppositeEnd and not oppositeEnd.eSuperTypes->includes(self) and not self.eAllSuperTypes->includes(oppositeEnd)"/>
     </creationConstraints>
   </links>
-  	
   <diagram>
     <diagramCanvas
         href="MVCore.gmfgraph#MVCore"/>

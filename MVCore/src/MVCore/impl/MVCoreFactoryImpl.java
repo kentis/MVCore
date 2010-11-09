@@ -6,8 +6,15 @@
  */
 package MVCore.impl;
 
-import MVCore.*;
+import MVCore.Action;
+import MVCore.Attribute;
+import MVCore.Controller;
+import MVCore.Domain;
+import MVCore.MVCoreClass;
+import MVCore.MVCoreFactory;
+import MVCore.MVCorePackage;
 
+import MVCore.Reference;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -60,11 +67,13 @@ public class MVCoreFactoryImpl extends EFactoryImpl implements MVCoreFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case MVCorePackage.EDOMAIN_CLASS: return createEDomainClass();
-			case MVCorePackage.ECONTROLLER_CLASS: return createEControllerClass();
-			case MVCorePackage.EACTION: return createEAction();
-			case MVCorePackage.EMVC_PACKAGE: return createEMVCPackage();
-			case MVCorePackage.EMVC_ATTRIBUTE: return createEMVCAttribute();
+			case MVCorePackage.DOMAIN: return createDomain();
+			case MVCorePackage.CONTROLLER: return createController();
+			case MVCorePackage.ACTION: return createAction();
+			case MVCorePackage.PACKAGE: return createPackage();
+			case MVCorePackage.ATTRIBUTE: return createAttribute();
+			case MVCorePackage.MV_CORE_CLASS: return createMVCoreClass();
+			case MVCorePackage.REFERENCE: return createReference();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -75,9 +84,9 @@ public class MVCoreFactoryImpl extends EFactoryImpl implements MVCoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDomainClass createEDomainClass() {
-		EDomainClassImpl eDomainClass = new EDomainClassImpl();
-		return eDomainClass;
+	public Domain createDomain() {
+		DomainImpl domain = new DomainImpl();
+		return domain;
 	}
 
 	/**
@@ -85,9 +94,9 @@ public class MVCoreFactoryImpl extends EFactoryImpl implements MVCoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EControllerClass createEControllerClass() {
-		EControllerClassImpl eControllerClass = new EControllerClassImpl();
-		return eControllerClass;
+	public Controller createController() {
+		ControllerImpl controller = new ControllerImpl();
+		return controller;
 	}
 
 	/**
@@ -95,9 +104,9 @@ public class MVCoreFactoryImpl extends EFactoryImpl implements MVCoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAction createEAction() {
-		EActionImpl eAction = new EActionImpl();
-		return eAction;
+	public Action createAction() {
+		ActionImpl action = new ActionImpl();
+		return action;
 	}
 
 	/**
@@ -105,9 +114,9 @@ public class MVCoreFactoryImpl extends EFactoryImpl implements MVCoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EMVCPackage createEMVCPackage() {
-		EMVCPackageImpl emvcPackage = new EMVCPackageImpl();
-		return emvcPackage;
+	public MVCore.Package createPackage() {
+		PackageImpl package_ = new PackageImpl();
+		return package_;
 	}
 
 	/**
@@ -115,9 +124,29 @@ public class MVCoreFactoryImpl extends EFactoryImpl implements MVCoreFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EMVCAttribute createEMVCAttribute() {
-		EMVCAttributeImpl emvcAttribute = new EMVCAttributeImpl();
-		return emvcAttribute;
+	public Attribute createAttribute() {
+		AttributeImpl attribute = new AttributeImpl();
+		return attribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MVCoreClass createMVCoreClass() {
+		MVCoreClassImpl mvCoreClass = new MVCoreClassImpl();
+		return mvCoreClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reference createReference() {
+		ReferenceImpl reference = new ReferenceImpl();
+		return reference;
 	}
 
 	/**

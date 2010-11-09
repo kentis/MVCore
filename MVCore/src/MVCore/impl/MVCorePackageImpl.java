@@ -6,14 +6,15 @@
  */
 package MVCore.impl;
 
-import MVCore.EAction;
-import MVCore.EControllerClass;
-import MVCore.EDomainClass;
-import MVCore.EMVCAttribute;
-import MVCore.EMVCPackage;
+import MVCore.Action;
+import MVCore.Attribute;
+import MVCore.Controller;
+import MVCore.Domain;
+import MVCore.MVCoreClass;
 import MVCore.MVCoreFactory;
 import MVCore.MVCorePackage;
 
+import MVCore.Reference;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -34,35 +35,49 @@ public class MVCorePackageImpl extends EPackageImpl implements MVCorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass eDomainClassEClass = null;
+	private EClass domainEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass eControllerClassEClass = null;
+	private EClass controllerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass eActionEClass = null;
+	private EClass actionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass emvcPackageEClass = null;
+	private EClass packageEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass emvcAttributeEClass = null;
+	private EClass attributeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass mvCoreClassEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass referenceEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -133,8 +148,8 @@ public class MVCorePackageImpl extends EPackageImpl implements MVCorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEDomainClass() {
-		return eDomainClassEClass;
+	public EClass getDomain() {
+		return domainEClass;
 	}
 
 	/**
@@ -142,8 +157,8 @@ public class MVCorePackageImpl extends EPackageImpl implements MVCorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEDomainClass_Searchable() {
-		return (EAttribute)eDomainClassEClass.getEStructuralFeatures().get(0);
+	public EAttribute getDomain_Searchable() {
+		return (EAttribute)domainEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -151,8 +166,8 @@ public class MVCorePackageImpl extends EPackageImpl implements MVCorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEDomainClass_Loggable() {
-		return (EAttribute)eDomainClassEClass.getEStructuralFeatures().get(1);
+	public EAttribute getDomain_Loggable() {
+		return (EAttribute)domainEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -160,8 +175,8 @@ public class MVCorePackageImpl extends EPackageImpl implements MVCorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEDomainClass_Attributes() {
-		return (EReference)eDomainClassEClass.getEStructuralFeatures().get(2);
+	public EReference getDomain_Attributes() {
+		return (EReference)domainEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -169,8 +184,8 @@ public class MVCorePackageImpl extends EPackageImpl implements MVCorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEControllerClass() {
-		return eControllerClassEClass;
+	public EReference getDomain_References() {
+		return (EReference)domainEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -178,8 +193,8 @@ public class MVCorePackageImpl extends EPackageImpl implements MVCorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEAction() {
-		return eActionEClass;
+	public EClass getController() {
+		return controllerEClass;
 	}
 
 	/**
@@ -187,8 +202,8 @@ public class MVCorePackageImpl extends EPackageImpl implements MVCorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEMVCPackage() {
-		return emvcPackageEClass;
+	public EReference getController_Actions() {
+		return (EReference)controllerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -196,8 +211,170 @@ public class MVCorePackageImpl extends EPackageImpl implements MVCorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEMVCAttribute() {
-		return emvcAttributeEClass;
+	public EClass getAction() {
+		return actionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAction_Name() {
+		return (EAttribute)actionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAction_OperatesOn() {
+		return (EReference)actionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPackage() {
+		return packageEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPackage_Members() {
+		return (EReference)packageEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPackage_Name() {
+		return (EAttribute)packageEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPackage_SubPackages() {
+		return (EReference)packageEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAttribute() {
+		return attributeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAttribute_Domain() {
+		return (EReference)attributeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAttribute_Name() {
+		return (EAttribute)attributeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMVCoreClass() {
+		return mvCoreClassEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMVCoreClass_Name() {
+		return (EAttribute)mvCoreClassEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMVCoreClass_Package() {
+		return (EReference)mvCoreClassEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getReference() {
+		return referenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getReference_Name() {
+		return (EAttribute)referenceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getReference_Target() {
+		return (EReference)referenceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getReference_UpperBound() {
+		return (EAttribute)referenceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getReference_LowerBound() {
+		return (EAttribute)referenceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getReference_Src() {
+		return (EReference)referenceEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -228,18 +405,38 @@ public class MVCorePackageImpl extends EPackageImpl implements MVCorePackage {
 		isCreated = true;
 
 		// Create classes and their features
-		eDomainClassEClass = createEClass(EDOMAIN_CLASS);
-		createEAttribute(eDomainClassEClass, EDOMAIN_CLASS__SEARCHABLE);
-		createEAttribute(eDomainClassEClass, EDOMAIN_CLASS__LOGGABLE);
-		createEReference(eDomainClassEClass, EDOMAIN_CLASS__ATTRIBUTES);
+		domainEClass = createEClass(DOMAIN);
+		createEAttribute(domainEClass, DOMAIN__SEARCHABLE);
+		createEAttribute(domainEClass, DOMAIN__LOGGABLE);
+		createEReference(domainEClass, DOMAIN__ATTRIBUTES);
+		createEReference(domainEClass, DOMAIN__REFERENCES);
 
-		eControllerClassEClass = createEClass(ECONTROLLER_CLASS);
+		controllerEClass = createEClass(CONTROLLER);
+		createEReference(controllerEClass, CONTROLLER__ACTIONS);
 
-		eActionEClass = createEClass(EACTION);
+		actionEClass = createEClass(ACTION);
+		createEAttribute(actionEClass, ACTION__NAME);
+		createEReference(actionEClass, ACTION__OPERATES_ON);
 
-		emvcPackageEClass = createEClass(EMVC_PACKAGE);
+		packageEClass = createEClass(PACKAGE);
+		createEReference(packageEClass, PACKAGE__MEMBERS);
+		createEAttribute(packageEClass, PACKAGE__NAME);
+		createEReference(packageEClass, PACKAGE__SUB_PACKAGES);
 
-		emvcAttributeEClass = createEClass(EMVC_ATTRIBUTE);
+		attributeEClass = createEClass(ATTRIBUTE);
+		createEReference(attributeEClass, ATTRIBUTE__DOMAIN);
+		createEAttribute(attributeEClass, ATTRIBUTE__NAME);
+
+		mvCoreClassEClass = createEClass(MV_CORE_CLASS);
+		createEAttribute(mvCoreClassEClass, MV_CORE_CLASS__NAME);
+		createEReference(mvCoreClassEClass, MV_CORE_CLASS__PACKAGE);
+
+		referenceEClass = createEClass(REFERENCE);
+		createEAttribute(referenceEClass, REFERENCE__NAME);
+		createEReference(referenceEClass, REFERENCE__TARGET);
+		createEAttribute(referenceEClass, REFERENCE__UPPER_BOUND);
+		createEAttribute(referenceEClass, REFERENCE__LOWER_BOUND);
+		createEReference(referenceEClass, REFERENCE__SRC);
 	}
 
 	/**
@@ -273,25 +470,42 @@ public class MVCorePackageImpl extends EPackageImpl implements MVCorePackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		eDomainClassEClass.getESuperTypes().add(theEcorePackage.getEClass());
-		eControllerClassEClass.getESuperTypes().add(theEcorePackage.getEClass());
-		eActionEClass.getESuperTypes().add(theEcorePackage.getEOperation());
-		emvcPackageEClass.getESuperTypes().add(theEcorePackage.getEPackage());
-		emvcAttributeEClass.getESuperTypes().add(theEcorePackage.getEAttribute());
+		domainEClass.getESuperTypes().add(this.getMVCoreClass());
+		controllerEClass.getESuperTypes().add(this.getMVCoreClass());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(eDomainClassEClass, EDomainClass.class, "EDomainClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEDomainClass_Searchable(), theEcorePackage.getEString(), "Searchable", "false", 0, 1, EDomainClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEDomainClass_Loggable(), theEcorePackage.getEString(), "Loggable", "false", 0, 1, EDomainClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEDomainClass_Attributes(), this.getEMVCAttribute(), null, "attributes", null, 0, -1, EDomainClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(domainEClass, Domain.class, "Domain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDomain_Searchable(), theEcorePackage.getEString(), "Searchable", "false", 0, 1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDomain_Loggable(), theEcorePackage.getEString(), "Loggable", "false", 0, 1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDomain_Attributes(), this.getAttribute(), this.getAttribute_Domain(), "attributes", null, 0, -1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDomain_References(), this.getReference(), null, "references", null, 0, -1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(eControllerClassEClass, EControllerClass.class, "EControllerClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(controllerEClass, Controller.class, "Controller", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getController_Actions(), this.getAction(), null, "actions", null, 0, -1, Controller.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(eActionEClass, EAction.class, "EAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAction_Name(), ecorePackage.getEString(), "name", null, 1, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAction_OperatesOn(), this.getDomain(), null, "operatesOn", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(emvcPackageEClass, EMVCPackage.class, "EMVCPackage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(packageEClass, MVCore.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPackage_Members(), this.getMVCoreClass(), this.getMVCoreClass_Package(), "members", null, 0, -1, MVCore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPackage_Name(), theEcorePackage.getEString(), "name", null, 0, 1, MVCore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_SubPackages(), this.getPackage(), null, "subPackages", null, 0, -1, MVCore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(emvcAttributeEClass, EMVCAttribute.class, "EMVCAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAttribute_Domain(), this.getDomain(), this.getDomain_Attributes(), "domain", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAttribute_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(mvCoreClassEClass, MVCoreClass.class, "MVCoreClass", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMVCoreClass_Name(), ecorePackage.getEString(), "name", null, 0, 1, MVCoreClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMVCoreClass_Package(), this.getPackage(), this.getPackage_Members(), "package", null, 1, 1, MVCoreClass.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getReference_Name(), theEcorePackage.getEString(), "name", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getReference_Target(), this.getDomain(), null, "target", null, 1, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getReference_UpperBound(), theEcorePackage.getEInt(), "upperBound", null, 1, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getReference_LowerBound(), theEcorePackage.getEInt(), "lowerBound", null, 1, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getReference_Src(), this.getDomain(), null, "src", null, 1, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

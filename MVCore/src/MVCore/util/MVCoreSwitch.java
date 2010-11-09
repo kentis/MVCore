@@ -6,20 +6,19 @@
  */
 package MVCore.util;
 
+import MVCore.Action;
+import MVCore.Attribute;
+import MVCore.Controller;
+import MVCore.Domain;
+import MVCore.MVCoreClass;
+import MVCore.MVCorePackage;
+import MVCore.Reference;
 import MVCore.*;
 
 import java.util.List;
 
-import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EClassifier;
-import org.eclipse.emf.ecore.EModelElement;
-import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EOperation;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.ETypedElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -95,53 +94,47 @@ public class MVCoreSwitch<T> {
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case MVCorePackage.EDOMAIN_CLASS: {
-				EDomainClass eDomainClass = (EDomainClass)theEObject;
-				T result = caseEDomainClass(eDomainClass);
-				if (result == null) result = caseEClass(eDomainClass);
-				if (result == null) result = caseEClassifier(eDomainClass);
-				if (result == null) result = caseENamedElement(eDomainClass);
-				if (result == null) result = caseEModelElement(eDomainClass);
+			case MVCorePackage.DOMAIN: {
+				Domain domain = (Domain)theEObject;
+				T result = caseDomain(domain);
+				if (result == null) result = caseMVCoreClass(domain);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MVCorePackage.ECONTROLLER_CLASS: {
-				EControllerClass eControllerClass = (EControllerClass)theEObject;
-				T result = caseEControllerClass(eControllerClass);
-				if (result == null) result = caseEClass(eControllerClass);
-				if (result == null) result = caseEClassifier(eControllerClass);
-				if (result == null) result = caseENamedElement(eControllerClass);
-				if (result == null) result = caseEModelElement(eControllerClass);
+			case MVCorePackage.CONTROLLER: {
+				Controller controller = (Controller)theEObject;
+				T result = caseController(controller);
+				if (result == null) result = caseMVCoreClass(controller);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MVCorePackage.EACTION: {
-				EAction eAction = (EAction)theEObject;
-				T result = caseEAction(eAction);
-				if (result == null) result = caseEOperation(eAction);
-				if (result == null) result = caseETypedElement(eAction);
-				if (result == null) result = caseENamedElement(eAction);
-				if (result == null) result = caseEModelElement(eAction);
+			case MVCorePackage.ACTION: {
+				Action action = (Action)theEObject;
+				T result = caseAction(action);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MVCorePackage.EMVC_PACKAGE: {
-				EMVCPackage emvcPackage = (EMVCPackage)theEObject;
-				T result = caseEMVCPackage(emvcPackage);
-				if (result == null) result = caseEPackage(emvcPackage);
-				if (result == null) result = caseENamedElement(emvcPackage);
-				if (result == null) result = caseEModelElement(emvcPackage);
+			case MVCorePackage.PACKAGE: {
+				MVCore.Package package_ = (MVCore.Package)theEObject;
+				T result = casePackage(package_);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MVCorePackage.EMVC_ATTRIBUTE: {
-				EMVCAttribute emvcAttribute = (EMVCAttribute)theEObject;
-				T result = caseEMVCAttribute(emvcAttribute);
-				if (result == null) result = caseEAttribute(emvcAttribute);
-				if (result == null) result = caseEStructuralFeature(emvcAttribute);
-				if (result == null) result = caseETypedElement(emvcAttribute);
-				if (result == null) result = caseENamedElement(emvcAttribute);
-				if (result == null) result = caseEModelElement(emvcAttribute);
+			case MVCorePackage.ATTRIBUTE: {
+				Attribute attribute = (Attribute)theEObject;
+				T result = caseAttribute(attribute);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MVCorePackage.MV_CORE_CLASS: {
+				MVCoreClass mvCoreClass = (MVCoreClass)theEObject;
+				T result = caseMVCoreClass(mvCoreClass);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MVCorePackage.REFERENCE: {
+				Reference reference = (Reference)theEObject;
+				T result = caseReference(reference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -150,212 +143,107 @@ public class MVCoreSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EDomain Class</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Domain</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EDomain Class</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Domain</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEDomainClass(EDomainClass object) {
+	public T caseDomain(Domain object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EController Class</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Controller</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EController Class</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Controller</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEControllerClass(EControllerClass object) {
+	public T caseController(Controller object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EAction</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EAction</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Action</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEAction(EAction object) {
+	public T caseAction(Action object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EMVC Package</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Package</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EMVC Package</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Package</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEMVCPackage(EMVCPackage object) {
+	public T casePackage(MVCore.Package object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EMVC Attribute</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Attribute</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EMVC Attribute</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Attribute</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEMVCAttribute(EMVCAttribute object) {
+	public T caseAttribute(Attribute object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EModel Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Class</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EModel Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Class</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEModelElement(EModelElement object) {
+	public T caseMVCoreClass(MVCoreClass object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>ENamed Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>ENamed Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Reference</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseENamedElement(ENamedElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EClassifier</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EClassifier</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEClassifier(EClassifier object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EClass</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EClass</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEClass(EClass object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>ETyped Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>ETyped Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseETypedElement(ETypedElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EOperation</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EOperation</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEOperation(EOperation object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EPackage</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EPackage</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEPackage(EPackage object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EStructural Feature</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EStructural Feature</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEStructuralFeature(EStructuralFeature object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EAttribute</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EAttribute</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEAttribute(EAttribute object) {
+	public T caseReference(Reference object) {
 		return null;
 	}
 

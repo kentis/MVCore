@@ -33,9 +33,9 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 
-import MVCore.EAction;
-import MVCore.EControllerClass;
-import MVCore.EDomainClass;
+import MVCore.Action;
+import MVCore.Controller;
+import MVCore.Domain;
 import MVCore.impl.MVCoreFactoryImpl;
 
 
@@ -47,7 +47,7 @@ public class AddCrudHandler extends AbstractHandler{
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		System.out.println("AddCrudHandler");
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
-		EControllerClass eController = (EControllerClass) ((TreeSelection) window.getSelectionService().getSelection()).getFirstElement();
+		Controller eController = (Controller) ((TreeSelection) window.getSelectionService().getSelection()).getFirstElement();
 	
 		//MessageDialog.openInformation(
 	//			window.getShell(),
@@ -133,37 +133,37 @@ public class AddCrudHandler extends AbstractHandler{
 		for(EObject obj :pack.eContents()){
 			if(obj instanceof EPackage){
 				getDomainClassNamesFromPackage(retvals, (EPackage)obj);
-			} else if(obj instanceof EDomainClass){
-				retvals.add(((EDomainClass)obj).getName());
+			} else if(obj instanceof Domain){
+				retvals.add(((Domain)obj).getName());
 			}
 		}
 	}
 	
 	
-	private EDomainClass[] getDomainClasss(Resource res){
-		List<EDomainClass> retvals = new ArrayList<EDomainClass>();
+	private Domain[] getDomainClasss(Resource res){
+		List<Domain> retvals = new ArrayList<Domain>();
 		
 		for(EObject obj :res.getContents()){
 			getDomainClasssFromPackage(retvals, (EPackage) obj);
 		}
 		
-		return retvals.toArray(new EDomainClass[0]);
+		return retvals.toArray(new Domain[0]);
 	}
 	
-	private void getDomainClasssFromPackage(List<EDomainClass> retvals, EPackage pack){
+	private void getDomainClasssFromPackage(List<Domain> retvals, EPackage pack){
 		for(EObject obj :pack.eContents()){
 			if(obj instanceof EPackage){
 				getDomainClasssFromPackage(retvals, (EPackage)obj);
-			} else if(obj instanceof EDomainClass){
-				retvals.add((EDomainClass)obj);
+			} else if(obj instanceof Domain){
+				retvals.add((Domain)obj);
 			}
 		}
 	}
 	
 	
 	
-	public List<EAction> getGrailsCrudActions(EDomainClass domain){
-		List<EAction> actions = new ArrayList<EAction>();
+	public List<Action> getGrailsCrudActions(Domain domain){
+		List<Action> actions = new ArrayList<Action>();
 		addActionToList(actions, "index", domain);
 		addActionToList(actions, "list", domain);
 		addActionToList(actions, "show", domain);
@@ -175,19 +175,19 @@ public class AddCrudHandler extends AbstractHandler{
 		return actions;
 	}
 	
-	private void addActionToList(List<EAction> actions, String name, EDomainClass domain){
-		EAction action = MVCoreFactoryImpl.eINSTANCE.createEAction();
+	private void addActionToList(List<Action> actions, String name, Domain domain){
+		Action action = MVCoreFactoryImpl.eINSTANCE.createAction();
 		action.setName(name);
-		action.setEType(domain);
+		action.setOperatesOn(domain);
 		actions.add(action);
 	}
 	
 	class CrudSelectionAdapter extends SelectionAdapter {
 		public IWorkbenchWindow window;
 		public Resource res;
-		public EControllerClass eController;
+		public Controller eController;
 		public IEditorPart editor;
-		public CrudSelectionAdapter(IWorkbenchWindow window, Resource res, EControllerClass eController, IEditorPart editor){
+		public CrudSelectionAdapter(IWorkbenchWindow window, Resource res, Controller eController, IEditorPart editor){
 			super();
 			this.window = window;
 			this.res = res;
@@ -211,8 +211,8 @@ public class AddCrudHandler extends AbstractHandler{
 							"Only grails style currently supported");
 		        	return;
 		        }
-		        for(EAction action : getGrailsCrudActions(getDomainClass(domainClass))){
-		        	eController.getEOperations().add(action);
+		        for(Action action : getGrailsCrudActions(getDomainClass(domainClass))){
+		        	eController.getActions().add(action);
 		        }
 		        editor.doSave(null);
 		        
@@ -223,8 +223,8 @@ public class AddCrudHandler extends AbstractHandler{
 		        
 		      }
 	      
-	      private EDomainClass getDomainClass(String name){
-	    	  for(EDomainClass domain : getDomainClasss(res)){
+	      private Domain getDomainClass(String name){
+	    	  for(Domain domain : getDomainClasss(res)){
 	    		  if(domain.getName().equals(name)) return domain;
 	    	  }
 	    	  return null;

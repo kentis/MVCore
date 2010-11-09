@@ -26,49 +26,67 @@ public interface MVCoreFactory extends EFactory {
 	MVCoreFactory eINSTANCE = MVCore.impl.MVCoreFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>EDomain Class</em>'.
+	 * Returns a new object of class '<em>Domain</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>EDomain Class</em>'.
+	 * @return a new object of class '<em>Domain</em>'.
 	 * @generated
 	 */
-	EDomainClass createEDomainClass();
+	Domain createDomain();
 
 	/**
-	 * Returns a new object of class '<em>EController Class</em>'.
+	 * Returns a new object of class '<em>Controller</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>EController Class</em>'.
+	 * @return a new object of class '<em>Controller</em>'.
 	 * @generated
 	 */
-	EControllerClass createEControllerClass();
+	Controller createController();
 
 	/**
-	 * Returns a new object of class '<em>EAction</em>'.
+	 * Returns a new object of class '<em>Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>EAction</em>'.
+	 * @return a new object of class '<em>Action</em>'.
 	 * @generated
 	 */
-	EAction createEAction();
+	Action createAction();
 
 	/**
-	 * Returns a new object of class '<em>EMVC Package</em>'.
+	 * Returns a new object of class '<em>Package</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>EMVC Package</em>'.
+	 * @return a new object of class '<em>Package</em>'.
 	 * @generated
 	 */
-	EMVCPackage createEMVCPackage();
+	Package createPackage();
 
 	/**
-	 * Returns a new object of class '<em>EMVC Attribute</em>'.
+	 * Returns a new object of class '<em>Attribute</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>EMVC Attribute</em>'.
+	 * @return a new object of class '<em>Attribute</em>'.
 	 * @generated
 	 */
-	EMVCAttribute createEMVCAttribute();
+	Attribute createAttribute();
+
+	/**
+	 * Returns a new object of class '<em>Class</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Class</em>'.
+	 * @generated
+	 */
+	MVCoreClass createMVCoreClass();
+
+	/**
+	 * Returns a new object of class '<em>Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Reference</em>'.
+	 * @generated
+	 */
+	Reference createReference();
 
 	/**
 	 * Returns the package supported by this factory.

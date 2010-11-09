@@ -1,7 +1,7 @@
 package org.friark.mvcore.generators.grails;
 
-import MVCore.EControllerClass;
-import MVCore.EDomainClass;
+import MVCore.Controller;
+import MVCore.Domain;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.QualifiedName;
@@ -39,7 +39,7 @@ class GrailsGenerator implements Generator{
 		}
 	}
 	
-	void handleEControllerClass(EControllerClass klass, String packageName, project){
+	void handleEControllerClass(Controller klass, String packageName, project){
 		println "EContorller"
 	 	def defaultTemplate = getDefaultTemplate()
 		 
@@ -66,12 +66,12 @@ class GrailsGenerator implements Generator{
 		InputStream is = fileURL.openStream();
 		return is.getText()
 	}
-	void handleEDomainClass(EDomainClass klass, String packageName, project){
+	void handleEDomainClass(Domain klass, String packageName, project){
 		def klassContent = buildEDomainClass( klass, packageName)
 		writeKlassToFile(klassContent, klass, "domain", packageName, project)
 	}
 	
-	String buildEDomainClass(EDomainClass klass, String packageName){
+	String buildEDomainClass(Domain klass, String packageName){
 		//println "EDomain class: ${klass.name}"
 		//Create the GormBuilder
 		StringWriter writer = new StringWriter()

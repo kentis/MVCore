@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EcorePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -61,23 +60,14 @@ public interface MVCorePackage extends EPackage {
 	MVCorePackage eINSTANCE = MVCore.impl.MVCorePackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link MVCore.impl.EDomainClassImpl <em>EDomain Class</em>}' class.
+	 * The meta object id for the '{@link MVCore.impl.MVCoreClassImpl <em>Class</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see MVCore.impl.EDomainClassImpl
-	 * @see MVCore.impl.MVCorePackageImpl#getEDomainClass()
+	 * @see MVCore.impl.MVCoreClassImpl
+	 * @see MVCore.impl.MVCorePackageImpl#getMVCoreClass()
 	 * @generated
 	 */
-	int EDOMAIN_CLASS = 0;
-
-	/**
-	 * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EDOMAIN_CLASS__EANNOTATIONS = EcorePackage.ECLASS__EANNOTATIONS;
+	int MV_CORE_CLASS = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -86,205 +76,53 @@ public interface MVCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EDOMAIN_CLASS__NAME = EcorePackage.ECLASS__NAME;
+	int MV_CORE_CLASS__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Instance Class Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Package</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EDOMAIN_CLASS__INSTANCE_CLASS_NAME = EcorePackage.ECLASS__INSTANCE_CLASS_NAME;
+	int MV_CORE_CLASS__PACKAGE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Instance Class</b></em>' attribute.
+	 * The number of structural features of the '<em>Class</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EDOMAIN_CLASS__INSTANCE_CLASS = EcorePackage.ECLASS__INSTANCE_CLASS;
+	int MV_CORE_CLASS_FEATURE_COUNT = 2;
 
 	/**
-	 * The feature id for the '<em><b>Default Value</b></em>' attribute.
+	 * The meta object id for the '{@link MVCore.impl.DomainImpl <em>Domain</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see MVCore.impl.DomainImpl
+	 * @see MVCore.impl.MVCorePackageImpl#getDomain()
+	 * @generated
+	 */
+	int DOMAIN = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EDOMAIN_CLASS__DEFAULT_VALUE = EcorePackage.ECLASS__DEFAULT_VALUE;
+	int DOMAIN__NAME = MV_CORE_CLASS__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Instance Type Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Package</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EDOMAIN_CLASS__INSTANCE_TYPE_NAME = EcorePackage.ECLASS__INSTANCE_TYPE_NAME;
-
-	/**
-	 * The feature id for the '<em><b>EPackage</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EDOMAIN_CLASS__EPACKAGE = EcorePackage.ECLASS__EPACKAGE;
-
-	/**
-	 * The feature id for the '<em><b>EType Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EDOMAIN_CLASS__ETYPE_PARAMETERS = EcorePackage.ECLASS__ETYPE_PARAMETERS;
-
-	/**
-	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EDOMAIN_CLASS__ABSTRACT = EcorePackage.ECLASS__ABSTRACT;
-
-	/**
-	 * The feature id for the '<em><b>Interface</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EDOMAIN_CLASS__INTERFACE = EcorePackage.ECLASS__INTERFACE;
-
-	/**
-	 * The feature id for the '<em><b>ESuper Types</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EDOMAIN_CLASS__ESUPER_TYPES = EcorePackage.ECLASS__ESUPER_TYPES;
-
-	/**
-	 * The feature id for the '<em><b>EOperations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EDOMAIN_CLASS__EOPERATIONS = EcorePackage.ECLASS__EOPERATIONS;
-
-	/**
-	 * The feature id for the '<em><b>EAll Attributes</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EDOMAIN_CLASS__EALL_ATTRIBUTES = EcorePackage.ECLASS__EALL_ATTRIBUTES;
-
-	/**
-	 * The feature id for the '<em><b>EAll References</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EDOMAIN_CLASS__EALL_REFERENCES = EcorePackage.ECLASS__EALL_REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>EReferences</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EDOMAIN_CLASS__EREFERENCES = EcorePackage.ECLASS__EREFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>EAttributes</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EDOMAIN_CLASS__EATTRIBUTES = EcorePackage.ECLASS__EATTRIBUTES;
-
-	/**
-	 * The feature id for the '<em><b>EAll Containments</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EDOMAIN_CLASS__EALL_CONTAINMENTS = EcorePackage.ECLASS__EALL_CONTAINMENTS;
-
-	/**
-	 * The feature id for the '<em><b>EAll Operations</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EDOMAIN_CLASS__EALL_OPERATIONS = EcorePackage.ECLASS__EALL_OPERATIONS;
-
-	/**
-	 * The feature id for the '<em><b>EAll Structural Features</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EDOMAIN_CLASS__EALL_STRUCTURAL_FEATURES = EcorePackage.ECLASS__EALL_STRUCTURAL_FEATURES;
-
-	/**
-	 * The feature id for the '<em><b>EAll Super Types</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EDOMAIN_CLASS__EALL_SUPER_TYPES = EcorePackage.ECLASS__EALL_SUPER_TYPES;
-
-	/**
-	 * The feature id for the '<em><b>EID Attribute</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EDOMAIN_CLASS__EID_ATTRIBUTE = EcorePackage.ECLASS__EID_ATTRIBUTE;
-
-	/**
-	 * The feature id for the '<em><b>EStructural Features</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EDOMAIN_CLASS__ESTRUCTURAL_FEATURES = EcorePackage.ECLASS__ESTRUCTURAL_FEATURES;
-
-	/**
-	 * The feature id for the '<em><b>EGeneric Super Types</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EDOMAIN_CLASS__EGENERIC_SUPER_TYPES = EcorePackage.ECLASS__EGENERIC_SUPER_TYPES;
-
-	/**
-	 * The feature id for the '<em><b>EAll Generic Super Types</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EDOMAIN_CLASS__EALL_GENERIC_SUPER_TYPES = EcorePackage.ECLASS__EALL_GENERIC_SUPER_TYPES;
+	int DOMAIN__PACKAGE = MV_CORE_CLASS__PACKAGE;
 
 	/**
 	 * The feature id for the '<em><b>Searchable</b></em>' attribute.
@@ -293,7 +131,7 @@ public interface MVCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EDOMAIN_CLASS__SEARCHABLE = EcorePackage.ECLASS_FEATURE_COUNT + 0;
+	int DOMAIN__SEARCHABLE = MV_CORE_CLASS_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Loggable</b></em>' attribute.
@@ -302,44 +140,44 @@ public interface MVCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EDOMAIN_CLASS__LOGGABLE = EcorePackage.ECLASS_FEATURE_COUNT + 1;
+	int DOMAIN__LOGGABLE = MV_CORE_CLASS_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Attributes</b></em>' reference list.
+	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EDOMAIN_CLASS__ATTRIBUTES = EcorePackage.ECLASS_FEATURE_COUNT + 2;
+	int DOMAIN__ATTRIBUTES = MV_CORE_CLASS_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>EDomain Class</em>' class.
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EDOMAIN_CLASS_FEATURE_COUNT = EcorePackage.ECLASS_FEATURE_COUNT + 3;
+	int DOMAIN__REFERENCES = MV_CORE_CLASS_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link MVCore.impl.EControllerClassImpl <em>EController Class</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see MVCore.impl.EControllerClassImpl
-	 * @see MVCore.impl.MVCorePackageImpl#getEControllerClass()
-	 * @generated
-	 */
-	int ECONTROLLER_CLASS = 1;
-
-	/**
-	 * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
+	 * The number of structural features of the '<em>Domain</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ECONTROLLER_CLASS__EANNOTATIONS = EcorePackage.ECLASS__EANNOTATIONS;
+	int DOMAIN_FEATURE_COUNT = MV_CORE_CLASS_FEATURE_COUNT + 4;
+
+	/**
+	 * The meta object id for the '{@link MVCore.impl.ControllerImpl <em>Controller</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see MVCore.impl.ControllerImpl
+	 * @see MVCore.impl.MVCorePackageImpl#getController()
+	 * @generated
+	 */
+	int CONTROLLER = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -348,233 +186,44 @@ public interface MVCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ECONTROLLER_CLASS__NAME = EcorePackage.ECLASS__NAME;
+	int CONTROLLER__NAME = MV_CORE_CLASS__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Instance Class Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Package</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ECONTROLLER_CLASS__INSTANCE_CLASS_NAME = EcorePackage.ECLASS__INSTANCE_CLASS_NAME;
+	int CONTROLLER__PACKAGE = MV_CORE_CLASS__PACKAGE;
 
 	/**
-	 * The feature id for the '<em><b>Instance Class</b></em>' attribute.
+	 * The feature id for the '<em><b>Actions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ECONTROLLER_CLASS__INSTANCE_CLASS = EcorePackage.ECLASS__INSTANCE_CLASS;
+	int CONTROLLER__ACTIONS = MV_CORE_CLASS_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Default Value</b></em>' attribute.
+	 * The number of structural features of the '<em>Controller</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ECONTROLLER_CLASS__DEFAULT_VALUE = EcorePackage.ECLASS__DEFAULT_VALUE;
+	int CONTROLLER_FEATURE_COUNT = MV_CORE_CLASS_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Instance Type Name</b></em>' attribute.
+	 * The meta object id for the '{@link MVCore.impl.ActionImpl <em>Action</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ECONTROLLER_CLASS__INSTANCE_TYPE_NAME = EcorePackage.ECLASS__INSTANCE_TYPE_NAME;
-
-	/**
-	 * The feature id for the '<em><b>EPackage</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ECONTROLLER_CLASS__EPACKAGE = EcorePackage.ECLASS__EPACKAGE;
-
-	/**
-	 * The feature id for the '<em><b>EType Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ECONTROLLER_CLASS__ETYPE_PARAMETERS = EcorePackage.ECLASS__ETYPE_PARAMETERS;
-
-	/**
-	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ECONTROLLER_CLASS__ABSTRACT = EcorePackage.ECLASS__ABSTRACT;
-
-	/**
-	 * The feature id for the '<em><b>Interface</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ECONTROLLER_CLASS__INTERFACE = EcorePackage.ECLASS__INTERFACE;
-
-	/**
-	 * The feature id for the '<em><b>ESuper Types</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ECONTROLLER_CLASS__ESUPER_TYPES = EcorePackage.ECLASS__ESUPER_TYPES;
-
-	/**
-	 * The feature id for the '<em><b>EOperations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ECONTROLLER_CLASS__EOPERATIONS = EcorePackage.ECLASS__EOPERATIONS;
-
-	/**
-	 * The feature id for the '<em><b>EAll Attributes</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ECONTROLLER_CLASS__EALL_ATTRIBUTES = EcorePackage.ECLASS__EALL_ATTRIBUTES;
-
-	/**
-	 * The feature id for the '<em><b>EAll References</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ECONTROLLER_CLASS__EALL_REFERENCES = EcorePackage.ECLASS__EALL_REFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>EReferences</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ECONTROLLER_CLASS__EREFERENCES = EcorePackage.ECLASS__EREFERENCES;
-
-	/**
-	 * The feature id for the '<em><b>EAttributes</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ECONTROLLER_CLASS__EATTRIBUTES = EcorePackage.ECLASS__EATTRIBUTES;
-
-	/**
-	 * The feature id for the '<em><b>EAll Containments</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ECONTROLLER_CLASS__EALL_CONTAINMENTS = EcorePackage.ECLASS__EALL_CONTAINMENTS;
-
-	/**
-	 * The feature id for the '<em><b>EAll Operations</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ECONTROLLER_CLASS__EALL_OPERATIONS = EcorePackage.ECLASS__EALL_OPERATIONS;
-
-	/**
-	 * The feature id for the '<em><b>EAll Structural Features</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ECONTROLLER_CLASS__EALL_STRUCTURAL_FEATURES = EcorePackage.ECLASS__EALL_STRUCTURAL_FEATURES;
-
-	/**
-	 * The feature id for the '<em><b>EAll Super Types</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ECONTROLLER_CLASS__EALL_SUPER_TYPES = EcorePackage.ECLASS__EALL_SUPER_TYPES;
-
-	/**
-	 * The feature id for the '<em><b>EID Attribute</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ECONTROLLER_CLASS__EID_ATTRIBUTE = EcorePackage.ECLASS__EID_ATTRIBUTE;
-
-	/**
-	 * The feature id for the '<em><b>EStructural Features</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ECONTROLLER_CLASS__ESTRUCTURAL_FEATURES = EcorePackage.ECLASS__ESTRUCTURAL_FEATURES;
-
-	/**
-	 * The feature id for the '<em><b>EGeneric Super Types</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ECONTROLLER_CLASS__EGENERIC_SUPER_TYPES = EcorePackage.ECLASS__EGENERIC_SUPER_TYPES;
-
-	/**
-	 * The feature id for the '<em><b>EAll Generic Super Types</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ECONTROLLER_CLASS__EALL_GENERIC_SUPER_TYPES = EcorePackage.ECLASS__EALL_GENERIC_SUPER_TYPES;
-
-	/**
-	 * The number of structural features of the '<em>EController Class</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ECONTROLLER_CLASS_FEATURE_COUNT = EcorePackage.ECLASS_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link MVCore.impl.EActionImpl <em>EAction</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see MVCore.impl.EActionImpl
-	 * @see MVCore.impl.MVCorePackageImpl#getEAction()
+	 * @see MVCore.impl.ActionImpl
+	 * @see MVCore.impl.MVCorePackageImpl#getAction()
 	 * @generated
 	 */
-	int EACTION = 2;
-
-	/**
-	 * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EACTION__EANNOTATIONS = EcorePackage.EOPERATION__EANNOTATIONS;
+	int ACTION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -583,34 +232,137 @@ public interface MVCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EACTION__NAME = EcorePackage.EOPERATION__NAME;
+	int ACTION__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Ordered</b></em>' attribute.
+	 * The feature id for the '<em><b>Operates On</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EACTION__ORDERED = EcorePackage.EOPERATION__ORDERED;
+	int ACTION__OPERATES_ON = 1;
 
 	/**
-	 * The feature id for the '<em><b>Unique</b></em>' attribute.
+	 * The number of structural features of the '<em>Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EACTION__UNIQUE = EcorePackage.EOPERATION__UNIQUE;
+	int ACTION_FEATURE_COUNT = 2;
 
 	/**
-	 * The feature id for the '<em><b>Lower Bound</b></em>' attribute.
+	 * The meta object id for the '{@link MVCore.impl.PackageImpl <em>Package</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see MVCore.impl.PackageImpl
+	 * @see MVCore.impl.MVCorePackageImpl#getPackage()
+	 * @generated
+	 */
+	int PACKAGE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Members</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EACTION__LOWER_BOUND = EcorePackage.EOPERATION__LOWER_BOUND;
+	int PACKAGE__MEMBERS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Sub Packages</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__SUB_PACKAGES = 2;
+
+	/**
+	 * The number of structural features of the '<em>Package</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE_FEATURE_COUNT = 3;
+
+	/**
+	 * The meta object id for the '{@link MVCore.impl.AttributeImpl <em>Attribute</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see MVCore.impl.AttributeImpl
+	 * @see MVCore.impl.MVCorePackageImpl#getAttribute()
+	 * @generated
+	 */
+	int ATTRIBUTE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Domain</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__DOMAIN = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__NAME = 1;
+
+	/**
+	 * The number of structural features of the '<em>Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_FEATURE_COUNT = 2;
+
+
+	/**
+	 * The meta object id for the '{@link MVCore.impl.ReferenceImpl <em>Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see MVCore.impl.ReferenceImpl
+	 * @see MVCore.impl.MVCorePackageImpl#getReference()
+	 * @generated
+	 */
+	int REFERENCE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__TARGET = 1;
 
 	/**
 	 * The feature id for the '<em><b>Upper Bound</b></em>' attribute.
@@ -619,235 +371,7 @@ public interface MVCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EACTION__UPPER_BOUND = EcorePackage.EOPERATION__UPPER_BOUND;
-
-	/**
-	 * The feature id for the '<em><b>Many</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EACTION__MANY = EcorePackage.EOPERATION__MANY;
-
-	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EACTION__REQUIRED = EcorePackage.EOPERATION__REQUIRED;
-
-	/**
-	 * The feature id for the '<em><b>EType</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EACTION__ETYPE = EcorePackage.EOPERATION__ETYPE;
-
-	/**
-	 * The feature id for the '<em><b>EGeneric Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EACTION__EGENERIC_TYPE = EcorePackage.EOPERATION__EGENERIC_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>EContaining Class</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EACTION__ECONTAINING_CLASS = EcorePackage.EOPERATION__ECONTAINING_CLASS;
-
-	/**
-	 * The feature id for the '<em><b>EType Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EACTION__ETYPE_PARAMETERS = EcorePackage.EOPERATION__ETYPE_PARAMETERS;
-
-	/**
-	 * The feature id for the '<em><b>EParameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EACTION__EPARAMETERS = EcorePackage.EOPERATION__EPARAMETERS;
-
-	/**
-	 * The feature id for the '<em><b>EExceptions</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EACTION__EEXCEPTIONS = EcorePackage.EOPERATION__EEXCEPTIONS;
-
-	/**
-	 * The feature id for the '<em><b>EGeneric Exceptions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EACTION__EGENERIC_EXCEPTIONS = EcorePackage.EOPERATION__EGENERIC_EXCEPTIONS;
-
-	/**
-	 * The number of structural features of the '<em>EAction</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EACTION_FEATURE_COUNT = EcorePackage.EOPERATION_FEATURE_COUNT + 0;
-
-
-	/**
-	 * The meta object id for the '{@link MVCore.impl.EMVCPackageImpl <em>EMVC Package</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see MVCore.impl.EMVCPackageImpl
-	 * @see MVCore.impl.MVCorePackageImpl#getEMVCPackage()
-	 * @generated
-	 */
-	int EMVC_PACKAGE = 3;
-
-	/**
-	 * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMVC_PACKAGE__EANNOTATIONS = EcorePackage.EPACKAGE__EANNOTATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMVC_PACKAGE__NAME = EcorePackage.EPACKAGE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Ns URI</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMVC_PACKAGE__NS_URI = EcorePackage.EPACKAGE__NS_URI;
-
-	/**
-	 * The feature id for the '<em><b>Ns Prefix</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMVC_PACKAGE__NS_PREFIX = EcorePackage.EPACKAGE__NS_PREFIX;
-
-	/**
-	 * The feature id for the '<em><b>EFactory Instance</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMVC_PACKAGE__EFACTORY_INSTANCE = EcorePackage.EPACKAGE__EFACTORY_INSTANCE;
-
-	/**
-	 * The feature id for the '<em><b>EClassifiers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMVC_PACKAGE__ECLASSIFIERS = EcorePackage.EPACKAGE__ECLASSIFIERS;
-
-	/**
-	 * The feature id for the '<em><b>ESubpackages</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMVC_PACKAGE__ESUBPACKAGES = EcorePackage.EPACKAGE__ESUBPACKAGES;
-
-	/**
-	 * The feature id for the '<em><b>ESuper Package</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMVC_PACKAGE__ESUPER_PACKAGE = EcorePackage.EPACKAGE__ESUPER_PACKAGE;
-
-	/**
-	 * The number of structural features of the '<em>EMVC Package</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMVC_PACKAGE_FEATURE_COUNT = EcorePackage.EPACKAGE_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link MVCore.impl.EMVCAttributeImpl <em>EMVC Attribute</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see MVCore.impl.EMVCAttributeImpl
-	 * @see MVCore.impl.MVCorePackageImpl#getEMVCAttribute()
-	 * @generated
-	 */
-	int EMVC_ATTRIBUTE = 4;
-
-	/**
-	 * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMVC_ATTRIBUTE__EANNOTATIONS = EcorePackage.EATTRIBUTE__EANNOTATIONS;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMVC_ATTRIBUTE__NAME = EcorePackage.EATTRIBUTE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Ordered</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMVC_ATTRIBUTE__ORDERED = EcorePackage.EATTRIBUTE__ORDERED;
-
-	/**
-	 * The feature id for the '<em><b>Unique</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMVC_ATTRIBUTE__UNIQUE = EcorePackage.EATTRIBUTE__UNIQUE;
+	int REFERENCE__UPPER_BOUND = 2;
 
 	/**
 	 * The feature id for the '<em><b>Lower Bound</b></em>' attribute.
@@ -856,235 +380,305 @@ public interface MVCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EMVC_ATTRIBUTE__LOWER_BOUND = EcorePackage.EATTRIBUTE__LOWER_BOUND;
+	int REFERENCE__LOWER_BOUND = 3;
 
 	/**
-	 * The feature id for the '<em><b>Upper Bound</b></em>' attribute.
+	 * The feature id for the '<em><b>Src</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EMVC_ATTRIBUTE__UPPER_BOUND = EcorePackage.EATTRIBUTE__UPPER_BOUND;
+	int REFERENCE__SRC = 4;
 
 	/**
-	 * The feature id for the '<em><b>Many</b></em>' attribute.
+	 * The number of structural features of the '<em>Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EMVC_ATTRIBUTE__MANY = EcorePackage.EATTRIBUTE__MANY;
+	int REFERENCE_FEATURE_COUNT = 5;
+
 
 	/**
-	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * Returns the meta object for class '{@link MVCore.Domain <em>Domain</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMVC_ATTRIBUTE__REQUIRED = EcorePackage.EATTRIBUTE__REQUIRED;
-
-	/**
-	 * The feature id for the '<em><b>EType</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMVC_ATTRIBUTE__ETYPE = EcorePackage.EATTRIBUTE__ETYPE;
-
-	/**
-	 * The feature id for the '<em><b>EGeneric Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMVC_ATTRIBUTE__EGENERIC_TYPE = EcorePackage.EATTRIBUTE__EGENERIC_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Changeable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMVC_ATTRIBUTE__CHANGEABLE = EcorePackage.EATTRIBUTE__CHANGEABLE;
-
-	/**
-	 * The feature id for the '<em><b>Volatile</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMVC_ATTRIBUTE__VOLATILE = EcorePackage.EATTRIBUTE__VOLATILE;
-
-	/**
-	 * The feature id for the '<em><b>Transient</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMVC_ATTRIBUTE__TRANSIENT = EcorePackage.EATTRIBUTE__TRANSIENT;
-
-	/**
-	 * The feature id for the '<em><b>Default Value Literal</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMVC_ATTRIBUTE__DEFAULT_VALUE_LITERAL = EcorePackage.EATTRIBUTE__DEFAULT_VALUE_LITERAL;
-
-	/**
-	 * The feature id for the '<em><b>Default Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMVC_ATTRIBUTE__DEFAULT_VALUE = EcorePackage.EATTRIBUTE__DEFAULT_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Unsettable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMVC_ATTRIBUTE__UNSETTABLE = EcorePackage.EATTRIBUTE__UNSETTABLE;
-
-	/**
-	 * The feature id for the '<em><b>Derived</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMVC_ATTRIBUTE__DERIVED = EcorePackage.EATTRIBUTE__DERIVED;
-
-	/**
-	 * The feature id for the '<em><b>EContaining Class</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMVC_ATTRIBUTE__ECONTAINING_CLASS = EcorePackage.EATTRIBUTE__ECONTAINING_CLASS;
-
-	/**
-	 * The feature id for the '<em><b>ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMVC_ATTRIBUTE__ID = EcorePackage.EATTRIBUTE__ID;
-
-	/**
-	 * The feature id for the '<em><b>EAttribute Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMVC_ATTRIBUTE__EATTRIBUTE_TYPE = EcorePackage.EATTRIBUTE__EATTRIBUTE_TYPE;
-
-	/**
-	 * The number of structural features of the '<em>EMVC Attribute</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EMVC_ATTRIBUTE_FEATURE_COUNT = EcorePackage.EATTRIBUTE_FEATURE_COUNT + 0;
-
-
-	/**
-	 * Returns the meta object for class '{@link MVCore.EDomainClass <em>EDomain Class</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>EDomain Class</em>'.
-	 * @see MVCore.EDomainClass
+	 * @return the meta object for class '<em>Domain</em>'.
+	 * @see MVCore.Domain
 	 * @generated
 	 */
-	EClass getEDomainClass();
+	EClass getDomain();
 
 	/**
-	 * Returns the meta object for the attribute '{@link MVCore.EDomainClass#getSearchable <em>Searchable</em>}'.
+	 * Returns the meta object for the attribute '{@link MVCore.Domain#getSearchable <em>Searchable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Searchable</em>'.
-	 * @see MVCore.EDomainClass#getSearchable()
-	 * @see #getEDomainClass()
+	 * @see MVCore.Domain#getSearchable()
+	 * @see #getDomain()
 	 * @generated
 	 */
-	EAttribute getEDomainClass_Searchable();
+	EAttribute getDomain_Searchable();
 
 	/**
-	 * Returns the meta object for the attribute '{@link MVCore.EDomainClass#getLoggable <em>Loggable</em>}'.
+	 * Returns the meta object for the attribute '{@link MVCore.Domain#getLoggable <em>Loggable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Loggable</em>'.
-	 * @see MVCore.EDomainClass#getLoggable()
-	 * @see #getEDomainClass()
+	 * @see MVCore.Domain#getLoggable()
+	 * @see #getDomain()
 	 * @generated
 	 */
-	EAttribute getEDomainClass_Loggable();
+	EAttribute getDomain_Loggable();
 
 	/**
-	 * Returns the meta object for the reference list '{@link MVCore.EDomainClass#getAttributes <em>Attributes</em>}'.
+	 * Returns the meta object for the containment reference list '{@link MVCore.Domain#getAttributes <em>Attributes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Attributes</em>'.
-	 * @see MVCore.EDomainClass#getAttributes()
-	 * @see #getEDomainClass()
+	 * @return the meta object for the containment reference list '<em>Attributes</em>'.
+	 * @see MVCore.Domain#getAttributes()
+	 * @see #getDomain()
 	 * @generated
 	 */
-	EReference getEDomainClass_Attributes();
+	EReference getDomain_Attributes();
 
 	/**
-	 * Returns the meta object for class '{@link MVCore.EControllerClass <em>EController Class</em>}'.
+	 * Returns the meta object for the containment reference list '{@link MVCore.Domain#getReferences <em>References</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>EController Class</em>'.
-	 * @see MVCore.EControllerClass
+	 * @return the meta object for the containment reference list '<em>References</em>'.
+	 * @see MVCore.Domain#getReferences()
+	 * @see #getDomain()
 	 * @generated
 	 */
-	EClass getEControllerClass();
+	EReference getDomain_References();
 
 	/**
-	 * Returns the meta object for class '{@link MVCore.EAction <em>EAction</em>}'.
+	 * Returns the meta object for class '{@link MVCore.Controller <em>Controller</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>EAction</em>'.
-	 * @see MVCore.EAction
+	 * @return the meta object for class '<em>Controller</em>'.
+	 * @see MVCore.Controller
 	 * @generated
 	 */
-	EClass getEAction();
+	EClass getController();
 
 	/**
-	 * Returns the meta object for class '{@link MVCore.EMVCPackage <em>EMVC Package</em>}'.
+	 * Returns the meta object for the containment reference list '{@link MVCore.Controller#getActions <em>Actions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>EMVC Package</em>'.
-	 * @see MVCore.EMVCPackage
+	 * @return the meta object for the containment reference list '<em>Actions</em>'.
+	 * @see MVCore.Controller#getActions()
+	 * @see #getController()
 	 * @generated
 	 */
-	EClass getEMVCPackage();
+	EReference getController_Actions();
 
 	/**
-	 * Returns the meta object for class '{@link MVCore.EMVCAttribute <em>EMVC Attribute</em>}'.
+	 * Returns the meta object for class '{@link MVCore.Action <em>Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>EMVC Attribute</em>'.
-	 * @see MVCore.EMVCAttribute
+	 * @return the meta object for class '<em>Action</em>'.
+	 * @see MVCore.Action
 	 * @generated
 	 */
-	EClass getEMVCAttribute();
+	EClass getAction();
+
+	/**
+	 * Returns the meta object for the attribute '{@link MVCore.Action#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see MVCore.Action#getName()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EAttribute getAction_Name();
+
+	/**
+	 * Returns the meta object for the reference '{@link MVCore.Action#getOperatesOn <em>Operates On</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Operates On</em>'.
+	 * @see MVCore.Action#getOperatesOn()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EReference getAction_OperatesOn();
+
+	/**
+	 * Returns the meta object for class '{@link MVCore.Package <em>Package</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Package</em>'.
+	 * @see MVCore.Package
+	 * @generated
+	 */
+	EClass getPackage();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link MVCore.Package#getMembers <em>Members</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Members</em>'.
+	 * @see MVCore.Package#getMembers()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EReference getPackage_Members();
+
+	/**
+	 * Returns the meta object for the attribute '{@link MVCore.Package#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see MVCore.Package#getName()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EAttribute getPackage_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link MVCore.Package#getSubPackages <em>Sub Packages</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Sub Packages</em>'.
+	 * @see MVCore.Package#getSubPackages()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EReference getPackage_SubPackages();
+
+	/**
+	 * Returns the meta object for class '{@link MVCore.Attribute <em>Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Attribute</em>'.
+	 * @see MVCore.Attribute
+	 * @generated
+	 */
+	EClass getAttribute();
+
+	/**
+	 * Returns the meta object for the container reference '{@link MVCore.Attribute#getDomain <em>Domain</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Domain</em>'.
+	 * @see MVCore.Attribute#getDomain()
+	 * @see #getAttribute()
+	 * @generated
+	 */
+	EReference getAttribute_Domain();
+
+	/**
+	 * Returns the meta object for the attribute '{@link MVCore.Attribute#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see MVCore.Attribute#getName()
+	 * @see #getAttribute()
+	 * @generated
+	 */
+	EAttribute getAttribute_Name();
+
+	/**
+	 * Returns the meta object for class '{@link MVCore.MVCoreClass <em>Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Class</em>'.
+	 * @see MVCore.MVCoreClass
+	 * @generated
+	 */
+	EClass getMVCoreClass();
+
+	/**
+	 * Returns the meta object for the attribute '{@link MVCore.MVCoreClass#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see MVCore.MVCoreClass#getName()
+	 * @see #getMVCoreClass()
+	 * @generated
+	 */
+	EAttribute getMVCoreClass_Name();
+
+	/**
+	 * Returns the meta object for the container reference '{@link MVCore.MVCoreClass#getPackage <em>Package</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Package</em>'.
+	 * @see MVCore.MVCoreClass#getPackage()
+	 * @see #getMVCoreClass()
+	 * @generated
+	 */
+	EReference getMVCoreClass_Package();
+
+	/**
+	 * Returns the meta object for class '{@link MVCore.Reference <em>Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Reference</em>'.
+	 * @see MVCore.Reference
+	 * @generated
+	 */
+	EClass getReference();
+
+	/**
+	 * Returns the meta object for the attribute '{@link MVCore.Reference#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see MVCore.Reference#getName()
+	 * @see #getReference()
+	 * @generated
+	 */
+	EAttribute getReference_Name();
+
+	/**
+	 * Returns the meta object for the reference '{@link MVCore.Reference#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see MVCore.Reference#getTarget()
+	 * @see #getReference()
+	 * @generated
+	 */
+	EReference getReference_Target();
+
+	/**
+	 * Returns the meta object for the attribute '{@link MVCore.Reference#getUpperBound <em>Upper Bound</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Upper Bound</em>'.
+	 * @see MVCore.Reference#getUpperBound()
+	 * @see #getReference()
+	 * @generated
+	 */
+	EAttribute getReference_UpperBound();
+
+	/**
+	 * Returns the meta object for the attribute '{@link MVCore.Reference#getLowerBound <em>Lower Bound</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Lower Bound</em>'.
+	 * @see MVCore.Reference#getLowerBound()
+	 * @see #getReference()
+	 * @generated
+	 */
+	EAttribute getReference_LowerBound();
+
+	/**
+	 * Returns the meta object for the reference '{@link MVCore.Reference#getSrc <em>Src</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Src</em>'.
+	 * @see MVCore.Reference#getSrc()
+	 * @see #getReference()
+	 * @generated
+	 */
+	EReference getReference_Src();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1109,14 +703,14 @@ public interface MVCorePackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link MVCore.impl.EDomainClassImpl <em>EDomain Class</em>}' class.
+		 * The meta object literal for the '{@link MVCore.impl.DomainImpl <em>Domain</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see MVCore.impl.EDomainClassImpl
-		 * @see MVCore.impl.MVCorePackageImpl#getEDomainClass()
+		 * @see MVCore.impl.DomainImpl
+		 * @see MVCore.impl.MVCorePackageImpl#getDomain()
 		 * @generated
 		 */
-		EClass EDOMAIN_CLASS = eINSTANCE.getEDomainClass();
+		EClass DOMAIN = eINSTANCE.getDomain();
 
 		/**
 		 * The meta object literal for the '<em><b>Searchable</b></em>' attribute feature.
@@ -1124,7 +718,7 @@ public interface MVCorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute EDOMAIN_CLASS__SEARCHABLE = eINSTANCE.getEDomainClass_Searchable();
+		EAttribute DOMAIN__SEARCHABLE = eINSTANCE.getDomain_Searchable();
 
 		/**
 		 * The meta object literal for the '<em><b>Loggable</b></em>' attribute feature.
@@ -1132,55 +726,203 @@ public interface MVCorePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute EDOMAIN_CLASS__LOGGABLE = eINSTANCE.getEDomainClass_Loggable();
+		EAttribute DOMAIN__LOGGABLE = eINSTANCE.getDomain_Loggable();
 
 		/**
-		 * The meta object literal for the '<em><b>Attributes</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference EDOMAIN_CLASS__ATTRIBUTES = eINSTANCE.getEDomainClass_Attributes();
+		EReference DOMAIN__ATTRIBUTES = eINSTANCE.getDomain_Attributes();
 
 		/**
-		 * The meta object literal for the '{@link MVCore.impl.EControllerClassImpl <em>EController Class</em>}' class.
+		 * The meta object literal for the '<em><b>References</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see MVCore.impl.EControllerClassImpl
-		 * @see MVCore.impl.MVCorePackageImpl#getEControllerClass()
 		 * @generated
 		 */
-		EClass ECONTROLLER_CLASS = eINSTANCE.getEControllerClass();
+		EReference DOMAIN__REFERENCES = eINSTANCE.getDomain_References();
 
 		/**
-		 * The meta object literal for the '{@link MVCore.impl.EActionImpl <em>EAction</em>}' class.
+		 * The meta object literal for the '{@link MVCore.impl.ControllerImpl <em>Controller</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see MVCore.impl.EActionImpl
-		 * @see MVCore.impl.MVCorePackageImpl#getEAction()
+		 * @see MVCore.impl.ControllerImpl
+		 * @see MVCore.impl.MVCorePackageImpl#getController()
 		 * @generated
 		 */
-		EClass EACTION = eINSTANCE.getEAction();
+		EClass CONTROLLER = eINSTANCE.getController();
 
 		/**
-		 * The meta object literal for the '{@link MVCore.impl.EMVCPackageImpl <em>EMVC Package</em>}' class.
+		 * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see MVCore.impl.EMVCPackageImpl
-		 * @see MVCore.impl.MVCorePackageImpl#getEMVCPackage()
 		 * @generated
 		 */
-		EClass EMVC_PACKAGE = eINSTANCE.getEMVCPackage();
+		EReference CONTROLLER__ACTIONS = eINSTANCE.getController_Actions();
 
 		/**
-		 * The meta object literal for the '{@link MVCore.impl.EMVCAttributeImpl <em>EMVC Attribute</em>}' class.
+		 * The meta object literal for the '{@link MVCore.impl.ActionImpl <em>Action</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see MVCore.impl.EMVCAttributeImpl
-		 * @see MVCore.impl.MVCorePackageImpl#getEMVCAttribute()
+		 * @see MVCore.impl.ActionImpl
+		 * @see MVCore.impl.MVCorePackageImpl#getAction()
 		 * @generated
 		 */
-		EClass EMVC_ATTRIBUTE = eINSTANCE.getEMVCAttribute();
+		EClass ACTION = eINSTANCE.getAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION__NAME = eINSTANCE.getAction_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Operates On</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTION__OPERATES_ON = eINSTANCE.getAction_OperatesOn();
+
+		/**
+		 * The meta object literal for the '{@link MVCore.impl.PackageImpl <em>Package</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see MVCore.impl.PackageImpl
+		 * @see MVCore.impl.MVCorePackageImpl#getPackage()
+		 * @generated
+		 */
+		EClass PACKAGE = eINSTANCE.getPackage();
+
+		/**
+		 * The meta object literal for the '<em><b>Members</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PACKAGE__MEMBERS = eINSTANCE.getPackage_Members();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PACKAGE__NAME = eINSTANCE.getPackage_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Sub Packages</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PACKAGE__SUB_PACKAGES = eINSTANCE.getPackage_SubPackages();
+
+		/**
+		 * The meta object literal for the '{@link MVCore.impl.AttributeImpl <em>Attribute</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see MVCore.impl.AttributeImpl
+		 * @see MVCore.impl.MVCorePackageImpl#getAttribute()
+		 * @generated
+		 */
+		EClass ATTRIBUTE = eINSTANCE.getAttribute();
+
+		/**
+		 * The meta object literal for the '<em><b>Domain</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ATTRIBUTE__DOMAIN = eINSTANCE.getAttribute_Domain();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ATTRIBUTE__NAME = eINSTANCE.getAttribute_Name();
+
+		/**
+		 * The meta object literal for the '{@link MVCore.impl.MVCoreClassImpl <em>Class</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see MVCore.impl.MVCoreClassImpl
+		 * @see MVCore.impl.MVCorePackageImpl#getMVCoreClass()
+		 * @generated
+		 */
+		EClass MV_CORE_CLASS = eINSTANCE.getMVCoreClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MV_CORE_CLASS__NAME = eINSTANCE.getMVCoreClass_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Package</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MV_CORE_CLASS__PACKAGE = eINSTANCE.getMVCoreClass_Package();
+
+		/**
+		 * The meta object literal for the '{@link MVCore.impl.ReferenceImpl <em>Reference</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see MVCore.impl.ReferenceImpl
+		 * @see MVCore.impl.MVCorePackageImpl#getReference()
+		 * @generated
+		 */
+		EClass REFERENCE = eINSTANCE.getReference();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REFERENCE__NAME = eINSTANCE.getReference_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REFERENCE__TARGET = eINSTANCE.getReference_Target();
+
+		/**
+		 * The meta object literal for the '<em><b>Upper Bound</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REFERENCE__UPPER_BOUND = eINSTANCE.getReference_UpperBound();
+
+		/**
+		 * The meta object literal for the '<em><b>Lower Bound</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REFERENCE__LOWER_BOUND = eINSTANCE.getReference_LowerBound();
+
+		/**
+		 * The meta object literal for the '<em><b>Src</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REFERENCE__SRC = eINSTANCE.getReference_Src();
 
 	}
 

@@ -12,7 +12,7 @@
           href="MVCore.ecore#//EControllerClass"/>
       <labelMappings>
         <diagramLabel
-            href="MVCore.gmfgraph#Name"/>
+            href="../../../plugin/org.eclipse.gmf.graphdef/models/basic.gmfgraph#Label"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"

@@ -1,0 +1,7 @@
+# Tracing options for the MVCore.diagram plug-in
+
+# Common issues
+MVCore.diagram/debug=false
+
+# Visual IDs
+MVCore.diagram/debug/visualID=false

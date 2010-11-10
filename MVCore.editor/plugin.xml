@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="MVCore.presentation.MVCoreModelWizardID"
+            name="%_UI_MVCoreModelWizard_label"
+            class="MVCore.presentation.MVCoreModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/MVCoreModelFile.gif">
+         <description>%_UI_MVCoreModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="MVCore.presentation.MVCoreEditorID"
+            name="%_UI_MVCoreEditor_label"
+            icon="icons/full/obj16/MVCoreModelFile.gif"
+            extensions="mvcore"
+            class="MVCore.presentation.MVCoreEditor"
+            contributorClass="MVCore.presentation.MVCoreActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

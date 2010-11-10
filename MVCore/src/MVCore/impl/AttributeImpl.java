@@ -14,6 +14,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -30,6 +32,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link MVCore.impl.AttributeImpl#getDomain <em>Domain</em>}</li>
  *   <li>{@link MVCore.impl.AttributeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link MVCore.impl.AttributeImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -136,6 +139,68 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 			eNotify(new ENotificationImpl(this, Notification.SET, MVCorePackage.ATTRIBUTE__NAME, oldName, name));
 	}
 
+	protected EDataType type;
+	
+	
+	
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EDataType getType() {
+		System.out.println("getType(): "+type);
+		EDataType type = basicGetType();
+		return type != null && type.eIsProxy() ? (EDataType)eResolveProxy((InternalEObject)type) : type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 */
+	public EDataType basicGetType() {
+		//System.out.println("basicGetType(): "+type);
+		return type;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 */
+	public void setType(EDataType newType) {
+		/*System.out.println("setType(): "+newType);
+		if(newType == null){
+			new RuntimeException().printStackTrace();
+		}*/
+		EDataType oldType = type;
+		type = newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MVCorePackage.ATTRIBUTE__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 */
+	public void unsetType() {
+		//System.out.println("unsetType(): "+type);
+		type = null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 */
+	public boolean isSetType() {
+		//System.out.println("isSetType: "+(type != null));
+		return type != null;
+	}
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -192,6 +257,9 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 				return getDomain();
 			case MVCorePackage.ATTRIBUTE__NAME:
 				return getName();
+			case MVCorePackage.ATTRIBUTE__TYPE:
+				if (resolve) return getType();
+				return basicGetType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -209,6 +277,9 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 				return;
 			case MVCorePackage.ATTRIBUTE__NAME:
 				setName((String)newValue);
+				return;
+			case MVCorePackage.ATTRIBUTE__TYPE:
+				setType((EDataType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -228,6 +299,9 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 			case MVCorePackage.ATTRIBUTE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case MVCorePackage.ATTRIBUTE__TYPE:
+				unsetType();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -244,6 +318,8 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 				return getDomain() != null;
 			case MVCorePackage.ATTRIBUTE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case MVCorePackage.ATTRIBUTE__TYPE:
+				return isSetType();
 		}
 		return super.eIsSet(featureID);
 	}

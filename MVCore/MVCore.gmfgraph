@@ -19,17 +19,13 @@
             majorSpacing="0"
             minorSpacing="0"/>
         <children
-            xsi:type="gmfgraph:SVGFigure"
-            name="gears"
-            documentURI="platform:/resource/MVCore/gears.svg"/>
-        <children
             xsi:type="gmfgraph:Label"
             name="mvcnode"
             text=""/>
       </actualFigure>
       <accessors
           accessor="Name"
-          figure="//@figures.0/@descriptors.0/@actualFigure/@children.1"/>
+          figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="MVCoreDomainNode">

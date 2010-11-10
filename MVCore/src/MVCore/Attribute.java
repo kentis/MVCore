@@ -6,6 +6,8 @@
  */
 package MVCore;
 
+import org.eclipse.emf.ecore.EDataType;
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -18,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link MVCore.Attribute#getDomain <em>Domain</em>}</li>
  *   <li>{@link MVCore.Attribute#getName <em>Name</em>}</li>
+ *   <li>{@link MVCore.Attribute#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,5 +82,31 @@ public interface Attribute extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Type</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Type</em>' reference.
+	 * @see #setType(EDataType)
+	 * @see MVCore.MVCorePackage#getAttribute_Type()
+	 * @model unsettable="true" volatile="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+	 * @generated
+	 */
+	EDataType getType();
+
+	/**
+	 * Sets the value of the '{@link MVCore.Attribute#getType <em>Type</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' reference.
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(EDataType value);
 
 } // Attribute

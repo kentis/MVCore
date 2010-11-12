@@ -438,13 +438,22 @@ public interface MVCorePackage extends EPackage {
 	int REFERENCE__SRC = 4;
 
 	/**
+	 * The feature id for the '<em><b>Unique</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__UNIQUE = 5;
+
+	/**
 	 * The number of structural features of the '<em>Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_FEATURE_COUNT = 5;
+	int REFERENCE_FEATURE_COUNT = 6;
 
 
 	/**
@@ -782,6 +791,17 @@ public interface MVCorePackage extends EPackage {
 	EReference getReference_Src();
 
 	/**
+	 * Returns the meta object for the attribute '{@link MVCore.Reference#isUnique <em>Unique</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Unique</em>'.
+	 * @see MVCore.Reference#isUnique()
+	 * @see #getReference()
+	 * @generated
+	 */
+	EAttribute getReference_Unique();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1064,6 +1084,14 @@ public interface MVCorePackage extends EPackage {
 		 * @generated
 		 */
 		EReference REFERENCE__SRC = eINSTANCE.getReference_Src();
+
+		/**
+		 * The meta object literal for the '<em><b>Unique</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REFERENCE__UNIQUE = eINSTANCE.getReference_Unique();
 
 	}
 

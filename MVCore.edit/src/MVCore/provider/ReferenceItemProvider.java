@@ -69,6 +69,7 @@ public class ReferenceItemProvider
 			addUpperBoundPropertyDescriptor(object);
 			addLowerBoundPropertyDescriptor(object);
 			addSrcPropertyDescriptor(object);
+			addUniquePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -184,6 +185,28 @@ public class ReferenceItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Unique feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUniquePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Reference_unique_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Reference_unique_feature", "_UI_Reference_type"),
+				 MVCorePackage.Literals.REFERENCE__UNIQUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Reference.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -223,6 +246,7 @@ public class ReferenceItemProvider
 			case MVCorePackage.REFERENCE__NAME:
 			case MVCorePackage.REFERENCE__UPPER_BOUND:
 			case MVCorePackage.REFERENCE__LOWER_BOUND:
+			case MVCorePackage.REFERENCE__UNIQUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -94,6 +94,12 @@ class GrailsGenerator implements Generator{
 					case "org.eclipse.emf.ecore.impl.EGenericTypeImpl":
 					//TODO: these will have to be handled at some point
 						break
+					case "MVCore.impl.ReferenceImpl":
+						def mul = findMultiplicity(it)
+						"${it.name}"(type: translateType(it.target.name) ,multiplicity: mul, unique: it.isUnique())
+						break
+					
+						break
 					default:
 						def mul = findMultiplicity(it)
 					//call the builder with the current attribute

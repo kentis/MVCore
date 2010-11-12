@@ -440,6 +440,15 @@ public class MVCorePackageImpl extends EPackageImpl implements MVCorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getReference_Unique() {
+		return (EAttribute)referenceEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public MVCoreFactory getMVCoreFactory() {
 		return (MVCoreFactory)getEFactoryInstance();
 	}
@@ -500,6 +509,7 @@ public class MVCorePackageImpl extends EPackageImpl implements MVCorePackage {
 		createEAttribute(referenceEClass, REFERENCE__UPPER_BOUND);
 		createEAttribute(referenceEClass, REFERENCE__LOWER_BOUND);
 		createEReference(referenceEClass, REFERENCE__SRC);
+		createEAttribute(referenceEClass, REFERENCE__UNIQUE);
 	}
 
 	/**
@@ -574,6 +584,7 @@ public class MVCorePackageImpl extends EPackageImpl implements MVCorePackage {
 		initEAttribute(getReference_UpperBound(), theEcorePackage.getEInt(), "upperBound", null, 1, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReference_LowerBound(), theEcorePackage.getEInt(), "lowerBound", null, 1, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getReference_Src(), this.getDomain(), this.getDomain_References(), "src", null, 1, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getReference_Unique(), theEcorePackage.getEBoolean(), "unique", "false", 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

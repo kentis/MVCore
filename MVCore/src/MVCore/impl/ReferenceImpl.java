@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link MVCore.impl.ReferenceImpl#getUpperBound <em>Upper Bound</em>}</li>
  *   <li>{@link MVCore.impl.ReferenceImpl#getLowerBound <em>Lower Bound</em>}</li>
  *   <li>{@link MVCore.impl.ReferenceImpl#getSrc <em>Src</em>}</li>
+ *   <li>{@link MVCore.impl.ReferenceImpl#isUnique <em>Unique</em>}</li>
  * </ul>
  * </p>
  *
@@ -107,6 +108,26 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 	 * @ordered
 	 */
 	protected int lowerBound = LOWER_BOUND_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isUnique() <em>Unique</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUnique()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean UNIQUE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isUnique() <em>Unique</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUnique()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean unique = UNIQUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -208,6 +229,13 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 	}
 
 	/**
+	 * Convenience method to determine if this reference can occour more than once
+	 * 
+	 */
+	public boolean isMany(){
+		return upperBound > 1;
+	}
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -228,6 +256,14 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 			eNotify(new ENotificationImpl(this, Notification.SET, MVCorePackage.REFERENCE__LOWER_BOUND, oldLowerBound, lowerBound));
 	}
 
+	/**
+	 * Convenience method to see if reference must have at least one value
+	 * 
+	 */
+	public boolean isRequired(){
+		return lowerBound > 0;
+	}
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -267,6 +303,27 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MVCorePackage.REFERENCE__SRC, newSrc, newSrc));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isUnique() {
+		return unique;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUnique(boolean newUnique) {
+		boolean oldUnique = unique;
+		unique = newUnique;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MVCorePackage.REFERENCE__UNIQUE, oldUnique, unique));
 	}
 
 	/**
@@ -332,6 +389,8 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 				return getLowerBound();
 			case MVCorePackage.REFERENCE__SRC:
 				return getSrc();
+			case MVCorePackage.REFERENCE__UNIQUE:
+				return isUnique();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -358,6 +417,9 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 				return;
 			case MVCorePackage.REFERENCE__SRC:
 				setSrc((Domain)newValue);
+				return;
+			case MVCorePackage.REFERENCE__UNIQUE:
+				setUnique((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -386,6 +448,9 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 			case MVCorePackage.REFERENCE__SRC:
 				setSrc((Domain)null);
 				return;
+			case MVCorePackage.REFERENCE__UNIQUE:
+				setUnique(UNIQUE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -408,6 +473,8 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 				return lowerBound != LOWER_BOUND_EDEFAULT;
 			case MVCorePackage.REFERENCE__SRC:
 				return getSrc() != null;
+			case MVCorePackage.REFERENCE__UNIQUE:
+				return unique != UNIQUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -428,6 +495,8 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 		result.append(upperBound);
 		result.append(", lowerBound: ");
 		result.append(lowerBound);
+		result.append(", unique: ");
+		result.append(unique);
 		result.append(')');
 		return result.toString();
 	}

@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link MVCore.Reference#getUpperBound <em>Upper Bound</em>}</li>
  *   <li>{@link MVCore.Reference#getLowerBound <em>Lower Bound</em>}</li>
  *   <li>{@link MVCore.Reference#getSrc <em>Src</em>}</li>
+ *   <li>{@link MVCore.Reference#isUnique <em>Unique</em>}</li>
  * </ul>
  * </p>
  *
@@ -160,5 +161,32 @@ public interface Reference extends EObject {
 	 * @generated
 	 */
 	void setSrc(Domain value);
+
+	/**
+	 * Returns the value of the '<em><b>Unique</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Unique</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Unique</em>' attribute.
+	 * @see #setUnique(boolean)
+	 * @see MVCore.MVCorePackage#getReference_Unique()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isUnique();
+
+	/**
+	 * Sets the value of the '{@link MVCore.Reference#isUnique <em>Unique</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Unique</em>' attribute.
+	 * @see #isUnique()
+	 * @generated
+	 */
+	void setUnique(boolean value);
 
 } // Reference

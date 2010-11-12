@@ -21,6 +21,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link MVCore.Attribute#getDomain <em>Domain</em>}</li>
  *   <li>{@link MVCore.Attribute#getName <em>Name</em>}</li>
  *   <li>{@link MVCore.Attribute#getType <em>Type</em>}</li>
+ *   <li>{@link MVCore.Attribute#isRequired <em>Required</em>}</li>
+ *   <li>{@link MVCore.Attribute#isMany <em>Many</em>}</li>
+ *   <li>{@link MVCore.Attribute#isUnique <em>Unique</em>}</li>
  * </ul>
  * </p>
  *
@@ -108,5 +111,83 @@ public interface Attribute extends EObject {
 	 * @generated
 	 */
 	void setType(EDataType value);
+
+	/**
+	 * Returns the value of the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Required</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Required</em>' attribute.
+	 * @see #setRequired(boolean)
+	 * @see MVCore.MVCorePackage#getAttribute_Required()
+	 * @model unique="false"
+	 * @generated
+	 */
+	boolean isRequired();
+
+	/**
+	 * Sets the value of the '{@link MVCore.Attribute#isRequired <em>Required</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Required</em>' attribute.
+	 * @see #isRequired()
+	 * @generated
+	 */
+	void setRequired(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Many</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Many</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Many</em>' attribute.
+	 * @see #setMany(boolean)
+	 * @see MVCore.MVCorePackage#getAttribute_Many()
+	 * @model unique="false"
+	 * @generated
+	 */
+	boolean isMany();
+
+	/**
+	 * Sets the value of the '{@link MVCore.Attribute#isMany <em>Many</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Many</em>' attribute.
+	 * @see #isMany()
+	 * @generated
+	 */
+	void setMany(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Unique</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Unique</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Unique</em>' attribute.
+	 * @see #setUnique(boolean)
+	 * @see MVCore.MVCorePackage#getAttribute_Unique()
+	 * @model unique="false"
+	 * @generated
+	 */
+	boolean isUnique();
+
+	/**
+	 * Sets the value of the '{@link MVCore.Attribute#isUnique <em>Unique</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Unique</em>' attribute.
+	 * @see #isUnique()
+	 * @generated
+	 */
+	void setUnique(boolean value);
 
 } // Attribute

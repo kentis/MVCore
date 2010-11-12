@@ -99,9 +99,9 @@ class GrailsGenerator implements Generator{
 					//call the builder with the current attribute
 						println it
 						println it.name
-						println it.eType
+						println it.type
 
-						"${it.name}"(type: translateType(it.eType.name) ,multiplicity: mul, unique: it.isUnique())
+						"${it.name}"(type: translateType(it.type.name) ,multiplicity: mul, unique: it.isUnique())
 						break
 				}//end switch
 			} //end klass.eContents

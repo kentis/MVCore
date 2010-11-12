@@ -33,6 +33,9 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link MVCore.impl.AttributeImpl#getDomain <em>Domain</em>}</li>
  *   <li>{@link MVCore.impl.AttributeImpl#getName <em>Name</em>}</li>
  *   <li>{@link MVCore.impl.AttributeImpl#getType <em>Type</em>}</li>
+ *   <li>{@link MVCore.impl.AttributeImpl#isRequired <em>Required</em>}</li>
+ *   <li>{@link MVCore.impl.AttributeImpl#isMany <em>Many</em>}</li>
+ *   <li>{@link MVCore.impl.AttributeImpl#isUnique <em>Unique</em>}</li>
  * </ul>
  * </p>
  *
@@ -57,6 +60,62 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isRequired() <em>Required</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRequired()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean REQUIRED_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isRequired() <em>Required</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRequired()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean required = REQUIRED_EDEFAULT;
+	/**
+	 * The default value of the '{@link #isMany() <em>Many</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isMany()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean MANY_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isMany() <em>Many</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isMany()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean many = MANY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isUnique() <em>Unique</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUnique()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean UNIQUE_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isUnique() <em>Unique</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUnique()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean unique = UNIQUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -205,6 +264,69 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isRequired() {
+		return required;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRequired(boolean newRequired) {
+		boolean oldRequired = required;
+		required = newRequired;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MVCorePackage.ATTRIBUTE__REQUIRED, oldRequired, required));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isMany() {
+		return many;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMany(boolean newMany) {
+		boolean oldMany = many;
+		many = newMany;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MVCorePackage.ATTRIBUTE__MANY, oldMany, many));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isUnique() {
+		return unique;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUnique(boolean newUnique) {
+		boolean oldUnique = unique;
+		unique = newUnique;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MVCorePackage.ATTRIBUTE__UNIQUE, oldUnique, unique));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -259,6 +381,12 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 			case MVCorePackage.ATTRIBUTE__TYPE:
 				if (resolve) return getType();
 				return basicGetType();
+			case MVCorePackage.ATTRIBUTE__REQUIRED:
+				return isRequired();
+			case MVCorePackage.ATTRIBUTE__MANY:
+				return isMany();
+			case MVCorePackage.ATTRIBUTE__UNIQUE:
+				return isUnique();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -279,6 +407,15 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 				return;
 			case MVCorePackage.ATTRIBUTE__TYPE:
 				setType((EDataType)newValue);
+				return;
+			case MVCorePackage.ATTRIBUTE__REQUIRED:
+				setRequired((Boolean)newValue);
+				return;
+			case MVCorePackage.ATTRIBUTE__MANY:
+				setMany((Boolean)newValue);
+				return;
+			case MVCorePackage.ATTRIBUTE__UNIQUE:
+				setUnique((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -301,6 +438,15 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 			case MVCorePackage.ATTRIBUTE__TYPE:
 				unsetType();
 				return;
+			case MVCorePackage.ATTRIBUTE__REQUIRED:
+				setRequired(REQUIRED_EDEFAULT);
+				return;
+			case MVCorePackage.ATTRIBUTE__MANY:
+				setMany(MANY_EDEFAULT);
+				return;
+			case MVCorePackage.ATTRIBUTE__UNIQUE:
+				setUnique(UNIQUE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -319,6 +465,12 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case MVCorePackage.ATTRIBUTE__TYPE:
 				return isSetType();
+			case MVCorePackage.ATTRIBUTE__REQUIRED:
+				return required != REQUIRED_EDEFAULT;
+			case MVCorePackage.ATTRIBUTE__MANY:
+				return many != MANY_EDEFAULT;
+			case MVCorePackage.ATTRIBUTE__UNIQUE:
+				return unique != UNIQUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -335,6 +487,12 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", required: ");
+		result.append(required);
+		result.append(", many: ");
+		result.append(many);
+		result.append(", unique: ");
+		result.append(unique);
 		result.append(')');
 		return result.toString();
 	}

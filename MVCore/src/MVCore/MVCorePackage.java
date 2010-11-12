@@ -346,13 +346,40 @@ public interface MVCorePackage extends EPackage {
 	int ATTRIBUTE__TYPE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__REQUIRED = 3;
+
+	/**
+	 * The feature id for the '<em><b>Many</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__MANY = 4;
+
+	/**
+	 * The feature id for the '<em><b>Unique</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__UNIQUE = 5;
+
+	/**
 	 * The number of structural features of the '<em>Attribute</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_FEATURE_COUNT = 3;
+	int ATTRIBUTE_FEATURE_COUNT = 6;
 
 
 	/**
@@ -623,6 +650,39 @@ public interface MVCorePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getAttribute_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link MVCore.Attribute#isRequired <em>Required</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Required</em>'.
+	 * @see MVCore.Attribute#isRequired()
+	 * @see #getAttribute()
+	 * @generated
+	 */
+	EAttribute getAttribute_Required();
+
+	/**
+	 * Returns the meta object for the attribute '{@link MVCore.Attribute#isMany <em>Many</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Many</em>'.
+	 * @see MVCore.Attribute#isMany()
+	 * @see #getAttribute()
+	 * @generated
+	 */
+	EAttribute getAttribute_Many();
+
+	/**
+	 * Returns the meta object for the attribute '{@link MVCore.Attribute#isUnique <em>Unique</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Unique</em>'.
+	 * @see MVCore.Attribute#isUnique()
+	 * @see #getAttribute()
+	 * @generated
+	 */
+	EAttribute getAttribute_Unique();
 
 	/**
 	 * Returns the meta object for class '{@link MVCore.MVCoreClass <em>Class</em>}'.
@@ -904,6 +964,30 @@ public interface MVCorePackage extends EPackage {
 		 * @generated
 		 */
 		EReference ATTRIBUTE__TYPE = eINSTANCE.getAttribute_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Required</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ATTRIBUTE__REQUIRED = eINSTANCE.getAttribute_Required();
+
+		/**
+		 * The meta object literal for the '<em><b>Many</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ATTRIBUTE__MANY = eINSTANCE.getAttribute_Many();
+
+		/**
+		 * The meta object literal for the '<em><b>Unique</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ATTRIBUTE__UNIQUE = eINSTANCE.getAttribute_Unique();
 
 		/**
 		 * The meta object literal for the '{@link MVCore.impl.MVCoreClassImpl <em>Class</em>}' class.

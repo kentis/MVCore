@@ -3,18 +3,18 @@ package ${packageName}
 import grails.converters.XML
 import javax.annotation.Generated
 <% def imports = []
-klass.EOperations.each { action -> 
-		if(action.EType && !imports.contains("${action.EType.EPackage?.name}.${action.EType.name}")){
-			imports << "${action.EType.EPackage.name}.${action.EType.name}"
+klass.actions.each { action -> 
+		if(action.operatesOn && !imports.contains("${action.operatesOn.package?.name}.${action.operatesOn.name}")){
+			imports << "${action.operatesOn.package? action.operatesOn.package.name +'.' : ''}${action.operatesOn.name}"
 %>
-import ${action.EType.EPackage.name}.${action.EType.name}
+import ${action.operatesOn.package? action.operatesOn.package.name +'.' : ''}${action.operatesOn.name}
 <% } } 
 service = "${klass.name[0].toLowerCase()}${klass.name[1..(klass.name.length() - 1)]}Service"
 %>
 class ${klass.name}${klass.name.endsWith('Controller') ? '' : 'Controller'} {
 	def ${service}
 	 
-	<% klass.EOperations.each{ action ->
+	<% klass.actions.each{ action ->
 	%>
 	@Generated(value="org.friark.mvcore.generators.grails.GrailsGenerator")
 	def ${action.name} = {
@@ -22,103 +22,103 @@ class ${klass.name}${klass.name.endsWith('Controller') ? '' : 'Controller'} {
 		params.max = Math.min( params.max ? params.max.toInteger() : 10,  100)
 		withFormat{
 			html{ 
-				return [ ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}InstanceList: ${action.EType.name}.list( params ), ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() - 1)]}InstanceTotal: ${action.EType.name}.count() ]
+				return [ ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}InstanceList: ${action.operatesOn.name}.list( params ), ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() - 1)]}InstanceTotal: ${action.operatesOn.name}.count() ]
 			}
 			xml{
-				render ${action.EType.name}.list() as XML
+				render ${action.operatesOn.name}.list() as XML
 			}
 		}
 		<% } else if("show" == action.name) { %>
 		withFormat{
 			html{ 
-				return [ ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance: ${action.EType.name}.get( params.id )]
+				return [ ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance: ${action.operatesOn.name}.get( params.id )]
 			}
 			xml{
-				render ${action.EType.name}.get(params.id) as XML
+				render ${action.operatesOn.name}.get(params.id) as XML
 			}
 		}
 		<% } else if("index" == action.name) {%>
 			redirect(action: "list", params: params)
 		<% } else if("create" == action.name) {%>
-		def ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance = new ${action.EType.name}()
-		${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance.properties = params
-		return [${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance: ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance]
+		def ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance = new ${action.operatesOn.name}()
+		${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance.properties = params
+		return [${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance: ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance]
 		<% } else if("save" == action.name) {%>
 		if(${service} && (${service}.metaClass.pickMethod("create", [Object.class] as Class[]) || ${service}.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] ))){
-			def ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance
+			def ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance
 			def success
-			if(${service}.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance, success) = ${service}.create( params, request )
-			else (${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance, success) = ${service}.create( params )
+			if(${service}.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance, success) = ${service}.create( params, request )
+			else (${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance, success) = ${service}.create( params )
 			withFormat {
-				html { render(view: "show", model: [${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance: ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance]) }
-                xml { render ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance as XML }
+				html { render(view: "show", model: [${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance: ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance]) }
+                xml { render ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance as XML }
 			
 			}
 		} else {
-			def _params = params.${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]} ? params.${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]} : params
+			def _params = params.${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]} ? params.${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]} : params
 			
-			def ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance = new ${action.EType.name}(_params)
-    	    if (${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance.save(flush: true)) {
-        	    flash.message = "\${message(code: 'default.created.message', args: [message(code: '${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}.label', default: ' ${action.EType.name}'), ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance.id])}"
-            	redirect(action: "show", id: ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance.id)
+			def ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance = new ${action.operatesOn.name}(_params)
+    	    if (${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance.save(flush: true)) {
+        	    flash.message = "\${message(code: 'default.created.message', args: [message(code: '${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}.label', default: ' ${action.operatesOn.name}'), ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance.id])}"
+            	redirect(action: "show", id: ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance.id)
 	        }
     	    else {
-        	    render(view: "create", model: [${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance: ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance])
+        	    render(view: "create", model: [${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance: ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance])
 	        }
 	    }		
 		<% } else if("edit" == action.name) {%>
-        def ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance = ${action.EType.name}.get(params.id)
-        if (!${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance) {
-            flash.message = "\${message(code: 'default.not.found.message', args: [message(code: '${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}.label', default: '${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}'), params.id])}"
+        def ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance = ${action.operatesOn.name}.get(params.id)
+        if (!${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance) {
+            flash.message = "\${message(code: 'default.not.found.message', args: [message(code: '${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}.label', default: '${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}'), params.id])}"
             redirect(action: "list")
         }
         else {
-            return [${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance: ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance]
+            return [${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance: ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance]
         }
 		<% } else if("update" == action.name) {%>
 		if(${service} && (${service}.metaClass.pickMethod("update", [Object.class] as Class[]) || ${service}.metaClass.pickMethod("update", [Object.class, Object.class] as Class[]))){
-			def ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance
+			def ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance
 			def success
-			if(${service}.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance, success) = ${service}.update( params, request )
-			else (${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance, success) = ${service}.update( params )
+			if(${service}.metaClass.pickMethod("create", [Object.class, Object.class] as Class[] )) (${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance, success) = ${service}.update( params, request )
+			else (${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance, success) = ${service}.update( params )
 			
 			withFormat {
-				html { render(view: "show", model: [${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance: ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance]) }
-                xml { render ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance as XML }
+				html { render(view: "show", model: [${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance: ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance]) }
+                xml { render ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance as XML }
 			
 			}
 		} else {
-			def ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance = ${action.EType.name}.get(params.id)
-			if (${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance) {
+			def ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance = ${action.operatesOn.name}.get(params.id)
+			if (${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance) {
         	    if (params.version) {
             	    def version = params.version.toLong()
-                	if (${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance.version > version) {
+                	if (${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance.version > version) {
 
-                    	${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: '${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}.label', default: '${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}')] as Object[], "Another user has updated this ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]} while you were editing")
- 	                   render(view: "edit", model: [${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance: ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance])
+                    	${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: '${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}.label', default: '${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}')] as Object[], "Another user has updated this ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]} while you were editing")
+ 	                   render(view: "edit", model: [${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance: ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance])
     	                return
         	        }
             	}
-	            ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance.properties = params
-    	        if (!${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance.hasErrors() && ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance.save(flush: true)) {
-        	        flash.message = "\${message(code: 'default.updated.message', args: [message(code: '${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}.label', default: '${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}'), ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance.id])}"
+	            ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance.properties = params
+    	        if (!${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance.hasErrors() && ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance.save(flush: true)) {
+        	        flash.message = "\${message(code: 'default.updated.message', args: [message(code: '${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}.label', default: '${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}'), ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance.id])}"
             	    withFormat {
             	    	html { 
-            	    		render(view: "edit", model: [${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance: ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance])
+            	    		render(view: "edit", model: [${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance: ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance])
             			}
             			form { 
-            	    		render(view: "edit", model: [${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance: ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance])
+            	    		render(view: "edit", model: [${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance: ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance])
             			}
-            			xml { render ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance as XML }
+            			xml { render ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance as XML }
             		}
             	}
             	else {
             		withFormat {
             	    	html { 
-            	    		render(view: "edit", model: [${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance: ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance])
+            	    		render(view: "edit", model: [${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance: ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance])
             			}
             			form { 
-            	    		render(view: "edit", model: [${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance: ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance])
+            	    		render(view: "edit", model: [${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance: ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance])
             			}
             			xml { render text:"<errors>\${flash.message}</errors>", contentType:"text/xml",encoding:"UTF-8" }
             		}
@@ -126,25 +126,25 @@ class ${klass.name}${klass.name.endsWith('Controller') ? '' : 'Controller'} {
             	}
         	}
         	else {
-            	flash.message = "\${message(code: 'default.not.found.message', args: [message(code: '${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}.label', default: '${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}'), params.id])}"
+            	flash.message = "\${message(code: 'default.not.found.message', args: [message(code: '${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}.label', default: '${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}'), params.id])}"
             	redirect(action: "list")
         	}
         }
 		<% } else if("delete" == action.name) {%>
-		def ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance = ${action.EType.name}.get(params.id)
-        if (${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance) {
+		def ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance = ${action.operatesOn.name}.get(params.id)
+        if (${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance) {
             try {
-                ${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}Instance.delete(flush: true)
-                flash.message = "\${message(code: 'default.deleted.message', args: [message(code: '${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}.label', default: '${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}'), params.id])}"
+                ${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}Instance.delete(flush: true)
+                flash.message = "\${message(code: 'default.deleted.message', args: [message(code: '${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}.label', default: '${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}'), params.id])}"
                 redirect(action: "list")
             }
             catch (org.springframework.dao.DataIntegrityViolationException e) {
-                flash.message = "\${message(code: 'default.not.deleted.message', args: [message(code: '${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}.label', default: '${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}'), params.id])}"
+                flash.message = "\${message(code: 'default.not.deleted.message', args: [message(code: '${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}.label', default: '${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}'), params.id])}"
                 redirect(action: "show", id: params.id)
             }
         }
         else {
-            flash.message = "\${message(code: 'default.not.found.message', args: [message(code: '${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}.label', default: '${action.EType.name[0].toLowerCase()}${action.EType.name[1..(action.EType.name.length() -1)]}'), params.id])}"
+            flash.message = "\${message(code: 'default.not.found.message', args: [message(code: '${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}.label', default: '${action.operatesOn.name[0].toLowerCase()}${action.operatesOn.name[1..(action.operatesOn.name.length() -1)]}'), params.id])}"
             redirect(action: "list")
         }
 		<% } else {%>

@@ -5,6 +5,17 @@
     xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="MVCore">
   <figures
       name="MVCore figures">
+    <figures
+        xsi:type="gmfgraph:PolylineDecoration"
+        name="arrowhead">
+      <template
+          x="-1"
+          y="1"/>
+      <template/>
+      <template
+          x="-1"
+          y="-1"/>
+    </figures>
     <descriptors
         name="MVCoreControllerNode">
       <actualFigure
@@ -49,6 +60,12 @@
           accessor="Name"
           figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
     </descriptors>
+    <descriptors
+        name="ConnectionArrow">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          targetDecoration="//@figures.0/@figures.0"/>
+    </descriptors>
   </figures>
   <nodes
       name="Domain"
@@ -61,7 +78,16 @@
     <figure
         href="../../plugin/org.eclipse.gmf.graphdef/models/basic.gmfgraph#NodeRectangle"/>
   </nodes>
+  <connections
+      name="domainLink"
+      figure="ConnectionArrow"/>
   <compartments
       name="Attrib"
       figure="MVCoreControllerNode"/>
+  <labels
+      name="MultiplicityLabel"
+      elementIcon="false">
+    <figure
+        href="../../plugin/org.eclipse.gmf.graphdef/models/basic.gmfgraph#LabelFigure"/>
+  </labels>
 </gmfgraph:Canvas>

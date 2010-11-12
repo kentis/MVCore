@@ -162,13 +162,22 @@ public interface MVCorePackage extends EPackage {
 	int DOMAIN__REFERENCES = MV_CORE_CLASS_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Super</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN__SUPER = MV_CORE_CLASS_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Domain</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_FEATURE_COUNT = MV_CORE_CLASS_FEATURE_COUNT + 4;
+	int DOMAIN_FEATURE_COUNT = MV_CORE_CLASS_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link MVCore.impl.ControllerImpl <em>Controller</em>}' class.
@@ -393,7 +402,7 @@ public interface MVCorePackage extends EPackage {
 	int REFERENCE__LOWER_BOUND = 3;
 
 	/**
-	 * The feature id for the '<em><b>Src</b></em>' reference.
+	 * The feature id for the '<em><b>Src</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -464,6 +473,17 @@ public interface MVCorePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDomain_References();
+
+	/**
+	 * Returns the meta object for the reference '{@link MVCore.Domain#getSuper <em>Super</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Super</em>'.
+	 * @see MVCore.Domain#getSuper()
+	 * @see #getDomain()
+	 * @generated
+	 */
+	EReference getDomain_Super();
 
 	/**
 	 * Returns the meta object for class '{@link MVCore.Controller <em>Controller</em>}'.
@@ -691,10 +711,10 @@ public interface MVCorePackage extends EPackage {
 	EAttribute getReference_LowerBound();
 
 	/**
-	 * Returns the meta object for the reference '{@link MVCore.Reference#getSrc <em>Src</em>}'.
+	 * Returns the meta object for the container reference '{@link MVCore.Reference#getSrc <em>Src</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Src</em>'.
+	 * @return the meta object for the container reference '<em>Src</em>'.
 	 * @see MVCore.Reference#getSrc()
 	 * @see #getReference()
 	 * @generated
@@ -764,6 +784,14 @@ public interface MVCorePackage extends EPackage {
 		 * @generated
 		 */
 		EReference DOMAIN__REFERENCES = eINSTANCE.getDomain_References();
+
+		/**
+		 * The meta object literal for the '<em><b>Super</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOMAIN__SUPER = eINSTANCE.getDomain_Super();
 
 		/**
 		 * The meta object literal for the '{@link MVCore.impl.ControllerImpl <em>Controller</em>}' class.
@@ -946,7 +974,7 @@ public interface MVCorePackage extends EPackage {
 		EAttribute REFERENCE__LOWER_BOUND = eINSTANCE.getReference_LowerBound();
 
 		/**
-		 * The meta object literal for the '<em><b>Src</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Src</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

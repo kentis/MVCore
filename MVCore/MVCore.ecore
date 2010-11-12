@@ -11,7 +11,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
         eType="#//Attribute" containment="true" eOpposite="#//Attribute/domain"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="references" upperBound="-1"
-        eType="#//Reference" containment="true"/>
+        eType="#//Reference" containment="true" eOpposite="#//Reference/src"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="super" unique="false" eType="#//Domain"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Controller" eSuperTypes="#//MVCoreClass">
     <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
@@ -54,6 +55,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lowerBound" unique="false"
         lowerBound="1" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="src" unique="false" lowerBound="1"
-        eType="#//Domain"/>
+        eType="#//Domain" eOpposite="#//Domain/references"/>
   </eClassifiers>
 </ecore:EPackage>

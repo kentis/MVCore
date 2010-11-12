@@ -65,6 +65,10 @@ public class MVCoreEditPartFactory implements EditPartFactory {
 			case MVCore.diagram.edit.parts.ReferenceEditPart.VISUAL_ID:
 				return new MVCore.diagram.edit.parts.ReferenceEditPart(view);
 
+			case MVCore.diagram.edit.parts.ReferenceLowerBoundUpperBoundEditPart.VISUAL_ID:
+				return new MVCore.diagram.edit.parts.ReferenceLowerBoundUpperBoundEditPart(
+						view);
+
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

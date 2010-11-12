@@ -149,7 +149,6 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	 * @generated
 	 */
 	public EDataType getType() {
-		System.out.println("getType(): "+type);
 		EDataType type = basicGetType();
 		return type != null && type.eIsProxy() ? (EDataType)eResolveProxy((InternalEObject)type) : type;
 	}

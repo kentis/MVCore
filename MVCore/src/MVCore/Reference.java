@@ -134,26 +134,28 @@ public interface Reference extends EObject {
 	void setLowerBound(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Src</b></em>' reference.
+	 * Returns the value of the '<em><b>Src</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link MVCore.Domain#getReferences <em>References</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Src</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Src</em>' reference.
+	 * @return the value of the '<em>Src</em>' container reference.
 	 * @see #setSrc(Domain)
 	 * @see MVCore.MVCorePackage#getReference_Src()
-	 * @model required="true"
+	 * @see MVCore.Domain#getReferences
+	 * @model opposite="references" required="true" transient="false"
 	 * @generated
 	 */
 	Domain getSrc();
 
 	/**
-	 * Sets the value of the '{@link MVCore.Reference#getSrc <em>Src</em>}' reference.
+	 * Sets the value of the '{@link MVCore.Reference#getSrc <em>Src</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Src</em>' reference.
+	 * @param value the new value of the '<em>Src</em>' container reference.
 	 * @see #getSrc()
 	 * @generated
 	 */

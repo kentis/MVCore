@@ -12,11 +12,13 @@ import MVCore.Reference;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -105,16 +107,6 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 	 * @ordered
 	 */
 	protected int lowerBound = LOWER_BOUND_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getSrc() <em>Src</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSrc()
-	 * @generated
-	 * @ordered
-	 */
-	protected Domain src;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -242,15 +234,8 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 	 * @generated
 	 */
 	public Domain getSrc() {
-		if (src != null && src.eIsProxy()) {
-			InternalEObject oldSrc = (InternalEObject)src;
-			src = (Domain)eResolveProxy(oldSrc);
-			if (src != oldSrc) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MVCorePackage.REFERENCE__SRC, oldSrc, src));
-			}
-		}
-		return src;
+		if (eContainerFeatureID() != MVCorePackage.REFERENCE__SRC) return null;
+		return (Domain)eContainer();
 	}
 
 	/**
@@ -258,8 +243,9 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Domain basicGetSrc() {
-		return src;
+	public NotificationChain basicSetSrc(Domain newSrc, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newSrc, MVCorePackage.REFERENCE__SRC, msgs);
+		return msgs;
 	}
 
 	/**
@@ -268,10 +254,63 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 	 * @generated
 	 */
 	public void setSrc(Domain newSrc) {
-		Domain oldSrc = src;
-		src = newSrc;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MVCorePackage.REFERENCE__SRC, oldSrc, src));
+		if (newSrc != eInternalContainer() || (eContainerFeatureID() != MVCorePackage.REFERENCE__SRC && newSrc != null)) {
+			if (EcoreUtil.isAncestor(this, newSrc))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newSrc != null)
+				msgs = ((InternalEObject)newSrc).eInverseAdd(this, MVCorePackage.DOMAIN__REFERENCES, Domain.class, msgs);
+			msgs = basicSetSrc(newSrc, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MVCorePackage.REFERENCE__SRC, newSrc, newSrc));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case MVCorePackage.REFERENCE__SRC:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetSrc((Domain)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case MVCorePackage.REFERENCE__SRC:
+				return basicSetSrc(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case MVCorePackage.REFERENCE__SRC:
+				return eInternalContainer().eInverseRemove(this, MVCorePackage.DOMAIN__REFERENCES, Domain.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -292,8 +331,7 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 			case MVCorePackage.REFERENCE__LOWER_BOUND:
 				return getLowerBound();
 			case MVCorePackage.REFERENCE__SRC:
-				if (resolve) return getSrc();
-				return basicGetSrc();
+				return getSrc();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -369,7 +407,7 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 			case MVCorePackage.REFERENCE__LOWER_BOUND:
 				return lowerBound != LOWER_BOUND_EDEFAULT;
 			case MVCorePackage.REFERENCE__SRC:
-				return src != null;
+				return getSrc() != null;
 		}
 		return super.eIsSet(featureID);
 	}

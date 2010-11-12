@@ -160,10 +160,26 @@
   <links>
     <domainMetaElement
         href="MVCore.ecore#//Reference"/>
+    <labelMappings
+        xsi:type="gmfmap:FeatureLabelMapping"
+        viewPattern="{0}..{1,choice,-1#*|-1&lt;{1}}"
+        editorPattern="{0}..{1}"
+        editPattern="{0}..{1}">
+      <diagramLabel
+          href="MVCore.gmfgraph#MultiplicityLabel"/>
+      <features
+          href="MVCore.ecore#//Reference/lowerBound"/>
+      <features
+          href="MVCore.ecore#//Reference/upperBound"/>
+      <editableFeatures
+          href="MVCore.ecore#//Reference/lowerBound"/>
+      <editableFeatures
+          href="MVCore.ecore#//Reference/upperBound"/>
+    </labelMappings>
     <containmentFeature
         href="MVCore.ecore#//Domain/references"/>
     <diagramLink
-        href="../../plugin/org.eclipse.gmf.graphdef/models/basic.gmfgraph#Link"/>
+        href="MVCore.gmfgraph#domainLink"/>
     <sourceMetaFeature
         xsi:type="ecore:EReference"
         href="MVCore.ecore#//Reference/src"/>

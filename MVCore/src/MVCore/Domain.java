@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link MVCore.Domain#getLoggable <em>Loggable</em>}</li>
  *   <li>{@link MVCore.Domain#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link MVCore.Domain#getReferences <em>References</em>}</li>
+ *   <li>{@link MVCore.Domain#getSuper <em>Super</em>}</li>
  * </ul>
  * </p>
  *
@@ -103,6 +104,7 @@ public interface Domain extends MVCoreClass {
 	/**
 	 * Returns the value of the '<em><b>References</b></em>' containment reference list.
 	 * The list contents are of type {@link MVCore.Reference}.
+	 * It is bidirectional and its opposite is '{@link MVCore.Reference#getSrc <em>Src</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>References</em>' reference list isn't clear,
@@ -111,9 +113,36 @@ public interface Domain extends MVCoreClass {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>References</em>' containment reference list.
 	 * @see MVCore.MVCorePackage#getDomain_References()
-	 * @model containment="true"
+	 * @see MVCore.Reference#getSrc
+	 * @model opposite="src" containment="true"
 	 * @generated
 	 */
 	EList<Reference> getReferences();
+
+	/**
+	 * Returns the value of the '<em><b>Super</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Super</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Super</em>' reference.
+	 * @see #setSuper(Domain)
+	 * @see MVCore.MVCorePackage#getDomain_Super()
+	 * @model
+	 * @generated
+	 */
+	Domain getSuper();
+
+	/**
+	 * Sets the value of the '{@link MVCore.Domain#getSuper <em>Super</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Super</em>' reference.
+	 * @see #getSuper()
+	 * @generated
+	 */
+	void setSuper(Domain value);
 
 } // Domain

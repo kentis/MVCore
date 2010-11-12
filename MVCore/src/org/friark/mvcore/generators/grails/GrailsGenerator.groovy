@@ -2,6 +2,7 @@ package org.friark.mvcore.generators.grails;
 
 import MVCore.Controller;
 import MVCore.Domain;
+import MVCore.Package;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.QualifiedName;
@@ -22,17 +23,17 @@ class GrailsGenerator implements Generator{
 		}
 	}
 	
-	void handlePackage(EPackage pack, prefix, IProject project){
+	void handlePackage(Package pack, prefix, IProject project){
 		def packageName = "${prefix}${prefix.size() > 0 ? '.' : ''}${pack.name}"
 		pack.eContents().each {
 			switch( it ) {
-				case EPackage:
+				case Package:
 					handlePackage(it, packageName, project);
 					break;
-				case EDomainClass:
+				case Domain:
 					handleEDomainClass it, packageName, project
 					break;
-				case EControllerClass:
+				case Controller:
 					handleEControllerClass it, packageName, project
 					break;
 			}
@@ -76,7 +77,7 @@ class GrailsGenerator implements Generator{
 		//Create the GormBuilder
 		StringWriter writer = new StringWriter()
 		def builder = new GormBuilder(writer)
-		def parent = klass.eSuperTypes.size() > 0 ? klass.eSuperTypes[0].name : null
+		def parent = klass.getSuper() == null ? null : klass.getSuper().name
 		def documentation = ""
 		
 		//Build the class

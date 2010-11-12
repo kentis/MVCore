@@ -57,7 +57,7 @@ public class DomainItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * 
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
@@ -66,7 +66,8 @@ public class DomainItemProvider
 
 			addSearchablePropertyDescriptor(object);
 			addLoggablePropertyDescriptor(object);
-			addReferencesPropertyDescriptor(object);
+			addSuperPropertyDescriptor(object);
+			//addReferencesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -138,18 +139,41 @@ public class DomainItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Super feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSuperPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Domain_super_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Domain_super_feature", "_UI_Domain_type"),
+				 MVCorePackage.Literals.DOMAIN__SUPER,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * 
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(MVCorePackage.Literals.DOMAIN__ATTRIBUTES);
+			childrenFeatures.add(MVCorePackage.Literals.DOMAIN__REFERENCES);
 		}
 		return childrenFeatures;
 	}
@@ -220,7 +244,7 @@ public class DomainItemProvider
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * 
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
@@ -230,6 +254,14 @@ public class DomainItemProvider
 			(createChildParameter
 				(MVCorePackage.Literals.DOMAIN__ATTRIBUTES,
 				 MVCoreFactory.eINSTANCE.createAttribute()));
+		
+		newChildDescriptors.add
+		(createChildParameter
+			(MVCorePackage.Literals.DOMAIN__REFERENCES,
+			 MVCoreFactory.eINSTANCE.createReference()));
 	}
-
 }
+	
+	
+
+

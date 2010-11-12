@@ -218,6 +218,11 @@ public class MVCoreVisualIDRegistry {
 				return true;
 			}
 			break;
+		case MVCore.diagram.edit.parts.ReferenceEditPart.VISUAL_ID:
+			if (MVCore.diagram.edit.parts.ReferenceLowerBoundUpperBoundEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		}
 		return false;
 	}

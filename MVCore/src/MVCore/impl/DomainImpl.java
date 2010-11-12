@@ -39,6 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link MVCore.impl.DomainImpl#getLoggable <em>Loggable</em>}</li>
  *   <li>{@link MVCore.impl.DomainImpl#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link MVCore.impl.DomainImpl#getReferences <em>References</em>}</li>
+ *   <li>{@link MVCore.impl.DomainImpl#getSuper <em>Super</em>}</li>
  * </ul>
  * </p>
  *
@@ -104,6 +105,16 @@ public class DomainImpl extends MVCoreClassImpl implements Domain {
 	 * @ordered
 	 */
 	protected EList<Reference> references;
+
+	/**
+	 * The cached value of the '{@link #getSuper() <em>Super</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSuper()
+	 * @generated
+	 * @ordered
+	 */
+	protected Domain super_;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -185,9 +196,47 @@ public class DomainImpl extends MVCoreClassImpl implements Domain {
 	 */
 	public EList<Reference> getReferences() {
 		if (references == null) {
-			references = new EObjectContainmentEList<Reference>(Reference.class, this, MVCorePackage.DOMAIN__REFERENCES);
+			references = new EObjectContainmentWithInverseEList<Reference>(Reference.class, this, MVCorePackage.DOMAIN__REFERENCES, MVCorePackage.REFERENCE__SRC);
 		}
 		return references;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Domain getSuper() {
+		if (super_ != null && super_.eIsProxy()) {
+			InternalEObject oldSuper = (InternalEObject)super_;
+			super_ = (Domain)eResolveProxy(oldSuper);
+			if (super_ != oldSuper) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MVCorePackage.DOMAIN__SUPER, oldSuper, super_));
+			}
+		}
+		return super_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Domain basicGetSuper() {
+		return super_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSuper(Domain newSuper) {
+		Domain oldSuper = super_;
+		super_ = newSuper;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MVCorePackage.DOMAIN__SUPER, oldSuper, super_));
 	}
 
 	/**
@@ -201,6 +250,8 @@ public class DomainImpl extends MVCoreClassImpl implements Domain {
 		switch (featureID) {
 			case MVCorePackage.DOMAIN__ATTRIBUTES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAttributes()).basicAdd(otherEnd, msgs);
+			case MVCorePackage.DOMAIN__REFERENCES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getReferences()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -237,6 +288,9 @@ public class DomainImpl extends MVCoreClassImpl implements Domain {
 				return getAttributes();
 			case MVCorePackage.DOMAIN__REFERENCES:
 				return getReferences();
+			case MVCorePackage.DOMAIN__SUPER:
+				if (resolve) return getSuper();
+				return basicGetSuper();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -264,6 +318,9 @@ public class DomainImpl extends MVCoreClassImpl implements Domain {
 				getReferences().clear();
 				getReferences().addAll((Collection<? extends Reference>)newValue);
 				return;
+			case MVCorePackage.DOMAIN__SUPER:
+				setSuper((Domain)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -288,6 +345,9 @@ public class DomainImpl extends MVCoreClassImpl implements Domain {
 			case MVCorePackage.DOMAIN__REFERENCES:
 				getReferences().clear();
 				return;
+			case MVCorePackage.DOMAIN__SUPER:
+				setSuper((Domain)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -308,6 +368,8 @@ public class DomainImpl extends MVCoreClassImpl implements Domain {
 				return attributes != null && !attributes.isEmpty();
 			case MVCorePackage.DOMAIN__REFERENCES:
 				return references != null && !references.isEmpty();
+			case MVCorePackage.DOMAIN__SUPER:
+				return super_ != null;
 		}
 		return super.eIsSet(featureID);
 	}

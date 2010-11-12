@@ -169,6 +169,32 @@ public class MVCoreParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser referenceLowerBoundUpperBound_6001Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getReferenceLowerBoundUpperBound_6001Parser() {
+		if (referenceLowerBoundUpperBound_6001Parser == null) {
+			EAttribute[] features = new EAttribute[] {
+					MVCore.MVCorePackage.eINSTANCE.getReference_LowerBound(),
+					MVCore.MVCorePackage.eINSTANCE.getReference_UpperBound() };
+			EAttribute[] editableFeatures = new EAttribute[] {
+					MVCore.MVCorePackage.eINSTANCE.getReference_LowerBound(),
+					MVCore.MVCorePackage.eINSTANCE.getReference_UpperBound() };
+			MVCore.diagram.parsers.MessageFormatParser parser = new MVCore.diagram.parsers.MessageFormatParser(
+					features, editableFeatures);
+			parser.setViewPattern("{0}..{1,choice,-1#*|-1<{1}}"); //$NON-NLS-1$
+			parser.setEditorPattern("{0}..{1}"); //$NON-NLS-1$
+			parser.setEditPattern("{0}..{1}"); //$NON-NLS-1$
+			referenceLowerBoundUpperBound_6001Parser = parser;
+		}
+		return referenceLowerBoundUpperBound_6001Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case MVCore.diagram.edit.parts.ControllerNameEditPart.VISUAL_ID:
@@ -185,6 +211,8 @@ public class MVCoreParserProvider extends AbstractProvider implements
 			return getMVCoreClass_3003Parser();
 		case MVCore.diagram.edit.parts.Package3EditPart.VISUAL_ID:
 			return getPackage_3004Parser();
+		case MVCore.diagram.edit.parts.ReferenceLowerBoundUpperBoundEditPart.VISUAL_ID:
+			return getReferenceLowerBoundUpperBound_6001Parser();
 		}
 		return null;
 	}

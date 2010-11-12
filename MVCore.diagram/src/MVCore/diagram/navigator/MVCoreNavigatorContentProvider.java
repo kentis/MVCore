@@ -214,20 +214,14 @@ public class MVCoreNavigatorContentProvider implements ICommonContentProvider {
 	private Object[] getViewChildren(View view, Object parentElement) {
 		switch (MVCore.diagram.part.MVCoreVisualIDRegistry.getVisualID(view)) {
 
-		case MVCore.diagram.edit.parts.Package2EditPart.VISUAL_ID: {
+		case MVCore.diagram.edit.parts.ControllerEditPart.VISUAL_ID: {
 			LinkedList<MVCore.diagram.navigator.MVCoreAbstractNavigatorItem> result = new LinkedList<MVCore.diagram.navigator.MVCoreAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					MVCore.diagram.part.MVCoreVisualIDRegistry
-							.getType(MVCore.diagram.edit.parts.MVCoreClassEditPart.VISUAL_ID));
-			result.addAll(createNavigatorItems(connectedViews, parentElement,
-					false));
-			connectedViews = getChildrenByType(
-					Collections.singleton(sv),
-					MVCore.diagram.part.MVCoreVisualIDRegistry
-							.getType(MVCore.diagram.edit.parts.Package3EditPart.VISUAL_ID));
+							.getType(MVCore.diagram.edit.parts.ActionEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
@@ -269,37 +263,6 @@ public class MVCoreNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case MVCore.diagram.edit.parts.ReferenceEditPart.VISUAL_ID: {
-			LinkedList<MVCore.diagram.navigator.MVCoreAbstractNavigatorItem> result = new LinkedList<MVCore.diagram.navigator.MVCoreAbstractNavigatorItem>();
-			Edge sv = (Edge) view;
-			MVCore.diagram.navigator.MVCoreNavigatorGroup target = new MVCore.diagram.navigator.MVCoreNavigatorGroup(
-					MVCore.diagram.part.Messages.NavigatorGroupName_Reference_4001_target,
-					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			MVCore.diagram.navigator.MVCoreNavigatorGroup source = new MVCore.diagram.navigator.MVCoreNavigatorGroup(
-					MVCore.diagram.part.Messages.NavigatorGroupName_Reference_4001_source,
-					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection<View> connectedViews;
-			connectedViews = getLinksTargetByType(
-					Collections.singleton(sv),
-					MVCore.diagram.part.MVCoreVisualIDRegistry
-							.getType(MVCore.diagram.edit.parts.DomainEditPart.VISUAL_ID));
-			target.addChildren(createNavigatorItems(connectedViews, target,
-					true));
-			connectedViews = getLinksSourceByType(
-					Collections.singleton(sv),
-					MVCore.diagram.part.MVCoreVisualIDRegistry
-							.getType(MVCore.diagram.edit.parts.DomainEditPart.VISUAL_ID));
-			source.addChildren(createNavigatorItems(connectedViews, source,
-					true));
-			if (!target.isEmpty()) {
-				result.add(target);
-			}
-			if (!source.isEmpty()) {
-				result.add(source);
-			}
-			return result.toArray();
-		}
-
 		case MVCore.diagram.edit.parts.DomainEditPart.VISUAL_ID: {
 			LinkedList<MVCore.diagram.navigator.MVCoreAbstractNavigatorItem> result = new LinkedList<MVCore.diagram.navigator.MVCoreAbstractNavigatorItem>();
 			Node sv = (Node) view;
@@ -337,16 +300,53 @@ public class MVCoreNavigatorContentProvider implements ICommonContentProvider {
 			return result.toArray();
 		}
 
-		case MVCore.diagram.edit.parts.ControllerEditPart.VISUAL_ID: {
+		case MVCore.diagram.edit.parts.Package2EditPart.VISUAL_ID: {
 			LinkedList<MVCore.diagram.navigator.MVCoreAbstractNavigatorItem> result = new LinkedList<MVCore.diagram.navigator.MVCoreAbstractNavigatorItem>();
 			Node sv = (Node) view;
 			Collection<View> connectedViews;
 			connectedViews = getChildrenByType(
 					Collections.singleton(sv),
 					MVCore.diagram.part.MVCoreVisualIDRegistry
-							.getType(MVCore.diagram.edit.parts.ActionEditPart.VISUAL_ID));
+							.getType(MVCore.diagram.edit.parts.MVCoreClassEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(sv),
+					MVCore.diagram.part.MVCoreVisualIDRegistry
+							.getType(MVCore.diagram.edit.parts.Package3EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case MVCore.diagram.edit.parts.ReferenceEditPart.VISUAL_ID: {
+			LinkedList<MVCore.diagram.navigator.MVCoreAbstractNavigatorItem> result = new LinkedList<MVCore.diagram.navigator.MVCoreAbstractNavigatorItem>();
+			Edge sv = (Edge) view;
+			MVCore.diagram.navigator.MVCoreNavigatorGroup target = new MVCore.diagram.navigator.MVCoreNavigatorGroup(
+					MVCore.diagram.part.Messages.NavigatorGroupName_Reference_4001_target,
+					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			MVCore.diagram.navigator.MVCoreNavigatorGroup source = new MVCore.diagram.navigator.MVCoreNavigatorGroup(
+					MVCore.diagram.part.Messages.NavigatorGroupName_Reference_4001_source,
+					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection<View> connectedViews;
+			connectedViews = getLinksTargetByType(
+					Collections.singleton(sv),
+					MVCore.diagram.part.MVCoreVisualIDRegistry
+							.getType(MVCore.diagram.edit.parts.DomainEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksSourceByType(
+					Collections.singleton(sv),
+					MVCore.diagram.part.MVCoreVisualIDRegistry
+							.getType(MVCore.diagram.edit.parts.DomainEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			if (!target.isEmpty()) {
+				result.add(target);
+			}
+			if (!source.isEmpty()) {
+				result.add(source);
+			}
 			return result.toArray();
 		}
 		}

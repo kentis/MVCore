@@ -6,53 +6,12 @@
     complianceLevel="6.0" copyrightFields="false" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
   <foreignModel>MVCore.ecore</foreignModel>
   <genPackages prefix="MVCore" disposableProviderFactory="true" ecorePackage="MVCore.ecore#/">
-    <genDataTypes ecoreDataType="MVCore.ecore#//EBigDecimal"/>
-    <genDataTypes ecoreDataType="MVCore.ecore#//EBigInteger"/>
-    <genDataTypes ecoreDataType="MVCore.ecore#//EBoolean"/>
-    <genDataTypes ecoreDataType="MVCore.ecore#//EBooleanObject"/>
-    <genDataTypes ecoreDataType="MVCore.ecore#//EByte"/>
-    <genDataTypes ecoreDataType="MVCore.ecore#//EByteArray"/>
-    <genDataTypes ecoreDataType="MVCore.ecore#//EByteObject"/>
-    <genDataTypes ecoreDataType="MVCore.ecore#//EChar"/>
-    <genDataTypes ecoreDataType="MVCore.ecore#//ECharacterObject"/>
-    <genDataTypes ecoreDataType="MVCore.ecore#//EDate"/>
-    <genDataTypes ecoreDataType="MVCore.ecore#//EDiagnosticChain"/>
-    <genDataTypes ecoreDataType="MVCore.ecore#//EDouble"/>
-    <genDataTypes ecoreDataType="MVCore.ecore#//EDoubleObject"/>
-    <genDataTypes ecoreDataType="MVCore.ecore#//EEList">
-      <genTypeParameters ecoreTypeParameter="MVCore.ecore#//EEList/E"/>
-    </genDataTypes>
-    <genDataTypes ecoreDataType="MVCore.ecore#//EEnumerator"/>
-    <genDataTypes ecoreDataType="MVCore.ecore#//EFeatureMap"/>
-    <genDataTypes ecoreDataType="MVCore.ecore#//EFeatureMapEntry"/>
-    <genDataTypes ecoreDataType="MVCore.ecore#//EFloat"/>
-    <genDataTypes ecoreDataType="MVCore.ecore#//EFloatObject"/>
-    <genDataTypes ecoreDataType="MVCore.ecore#//EInt"/>
-    <genDataTypes ecoreDataType="MVCore.ecore#//EIntegerObject"/>
-    <genDataTypes ecoreDataType="MVCore.ecore#//EJavaClass">
-      <genTypeParameters ecoreTypeParameter="MVCore.ecore#//EJavaClass/T"/>
-    </genDataTypes>
-    <genDataTypes ecoreDataType="MVCore.ecore#//EJavaObject"/>
-    <genDataTypes ecoreDataType="MVCore.ecore#//ELong"/>
-    <genDataTypes ecoreDataType="MVCore.ecore#//ELongObject"/>
-    <genDataTypes ecoreDataType="MVCore.ecore#//EMap">
-      <genTypeParameters ecoreTypeParameter="MVCore.ecore#//EMap/K"/>
-      <genTypeParameters ecoreTypeParameter="MVCore.ecore#//EMap/V"/>
-    </genDataTypes>
-    <genDataTypes ecoreDataType="MVCore.ecore#//EResource"/>
-    <genDataTypes ecoreDataType="MVCore.ecore#//EResourceSet"/>
-    <genDataTypes ecoreDataType="MVCore.ecore#//EShort"/>
-    <genDataTypes ecoreDataType="MVCore.ecore#//EShortObject"/>
-    <genDataTypes ecoreDataType="MVCore.ecore#//EString"/>
-    <genDataTypes ecoreDataType="MVCore.ecore#//ETreeIterator">
-      <genTypeParameters ecoreTypeParameter="MVCore.ecore#//ETreeIterator/E"/>
-    </genDataTypes>
-    <genDataTypes ecoreDataType="MVCore.ecore#//EInvocationTargetException"/>
     <genClasses ecoreClass="MVCore.ecore#//Domain">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MVCore.ecore#//Domain/Searchable"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MVCore.ecore#//Domain/Loggable"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MVCore.ecore#//Domain/attributes"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MVCore.ecore#//Domain/references"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MVCore.ecore#//Domain/super"/>
     </genClasses>
     <genClasses ecoreClass="MVCore.ecore#//Controller">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MVCore.ecore#//Controller/actions"/>
@@ -69,7 +28,7 @@
     <genClasses ecoreClass="MVCore.ecore#//Attribute">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MVCore.ecore#//Attribute/domain"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MVCore.ecore#//Attribute/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MVCore.ecore#//Attribute/eType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MVCore.ecore#//Attribute/type"/>
     </genClasses>
     <genClasses ecoreClass="MVCore.ecore#//MVCoreClass">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MVCore.ecore#//MVCoreClass/name"/>

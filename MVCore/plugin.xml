@@ -83,7 +83,7 @@
                      variable="activeMenuSelection">
                   <iterate>
                      <adapt
-                           type="MVCore.EControllerClass">
+                           type="MVCore.Controller">
                      </adapt>
                   </iterate>
                </with>
@@ -119,7 +119,7 @@
                      variable="activeMenuSelection">
                   <iterate>
                      <adapt
-                           type="MVCore.EControllerClass">
+                           type="MVCore.Controller">
                      </adapt>
                   </iterate>
                </with>
@@ -143,5 +143,8 @@
                 </enabledWhen>
         </page>
  	</extension>
+ 	
+	<extension-point id="MVCore_generator" name="Generator" 
+      schema="schema/MVCore_generator.exsd"/>
 	
 </plugin>

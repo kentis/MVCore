@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/mvcore_feature_0.5.0.jar" id="mvcore_feature" version="0.5"/>
+</site>

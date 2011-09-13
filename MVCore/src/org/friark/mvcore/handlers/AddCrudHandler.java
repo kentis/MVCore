@@ -12,7 +12,7 @@ import org.eclipse.core.commands.ExecutionException;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
+//import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -36,6 +36,8 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import MVCore.Action;
 import MVCore.Controller;
 import MVCore.Domain;
+import MVCore.MVCoreClass;
+import MVCore.Package;
 import MVCore.impl.MVCoreFactoryImpl;
 
 
@@ -123,16 +125,16 @@ public class AddCrudHandler extends AbstractHandler{
 		List<String> retvals = new ArrayList<String>();
 		
 		for(EObject obj :res.getContents()){
-			getDomainClassNamesFromPackage(retvals, (EPackage) obj);
+			getDomainClassNamesFromPackage(retvals, (Package) obj);
 		}
 		
 		return retvals.toArray(new String[0]);
 	}
 	
-	private void getDomainClassNamesFromPackage(List<String> retvals, EPackage pack){
-		for(EObject obj :pack.eContents()){
-			if(obj instanceof EPackage){
-				getDomainClassNamesFromPackage(retvals, (EPackage)obj);
+	private void getDomainClassNamesFromPackage(List<String> retvals, Package pack){
+		for(EObject obj :pack.getMembers()){
+			if(obj instanceof Package){
+				getDomainClassNamesFromPackage(retvals, (Package)obj);
 			} else if(obj instanceof Domain){
 				retvals.add(((Domain)obj).getName());
 			}
@@ -144,16 +146,16 @@ public class AddCrudHandler extends AbstractHandler{
 		List<Domain> retvals = new ArrayList<Domain>();
 		
 		for(EObject obj :res.getContents()){
-			getDomainClasssFromPackage(retvals, (EPackage) obj);
+			getDomainClasssFromPackage(retvals, (Package) obj);
 		}
 		
 		return retvals.toArray(new Domain[0]);
 	}
 	
-	private void getDomainClasssFromPackage(List<Domain> retvals, EPackage pack){
-		for(EObject obj :pack.eContents()){
-			if(obj instanceof EPackage){
-				getDomainClasssFromPackage(retvals, (EPackage)obj);
+	private void getDomainClasssFromPackage(List<Domain> retvals, Package pack){
+		for(MVCoreClass obj :pack.getMembers()){
+			if(obj instanceof Package){
+				getDomainClasssFromPackage(retvals, (Package)obj);
 			} else if(obj instanceof Domain){
 				retvals.add((Domain)obj);
 			}

@@ -113,22 +113,125 @@ public class AttributeItemProvider
 	 * This adds a property descriptor for the Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * 
 	 */
 	protected void addTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Attribute_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_type_feature", "_UI_Attribute_type"),
-				 MVCorePackage.Literals.ATTRIBUTE__TYPE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		(new ItemPropertyDescriptor
+		(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+		getResourceLocator(),
+		getString("_UI_Attribute_type_feature"),
+		getString("_UI_PropertyDescriptor_description", "_UI_Attribute_type_feature", "_UI_Attribute_type"),
+		MVCorePackage.Literals.ATTRIBUTE__TYPE,
+		true,
+		false,
+		true,
+		null,
+		null,
+		null)
+		{
+		@Override
+		public Collection<?> getChoiceOfValues(Object object)
+		{
+		// Filter out types that aren't permitted.
+		//
+		Collection<Object> result = new ArrayList<Object>();
+
+		if (!(object instanceof EReference))
+		{
+		for (Object classifier : EcorePackage.eINSTANCE.getEClassifiers())
+		{
+		if (!result.contains(classifier))
+		{
+		result.add(classifier);
+		}
+		}
+		}
+		if (!result.contains(EcorePackage.Literals.EOBJECT))
+		{
+		result.add(EcorePackage.Literals.EOBJECT);
+		}
+
+		for (Iterator<Object> i = result.iterator(); i.hasNext(); )
+		{
+		if (i.next() instanceof EClass)
+		{
+		i.remove();
+		}
+		}
+		/*if (object instanceof EAttribute)
+		{
+		for (Iterator<Object> i = result.iterator(); i.hasNext(); )
+		{
+		if (i.next() instanceof EClass)
+		{
+		i.remove();
+		}
+		}
+		}*/
+		/*else if (object instanceof EReference)
+		{
+		for (Iterator<Object> i = result.iterator(); i.hasNext(); )
+		{
+		if (i.next() instanceof EDataType)
+		{
+		i.remove();
+		}
+		}
+		}*/
+
+		// Let them choose type parameters as well.
+		//
+		/* for (EObject eObject = (EObject)object; eObject != null; eObject = eObject.eContainer())
+		{
+		if (eObject instanceof EClassifier)
+		{
+		result.addAll(((EClassifier)eObject).getETypeParameters());
+		}
+		else if (eObject instanceof EOperation)
+		{
+		result.addAll(((EOperation)eObject).getETypeParameters());
+		}
+		}*/
+
+		//uniqueNameMap = computeUniqueLabels(object, result);
+
+		return result;
+		}
+
+		/* @Override
+		public void setPropertyValue(Object object, Object value)
+		{
+		EditingDomain editingDomain = getEditingDomain(object);
+		if (editingDomain == null)
+		{
+		super.setPropertyValue(object, value);
+		}
+		else
+		{
+		EGenericType eGenericType = null;
+		if (value instanceof EClassifier)
+		{
+		EClassifier eClassifier = (EClassifier)value;
+		eGenericType = EcoreFactory.eINSTANCE.createEGenericType();
+		eGenericType.setEClassifier(eClassifier);
+		for (int i = 0, size = eClassifier.getETypeParameters().size(); i < size; ++i)
+		{
+		eGenericType.getETypeArguments().add(EcoreFactory.eINSTANCE.createEGenericType());
+		}
+		}
+		else if (value instanceof ETypeParameter)
+		{
+		eGenericType = EcoreFactory.eINSTANCE.createEGenericType();
+		eGenericType.setETypeParameter((ETypeParameter)value);
+		}
+		editingDomain.getCommandStack().execute
+		(SetCommand.create(editingDomain, object, EcorePackage.Literals.ETYPED_ELEMENT__EGENERIC_TYPE, eGenericType));
+		}
+		}*/
+		});
+
+			
 	}
 
 	/**

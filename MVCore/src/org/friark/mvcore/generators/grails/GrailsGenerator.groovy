@@ -16,6 +16,10 @@ import groovy.text.SimpleTemplateEngine;
 
 class GrailsGenerator implements Generator{
 	
+	String getName(){
+		""
+	}
+	
 	void generate(Resource resource, String projectName){
 		IProject project = org.eclipse.core.resources.ResourcesPlugin.getWorkspace().getRoot().getProject(projectName)
 		resource.getContents().each{
@@ -73,7 +77,7 @@ class GrailsGenerator implements Generator{
 	}
 	
 	String buildEDomainClass(Domain klass, String packageName){
-		//println "EDomain class: ${klass.name}"
+		println "EDomain class: ${klass.name}"
 		//Create the GormBuilder
 		StringWriter writer = new StringWriter()
 		def builder = new GormBuilder(writer)
@@ -191,6 +195,7 @@ class GrailsGenerator implements Generator{
 		if(type == "EString") return "String"
 		if(type == "EByteArray") return "byte[]"
 		if(type == "EDouble") return "double"
+		if(type == "EDate") return "date"
 		if(type == null || type == "null") return "String"
 		return type
 	}

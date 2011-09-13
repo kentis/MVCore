@@ -17,7 +17,7 @@
 
 package org.friark.mvcore.generators.grails
 
-import groovy.util.BuilderSupport  
+import groovy.util.BuilderSupport
 import java.io.StringWriter
 
 /**

@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension point="org.eclipse.team.core.fileTypes" id="repo-ftype">
+      <?gmfgen generated="true"?>
+      <fileTypes type="text" extension="mvcore_diagram"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser" id="resource-factory">
+      <?gmfgen generated="true"?>
+      <parser
+         type="mvcore_diagram"
+         class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
+      </parser>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors" id="gmf-editor">
+      <?gmfgen generated="true"?>
+      <editor
+         id="MVCore.diagram.part.MVCoreDiagramEditorID"
+         name="%editorName"
+         icon="icons/obj16/MVCoreDiagramFile.gif"
+         extensions="mvcore_diagram"
+         default="true"
+         class="MVCore.diagram.part.MVCoreDiagramEditor"
+         matchingStrategy="MVCore.diagram.part.MVCoreMatchingStrategy"
+         contributorClass="MVCore.diagram.part.MVCoreDiagramActionBarContributor">
+      </editor>
+   </extension>
+   
+   <extension point="org.eclipse.ui.contexts" id="ui-context">
+      <?gmfgen generated="true"?>
+      <context
+         description="%context.description"
+         id="MVCore.diagram.ui.diagramContext"
+         name="%context.name"
+         parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
+      </context>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
+      <?gmfgen generated="true"?>
+  	  <wizard
+  	     name="%newWizardName"
+  	     icon="icons/obj16/MVCoreDiagramFile.gif"
+  	     category="org.eclipse.ui.Examples"
+  	     class="MVCore.diagram.part.MVCoreCreationWizard"
+  	     id="MVCore.diagram.part.MVCoreCreationWizardID">
+  	  	 <description>%newWizardDesc</description>  
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
+      <?gmfgen generated="true"?>
+      <objectContribution
+            id="MVCore_diag.diagram.InitDiagram"
+            nameFilter="*.mvcore"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               label="%initDiagramActionLabel"
+               class="MVCore.diagram.part.MVCoreInitDiagramFileAction"
+               menubarPath="additions"
+               enablesFor="1"
+               id="MVCore_diag.diagram.InitDiagramAction">
+         </action>
+      </objectContribution>
+   </extension>
+	
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders" id="global-actions">
+      <?gmfgen generated="true"?>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
+         id="MVCorePresentation">
+         <Priority name="Lowest"/>
+         <ViewId id="MVCore.diagram.part.MVCoreDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="delete"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart">
+               <GlobalActionId actionId="save"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
+         id="MVCorePresentationIDE">
+         <Priority name="Lowest"/>
+         <ViewId id="MVCore.diagram.part.MVCoreDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="bookmark"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+            class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
+            id="MVCoreRender">
+         <Priority name="Lowest"/>
+         <ViewId id="MVCore.diagram.part.MVCoreDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="cut"/>
+               <GlobalActionId actionId="copy"/>
+               <GlobalActionId actionId="paste"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+   </extension>
+
+
+   <extension point="org.eclipse.core.runtime.preferences" id="prefs">
+      <?gmfgen generated="true"?>
+      <initializer class="MVCore.diagram.preferences.DiagramPreferenceInitializer"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.preferencePages" id="prefpages">
+      <?gmfgen generated="true"?>
+      <page
+            id="MVCore_diag.diagram.general"
+            name="%prefpage.MVCore_diag.diagram.general"
+            class="MVCore.diagram.preferences.DiagramGeneralPreferencePage">
+      </page>
+      <page
+            id="MVCore_diag.diagram.appearance"
+            name="%prefpage.MVCore_diag.diagram.appearance"
+            category="MVCore_diag.diagram.general"
+            class="MVCore.diagram.preferences.DiagramAppearancePreferencePage">
+      </page>
+      <page
+            id="MVCore_diag.diagram.connections"
+            name="%prefpage.MVCore_diag.diagram.connections"
+            category="MVCore_diag.diagram.general"
+            class="MVCore.diagram.preferences.DiagramConnectionsPreferencePage">
+      </page>
+      <page
+            id="MVCore_diag.diagram.printing"
+            name="%prefpage.MVCore_diag.diagram.printing"
+            category="MVCore_diag.diagram.general"
+            class="MVCore.diagram.preferences.DiagramPrintingPreferencePage">
+      </page>
+      <page
+            id="MVCore_diag.diagram.rulersAndGrid"
+            name="%prefpage.MVCore_diag.diagram.rulersAndGrid"
+            category="MVCore_diag.diagram.general"
+            class="MVCore.diagram.preferences.DiagramRulersAndGridPreferencePage">
+      </page>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor" id="prop-contrib">
+      <?gmfgen generated="true"?>
+      <propertyContributor
+            contributorId="MVCore_diag.diagram"
+            labelProvider="MVCore.diagram.sheet.MVCoreSheetLabelProvider">
+         <propertyCategory category="domain"/>
+         <propertyCategory category="visual"/>
+         <propertyCategory category="extra"/>
+      </propertyContributor>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertyTabs" id="proptabs">
+      <?gmfgen generated="true"?>   
+      <propertyTabs contributorId="MVCore_diag.diagram">
+         <propertyTab
+             category="visual"
+             id="property.tab.AppearancePropertySection"
+             label="%tab.appearance"/>
+          <propertyTab
+             category="visual"
+             id="property.tab.DiagramPropertySection"
+             label="%tab.diagram"/>
+          <propertyTab
+             category="domain"
+             id="property.tab.domain"
+             label="%tab.domain"/>
+      </propertyTabs>
+   </extension>
+
+   <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
+      <?gmfgen generated="true"?>   
+      <propertySections contributorId="MVCore_diag.diagram">
+         <propertySection id="property.section.ConnectorAppearancePropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ConnectionEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ConnectionAppearancePropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>
+         <propertySection id="property.section.ShapeColorAndFontPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ShapeEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.ShapeColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection> 
+         <propertySection id="property.section.DiagramColorsAndFontsPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.appearance.DiagramColorsAndFontsPropertySection" 
+            tab="property.tab.AppearancePropertySection">
+         </propertySection>     
+         <propertySection id="property.section.RulerGridPropertySection" 
+            filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
+            class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.grid.RulerGridPropertySection" 
+            tab="property.tab.DiagramPropertySection">
+         </propertySection>     
+         <propertySection
+            id="property.section.domain" 
+            tab="property.tab.domain"
+            class="MVCore.diagram.sheet.MVCorePropertySection">
+            <input type="org.eclipse.gmf.runtime.notation.View"/>
+            <input type="org.eclipse.gef.EditPart"/>
+            <input type="MVCore.diagram.navigator.MVCoreAbstractNavigatorItem"/>
+         </propertySection>
+      </propertySections>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
+      <?gmfgen generated="true"?>
+      <viewProvider class="MVCore.diagram.providers.MVCoreViewProvider">
+         <Priority name="Lowest"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="MVCore"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,2003,2004,3002,3005,3006,3007"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4002,4001,4003,4004"/>
+      </viewProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
+      <?gmfgen generated="true"?>
+      <editpartProvider class="MVCore.diagram.providers.MVCoreEditPartProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
+            <method name="getType()" value="MVCore"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
+            <method name="getType()" value="2001,2003,2004,3002,3005,3006,3007"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
+            <method name="getType()" value="4002,4001,4003,4004"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
+            <method name="getType()" value="5001,5002,5003"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
+            <method name="getType()" value="7001,7002"/>
+         </object>
+         <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
+      </editpartProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
+      <?gmfgen generated="true"?>
+      <modelingAssistantProvider class="MVCore.diagram.providers.MVCoreModelingAssistantProvider">
+         <Priority name="Lowest"/>
+         <object class="MVCore.diagram.edit.parts.EMVCPackageEditPart" id="EMVCPackage_1000"/>
+         <object class="MVCore.diagram.edit.parts.EControllerClassEditPart" id="EControllerClass_2001"/>
+         <object class="MVCore.diagram.edit.parts.EDomainClassEditPart" id="EDomainClass_2003"/>
+         <object class="MVCore.diagram.edit.parts.EPackageEditPart" id="EPackage_2004"/>
+         <context elements="EMVCPackage_1000,EControllerClass_2001,EDomainClass_2003,EPackage_2004"/>
+      </modelingAssistantProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
+      <?gmfgen generated="true"?>
+      <IconProvider class="MVCore.diagram.providers.MVCoreIconProvider">
+         <Priority name="Low"/>
+      </IconProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders" id="parser-provider">
+      <?gmfgen generated="true"?>
+      <ParserProvider class="MVCore.diagram.providers.MVCoreParserProvider">
+         <Priority name="Lowest"/>
+      </ParserProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
+      <?gmfgen generated="true"?>
+      <metamodel nsURI="org.friark">
+         <metamodelType
+               id="MVCore_diag.diagram.EMVCPackage_1000"
+               name="%metatype.name.EMVCPackage_1000"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="EMVCPackage"
+               edithelper="MVCore.diagram.edit.helpers.EMVCPackageEditHelper">
+            <param name="semanticHint" value="1000"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="org.friark">
+         <metamodelType
+               id="MVCore_diag.diagram.EControllerClass_2001"
+               name="%metatype.name.EControllerClass_2001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="EControllerClass"
+               edithelper="MVCore.diagram.edit.helpers.EControllerClassEditHelper">
+            <param name="semanticHint" value="2001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="org.friark">
+         <metamodelType
+               id="MVCore_diag.diagram.EDomainClass_2003"
+               name="%metatype.name.EDomainClass_2003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="EDomainClass"
+               edithelper="MVCore.diagram.edit.helpers.EDomainClassEditHelper">
+            <param name="semanticHint" value="2003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.eclipse.org/emf/2002/Ecore">
+         <metamodelType
+               id="MVCore_diag.diagram.EPackage_2004"
+               name="%metatype.name.EPackage_2004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="EPackage"
+               edithelper="MVCore.diagram.edit.helpers.EPackageEditHelper">
+            <param name="semanticHint" value="2004"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="org.friark">
+         <metamodelType
+               id="MVCore_diag.diagram.EAction_3002"
+               name="%metatype.name.EAction_3002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="EAction"
+               edithelper="MVCore.diagram.edit.helpers.EActionEditHelper">
+            <param name="semanticHint" value="3002"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="org.friark">
+         <metamodelType
+               id="MVCore_diag.diagram.EMVCAttribute_3005"
+               name="%metatype.name.EMVCAttribute_3005"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="EMVCAttribute"
+               edithelper="MVCore.diagram.edit.helpers.EMVCAttributeEditHelper">
+            <param name="semanticHint" value="3005"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.eclipse.org/emf/2002/Ecore">
+         <metamodelType
+               id="MVCore_diag.diagram.EClass_3006"
+               name="%metatype.name.EClass_3006"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="EClass"
+               edithelper="MVCore.diagram.edit.helpers.EClassEditHelper">
+            <param name="semanticHint" value="3006"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.eclipse.org/emf/2002/Ecore">
+         <specializationType
+               id="MVCore_diag.diagram.EPackage_3007"
+               name="%metatype.name.EPackage_3007"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="MVCore_diag.diagram.EPackage_2004"/>
+            <param name="semanticHint" value="3007"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://www.eclipse.org/emf/2002/Ecore">
+         <specializationType
+               id="MVCore_diag.diagram.EAnnotationReferences_4002"
+               name="%metatype.name.EAnnotationReferences_4002"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4002"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://www.eclipse.org/emf/2002/Ecore">
+         <metamodelType
+               id="MVCore_diag.diagram.EReference_4001"
+               name="%metatype.name.EReference_4001"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="EReference"
+               edithelper="MVCore.diagram.edit.helpers.EReferenceEditHelper">
+            <param name="semanticHint" value="4001"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://www.eclipse.org/emf/2002/Ecore">
+         <specializationType
+               id="MVCore_diag.diagram.EReference_4003"
+               name="%metatype.name.EReference_4003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="MVCore_diag.diagram.EReference_4001"/>
+            <param name="semanticHint" value="4003"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://www.eclipse.org/emf/2002/Ecore">
+         <specializationType
+               id="MVCore_diag.diagram.EClassESuperTypes_4004"
+               name="%metatype.name.EClassESuperTypes_4004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="4004"/>
+         </specializationType>
+      </metamodel>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
+      <?gmfgen generated="true"?>
+      <clientContext id="MVCore_diag.diagram.TypeContext">
+         <enablement>
+            <test
+               property="org.eclipse.gmf.runtime.emf.core.editingDomain"
+               value="MVCore_diag.diagram.EditingDomain"/>
+         </enablement>
+      </clientContext> 
+      <binding context="MVCore_diag.diagram.TypeContext">
+         <elementType ref="MVCore_diag.diagram.EMVCPackage_1000"/>
+         <elementType ref="MVCore_diag.diagram.EControllerClass_2001"/>
+         <elementType ref="MVCore_diag.diagram.EDomainClass_2003"/>
+         <elementType ref="MVCore_diag.diagram.EPackage_2004"/>
+         <elementType ref="MVCore_diag.diagram.EAction_3002"/>
+         <elementType ref="MVCore_diag.diagram.EMVCAttribute_3005"/>
+         <elementType ref="MVCore_diag.diagram.EClass_3006"/>
+         <elementType ref="MVCore_diag.diagram.EPackage_3007"/>
+         <elementType ref="MVCore_diag.diagram.EAnnotationReferences_4002"/>
+         <elementType ref="MVCore_diag.diagram.EReference_4001"/>
+         <elementType ref="MVCore_diag.diagram.EReference_4003"/>
+         <elementType ref="MVCore_diag.diagram.EClassESuperTypes_4004"/>
+         <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
+      </binding>
+   </extension>
+	   <extension point="org.eclipse.core.expressions.propertyTesters" id="navigator-proptest.isURIEditorInput">
+      <?gmfgen generated="true"?>
+       <propertyTester
+           id="MVCore_diag.diagram.URIEditorInputPropertyTester"
+           type="org.eclipse.emf.common.ui.URIEditorInput"
+           namespace="MVCore_diag.diagram"
+           properties="isURIEditorInput"
+           class="MVCore.diagram.part.MVCoreUriEditorInputTester">
+       </propertyTester>
+   </extension>
+
+	   <extension point="org.eclipse.ui.navigator.viewer" id="navigator-viewbinding">
+      <?gmfgen generated="true"?>
+      <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <contentExtension pattern="MVCore_diag.diagram.resourceContent"/>
+			<contentExtension pattern="MVCore_diag.diagram.domainResourceContent"/>
+            <contentExtension pattern="MVCore_diag.diagram.navigatorLinkHelper"/>
+         </includes>
+      </viewerContentBinding>
+      <viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         <includes>
+            <actionExtension pattern="MVCore_diag.diagram.navigatorActionProvider"/>
+         </includes>
+      </viewerActionBinding>
+   </extension>
+
+   <extension point="org.eclipse.ui.navigator.navigatorContent" id="navigator-content">
+      <?gmfgen generated="true"?>
+      <navigatorContent
+            id="MVCore_diag.diagram.resourceContent" 
+            name="%navigatorContentName" 
+            priority="normal" 
+            contentProvider="MVCore.diagram.navigator.MVCoreNavigatorContentProvider" 
+            labelProvider="MVCore.diagram.navigator.MVCoreNavigatorLabelProvider"
+            icon="icons/obj16/MVCoreDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="mvcore_diagram"/>
+               </and>
+               <instanceof value="MVCore.diagram.navigator.MVCoreAbstractNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <or>
+         	   <instanceof value="MVCore.diagram.navigator.MVCoreAbstractNavigatorItem"/>
+            </or>
+         </possibleChildren>
+         <commonSorter 
+               id="MVCore_diag.diagram.navigatorSorter" 
+               class="MVCore.diagram.navigator.MVCoreNavigatorSorter">
+            <parentExpression>
+               <or>
+	              <and>
+    	             <instanceof value="org.eclipse.core.resources.IFile"/>
+        	         <test property="org.eclipse.core.resources.extension" value="mvcore_diagram"/>
+                  </and>
+                  <instanceof value="MVCore.diagram.navigator.MVCoreAbstractNavigatorItem"/>
+               </or>
+            </parentExpression>
+         </commonSorter>
+      </navigatorContent>
+      <navigatorContent
+            id="MVCore_diag.diagram.domainResourceContent" 
+            name="%domainNavigatorContentName" 
+            priority="normal" 
+            contentProvider="MVCore.diagram.navigator.MVCoreDomainNavigatorContentProvider" 
+            labelProvider="MVCore.diagram.navigator.MVCoreDomainNavigatorLabelProvider"
+            icon="icons/obj16/MVCoreDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="mvcore"/>
+               </and>
+               <instanceof value="MVCore.diagram.navigator.MVCoreDomainNavigatorItem"/>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <instanceof value="MVCore.diagram.navigator.MVCoreDomainNavigatorItem"/>
+         </possibleChildren>
+      </navigatorContent>
+      <actionProvider
+            id="MVCore_diag.diagram.navigatorActionProvider"
+            class="MVCore.diagram.navigator.MVCoreNavigatorActionProvider">
+         <enablement>
+            <or>
+               <instanceof value="MVCore.diagram.navigator.MVCoreAbstractNavigatorItem"/>
+            </or>
+         </enablement>
+      </actionProvider>
+   </extension>
+   
+	   <extension point="org.eclipse.ui.navigator.linkHelper" id="navigator-linkhelper">
+      <?gmfgen generated="true"?>
+      <linkHelper
+            id="MVCore_diag.diagram.navigatorLinkHelper"
+            class="MVCore.diagram.navigator.MVCoreNavigatorLinkHelper">
+         <editorInputEnablement>
+            <and>
+               <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
+               <test property="MVCore_diag.diagram.isURIEditorInput"/>
+            </and>
+         </editorInputEnablement>
+         <selectionEnablement>
+            <instanceof value="MVCore.diagram.navigator.MVCoreAbstractNavigatorItem"/>
+         </selectionEnablement>
+      </linkHelper>
+   </extension>
+   <extension point="org.eclipse.ui.commands" id="update-cmd">
+      <?gmfgen generated="true"?>
+      <command
+         categoryId="org.eclipse.ui.category.edit"
+         defaultHandler="MVCore.diagram.part.MVCoreDiagramUpdateCommand"
+         description="%update.diagram.description"
+         id="MVCore.diagram.updateDiagram"
+         name="%update.diagram.name"/>
+   </extension>
+   
+   <extension point="org.eclipse.ui.bindings" id="update-cmd-binding">
+      <?gmfgen generated="true"?>
+      <key 
+         commandId="MVCore.diagram.updateDiagram"
+         contextId="MVCore.diagram.ui.diagramContext"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+         sequence="F5"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.menus" id="context-menus">
+      <?gmfgen generated="true"?>
+      <!-- menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=">
+      </menuContribution>
+      <menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=">
+      </menuContribution -->
+      <menuContribution locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu">
+         <command commandId="MVCore_diag.diagram.LoadResourceAction">
+            <visibleWhen>
+               <and>
+                  <with variable="activePartId"><equals value="MVCore.diagram.part.MVCoreDiagramEditorID"/></with>
+                  <with variable="selection"><iterate ifEmpty="false"> 
+                     <instanceof value="MVCore.diagram.edit.parts.EMVCPackageEditPart"/>
+                  </iterate></with>
+               </and>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands" id="menu-commands">
+      <?gmfgen generated="true"?>
+      <category id="MVCore.diagram.part.MVCoreDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
+      <command id="MVCore_diag.diagram.LoadResourceAction"
+         name="Load Resource"
+         categoryId="MVCore.diagram.part.MVCoreDiagramEditorID"
+         defaultHandler="MVCore.diagram.part.LoadResourceAction"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.handlers" id="menu-handlers">
+      <?gmfgen generated="true"?>
+   </extension>
+
+   <!-- optionally, specify keybindings -->
+</plugin>

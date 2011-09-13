@@ -10,4 +10,13 @@ public interface Generator {
 	 * @param projectName The name of the project that contains the mvcore model. This is used to find the project level configuration to where the generated files should be placed.
 	 */
 	public void generate(Resource resource, String projectName);
+	
+	/**
+	 * Returns the name of the generator that is shown in the command menu.
+	 * 
+	 * @return the name of the generator that is shown in the command menu.
+	 */
+	public String getName();
+	
+	
 }

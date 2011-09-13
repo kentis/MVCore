@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="MVCore"
-    nsURI="org.friark" nsPrefix="MVCore">
+    nsURI="http://mvcore.org/mvcore" nsPrefix="MVCore">
   <eClassifiers xsi:type="ecore:EClass" name="Domain" eSuperTypes="#//MVCoreClass">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Searchable" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
         defaultValueLiteral="false"/>
@@ -13,6 +13,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="references" upperBound="-1"
         eType="#//Reference" containment="true" eOpposite="#//Reference/src"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="super" unique="false" eType="#//Domain"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" eType="#//Constraint"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Controller" eSuperTypes="#//MVCoreClass">
     <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
@@ -45,6 +47,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="many" unique="false" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="unique" unique="false"
         eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" eType="#//Constraint"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MVCoreClass">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -63,5 +67,8 @@
         eType="#//Domain" eOpposite="#//Domain/references"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="unique" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"
         defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
+        eType="#//Constraint" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Constraint"/>
 </ecore:EPackage>

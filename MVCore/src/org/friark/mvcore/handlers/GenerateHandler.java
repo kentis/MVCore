@@ -54,7 +54,7 @@ public class GenerateHandler extends AbstractHandler{
 					System.out.println("obj2: "+obj2);
 				}
 			}
-			org.friark.mvcore.generators.Generator generator = new GrailsGenerator();
+			org.friark.mvcore.generators.Generator generator = new GrailsGeneratorFacade();
 			generator.generate(res, projectName);
 		 	
 		}catch(Throwable t){
@@ -64,7 +64,8 @@ public class GenerateHandler extends AbstractHandler{
 			MessageDialog.openInformation(
 					window.getShell(),
 					"MVCore Plug-in",
-					"Generation failed: "+t.getMessage());
+					"Generation failed: "+t.getMessage()+"\n\n" +
+							sw.toString());
 			return null;
 		}
 		MessageDialog.openInformation(

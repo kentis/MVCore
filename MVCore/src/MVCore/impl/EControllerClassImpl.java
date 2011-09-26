@@ -6,19 +6,12 @@
  */
 package MVCore.impl;
 
-import MVCore.EAction;
 import MVCore.EControllerClass;
 import MVCore.MVCorePackage;
-
-import java.util.Collection;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.EClassImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->

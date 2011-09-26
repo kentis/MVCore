@@ -44,6 +44,10 @@
             categoryId="mvcore.commands.category"
             id="mvcore.crudCommand">
       </command>
+      <command
+            id="MVCore.generateCommand"
+            name="generate2">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
@@ -54,6 +58,10 @@
       <handler
             commandId="mvcore.crudCommand"
             class="org.friark.mvcore.handlers.AddCrudHandler">
+      </handler>
+      <handler
+            class="org.friark.mvcore.handlers.GenerateHandler2"
+            commandId="MVCore.generateCommand">
       </handler>
    </extension>
    
@@ -90,6 +98,11 @@
             </visibleWhen>
                   
             </command>
+           <command
+                 commandId="MVCore.generateCommand"
+                 label="generate2"
+                 mnemonic="g">
+           </command>
             
          </menu>
       </menuContribution>

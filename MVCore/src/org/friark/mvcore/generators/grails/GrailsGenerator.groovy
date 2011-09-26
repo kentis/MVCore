@@ -14,8 +14,11 @@ import org.friark.mvcore.generators.*;
 import groovy.text.SimpleTemplateEngine;
 
 class GrailsGenerator implements Generator{
+	Class builderClass
 	
 	void generate(Resource resource, String projectName){
+		this.builderClass = GrailsGeneratorFacade.builderClass
+		println "GENERATING!!!!!!!!!!!!"
 		IProject project = org.eclipse.core.resources.ResourcesPlugin.getWorkspace().getRoot().getProject(projectName)
 		resource.getContents().each{
 			handlePackage(it, "", project);
@@ -45,7 +48,7 @@ class GrailsGenerator implements Generator{
 		 
 		def engine = new SimpleTemplateEngine()
 		def template = engine.createTemplate(defaultTemplate).make([klass: klass, packageName: packageName])
-		 
+		println "template: $template"
 		def klassContent = template.toString()
 		writeKlassToFile(klassContent, klass, "controller", packageName, project)
 		 
@@ -64,6 +67,8 @@ class GrailsGenerator implements Generator{
 		
 		println "fileURL: ${fileURL}"
 		InputStream is = fileURL.openStream();
+		println is.getText()
+		is = fileURL.openStream();
 		return is.getText()
 	}
 	void handleEDomainClass(EDomainClass klass, String packageName, project){
@@ -75,7 +80,10 @@ class GrailsGenerator implements Generator{
 		//println "EDomain class: ${klass.name}"
 		//Create the GormBuilder
 		StringWriter writer = new StringWriter()
-		def builder = new GormBuilder(writer)
+		Object[] argList = new Object[1];
+		argList[0] = writer
+		def builder = builderClass.newInstance(argList);
+		//def builder = new GormBuilder(writer)
 		def parent = klass.eSuperTypes.size() > 0 ? klass.eSuperTypes[0].name : null
 		def documentation = ""
 		

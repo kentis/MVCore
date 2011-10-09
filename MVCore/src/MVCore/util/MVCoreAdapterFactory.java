@@ -8,6 +8,7 @@ package MVCore.util;
 
 import MVCore.Action;
 import MVCore.Attribute;
+import MVCore.Constraint;
 import MVCore.Controller;
 import MVCore.Domain;
 import MVCore.MVCoreClass;
@@ -105,6 +106,10 @@ public class MVCoreAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseReference(Reference object) {
 				return createReferenceAdapter();
+			}
+			@Override
+			public Adapter caseConstraint(Constraint object) {
+				return createConstraintAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -221,6 +226,20 @@ public class MVCoreAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link MVCore.Constraint <em>Constraint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see MVCore.Constraint
+	 * @generated
+	 */
+	public Adapter createConstraintAdapter() {
 		return null;
 	}
 

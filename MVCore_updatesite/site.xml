@@ -1,4 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/mvcore_feature_0.5.0.jar" id="mvcore_feature" version="0.5"/>
+   <feature url="features/mvcore_feature_0.6.0.jar" id="mvcore_feature" version="0.6">
+      <category name="mvcore"/>
+   </feature>
+   <feature url="features/mvcore_feature_0.7.0.jar" id="mvcore_feature" version="0.7">
+      <category name="mvcore"/>
+   </feature>
+   <feature url="features/mvcore_feature_0.8.0.jar" id="mvcore_feature" version="0.8">
+      <category name="mvcore"/>
+   </feature>
+   <feature url="features/mvcore_feature_0.9.0.jar" id="mvcore_feature" version="0.9">
+      <category name="mvcore"/>
+   </feature>
+   <category-def name="mvcore" label="MVCore"/>
 </site>

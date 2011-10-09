@@ -2,7 +2,7 @@
 <feature
       id="mvcore_feature"
       label="MVCore-feature"
-      version="0.5">
+      version="0.9">
 
    <description url="http://www.example.com/description">
       [Enter Feature Description here.]
@@ -17,38 +17,31 @@
    </license>
 
    <plugin
-         id="MVCore.tests"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="MVCore.edit"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="0.0.4"
          unpack="false"/>
 
    <plugin
          id="MVCore.diagram"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="0.0.4"
          unpack="false"/>
 
    <plugin
          id="MVCore.editor"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="0.0.4"
          unpack="false"/>
 
    <plugin
          id="MVCore"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="0.0.6"
          unpack="false"/>
 
 </feature>

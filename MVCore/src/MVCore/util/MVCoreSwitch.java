@@ -8,6 +8,7 @@ package MVCore.util;
 
 import MVCore.Action;
 import MVCore.Attribute;
+import MVCore.Constraint;
 import MVCore.Controller;
 import MVCore.Domain;
 import MVCore.MVCoreClass;
@@ -138,6 +139,12 @@ public class MVCoreSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case MVCorePackage.CONSTRAINT: {
+				Constraint constraint = (Constraint)theEObject;
+				T result = caseConstraint(constraint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -244,6 +251,21 @@ public class MVCoreSwitch<T> {
 	 * @generated
 	 */
 	public T caseReference(Reference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Constraint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Constraint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConstraint(Constraint object) {
 		return null;
 	}
 

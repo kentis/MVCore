@@ -7,6 +7,7 @@
 package MVCore.impl;
 
 import MVCore.Attribute;
+import MVCore.Constraint;
 import MVCore.Domain;
 import MVCore.MVCorePackage;
 
@@ -40,6 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link MVCore.impl.DomainImpl#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link MVCore.impl.DomainImpl#getReferences <em>References</em>}</li>
  *   <li>{@link MVCore.impl.DomainImpl#getSuper <em>Super</em>}</li>
+ *   <li>{@link MVCore.impl.DomainImpl#getConstraints <em>Constraints</em>}</li>
  * </ul>
  * </p>
  *
@@ -115,6 +117,16 @@ public class DomainImpl extends MVCoreClassImpl implements Domain {
 	 * @ordered
 	 */
 	protected Domain super_;
+
+	/**
+	 * The cached value of the '{@link #getConstraints() <em>Constraints</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConstraints()
+	 * @generated
+	 * @ordered
+	 */
+	protected Constraint constraints;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -244,6 +256,49 @@ public class DomainImpl extends MVCoreClassImpl implements Domain {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Constraint getConstraints() {
+		return constraints;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetConstraints(Constraint newConstraints, NotificationChain msgs) {
+		Constraint oldConstraints = constraints;
+		constraints = newConstraints;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MVCorePackage.DOMAIN__CONSTRAINTS, oldConstraints, newConstraints);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConstraints(Constraint newConstraints) {
+		if (newConstraints != constraints) {
+			NotificationChain msgs = null;
+			if (constraints != null)
+				msgs = ((InternalEObject)constraints).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MVCorePackage.DOMAIN__CONSTRAINTS, null, msgs);
+			if (newConstraints != null)
+				msgs = ((InternalEObject)newConstraints).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MVCorePackage.DOMAIN__CONSTRAINTS, null, msgs);
+			msgs = basicSetConstraints(newConstraints, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MVCorePackage.DOMAIN__CONSTRAINTS, newConstraints, newConstraints));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -268,6 +323,8 @@ public class DomainImpl extends MVCoreClassImpl implements Domain {
 				return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
 			case MVCorePackage.DOMAIN__REFERENCES:
 				return ((InternalEList<?>)getReferences()).basicRemove(otherEnd, msgs);
+			case MVCorePackage.DOMAIN__CONSTRAINTS:
+				return basicSetConstraints(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -291,6 +348,8 @@ public class DomainImpl extends MVCoreClassImpl implements Domain {
 			case MVCorePackage.DOMAIN__SUPER:
 				if (resolve) return getSuper();
 				return basicGetSuper();
+			case MVCorePackage.DOMAIN__CONSTRAINTS:
+				return getConstraints();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -321,6 +380,9 @@ public class DomainImpl extends MVCoreClassImpl implements Domain {
 			case MVCorePackage.DOMAIN__SUPER:
 				setSuper((Domain)newValue);
 				return;
+			case MVCorePackage.DOMAIN__CONSTRAINTS:
+				setConstraints((Constraint)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -348,6 +410,9 @@ public class DomainImpl extends MVCoreClassImpl implements Domain {
 			case MVCorePackage.DOMAIN__SUPER:
 				setSuper((Domain)null);
 				return;
+			case MVCorePackage.DOMAIN__CONSTRAINTS:
+				setConstraints((Constraint)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -370,6 +435,8 @@ public class DomainImpl extends MVCoreClassImpl implements Domain {
 				return references != null && !references.isEmpty();
 			case MVCorePackage.DOMAIN__SUPER:
 				return super_ != null;
+			case MVCorePackage.DOMAIN__CONSTRAINTS:
+				return constraints != null;
 		}
 		return super.eIsSet(featureID);
 	}

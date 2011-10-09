@@ -16,6 +16,17 @@ import groovy.text.SimpleTemplateEngine;
 
 class GrailsGenerator implements Generator{
 	
+	Class builderClass;
+	
+	public GrailsGenerator() {
+		// noop constructor
+	}
+	
+	public GrailsGenerator(Class builderClass ) {
+		this.builderClass = builderClass
+	}
+
+	
 	String getName(){
 		""
 	}
@@ -80,7 +91,10 @@ class GrailsGenerator implements Generator{
 		println "EDomain class: ${klass.name}"
 		//Create the GormBuilder
 		StringWriter writer = new StringWriter()
-		def builder = new GormBuilder(writer)
+		Object[] argList = new Object[1];
+		argList[0] = writer
+		def builder = builderClass.newInstance(argList);
+
 		def parent = klass.getSuper() == null ? null : klass.getSuper().name
 		def documentation = ""
 		

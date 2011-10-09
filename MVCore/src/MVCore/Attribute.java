@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link MVCore.Attribute#isRequired <em>Required</em>}</li>
  *   <li>{@link MVCore.Attribute#isMany <em>Many</em>}</li>
  *   <li>{@link MVCore.Attribute#isUnique <em>Unique</em>}</li>
+ *   <li>{@link MVCore.Attribute#getConstraints <em>Constraints</em>}</li>
  * </ul>
  * </p>
  *
@@ -189,5 +190,31 @@ public interface Attribute extends EObject {
 	 * @generated
 	 */
 	void setUnique(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Constraints</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Constraints</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Constraints</em>' containment reference.
+	 * @see #setConstraints(Constraint)
+	 * @see MVCore.MVCorePackage#getAttribute_Constraints()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Constraint getConstraints();
+
+	/**
+	 * Sets the value of the '{@link MVCore.Attribute#getConstraints <em>Constraints</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Constraints</em>' containment reference.
+	 * @see #getConstraints()
+	 * @generated
+	 */
+	void setConstraints(Constraint value);
 
 } // Attribute

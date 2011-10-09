@@ -21,6 +21,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link MVCore.Domain#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link MVCore.Domain#getReferences <em>References</em>}</li>
  *   <li>{@link MVCore.Domain#getSuper <em>Super</em>}</li>
+ *   <li>{@link MVCore.Domain#getConstraints <em>Constraints</em>}</li>
  * </ul>
  * </p>
  *
@@ -144,5 +145,31 @@ public interface Domain extends MVCoreClass {
 	 * @generated
 	 */
 	void setSuper(Domain value);
+
+	/**
+	 * Returns the value of the '<em><b>Constraints</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Constraints</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Constraints</em>' containment reference.
+	 * @see #setConstraints(Constraint)
+	 * @see MVCore.MVCorePackage#getDomain_Constraints()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Constraint getConstraints();
+
+	/**
+	 * Sets the value of the '{@link MVCore.Domain#getConstraints <em>Constraints</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Constraints</em>' containment reference.
+	 * @see #getConstraints()
+	 * @generated
+	 */
+	void setConstraints(Constraint value);
 
 } // Domain

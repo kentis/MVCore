@@ -237,6 +237,29 @@ public class MVCoreItemProviderAdapterFactory extends MVCoreAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link MVCore.Constraint} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConstraintItemProvider constraintItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link MVCore.Constraint}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConstraintAdapter() {
+		if (constraintItemProvider == null) {
+			constraintItemProvider = new ConstraintItemProvider(this);
+		}
+
+		return constraintItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -342,6 +365,7 @@ public class MVCoreItemProviderAdapterFactory extends MVCoreAdapterFactory imple
 		if (attributeItemProvider != null) attributeItemProvider.dispose();
 		if (mvCoreClassItemProvider != null) mvCoreClassItemProvider.dispose();
 		if (referenceItemProvider != null) referenceItemProvider.dispose();
+		if (constraintItemProvider != null) constraintItemProvider.dispose();
 	}
 
 }

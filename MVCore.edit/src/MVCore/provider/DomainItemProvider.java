@@ -233,6 +233,7 @@ public class DomainItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case MVCorePackage.DOMAIN__ATTRIBUTES:
+			case MVCorePackage.DOMAIN__CONSTRAINTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}

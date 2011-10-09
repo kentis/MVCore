@@ -54,7 +54,7 @@ public class GenerateHandler extends AbstractHandler{
 					System.out.println("obj2: "+obj2);
 				}
 			}
-			org.friark.mvcore.generators.Generator generator = new GrailsGenerator();
+			org.friark.mvcore.generators.Generator generator = new GrailsGeneratorFacade();
 			generator.generate(res, projectName);
 		 	
 		}catch(Throwable t){

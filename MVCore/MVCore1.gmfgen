@@ -22,10 +22,9 @@
         href="MVCore.genmodel#//MVCore/Package"/>
     <childNodes
         xsi:type="gmfgen:GenChildLabelNode"
-        visualID="3001"
+        visualID="3005"
         editPartClassName="ActionEditPart"
         itemSemanticEditPolicyClassName="ActionItemSemanticEditPolicy"
-        notationViewFactoryClassName="ActionViewFactory"
         canonicalEditPolicyClassName="ActionCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="ActionGraphicalNodeEditPolicy"
         createCommandClassName="ActionCreateCommand"
@@ -58,10 +57,9 @@
     </childNodes>
     <childNodes
         xsi:type="gmfgen:GenChildLabelNode"
-        visualID="3002"
+        visualID="3006"
         editPartClassName="AttributeEditPart"
         itemSemanticEditPolicyClassName="AttributeItemSemanticEditPolicy"
-        notationViewFactoryClassName="AttributeViewFactory"
         canonicalEditPolicyClassName="AttributeCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="AttributeGraphicalNodeEditPolicy"
         createCommandClassName="AttributeCreateCommand"
@@ -94,10 +92,9 @@
     </childNodes>
     <childNodes
         xsi:type="gmfgen:GenChildLabelNode"
-        visualID="3003"
+        visualID="3007"
         editPartClassName="MVCoreClassEditPart"
         itemSemanticEditPolicyClassName="MVCoreClassItemSemanticEditPolicy"
-        notationViewFactoryClassName="MVCoreClassViewFactory"
         canonicalEditPolicyClassName="MVCoreClassCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="MVCoreClassGraphicalNodeEditPolicy"
         createCommandClassName="MVCoreClassCreateCommand"
@@ -130,10 +127,9 @@
     </childNodes>
     <childNodes
         xsi:type="gmfgen:GenChildLabelNode"
-        visualID="3004"
+        visualID="3008"
         editPartClassName="Package3EditPart"
         itemSemanticEditPolicyClassName="Package3ItemSemanticEditPolicy"
-        notationViewFactoryClassName="PackageViewFactory"
         canonicalEditPolicyClassName="Package3CanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="Package2GraphicalNodeEditPolicy"
         createCommandClassName="Package2CreateCommand"
@@ -165,10 +161,9 @@
       </labelModelFacet>
     </childNodes>
     <topLevelNodes
-        visualID="2002"
+        visualID="2005"
         editPartClassName="ControllerEditPart"
         itemSemanticEditPolicyClassName="ControllerItemSemanticEditPolicy"
-        notationViewFactoryClassName="ControllerViewFactory"
         canonicalEditPolicyClassName="ControllerCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.0"
         graphicalNodeEditPolicyClassName="ControllerGraphicalNodeEditPolicy"
@@ -192,10 +187,9 @@
             href="MVCore.genmodel#//MVCore/Package/members"/>
       </modelFacet>
       <labels
-          visualID="5001"
+          visualID="5004"
           editPartClassName="ControllerNameEditPart"
           itemSemanticEditPolicyClassName="ControllerNameItemSemanticEditPolicy"
-          notationViewFactoryClassName="ControllerNameViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -215,10 +209,9 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="2003"
+        visualID="2006"
         editPartClassName="DomainEditPart"
         itemSemanticEditPolicyClassName="DomainItemSemanticEditPolicy"
-        notationViewFactoryClassName="DomainViewFactory"
         canonicalEditPolicyClassName="DomainCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.1"
         graphicalNodeEditPolicyClassName="DomainGraphicalNodeEditPolicy"
@@ -242,10 +235,9 @@
             href="MVCore.genmodel#//MVCore/Package/members"/>
       </modelFacet>
       <labels
-          visualID="5002"
+          visualID="5005"
           editPartClassName="DomainNameEditPart"
           itemSemanticEditPolicyClassName="DomainNameItemSemanticEditPolicy"
-          notationViewFactoryClassName="DomainNameViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -264,10 +256,9 @@
       </labels>
     </topLevelNodes>
     <topLevelNodes
-        visualID="2004"
+        visualID="2007"
         editPartClassName="Package2EditPart"
         itemSemanticEditPolicyClassName="Package2ItemSemanticEditPolicy"
-        notationViewFactoryClassName="PackageViewFactory"
         canonicalEditPolicyClassName="Package2CanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.2 //@diagram/@childNodes.3"
         graphicalNodeEditPolicyClassName="PackageGraphicalNodeEditPolicy"
@@ -291,10 +282,9 @@
             href="MVCore.genmodel#//MVCore/Package/subPackages"/>
       </modelFacet>
       <labels
-          visualID="5003"
+          visualID="5006"
           editPartClassName="PackageNameEditPart"
           itemSemanticEditPolicyClassName="PackageNameItemSemanticEditPolicy"
-          notationViewFactoryClassName="PackageNameViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -313,10 +303,9 @@
       </labels>
     </topLevelNodes>
     <links
-        visualID="4001"
+        visualID="4002"
         editPartClassName="ReferenceEditPart"
         itemSemanticEditPolicyClassName="ReferenceItemSemanticEditPolicy"
-        notationViewFactoryClassName="ReferenceViewFactory"
         createCommandClassName="ReferenceCreateCommand"
         reorientCommandClassName="ReferenceReorientCommand">
       <diagramRunTimeClass
@@ -342,10 +331,9 @@
             href="MVCore.genmodel#//MVCore/Reference/target"/>
       </modelFacet>
       <labels
-          visualID="6001"
+          visualID="6002"
           editPartClassName="ReferenceLowerBoundUpperBoundEditPart"
-          itemSemanticEditPolicyClassName="ReferenceLowerBoundUpperBoundItemSemanticEditPolicy"
-          notationViewFactoryClassName="ReferenceLowerBoundUpperBoundViewFactory">
+          itemSemanticEditPolicyClassName="ReferenceLowerBoundUpperBoundItemSemanticEditPolicy">
         <diagramRunTimeClass
             href="../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
@@ -397,13 +385,20 @@
             genNodes="//@diagram/@childNodes.1"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="MVCoreClass"
-            description="Create new MVCoreClass"/>
+            title="Package"
+            description="Create new Package"/>
+      </groups>
+      <groups
+          title="-- Mis-referenced tools --"
+          description="Mapping element referenced tools from palette other than one specified in Mapping instance">
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="Package"
-            description="Create new Package"
-            genNodes="//@diagram/@topLevelNodes.2 //@diagram/@childNodes.3"/>
+            title=""
+            genNodes="//@diagram/@topLevelNodes.2"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title=""
+            genNodes="//@diagram/@childNodes.3"/>
       </groups>
     </palette>
     <preferencePages

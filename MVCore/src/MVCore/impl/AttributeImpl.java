@@ -7,6 +7,7 @@
 package MVCore.impl;
 
 import MVCore.Attribute;
+import MVCore.Constraint;
 import MVCore.Domain;
 import MVCore.MVCorePackage;
 
@@ -36,6 +37,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link MVCore.impl.AttributeImpl#isRequired <em>Required</em>}</li>
  *   <li>{@link MVCore.impl.AttributeImpl#isMany <em>Many</em>}</li>
  *   <li>{@link MVCore.impl.AttributeImpl#isUnique <em>Unique</em>}</li>
+ *   <li>{@link MVCore.impl.AttributeImpl#getConstraints <em>Constraints</em>}</li>
  * </ul>
  * </p>
  *
@@ -116,6 +118,16 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	 * @ordered
 	 */
 	protected boolean unique = UNIQUE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getConstraints() <em>Constraints</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConstraints()
+	 * @generated
+	 * @ordered
+	 */
+	protected Constraint constraints;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -327,6 +339,49 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Constraint getConstraints() {
+		return constraints;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetConstraints(Constraint newConstraints, NotificationChain msgs) {
+		Constraint oldConstraints = constraints;
+		constraints = newConstraints;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MVCorePackage.ATTRIBUTE__CONSTRAINTS, oldConstraints, newConstraints);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConstraints(Constraint newConstraints) {
+		if (newConstraints != constraints) {
+			NotificationChain msgs = null;
+			if (constraints != null)
+				msgs = ((InternalEObject)constraints).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MVCorePackage.ATTRIBUTE__CONSTRAINTS, null, msgs);
+			if (newConstraints != null)
+				msgs = ((InternalEObject)newConstraints).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MVCorePackage.ATTRIBUTE__CONSTRAINTS, null, msgs);
+			msgs = basicSetConstraints(newConstraints, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MVCorePackage.ATTRIBUTE__CONSTRAINTS, newConstraints, newConstraints));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -348,6 +403,8 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 		switch (featureID) {
 			case MVCorePackage.ATTRIBUTE__DOMAIN:
 				return basicSetDomain(null, msgs);
+			case MVCorePackage.ATTRIBUTE__CONSTRAINTS:
+				return basicSetConstraints(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -387,6 +444,8 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 				return isMany();
 			case MVCorePackage.ATTRIBUTE__UNIQUE:
 				return isUnique();
+			case MVCorePackage.ATTRIBUTE__CONSTRAINTS:
+				return getConstraints();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -416,6 +475,9 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 				return;
 			case MVCorePackage.ATTRIBUTE__UNIQUE:
 				setUnique((Boolean)newValue);
+				return;
+			case MVCorePackage.ATTRIBUTE__CONSTRAINTS:
+				setConstraints((Constraint)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -447,6 +509,9 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 			case MVCorePackage.ATTRIBUTE__UNIQUE:
 				setUnique(UNIQUE_EDEFAULT);
 				return;
+			case MVCorePackage.ATTRIBUTE__CONSTRAINTS:
+				setConstraints((Constraint)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -471,6 +536,8 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 				return many != MANY_EDEFAULT;
 			case MVCorePackage.ATTRIBUTE__UNIQUE:
 				return unique != UNIQUE_EDEFAULT;
+			case MVCorePackage.ATTRIBUTE__CONSTRAINTS:
+				return constraints != null;
 		}
 		return super.eIsSet(featureID);
 	}

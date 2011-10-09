@@ -8,6 +8,7 @@ package MVCore.impl;
 
 import MVCore.Action;
 import MVCore.Attribute;
+import MVCore.Constraint;
 import MVCore.Controller;
 import MVCore.Domain;
 import MVCore.MVCoreClass;
@@ -44,7 +45,7 @@ public class MVCoreFactoryImpl extends EFactoryImpl implements MVCoreFactory {
 	 */
 	public static MVCoreFactory init() {
 		try {
-			MVCoreFactory theMVCoreFactory = (MVCoreFactory)EPackage.Registry.INSTANCE.getEFactory("org.friark"); 
+			MVCoreFactory theMVCoreFactory = (MVCoreFactory)EPackage.Registry.INSTANCE.getEFactory("http://mvcore.org/mvcore"); 
 			if (theMVCoreFactory != null) {
 				return theMVCoreFactory;
 			}
@@ -80,6 +81,7 @@ public class MVCoreFactoryImpl extends EFactoryImpl implements MVCoreFactory {
 			case MVCorePackage.ATTRIBUTE: return createAttribute();
 			case MVCorePackage.MV_CORE_CLASS: return createMVCoreClass();
 			case MVCorePackage.REFERENCE: return createReference();
+			case MVCorePackage.CONSTRAINT: return createConstraint();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -153,6 +155,16 @@ public class MVCoreFactoryImpl extends EFactoryImpl implements MVCoreFactory {
 	public Reference createReference() {
 		ReferenceImpl reference = new ReferenceImpl();
 		return reference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Constraint createConstraint() {
+		ConstraintImpl constraint = new ConstraintImpl();
+		return constraint;
 	}
 
 	/**

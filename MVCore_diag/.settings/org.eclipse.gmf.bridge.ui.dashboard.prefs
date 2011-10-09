@@ -1,8 +1,0 @@
-#Fri Sep 03 14:29:53 CEST 2010
-eclipse.preferences.version=1
-gmf_dashboard/domainGenerationModel=platform\:/resource/MVCore_diag/model/MVCore.genmodel
-gmf_dashboard/domainModel=platform\:/resource/MVCore_diag/model/MVCore.ecore
-gmf_dashboard/generationModel=platform\:/resource/MVCore_diag/model/MVCore.gmfgen
-gmf_dashboard/graphicalDefinitionModel=platform\:/resource/MVCore_diag/model/MVCore.gmfgraph
-gmf_dashboard/mappingModel=platform\:/resource/MVCore_diag/model/MVCore1.gmfmap
-gmf_dashboard/toolingDefinitionModel=platform\:/resource/MVCore_diag/model/MVCore.gmftool

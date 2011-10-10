@@ -122,13 +122,15 @@ public class PackageItemProvider
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(MVCorePackage.Literals.PACKAGE__SUB_PACKAGES);
 			childrenFeatures.add(MVCorePackage.Literals.PACKAGE__MEMBERS);
+			
 		}
 		return childrenFeatures;
 	}

@@ -6,6 +6,7 @@
  */
 package MVCore;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
@@ -192,29 +193,19 @@ public interface Attribute extends EObject {
 	void setUnique(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Constraints</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Constraints</b></em>' containment reference list.
+	 * The list contents are of type {@link MVCore.Constraint}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Constraints</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Constraints</em>' containment reference.
-	 * @see #setConstraints(Constraint)
+	 * @return the value of the '<em>Constraints</em>' containment reference list.
 	 * @see MVCore.MVCorePackage#getAttribute_Constraints()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Constraint getConstraints();
-
-	/**
-	 * Sets the value of the '{@link MVCore.Attribute#getConstraints <em>Constraints</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Constraints</em>' containment reference.
-	 * @see #getConstraints()
-	 * @generated
-	 */
-	void setConstraints(Constraint value);
+	EList<Constraint> getConstraints();
 
 } // Attribute

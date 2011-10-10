@@ -11,9 +11,11 @@ import MVCore.Constraint;
 import MVCore.Domain;
 import MVCore.MVCorePackage;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EDataType;
@@ -22,7 +24,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -120,14 +124,14 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	protected boolean unique = UNIQUE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getConstraints() <em>Constraints</em>}' containment reference.
+	 * The cached value of the '{@link #getConstraints() <em>Constraints</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getConstraints()
 	 * @generated
 	 * @ordered
 	 */
-	protected Constraint constraints;
+	protected EList<Constraint> constraints;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -339,42 +343,11 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Constraint getConstraints() {
+	public EList<Constraint> getConstraints() {
+		if (constraints == null) {
+			constraints = new EObjectContainmentEList<Constraint>(Constraint.class, this, MVCorePackage.ATTRIBUTE__CONSTRAINTS);
+		}
 		return constraints;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetConstraints(Constraint newConstraints, NotificationChain msgs) {
-		Constraint oldConstraints = constraints;
-		constraints = newConstraints;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MVCorePackage.ATTRIBUTE__CONSTRAINTS, oldConstraints, newConstraints);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setConstraints(Constraint newConstraints) {
-		if (newConstraints != constraints) {
-			NotificationChain msgs = null;
-			if (constraints != null)
-				msgs = ((InternalEObject)constraints).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MVCorePackage.ATTRIBUTE__CONSTRAINTS, null, msgs);
-			if (newConstraints != null)
-				msgs = ((InternalEObject)newConstraints).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MVCorePackage.ATTRIBUTE__CONSTRAINTS, null, msgs);
-			msgs = basicSetConstraints(newConstraints, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MVCorePackage.ATTRIBUTE__CONSTRAINTS, newConstraints, newConstraints));
 	}
 
 	/**
@@ -404,7 +377,7 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 			case MVCorePackage.ATTRIBUTE__DOMAIN:
 				return basicSetDomain(null, msgs);
 			case MVCorePackage.ATTRIBUTE__CONSTRAINTS:
-				return basicSetConstraints(null, msgs);
+				return ((InternalEList<?>)getConstraints()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -455,6 +428,7 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -477,7 +451,8 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 				setUnique((Boolean)newValue);
 				return;
 			case MVCorePackage.ATTRIBUTE__CONSTRAINTS:
-				setConstraints((Constraint)newValue);
+				getConstraints().clear();
+				getConstraints().addAll((Collection<? extends Constraint>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -510,7 +485,7 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 				setUnique(UNIQUE_EDEFAULT);
 				return;
 			case MVCorePackage.ATTRIBUTE__CONSTRAINTS:
-				setConstraints((Constraint)null);
+				getConstraints().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -537,7 +512,7 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 			case MVCorePackage.ATTRIBUTE__UNIQUE:
 				return unique != UNIQUE_EDEFAULT;
 			case MVCorePackage.ATTRIBUTE__CONSTRAINTS:
-				return constraints != null;
+				return constraints != null && !constraints.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

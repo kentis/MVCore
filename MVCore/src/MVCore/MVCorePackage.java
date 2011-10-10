@@ -8,6 +8,7 @@ package MVCore;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -382,7 +383,7 @@ public interface MVCorePackage extends EPackage {
 	int ATTRIBUTE__UNIQUE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Constraints</b></em>' containment reference.
+	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -494,13 +495,42 @@ public interface MVCorePackage extends EPackage {
 	int CONSTRAINT = 7;
 
 	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRAINT__VALUE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONSTRAINT__TYPE = 1;
+
+	/**
 	 * The number of structural features of the '<em>Constraint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONSTRAINT_FEATURE_COUNT = 0;
+	int CONSTRAINT_FEATURE_COUNT = 2;
+
+
+	/**
+	 * The meta object id for the '{@link MVCore.ConstraintType <em>Constraint Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see MVCore.ConstraintType
+	 * @see MVCore.impl.MVCorePackageImpl#getConstraintType()
+	 * @generated
+	 */
+	int CONSTRAINT_TYPE = 8;
 
 
 	/**
@@ -752,10 +782,10 @@ public interface MVCorePackage extends EPackage {
 	EAttribute getAttribute_Unique();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link MVCore.Attribute#getConstraints <em>Constraints</em>}'.
+	 * Returns the meta object for the containment reference list '{@link MVCore.Attribute#getConstraints <em>Constraints</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Constraints</em>'.
+	 * @return the meta object for the containment reference list '<em>Constraints</em>'.
 	 * @see MVCore.Attribute#getConstraints()
 	 * @see #getAttribute()
 	 * @generated
@@ -890,6 +920,38 @@ public interface MVCorePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getConstraint();
+
+	/**
+	 * Returns the meta object for the attribute '{@link MVCore.Constraint#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see MVCore.Constraint#getValue()
+	 * @see #getConstraint()
+	 * @generated
+	 */
+	EAttribute getConstraint_Value();
+
+	/**
+	 * Returns the meta object for the attribute '{@link MVCore.Constraint#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see MVCore.Constraint#getType()
+	 * @see #getConstraint()
+	 * @generated
+	 */
+	EAttribute getConstraint_Type();
+
+	/**
+	 * Returns the meta object for enum '{@link MVCore.ConstraintType <em>Constraint Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Constraint Type</em>'.
+	 * @see MVCore.ConstraintType
+	 * @generated
+	 */
+	EEnum getConstraintType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1108,7 +1170,7 @@ public interface MVCorePackage extends EPackage {
 		EAttribute ATTRIBUTE__UNIQUE = eINSTANCE.getAttribute_Unique();
 
 		/**
-		 * The meta object literal for the '<em><b>Constraints</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Constraints</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1216,6 +1278,32 @@ public interface MVCorePackage extends EPackage {
 		 * @generated
 		 */
 		EClass CONSTRAINT = eINSTANCE.getConstraint();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONSTRAINT__VALUE = eINSTANCE.getConstraint_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONSTRAINT__TYPE = eINSTANCE.getConstraint_Type();
+
+		/**
+		 * The meta object literal for the '{@link MVCore.ConstraintType <em>Constraint Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see MVCore.ConstraintType
+		 * @see MVCore.impl.MVCorePackageImpl#getConstraintType()
+		 * @generated
+		 */
+		EEnum CONSTRAINT_TYPE = eINSTANCE.getConstraintType();
 
 	}
 

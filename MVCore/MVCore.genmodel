@@ -6,6 +6,9 @@
     complianceLevel="6.0" copyrightFields="false" usedGenPackages="platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore">
   <foreignModel>MVCore.ecore</foreignModel>
   <genPackages prefix="MVCore" disposableProviderFactory="true" ecorePackage="MVCore.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="MVCore.ecore#//ConstraintType">
+      <genEnumLiterals ecoreEnumLiteral="MVCore.ecore#//ConstraintType/CustomCode"/>
+    </genEnums>
     <genClasses ecoreClass="MVCore.ecore#//Domain">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MVCore.ecore#//Domain/Searchable"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MVCore.ecore#//Domain/Loggable"/>
@@ -48,6 +51,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MVCore.ecore#//Reference/unique"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MVCore.ecore#//Reference/constraints"/>
     </genClasses>
-    <genClasses ecoreClass="MVCore.ecore#//Constraint"/>
+    <genClasses ecoreClass="MVCore.ecore#//Constraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MVCore.ecore#//Constraint/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MVCore.ecore#//Constraint/type"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

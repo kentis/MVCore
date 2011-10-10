@@ -7,9 +7,11 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
@@ -147,4 +149,44 @@ public class ModelElementSelectionPage extends WizardPage {
 		return true;
 	}
 
+//	class mvcorepackageProvicer implements ITreeContentProvider{
+//
+//		@Override
+//		public void dispose() {
+//			// TODO Auto-generated method stub
+//			
+//		}
+//
+//		@Override
+//		public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
+//			// TODO Auto-generated method stub
+//			
+//		}
+//
+//		@Override
+//		public Object[] getElements(Object inputElement) {
+//			// TODO Auto-generated method stub
+//			return null;
+//		}
+//
+//		@Override
+//		public Object[] getChildren(Object parentElement) {
+//			// TODO Auto-generated method stub
+//			return null;
+//		}
+//
+//		@Override
+//		public Object getParent(Object element) {
+//			// TODO Auto-generated method stub
+//			return null;
+//		}
+//
+//		@Override
+//		public boolean hasChildren(Object element) {
+//			// TODO Auto-generated method stub
+//			return false;
+//		}
+//		
+//	}
+	
 }

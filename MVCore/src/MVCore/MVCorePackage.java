@@ -172,7 +172,7 @@ public interface MVCorePackage extends EPackage {
 	int DOMAIN__SUPER = MV_CORE_CLASS_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Constraints</b></em>' containment reference.
+	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -181,13 +181,22 @@ public interface MVCorePackage extends EPackage {
 	int DOMAIN__CONSTRAINTS = MV_CORE_CLASS_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN__DOCUMENTATION = MV_CORE_CLASS_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Domain</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DOMAIN_FEATURE_COUNT = MV_CORE_CLASS_FEATURE_COUNT + 6;
+	int DOMAIN_FEATURE_COUNT = MV_CORE_CLASS_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link MVCore.impl.ControllerImpl <em>Controller</em>}' class.
@@ -264,13 +273,22 @@ public interface MVCorePackage extends EPackage {
 	int ACTION__OPERATES_ON = 1;
 
 	/**
+	 * The feature id for the '<em><b>Documentation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__DOCUMENTATION = 2;
+
+	/**
 	 * The number of structural features of the '<em>Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_FEATURE_COUNT = 2;
+	int ACTION_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link MVCore.impl.PackageImpl <em>Package</em>}' class.
@@ -310,13 +328,22 @@ public interface MVCorePackage extends EPackage {
 	int PACKAGE__SUB_PACKAGES = 2;
 
 	/**
+	 * The feature id for the '<em><b>Parent</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__PARENT = 3;
+
+	/**
 	 * The number of structural features of the '<em>Package</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_FEATURE_COUNT = 3;
+	int PACKAGE_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link MVCore.impl.AttributeImpl <em>Attribute</em>}' class.
@@ -466,22 +493,13 @@ public interface MVCorePackage extends EPackage {
 	int REFERENCE__UNIQUE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE__CONSTRAINTS = 6;
-
-	/**
 	 * The number of structural features of the '<em>Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_FEATURE_COUNT = 7;
+	int REFERENCE_FEATURE_COUNT = 6;
 
 
 	/**
@@ -523,6 +541,34 @@ public interface MVCorePackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link MVCore.impl.DocumentationImpl <em>Documentation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see MVCore.impl.DocumentationImpl
+	 * @see MVCore.impl.MVCorePackageImpl#getDocumentation()
+	 * @generated
+	 */
+	int DOCUMENTATION = 8;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENTATION__VALUE = 0;
+
+	/**
+	 * The number of structural features of the '<em>Documentation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENTATION_FEATURE_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link MVCore.ConstraintType <em>Constraint Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -530,7 +576,7 @@ public interface MVCorePackage extends EPackage {
 	 * @see MVCore.impl.MVCorePackageImpl#getConstraintType()
 	 * @generated
 	 */
-	int CONSTRAINT_TYPE = 8;
+	int CONSTRAINT_TYPE = 9;
 
 
 	/**
@@ -599,15 +645,26 @@ public interface MVCorePackage extends EPackage {
 	EReference getDomain_Super();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link MVCore.Domain#getConstraints <em>Constraints</em>}'.
+	 * Returns the meta object for the containment reference list '{@link MVCore.Domain#getConstraints <em>Constraints</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Constraints</em>'.
+	 * @return the meta object for the containment reference list '<em>Constraints</em>'.
 	 * @see MVCore.Domain#getConstraints()
 	 * @see #getDomain()
 	 * @generated
 	 */
 	EReference getDomain_Constraints();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link MVCore.Domain#getDocumentation <em>Documentation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Documentation</em>'.
+	 * @see MVCore.Domain#getDocumentation()
+	 * @see #getDomain()
+	 * @generated
+	 */
+	EReference getDomain_Documentation();
 
 	/**
 	 * Returns the meta object for class '{@link MVCore.Controller <em>Controller</em>}'.
@@ -663,6 +720,17 @@ public interface MVCorePackage extends EPackage {
 	EReference getAction_OperatesOn();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link MVCore.Action#getDocumentation <em>Documentation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Documentation</em>'.
+	 * @see MVCore.Action#getDocumentation()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EReference getAction_Documentation();
+
+	/**
 	 * Returns the meta object for class '{@link MVCore.Package <em>Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -704,6 +772,17 @@ public interface MVCorePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPackage_SubPackages();
+
+	/**
+	 * Returns the meta object for the container reference '{@link MVCore.Package#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent</em>'.
+	 * @see MVCore.Package#getParent()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EReference getPackage_Parent();
 
 	/**
 	 * Returns the meta object for class '{@link MVCore.Attribute <em>Attribute</em>}'.
@@ -901,17 +980,6 @@ public interface MVCorePackage extends EPackage {
 	EAttribute getReference_Unique();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link MVCore.Reference#getConstraints <em>Constraints</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Constraints</em>'.
-	 * @see MVCore.Reference#getConstraints()
-	 * @see #getReference()
-	 * @generated
-	 */
-	EReference getReference_Constraints();
-
-	/**
 	 * Returns the meta object for class '{@link MVCore.Constraint <em>Constraint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -942,6 +1010,27 @@ public interface MVCorePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getConstraint_Type();
+
+	/**
+	 * Returns the meta object for class '{@link MVCore.Documentation <em>Documentation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Documentation</em>'.
+	 * @see MVCore.Documentation
+	 * @generated
+	 */
+	EClass getDocumentation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link MVCore.Documentation#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see MVCore.Documentation#getValue()
+	 * @see #getDocumentation()
+	 * @generated
+	 */
+	EAttribute getDocumentation_Value();
 
 	/**
 	 * Returns the meta object for enum '{@link MVCore.ConstraintType <em>Constraint Type</em>}'.
@@ -1026,12 +1115,20 @@ public interface MVCorePackage extends EPackage {
 		EReference DOMAIN__SUPER = eINSTANCE.getDomain_Super();
 
 		/**
-		 * The meta object literal for the '<em><b>Constraints</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Constraints</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference DOMAIN__CONSTRAINTS = eINSTANCE.getDomain_Constraints();
+
+		/**
+		 * The meta object literal for the '<em><b>Documentation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOMAIN__DOCUMENTATION = eINSTANCE.getDomain_Documentation();
 
 		/**
 		 * The meta object literal for the '{@link MVCore.impl.ControllerImpl <em>Controller</em>}' class.
@@ -1078,6 +1175,14 @@ public interface MVCorePackage extends EPackage {
 		EReference ACTION__OPERATES_ON = eINSTANCE.getAction_OperatesOn();
 
 		/**
+		 * The meta object literal for the '<em><b>Documentation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTION__DOCUMENTATION = eINSTANCE.getAction_Documentation();
+
+		/**
 		 * The meta object literal for the '{@link MVCore.impl.PackageImpl <em>Package</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1110,6 +1215,14 @@ public interface MVCorePackage extends EPackage {
 		 * @generated
 		 */
 		EReference PACKAGE__SUB_PACKAGES = eINSTANCE.getPackage_SubPackages();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PACKAGE__PARENT = eINSTANCE.getPackage_Parent();
 
 		/**
 		 * The meta object literal for the '{@link MVCore.impl.AttributeImpl <em>Attribute</em>}' class.
@@ -1262,14 +1375,6 @@ public interface MVCorePackage extends EPackage {
 		EAttribute REFERENCE__UNIQUE = eINSTANCE.getReference_Unique();
 
 		/**
-		 * The meta object literal for the '<em><b>Constraints</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference REFERENCE__CONSTRAINTS = eINSTANCE.getReference_Constraints();
-
-		/**
 		 * The meta object literal for the '{@link MVCore.impl.ConstraintImpl <em>Constraint</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1294,6 +1399,24 @@ public interface MVCorePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CONSTRAINT__TYPE = eINSTANCE.getConstraint_Type();
+
+		/**
+		 * The meta object literal for the '{@link MVCore.impl.DocumentationImpl <em>Documentation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see MVCore.impl.DocumentationImpl
+		 * @see MVCore.impl.MVCorePackageImpl#getDocumentation()
+		 * @generated
+		 */
+		EClass DOCUMENTATION = eINSTANCE.getDocumentation();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOCUMENTATION__VALUE = eINSTANCE.getDocumentation_Value();
 
 		/**
 		 * The meta object literal for the '{@link MVCore.ConstraintType <em>Constraint Type</em>}' enum.

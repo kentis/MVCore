@@ -7,16 +7,23 @@
 package MVCore.impl;
 
 import MVCore.Action;
+import MVCore.Documentation;
 import MVCore.Domain;
 import MVCore.MVCorePackage;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +34,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <ul>
  *   <li>{@link MVCore.impl.ActionImpl#getName <em>Name</em>}</li>
  *   <li>{@link MVCore.impl.ActionImpl#getOperatesOn <em>Operates On</em>}</li>
+ *   <li>{@link MVCore.impl.ActionImpl#getDocumentation <em>Documentation</em>}</li>
  * </ul>
  * </p>
  *
@@ -62,6 +70,16 @@ public class ActionImpl extends EObjectImpl implements Action {
 	 * @ordered
 	 */
 	protected Domain operatesOn;
+
+	/**
+	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Documentation> documentation;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -146,6 +164,32 @@ public class ActionImpl extends EObjectImpl implements Action {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Documentation> getDocumentation() {
+		if (documentation == null) {
+			documentation = new EObjectContainmentEList<Documentation>(Documentation.class, this, MVCorePackage.ACTION__DOCUMENTATION);
+		}
+		return documentation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case MVCorePackage.ACTION__DOCUMENTATION:
+				return ((InternalEList<?>)getDocumentation()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -154,6 +198,8 @@ public class ActionImpl extends EObjectImpl implements Action {
 			case MVCorePackage.ACTION__OPERATES_ON:
 				if (resolve) return getOperatesOn();
 				return basicGetOperatesOn();
+			case MVCorePackage.ACTION__DOCUMENTATION:
+				return getDocumentation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -163,6 +209,7 @@ public class ActionImpl extends EObjectImpl implements Action {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -171,6 +218,10 @@ public class ActionImpl extends EObjectImpl implements Action {
 				return;
 			case MVCorePackage.ACTION__OPERATES_ON:
 				setOperatesOn((Domain)newValue);
+				return;
+			case MVCorePackage.ACTION__DOCUMENTATION:
+				getDocumentation().clear();
+				getDocumentation().addAll((Collection<? extends Documentation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -190,6 +241,9 @@ public class ActionImpl extends EObjectImpl implements Action {
 			case MVCorePackage.ACTION__OPERATES_ON:
 				setOperatesOn((Domain)null);
 				return;
+			case MVCorePackage.ACTION__DOCUMENTATION:
+				getDocumentation().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -206,6 +260,8 @@ public class ActionImpl extends EObjectImpl implements Action {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case MVCorePackage.ACTION__OPERATES_ON:
 				return operatesOn != null;
+			case MVCorePackage.ACTION__DOCUMENTATION:
+				return documentation != null && !documentation.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

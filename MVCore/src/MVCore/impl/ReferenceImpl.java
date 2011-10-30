@@ -38,7 +38,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link MVCore.impl.ReferenceImpl#getLowerBound <em>Lower Bound</em>}</li>
  *   <li>{@link MVCore.impl.ReferenceImpl#getSrc <em>Src</em>}</li>
  *   <li>{@link MVCore.impl.ReferenceImpl#isUnique <em>Unique</em>}</li>
- *   <li>{@link MVCore.impl.ReferenceImpl#getConstraints <em>Constraints</em>}</li>
  * </ul>
  * </p>
  *
@@ -134,16 +133,6 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 	 * @ordered
 	 */
 	protected boolean unique = UNIQUE_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getConstraints() <em>Constraints</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getConstraints()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Constraint> constraints;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -347,18 +336,6 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Constraint> getConstraints() {
-		if (constraints == null) {
-			constraints = new EObjectContainmentEList<Constraint>(Constraint.class, this, MVCorePackage.REFERENCE__CONSTRAINTS);
-		}
-		return constraints;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -380,8 +357,6 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 		switch (featureID) {
 			case MVCorePackage.REFERENCE__SRC:
 				return basicSetSrc(null, msgs);
-			case MVCorePackage.REFERENCE__CONSTRAINTS:
-				return ((InternalEList<?>)getConstraints()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -421,8 +396,6 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 				return getSrc();
 			case MVCorePackage.REFERENCE__UNIQUE:
 				return isUnique();
-			case MVCorePackage.REFERENCE__CONSTRAINTS:
-				return getConstraints();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -454,10 +427,6 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 			case MVCorePackage.REFERENCE__UNIQUE:
 				setUnique((Boolean)newValue);
 				return;
-			case MVCorePackage.REFERENCE__CONSTRAINTS:
-				getConstraints().clear();
-				getConstraints().addAll((Collection<? extends Constraint>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -488,9 +457,6 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 			case MVCorePackage.REFERENCE__UNIQUE:
 				setUnique(UNIQUE_EDEFAULT);
 				return;
-			case MVCorePackage.REFERENCE__CONSTRAINTS:
-				getConstraints().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -515,8 +481,6 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 				return getSrc() != null;
 			case MVCorePackage.REFERENCE__UNIQUE:
 				return unique != UNIQUE_EDEFAULT;
-			case MVCorePackage.REFERENCE__CONSTRAINTS:
-				return constraints != null && !constraints.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

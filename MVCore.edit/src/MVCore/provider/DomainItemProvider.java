@@ -174,6 +174,8 @@ public class DomainItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(MVCorePackage.Literals.DOMAIN__ATTRIBUTES);
 			childrenFeatures.add(MVCorePackage.Literals.DOMAIN__REFERENCES);
+			childrenFeatures.add(MVCorePackage.Literals.DOMAIN__DOCUMENTATION);
+			childrenFeatures.add(MVCorePackage.Literals.DOMAIN__CONSTRAINTS);
 		}
 		return childrenFeatures;
 	}
@@ -234,6 +236,7 @@ public class DomainItemProvider
 				return;
 			case MVCorePackage.DOMAIN__ATTRIBUTES:
 			case MVCorePackage.DOMAIN__CONSTRAINTS:
+			case MVCorePackage.DOMAIN__DOCUMENTATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -260,7 +263,22 @@ public class DomainItemProvider
 		(createChildParameter
 			(MVCorePackage.Literals.DOMAIN__REFERENCES,
 			 MVCoreFactory.eINSTANCE.createReference()));
+		
+
+		newChildDescriptors.add
+		(createChildParameter
+			(MVCorePackage.Literals.DOMAIN__DOCUMENTATION,
+			 MVCoreFactory.eINSTANCE.createDocumentation()		));
+	
+		newChildDescriptors.add
+		(createChildParameter
+			(MVCorePackage.Literals.DOMAIN__CONSTRAINTS,
+			 MVCoreFactory.eINSTANCE.createConstraint()		));
+	
+		
 	}
+	
+	
 }
 	
 	

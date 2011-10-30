@@ -35,7 +35,7 @@ class GormBuilder extends BuilderSupport {
 	
 	IndentPrinter out;
 	StringWriter writer;
-	def constaints = ""
+	def constraints = ""
 	def hasMany = [:]	
 	def mappings = ""
 	def extras = ""
@@ -70,15 +70,40 @@ class GormBuilder extends BuilderSupport {
 	}  
 	
 	protected Object createNode(Object name, Map attrs, Object value) {
-		//println "name: ${name}, attrs: ${attrs}, value: ${value}"
+		println "name: ${name}, attrs: ${attrs}, value: ${value}"
 		switch(state){
 			case CLASS:
 			if(attrs && attrs['packageName']) out.println "package ${attrs['packageName']}"
+			
+			if(value.documentation.size() > 0){
+				out.println"/**"
+				value.documentation.each{
+					out.print "${it.value}\n"
+				}
+				out.print "*/\n"
+			}
 			out.print "class ${name} "
 			
-			if(attrs && attrs['parent']) out.print "extends ${attrs['parent']}"
+			if(value.getSuper()){
+				out.print  "extends ${value.getSuper().name}"
+			}
+			//if(attrs && attrs['parent']) out.print "extends ${attrs['parent']}"
 			out.println "{"
 			out.incrementIndent()
+			
+			if(value.searchable){
+				extras += "static searchable = ${value.searchable}\n"
+			}
+			if(value.loggable){
+				extras += "static loggable = ${value.loggable}\n"
+			}
+			
+			value.constraints.each{
+				println "TYPE: ${it.type.getClass()}   -- ${it.value}"
+				if(it.type.value == 0 ) constraints += "${it.value}\n"
+				if(it.type.value == 1) extras += "${it.value}\n"
+
+			}
 			state = ATTRS
 			break
 			case ATTRS:
@@ -108,7 +133,7 @@ class GormBuilder extends BuilderSupport {
 						extras = "${extras}${attrs['value']}\n"
 						transients << "\"${attrs['value'].tokenize()[1]}\""
 					}else if(attrs['key'] == "constraint"){
-						constaints += "${attrs['value']}\n"
+						constraints += "${attrs['value']}\n"
 					}else if(attrs['key'] == "afterLoad"){
 						afterLoad += "${attrs['value']}\n"
 					}else if(attrs['key'] == "toString"){
@@ -124,18 +149,21 @@ class GormBuilder extends BuilderSupport {
 				}
 				switch(attrs['multiplicity']){
 					case "1":
-						constaints += "${name}(nullable: false)\n"
+						constraints += "${name}(nullable: false)\n"
 						break
 					case "1-M":
-						constaints += "${name}(minSize: 1)\n"
+						constraints += "${name}(minSize: 1)\n"
 						break
 					case "0-1":
 					case "0-M":
-						constaints += "${name}(nullable: true)\n"
+						constraints += "${name}(nullable: true)\n"
 						break
 				}
 				if(attrs['unique'] != null){
-					constaints += "${name}(unique: ${attrs['unique']})\n"
+					constraints += "${name}(unique: ${attrs['unique']})\n"
+				}
+				if(value.metaClass.hasProperty(value, 'constraints')) value.constraints.each{
+					constraints += "${name}(${it.value})\n"
 				}
 			}
 			break
@@ -147,7 +175,7 @@ class GormBuilder extends BuilderSupport {
 		if(!node || (!node['multiplicity']  && !node['key'] && !node['annotation'] )) {
 			out.println "static constraints = {"
 			out.incrementIndent()
-			constaints.eachLine{
+			constraints.eachLine{
 				out.println it
 			}
 			out.decrementIndent()
@@ -163,7 +191,7 @@ class GormBuilder extends BuilderSupport {
 			}
 			out.decrementIndent()
 			out.println "}"
-			
+			println "PRINTING extras: $extras"
 			extras.eachLine { 
 				out.println it
 			}

@@ -66,6 +66,7 @@ public class ActionItemProvider
 
 			addNamePropertyDescriptor(object);
 			addOperatesOnPropertyDescriptor(object);
+			addDocumentationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -106,6 +107,28 @@ public class ActionItemProvider
 				 getString("_UI_Action_operatesOn_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Action_operatesOn_feature", "_UI_Action_type"),
 				 MVCorePackage.Literals.ACTION__OPERATES_ON,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Documentation feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDocumentationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Action_documentation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Action_documentation_feature", "_UI_Action_type"),
+				 MVCorePackage.Literals.ACTION__DOCUMENTATION,
 				 true,
 				 false,
 				 true,

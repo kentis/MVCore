@@ -23,7 +23,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link MVCore.Reference#getLowerBound <em>Lower Bound</em>}</li>
  *   <li>{@link MVCore.Reference#getSrc <em>Src</em>}</li>
  *   <li>{@link MVCore.Reference#isUnique <em>Unique</em>}</li>
- *   <li>{@link MVCore.Reference#getConstraints <em>Constraints</em>}</li>
  * </ul>
  * </p>
  *
@@ -190,21 +189,5 @@ public interface Reference extends EObject {
 	 * @generated
 	 */
 	void setUnique(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Constraints</b></em>' containment reference list.
-	 * The list contents are of type {@link MVCore.Constraint}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Constraints</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Constraints</em>' containment reference list.
-	 * @see MVCore.MVCorePackage#getReference_Constraints()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Constraint> getConstraints();
 
 } // Reference

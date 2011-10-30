@@ -11,6 +11,7 @@ import MVCore.Attribute;
 import MVCore.Constraint;
 import MVCore.ConstraintType;
 import MVCore.Controller;
+import MVCore.Documentation;
 import MVCore.Domain;
 import MVCore.MVCoreClass;
 import MVCore.MVCoreFactory;
@@ -101,6 +102,13 @@ public class MVCorePackageImpl extends EPackageImpl implements MVCorePackage {
 	 * @generated
 	 */
 	private EClass constraintEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass documentationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -241,6 +249,15 @@ public class MVCorePackageImpl extends EPackageImpl implements MVCorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getDomain_Documentation() {
+		return (EReference)domainEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getController() {
 		return controllerEClass;
 	}
@@ -286,6 +303,15 @@ public class MVCorePackageImpl extends EPackageImpl implements MVCorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getAction_Documentation() {
+		return (EReference)actionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPackage() {
 		return packageEClass;
 	}
@@ -315,6 +341,15 @@ public class MVCorePackageImpl extends EPackageImpl implements MVCorePackage {
 	 */
 	public EReference getPackage_SubPackages() {
 		return (EReference)packageEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPackage_Parent() {
+		return (EReference)packageEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -484,15 +519,6 @@ public class MVCorePackageImpl extends EPackageImpl implements MVCorePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getReference_Constraints() {
-		return (EReference)referenceEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getConstraint() {
 		return constraintEClass;
 	}
@@ -513,6 +539,24 @@ public class MVCorePackageImpl extends EPackageImpl implements MVCorePackage {
 	 */
 	public EAttribute getConstraint_Type() {
 		return (EAttribute)constraintEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDocumentation() {
+		return documentationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDocumentation_Value() {
+		return (EAttribute)documentationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -559,6 +603,7 @@ public class MVCorePackageImpl extends EPackageImpl implements MVCorePackage {
 		createEReference(domainEClass, DOMAIN__REFERENCES);
 		createEReference(domainEClass, DOMAIN__SUPER);
 		createEReference(domainEClass, DOMAIN__CONSTRAINTS);
+		createEReference(domainEClass, DOMAIN__DOCUMENTATION);
 
 		controllerEClass = createEClass(CONTROLLER);
 		createEReference(controllerEClass, CONTROLLER__ACTIONS);
@@ -566,11 +611,13 @@ public class MVCorePackageImpl extends EPackageImpl implements MVCorePackage {
 		actionEClass = createEClass(ACTION);
 		createEAttribute(actionEClass, ACTION__NAME);
 		createEReference(actionEClass, ACTION__OPERATES_ON);
+		createEReference(actionEClass, ACTION__DOCUMENTATION);
 
 		packageEClass = createEClass(PACKAGE);
 		createEReference(packageEClass, PACKAGE__MEMBERS);
 		createEAttribute(packageEClass, PACKAGE__NAME);
 		createEReference(packageEClass, PACKAGE__SUB_PACKAGES);
+		createEReference(packageEClass, PACKAGE__PARENT);
 
 		attributeEClass = createEClass(ATTRIBUTE);
 		createEReference(attributeEClass, ATTRIBUTE__DOMAIN);
@@ -592,11 +639,13 @@ public class MVCorePackageImpl extends EPackageImpl implements MVCorePackage {
 		createEAttribute(referenceEClass, REFERENCE__LOWER_BOUND);
 		createEReference(referenceEClass, REFERENCE__SRC);
 		createEAttribute(referenceEClass, REFERENCE__UNIQUE);
-		createEReference(referenceEClass, REFERENCE__CONSTRAINTS);
 
 		constraintEClass = createEClass(CONSTRAINT);
 		createEAttribute(constraintEClass, CONSTRAINT__VALUE);
 		createEAttribute(constraintEClass, CONSTRAINT__TYPE);
+
+		documentationEClass = createEClass(DOCUMENTATION);
+		createEAttribute(documentationEClass, DOCUMENTATION__VALUE);
 
 		// Create enums
 		constraintTypeEEnum = createEEnum(CONSTRAINT_TYPE);
@@ -643,7 +692,8 @@ public class MVCorePackageImpl extends EPackageImpl implements MVCorePackage {
 		initEReference(getDomain_Attributes(), this.getAttribute(), this.getAttribute_Domain(), "attributes", null, 0, -1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDomain_References(), this.getReference(), this.getReference_Src(), "references", null, 0, -1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDomain_Super(), this.getDomain(), null, "super", null, 0, 1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDomain_Constraints(), this.getConstraint(), null, "constraints", null, 0, 1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDomain_Constraints(), this.getConstraint(), null, "constraints", null, 0, -1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDomain_Documentation(), this.getDocumentation(), null, "documentation", null, 0, -1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(controllerEClass, Controller.class, "Controller", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getController_Actions(), this.getAction(), null, "actions", null, 0, -1, Controller.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -651,11 +701,13 @@ public class MVCorePackageImpl extends EPackageImpl implements MVCorePackage {
 		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAction_Name(), ecorePackage.getEString(), "name", null, 1, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAction_OperatesOn(), this.getDomain(), null, "operatesOn", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAction_Documentation(), this.getDocumentation(), null, "documentation", null, 0, -1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(packageEClass, MVCore.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPackage_Members(), this.getMVCoreClass(), this.getMVCoreClass_Package(), "members", null, 0, -1, MVCore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPackage_Name(), theEcorePackage.getEString(), "name", null, 0, 1, MVCore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_SubPackages(), this.getPackage(), null, "subPackages", null, 0, -1, MVCore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_SubPackages(), this.getPackage(), this.getPackage_Parent(), "subPackages", null, 0, -1, MVCore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_Parent(), this.getPackage(), this.getPackage_SubPackages(), "parent", null, 0, 1, MVCore.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAttribute_Domain(), this.getDomain(), this.getDomain_Attributes(), "domain", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -677,15 +729,18 @@ public class MVCorePackageImpl extends EPackageImpl implements MVCorePackage {
 		initEAttribute(getReference_LowerBound(), theEcorePackage.getEInt(), "lowerBound", null, 1, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getReference_Src(), this.getDomain(), this.getDomain_References(), "src", null, 1, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getReference_Unique(), theEcorePackage.getEBoolean(), "unique", "false", 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getReference_Constraints(), this.getConstraint(), null, "constraints", null, 0, -1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(constraintEClass, Constraint.class, "Constraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConstraint_Value(), theEcorePackage.getEString(), "value", null, 0, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConstraint_Type(), this.getConstraintType(), "type", null, 0, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(documentationEClass, Documentation.class, "Documentation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDocumentation_Value(), theEcorePackage.getEString(), "value", null, 1, 1, Documentation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(constraintTypeEEnum, ConstraintType.class, "ConstraintType");
-		addEEnumLiteral(constraintTypeEEnum, ConstraintType.CUSTOM_CODE);
+		addEEnumLiteral(constraintTypeEEnum, ConstraintType.CUSTOM_CONSTRAINT);
+		addEEnumLiteral(constraintTypeEEnum, ConstraintType.CLASS_ATTRIBUTE);
 
 		// Create resource
 		createResource(eNS_URI);

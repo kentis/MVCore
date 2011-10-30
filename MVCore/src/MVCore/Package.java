@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link MVCore.Package#getMembers <em>Members</em>}</li>
  *   <li>{@link MVCore.Package#getName <em>Name</em>}</li>
  *   <li>{@link MVCore.Package#getSubPackages <em>Sub Packages</em>}</li>
+ *   <li>{@link MVCore.Package#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -76,6 +77,7 @@ public interface Package extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Sub Packages</b></em>' containment reference list.
 	 * The list contents are of type {@link MVCore.Package}.
+	 * It is bidirectional and its opposite is '{@link MVCore.Package#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sub Packages</em>' reference list isn't clear,
@@ -84,9 +86,38 @@ public interface Package extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sub Packages</em>' containment reference list.
 	 * @see MVCore.MVCorePackage#getPackage_SubPackages()
-	 * @model containment="true"
+	 * @see MVCore.Package#getParent
+	 * @model opposite="parent" containment="true"
 	 * @generated
 	 */
 	EList<Package> getSubPackages();
+
+	/**
+	 * Returns the value of the '<em><b>Parent</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link MVCore.Package#getSubPackages <em>Sub Packages</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parent</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parent</em>' container reference.
+	 * @see #setParent(Package)
+	 * @see MVCore.MVCorePackage#getPackage_Parent()
+	 * @see MVCore.Package#getSubPackages
+	 * @model opposite="subPackages" transient="false"
+	 * @generated
+	 */
+	Package getParent();
+
+	/**
+	 * Sets the value of the '{@link MVCore.Package#getParent <em>Parent</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parent</em>' container reference.
+	 * @see #getParent()
+	 * @generated
+	 */
+	void setParent(Package value);
 
 } // Package

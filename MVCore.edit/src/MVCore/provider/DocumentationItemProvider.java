@@ -7,8 +7,7 @@
 package MVCore.provider;
 
 
-import MVCore.MVCoreClass;
-import MVCore.MVCoreFactory;
+import MVCore.Documentation;
 import MVCore.MVCorePackage;
 
 import java.util.Collection;
@@ -19,7 +18,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -32,12 +30,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link MVCore.MVCoreClass} object.
+ * This is the item provider adapter for a {@link MVCore.Documentation} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class MVCoreClassItemProvider
+public class DocumentationItemProvider
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -51,7 +49,7 @@ public class MVCoreClassItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MVCoreClassItemProvider(AdapterFactory adapterFactory) {
+	public DocumentationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -66,25 +64,25 @@ public class MVCoreClassItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
+			addValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MVCoreClass_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MVCoreClass_name_feature", "_UI_MVCoreClass_type"),
-				 MVCorePackage.Literals.MV_CORE_CLASS__NAME,
+				 getString("_UI_Documentation_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Documentation_value_feature", "_UI_Documentation_type"),
+				 MVCorePackage.Literals.DOCUMENTATION__VALUE,
 				 true,
 				 false,
 				 false,
@@ -94,14 +92,14 @@ public class MVCoreClassItemProvider
 	}
 
 	/**
-	 * This returns MVCoreClass.gif.
+	 * This returns Documentation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/MVCoreClass"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Documentation"));
 	}
 
 	/**
@@ -112,10 +110,10 @@ public class MVCoreClassItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((MVCoreClass)object).getName();
+		String label = ((Documentation)object).getValue();
 		return label == null || label.length() == 0 ?
-			getString("_UI_MVCoreClass_type") :
-			getString("_UI_MVCoreClass_type") + " " + label;
+			getString("_UI_Documentation_type") :
+			getString("_UI_Documentation_type") + " " + label;
 	}
 
 	/**
@@ -129,8 +127,8 @@ public class MVCoreClassItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(MVCoreClass.class)) {
-			case MVCorePackage.MV_CORE_CLASS__NAME:
+		switch (notification.getFeatureID(Documentation.class)) {
+			case MVCorePackage.DOCUMENTATION__VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

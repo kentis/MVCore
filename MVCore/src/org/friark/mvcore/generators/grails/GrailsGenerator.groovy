@@ -1,5 +1,6 @@
 package org.friark.mvcore.generators.grails;
 
+import MVCore.Attribute;
 import MVCore.Controller;
 import MVCore.Domain;
 import MVCore.Package;
@@ -19,7 +20,7 @@ class GrailsGenerator implements Generator{
 	Class builderClass;
 	
 	public GrailsGenerator() {
-		// noop constructor
+		builderClass = GormBuilder.class;
 	}
 	
 	public GrailsGenerator(Class builderClass ) {
@@ -99,7 +100,8 @@ class GrailsGenerator implements Generator{
 		def documentation = ""
 		
 		//Build the class
-		builder."${klass.name}"(parent: parent, packageName: packageName){
+		builder."${klass.name}"(parent: parent, packageName: packageName, klass){
+			println "eContents: ${klass.eContents()}"
 			klass.eContents().each {
 				switch(it.getClass().name){
 					case "org.eclipse.emf.ecore.impl.EAnnotationImpl":
@@ -110,11 +112,13 @@ class GrailsGenerator implements Generator{
 						}
 						break
 					case "org.eclipse.emf.ecore.impl.EGenericTypeImpl":
+					case "MVCore.impl.ConstraintImpl":
+					case "MVCore.impl.DocumentationImpl":
 					//TODO: these will have to be handled at some point
 						break
 					case "MVCore.impl.ReferenceImpl":
 						def mul = findMultiplicity(it)
-						"${it.name}"(type: translateType(it.target.name) ,multiplicity: mul, unique: it.isUnique())
+						"${it.name}"(type: translateType(it.target.name) ,multiplicity: mul, unique: it.isUnique(),it)
 						break
 					
 						break
@@ -125,7 +129,7 @@ class GrailsGenerator implements Generator{
 						println it.name
 						println it.type
 
-						"${it.name}"(type: translateType(it.type.name) ,multiplicity: mul, unique: it.isUnique())
+						"${it.name}"(type: translateType(it.type.name) ,multiplicity: mul, unique: it.isUnique(),it)
 						break
 				}//end switch
 			} //end klass.eContents
@@ -182,6 +186,7 @@ class GrailsGenerator implements Generator{
 	 * @return A String deswcribing its multiplicity. One of "1", "1-M", "0-M", "0-1".
 	 */
 	String findMultiplicity(def obj){
+		if(obj instanceof Attribute){
 		def mul = "1"
 		if(obj.isRequired()){
 			if(obj.isMany()) {
@@ -197,6 +202,24 @@ class GrailsGenerator implements Generator{
 			}
 		}
 		return mul
+		}
+		else {
+			def mul = "1"
+			if(obj.lowerBound > 0){
+				if(obj.upperBound == -1) {
+					mul = "1-M"
+				} else {
+					mul = "1"
+				}
+			} else {
+				if(obj.upperBound == -1) {
+					mul = "0-M"
+				} else {
+					mul = "0-1"
+				}
+			}
+			return mul
+		}
 	}
 	
 	/**

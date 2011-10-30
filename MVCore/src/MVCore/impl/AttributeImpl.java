@@ -8,6 +8,7 @@ package MVCore.impl;
 
 import MVCore.Attribute;
 import MVCore.Constraint;
+import MVCore.Documentation;
 import MVCore.Domain;
 import MVCore.MVCorePackage;
 
@@ -25,6 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 

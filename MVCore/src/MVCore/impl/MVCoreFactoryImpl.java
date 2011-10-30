@@ -11,6 +11,7 @@ import MVCore.Attribute;
 import MVCore.Constraint;
 import MVCore.ConstraintType;
 import MVCore.Controller;
+import MVCore.Documentation;
 import MVCore.Domain;
 import MVCore.MVCoreClass;
 import MVCore.MVCoreFactory;
@@ -83,6 +84,7 @@ public class MVCoreFactoryImpl extends EFactoryImpl implements MVCoreFactory {
 			case MVCorePackage.MV_CORE_CLASS: return createMVCoreClass();
 			case MVCorePackage.REFERENCE: return createReference();
 			case MVCorePackage.CONSTRAINT: return createConstraint();
+			case MVCorePackage.DOCUMENTATION: return createDocumentation();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -196,6 +198,16 @@ public class MVCoreFactoryImpl extends EFactoryImpl implements MVCoreFactory {
 	public Constraint createConstraint() {
 		ConstraintImpl constraint = new ConstraintImpl();
 		return constraint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Documentation createDocumentation() {
+		DocumentationImpl documentation = new DocumentationImpl();
+		return documentation;
 	}
 
 	/**

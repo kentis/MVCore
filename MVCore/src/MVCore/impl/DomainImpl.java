@@ -8,6 +8,7 @@ package MVCore.impl;
 
 import MVCore.Attribute;
 import MVCore.Constraint;
+import MVCore.Documentation;
 import MVCore.Domain;
 import MVCore.MVCorePackage;
 
@@ -42,6 +43,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link MVCore.impl.DomainImpl#getReferences <em>References</em>}</li>
  *   <li>{@link MVCore.impl.DomainImpl#getSuper <em>Super</em>}</li>
  *   <li>{@link MVCore.impl.DomainImpl#getConstraints <em>Constraints</em>}</li>
+ *   <li>{@link MVCore.impl.DomainImpl#getDocumentation <em>Documentation</em>}</li>
  * </ul>
  * </p>
  *
@@ -119,14 +121,24 @@ public class DomainImpl extends MVCoreClassImpl implements Domain {
 	protected Domain super_;
 
 	/**
-	 * The cached value of the '{@link #getConstraints() <em>Constraints</em>}' containment reference.
+	 * The cached value of the '{@link #getConstraints() <em>Constraints</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getConstraints()
 	 * @generated
 	 * @ordered
 	 */
-	protected Constraint constraints;
+	protected EList<Constraint> constraints;
+
+	/**
+	 * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDocumentation()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Documentation> documentation;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -256,7 +268,10 @@ public class DomainImpl extends MVCoreClassImpl implements Domain {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Constraint getConstraints() {
+	public EList<Constraint> getConstraints() {
+		if (constraints == null) {
+			constraints = new EObjectContainmentEList<Constraint>(Constraint.class, this, MVCorePackage.DOMAIN__CONSTRAINTS);
+		}
 		return constraints;
 	}
 
@@ -265,33 +280,11 @@ public class DomainImpl extends MVCoreClassImpl implements Domain {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetConstraints(Constraint newConstraints, NotificationChain msgs) {
-		Constraint oldConstraints = constraints;
-		constraints = newConstraints;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MVCorePackage.DOMAIN__CONSTRAINTS, oldConstraints, newConstraints);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<Documentation> getDocumentation() {
+		if (documentation == null) {
+			documentation = new EObjectContainmentEList<Documentation>(Documentation.class, this, MVCorePackage.DOMAIN__DOCUMENTATION);
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setConstraints(Constraint newConstraints) {
-		if (newConstraints != constraints) {
-			NotificationChain msgs = null;
-			if (constraints != null)
-				msgs = ((InternalEObject)constraints).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MVCorePackage.DOMAIN__CONSTRAINTS, null, msgs);
-			if (newConstraints != null)
-				msgs = ((InternalEObject)newConstraints).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MVCorePackage.DOMAIN__CONSTRAINTS, null, msgs);
-			msgs = basicSetConstraints(newConstraints, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MVCorePackage.DOMAIN__CONSTRAINTS, newConstraints, newConstraints));
+		return documentation;
 	}
 
 	/**
@@ -324,7 +317,9 @@ public class DomainImpl extends MVCoreClassImpl implements Domain {
 			case MVCorePackage.DOMAIN__REFERENCES:
 				return ((InternalEList<?>)getReferences()).basicRemove(otherEnd, msgs);
 			case MVCorePackage.DOMAIN__CONSTRAINTS:
-				return basicSetConstraints(null, msgs);
+				return ((InternalEList<?>)getConstraints()).basicRemove(otherEnd, msgs);
+			case MVCorePackage.DOMAIN__DOCUMENTATION:
+				return ((InternalEList<?>)getDocumentation()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -350,6 +345,8 @@ public class DomainImpl extends MVCoreClassImpl implements Domain {
 				return basicGetSuper();
 			case MVCorePackage.DOMAIN__CONSTRAINTS:
 				return getConstraints();
+			case MVCorePackage.DOMAIN__DOCUMENTATION:
+				return getDocumentation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -381,7 +378,12 @@ public class DomainImpl extends MVCoreClassImpl implements Domain {
 				setSuper((Domain)newValue);
 				return;
 			case MVCorePackage.DOMAIN__CONSTRAINTS:
-				setConstraints((Constraint)newValue);
+				getConstraints().clear();
+				getConstraints().addAll((Collection<? extends Constraint>)newValue);
+				return;
+			case MVCorePackage.DOMAIN__DOCUMENTATION:
+				getDocumentation().clear();
+				getDocumentation().addAll((Collection<? extends Documentation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -411,7 +413,10 @@ public class DomainImpl extends MVCoreClassImpl implements Domain {
 				setSuper((Domain)null);
 				return;
 			case MVCorePackage.DOMAIN__CONSTRAINTS:
-				setConstraints((Constraint)null);
+				getConstraints().clear();
+				return;
+			case MVCorePackage.DOMAIN__DOCUMENTATION:
+				getDocumentation().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -436,7 +441,9 @@ public class DomainImpl extends MVCoreClassImpl implements Domain {
 			case MVCorePackage.DOMAIN__SUPER:
 				return super_ != null;
 			case MVCorePackage.DOMAIN__CONSTRAINTS:
-				return constraints != null;
+				return constraints != null && !constraints.isEmpty();
+			case MVCorePackage.DOMAIN__DOCUMENTATION:
+				return documentation != null && !documentation.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

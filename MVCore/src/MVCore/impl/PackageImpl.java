@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -38,6 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link MVCore.impl.PackageImpl#getMembers <em>Members</em>}</li>
  *   <li>{@link MVCore.impl.PackageImpl#getName <em>Name</em>}</li>
  *   <li>{@link MVCore.impl.PackageImpl#getSubPackages <em>Sub Packages</em>}</li>
+ *   <li>{@link MVCore.impl.PackageImpl#getParent <em>Parent</em>}</li>
  * </ul>
  * </p>
  *
@@ -126,6 +128,17 @@ public class PackageImpl extends EObjectImpl implements MVCore.Package {
 	}
 
 	/**
+	 * Method that returns the full package name for this package (java style) 
+	 * 
+	 */
+	
+	public String getFullPackageName(){
+		if(getParent() != null){
+			return getParent().getName().concat(".").concat(getName());
+		} else return getName();
+	}
+	
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -144,9 +157,50 @@ public class PackageImpl extends EObjectImpl implements MVCore.Package {
 	 */
 	public EList<MVCore.Package> getSubPackages() {
 		if (subPackages == null) {
-			subPackages = new EObjectContainmentEList<MVCore.Package>(MVCore.Package.class, this, MVCorePackage.PACKAGE__SUB_PACKAGES);
+			subPackages = new EObjectContainmentWithInverseEList<MVCore.Package>(MVCore.Package.class, this, MVCorePackage.PACKAGE__SUB_PACKAGES, MVCorePackage.PACKAGE__PARENT);
 		}
 		return subPackages;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MVCore.Package getParent() {
+		if (eContainerFeatureID() != MVCorePackage.PACKAGE__PARENT) return null;
+		return (MVCore.Package)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetParent(MVCore.Package newParent, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newParent, MVCorePackage.PACKAGE__PARENT, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParent(MVCore.Package newParent) {
+		if (newParent != eInternalContainer() || (eContainerFeatureID() != MVCorePackage.PACKAGE__PARENT && newParent != null)) {
+			if (EcoreUtil.isAncestor(this, newParent))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newParent != null)
+				msgs = ((InternalEObject)newParent).eInverseAdd(this, MVCorePackage.PACKAGE__SUB_PACKAGES, MVCore.Package.class, msgs);
+			msgs = basicSetParent(newParent, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MVCorePackage.PACKAGE__PARENT, newParent, newParent));
 	}
 
 	/**
@@ -160,6 +214,12 @@ public class PackageImpl extends EObjectImpl implements MVCore.Package {
 		switch (featureID) {
 			case MVCorePackage.PACKAGE__MEMBERS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMembers()).basicAdd(otherEnd, msgs);
+			case MVCorePackage.PACKAGE__SUB_PACKAGES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSubPackages()).basicAdd(otherEnd, msgs);
+			case MVCorePackage.PACKAGE__PARENT:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetParent((MVCore.Package)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -176,8 +236,24 @@ public class PackageImpl extends EObjectImpl implements MVCore.Package {
 				return ((InternalEList<?>)getMembers()).basicRemove(otherEnd, msgs);
 			case MVCorePackage.PACKAGE__SUB_PACKAGES:
 				return ((InternalEList<?>)getSubPackages()).basicRemove(otherEnd, msgs);
+			case MVCorePackage.PACKAGE__PARENT:
+				return basicSetParent(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case MVCorePackage.PACKAGE__PARENT:
+				return eInternalContainer().eInverseRemove(this, MVCorePackage.PACKAGE__SUB_PACKAGES, MVCore.Package.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -194,6 +270,8 @@ public class PackageImpl extends EObjectImpl implements MVCore.Package {
 				return getName();
 			case MVCorePackage.PACKAGE__SUB_PACKAGES:
 				return getSubPackages();
+			case MVCorePackage.PACKAGE__PARENT:
+				return getParent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -218,6 +296,9 @@ public class PackageImpl extends EObjectImpl implements MVCore.Package {
 				getSubPackages().clear();
 				getSubPackages().addAll((Collection<? extends MVCore.Package>)newValue);
 				return;
+			case MVCorePackage.PACKAGE__PARENT:
+				setParent((MVCore.Package)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -239,6 +320,9 @@ public class PackageImpl extends EObjectImpl implements MVCore.Package {
 			case MVCorePackage.PACKAGE__SUB_PACKAGES:
 				getSubPackages().clear();
 				return;
+			case MVCorePackage.PACKAGE__PARENT:
+				setParent((MVCore.Package)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -257,6 +341,8 @@ public class PackageImpl extends EObjectImpl implements MVCore.Package {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case MVCorePackage.PACKAGE__SUB_PACKAGES:
 				return subPackages != null && !subPackages.isEmpty();
+			case MVCorePackage.PACKAGE__PARENT:
+				return getParent() != null;
 		}
 		return super.eIsSet(featureID);
 	}

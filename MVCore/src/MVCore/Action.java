@@ -6,6 +6,7 @@
  */
 package MVCore;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -18,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link MVCore.Action#getName <em>Name</em>}</li>
  *   <li>{@link MVCore.Action#getOperatesOn <em>Operates On</em>}</li>
+ *   <li>{@link MVCore.Action#getDocumentation <em>Documentation</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,5 +79,21 @@ public interface Action extends EObject {
 	 * @generated
 	 */
 	void setOperatesOn(Domain value);
+
+	/**
+	 * Returns the value of the '<em><b>Documentation</b></em>' containment reference list.
+	 * The list contents are of type {@link MVCore.Documentation}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Documentation</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Documentation</em>' containment reference list.
+	 * @see MVCore.MVCorePackage#getAction_Documentation()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Documentation> getDocumentation();
 
 } // Action

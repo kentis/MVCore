@@ -7,10 +7,10 @@ klass.actions.each { action ->
 		if(action.operatesOn && !imports.contains("${action.operatesOn.package?.name}.${action.operatesOn.name}")){
 			imports << "${action.operatesOn.package? action.operatesOn.package.name +'.' : ''}${action.operatesOn.name}"
 %>
-import ${action.operatesOn.package? action.operatesOn.package.name +'.' : ''}${action.operatesOn.name}
+import ${action.operatesOn.package? action.operatesOn.package.getFullPackageName() +'.' : ''}${action.operatesOn.name}
 <% } } 
 service = "${klass.name[0].toLowerCase()}${klass.name[1..(klass.name.length() - 1)]}Service"
-%>
+%>	
 class ${klass.name}${klass.name.endsWith('Controller') ? '' : 'Controller'} {
 	def ${service}
 	 

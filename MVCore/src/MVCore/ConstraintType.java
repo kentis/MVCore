@@ -23,30 +23,52 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum ConstraintType implements Enumerator {
 	/**
-	 * The '<em><b>Custom Code</b></em>' literal object.
+	 * The '<em><b>Custom Constraint</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #CUSTOM_CODE_VALUE
+	 * @see #CUSTOM_CONSTRAINT_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	CUSTOM_CODE(0, "CustomCode", "CustomCode")
-	;
+	CUSTOM_CONSTRAINT(0, "CustomConstraint", "CustomConstraint"), /**
+	 * The '<em><b>Class Attribute</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #CLASS_ATTRIBUTE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	CLASS_ATTRIBUTE(1, "ClassAttribute", "ClassAttribute");
 
 	/**
-	 * The '<em><b>Custom Code</b></em>' literal value.
+	 * The '<em><b>Custom Constraint</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Custom Code</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Custom Constraint</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #CUSTOM_CODE
-	 * @model name="CustomCode"
+	 * @see #CUSTOM_CONSTRAINT
+	 * @model name="CustomConstraint"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CUSTOM_CODE_VALUE = 0;
+	public static final int CUSTOM_CONSTRAINT_VALUE = 0;
+
+	/**
+	 * The '<em><b>Class Attribute</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Class Attribute</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #CLASS_ATTRIBUTE
+	 * @model name="ClassAttribute"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int CLASS_ATTRIBUTE_VALUE = 1;
 
 	/**
 	 * An array of all the '<em><b>Constraint Type</b></em>' enumerators.
@@ -56,7 +78,8 @@ public enum ConstraintType implements Enumerator {
 	 */
 	private static final ConstraintType[] VALUES_ARRAY =
 		new ConstraintType[] {
-			CUSTOM_CODE,
+			CUSTOM_CONSTRAINT,
+			CLASS_ATTRIBUTE,
 		};
 
 	/**
@@ -107,7 +130,8 @@ public enum ConstraintType implements Enumerator {
 	 */
 	public static ConstraintType get(int value) {
 		switch (value) {
-			case CUSTOM_CODE_VALUE: return CUSTOM_CODE;
+			case CUSTOM_CONSTRAINT_VALUE: return CUSTOM_CONSTRAINT;
+			case CLASS_ATTRIBUTE_VALUE: return CLASS_ATTRIBUTE;
 		}
 		return null;
 	}

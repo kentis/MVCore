@@ -260,6 +260,29 @@ public class MVCoreItemProviderAdapterFactory extends MVCoreAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link MVCore.Documentation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DocumentationItemProvider documentationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link MVCore.Documentation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDocumentationAdapter() {
+		if (documentationItemProvider == null) {
+			documentationItemProvider = new DocumentationItemProvider(this);
+		}
+
+		return documentationItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -366,6 +389,7 @@ public class MVCoreItemProviderAdapterFactory extends MVCoreAdapterFactory imple
 		if (mvCoreClassItemProvider != null) mvCoreClassItemProvider.dispose();
 		if (referenceItemProvider != null) referenceItemProvider.dispose();
 		if (constraintItemProvider != null) constraintItemProvider.dispose();
+		if (documentationItemProvider != null) documentationItemProvider.dispose();
 	}
 
 }

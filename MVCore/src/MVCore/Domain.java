@@ -22,6 +22,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link MVCore.Domain#getReferences <em>References</em>}</li>
  *   <li>{@link MVCore.Domain#getSuper <em>Super</em>}</li>
  *   <li>{@link MVCore.Domain#getConstraints <em>Constraints</em>}</li>
+ *   <li>{@link MVCore.Domain#getDocumentation <em>Documentation</em>}</li>
  * </ul>
  * </p>
  *
@@ -147,29 +148,35 @@ public interface Domain extends MVCoreClass {
 	void setSuper(Domain value);
 
 	/**
-	 * Returns the value of the '<em><b>Constraints</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Constraints</b></em>' containment reference list.
+	 * The list contents are of type {@link MVCore.Constraint}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Constraints</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Constraints</em>' containment reference.
-	 * @see #setConstraints(Constraint)
+	 * @return the value of the '<em>Constraints</em>' containment reference list.
 	 * @see MVCore.MVCorePackage#getDomain_Constraints()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Constraint getConstraints();
+	EList<Constraint> getConstraints();
 
 	/**
-	 * Sets the value of the '{@link MVCore.Domain#getConstraints <em>Constraints</em>}' containment reference.
+	 * Returns the value of the '<em><b>Documentation</b></em>' containment reference list.
+	 * The list contents are of type {@link MVCore.Documentation}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Documentation</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Constraints</em>' containment reference.
-	 * @see #getConstraints()
+	 * @return the value of the '<em>Documentation</em>' containment reference list.
+	 * @see MVCore.MVCorePackage#getDomain_Documentation()
+	 * @model containment="true"
 	 * @generated
 	 */
-	void setConstraints(Constraint value);
+	EList<Documentation> getDocumentation();
 
 } // Domain

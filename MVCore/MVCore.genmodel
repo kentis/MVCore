@@ -7,7 +7,8 @@
   <foreignModel>MVCore.ecore</foreignModel>
   <genPackages prefix="MVCore" disposableProviderFactory="true" ecorePackage="MVCore.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="MVCore.ecore#//ConstraintType">
-      <genEnumLiterals ecoreEnumLiteral="MVCore.ecore#//ConstraintType/CustomCode"/>
+      <genEnumLiterals ecoreEnumLiteral="MVCore.ecore#//ConstraintType/CustomConstraint"/>
+      <genEnumLiterals ecoreEnumLiteral="MVCore.ecore#//ConstraintType/ClassAttribute"/>
     </genEnums>
     <genClasses ecoreClass="MVCore.ecore#//Domain">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MVCore.ecore#//Domain/Searchable"/>
@@ -16,6 +17,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MVCore.ecore#//Domain/references"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MVCore.ecore#//Domain/super"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MVCore.ecore#//Domain/constraints"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MVCore.ecore#//Domain/documentation"/>
     </genClasses>
     <genClasses ecoreClass="MVCore.ecore#//Controller">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MVCore.ecore#//Controller/actions"/>
@@ -23,11 +25,13 @@
     <genClasses ecoreClass="MVCore.ecore#//Action">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MVCore.ecore#//Action/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MVCore.ecore#//Action/operatesOn"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MVCore.ecore#//Action/documentation"/>
     </genClasses>
     <genClasses ecoreClass="MVCore.ecore#//Package">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MVCore.ecore#//Package/members"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MVCore.ecore#//Package/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MVCore.ecore#//Package/subPackages"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MVCore.ecore#//Package/parent"/>
     </genClasses>
     <genClasses ecoreClass="MVCore.ecore#//Attribute">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MVCore.ecore#//Attribute/domain"/>
@@ -49,11 +53,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MVCore.ecore#//Reference/lowerBound"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MVCore.ecore#//Reference/src"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MVCore.ecore#//Reference/unique"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MVCore.ecore#//Reference/constraints"/>
     </genClasses>
     <genClasses ecoreClass="MVCore.ecore#//Constraint">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MVCore.ecore#//Constraint/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MVCore.ecore#//Constraint/type"/>
+    </genClasses>
+    <genClasses ecoreClass="MVCore.ecore#//Documentation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MVCore.ecore#//Documentation/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

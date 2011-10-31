@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: MVCore.diagram; singleton:=true
-Bundle-Version: 0.0.4
+Bundle-Version: 0.0.5
 Bundle-ClassPath: .
 Bundle-Activator: MVCore.diagram.part.MVCoreDiagramEditorPlugin
 Bundle-Vendor: %providerName

@@ -61,7 +61,19 @@
    
    <extension
          point="org.eclipse.ui.menus">
-     
+     <menuContribution
+            locationURI="popup:MVCore.diagram.part.MVCoreDiagramEditorID">
+          <menu
+               label="MVCore"
+               mnemonic="M"
+               id="mvcore.menus.generateMenu">   
+  			<command
+                  commandId="mvcore.editorCommand"
+                  mnemonic="S"
+                  id="mvcore.editorCommand">
+            </command>
+      	  </menu>
+      </menuContribution> 
          <menuContribution
             locationURI="popup:MVCore.presentation.MVCoreEditorID">
           <menu

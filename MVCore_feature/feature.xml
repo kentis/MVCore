@@ -2,7 +2,7 @@
 <feature
       id="mvcore_feature"
       label="MVCore-feature"
-      version="0.9">
+      version="0.10">
 
    <description url="http://www.example.com/description">
       [Enter Feature Description here.]
@@ -20,28 +20,28 @@
          id="MVCore.edit"
          download-size="0"
          install-size="0"
-         version="0.0.4"
+         version="0.0.5"
          unpack="false"/>
 
    <plugin
          id="MVCore.diagram"
          download-size="0"
          install-size="0"
-         version="0.0.4"
+         version="0.0.5"
          unpack="false"/>
 
    <plugin
          id="MVCore.editor"
          download-size="0"
          install-size="0"
-         version="0.0.4"
+         version="0.0.5"
          unpack="false"/>
 
    <plugin
          id="MVCore"
          download-size="0"
          install-size="0"
-         version="0.0.6"
+         version="0.0.7"
          unpack="false"/>
 
 </feature>

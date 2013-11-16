@@ -3,7 +3,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: MVCore;singleton:=true
 Bundle-Version: 0.0.7
-Bundle-ClassPath: .
+Bundle-ClassPath: .,
+ lib/groovy-all-2.1.6.jar
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
@@ -19,6 +20,5 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui;bundle-version="3.5.2",
  org.eclipse.emf.importer.ecore;bundle-version="2.4.0",
  org.eclipse.emf.edit.ui;bundle-version="2.6.0",
- org.codehaus.groovy;bundle-version="1.7.3",
  org.junit
 Bundle-ActivationPolicy: lazy

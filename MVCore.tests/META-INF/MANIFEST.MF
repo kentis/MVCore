@@ -9,8 +9,9 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: 
 Require-Bundle: org.eclipse.core.runtime,
- MVCore;visibility:=reexport,
- org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.emf.ecore.xmi;visibility:=reexport,
- org.junit;visibility:=reexport
+ org.eclipse.emf.ecore;bundle-version="2.9.0",
+ org.eclipse.emf.ecore.xmi,
+ org.junit;visibility:=reexport,
+ MVCore;bundle-version="0.0.7",
+ org.eclipse.emf;bundle-version="2.6.0"
 Bundle-ActivationPolicy: lazy

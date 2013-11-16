@@ -13,7 +13,7 @@ import org.osgi.framework .Bundle;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.friark.mvcore.generators.*;
 
-import groovy.text.SimpleTemplateEngine;
+import groovy.text.*;
 
 class GrailsGenerator implements Generator{
 	
@@ -232,7 +232,10 @@ class GrailsGenerator implements Generator{
 		if(type == "EString") return "String"
 		if(type == "EByteArray") return "byte[]"
 		if(type == "EDouble") return "double"
-		if(type == "EDate") return "date"
+		if(type == "EDate") return "Date"
+		if(type == "EMap") return "Map"
+		if(type == "EBoolean") return "boolean"
+		if(type == "EInt") return "int"
 		if(type == null || type == "null") return "String"
 		return type
 	}

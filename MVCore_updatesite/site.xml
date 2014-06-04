@@ -12,7 +12,7 @@
    <feature url="features/mvcore_feature_0.9.0.jar" id="mvcore_feature" version="0.9">
       <category name="mvcore"/>
    </feature>
-   <feature url="features/mvcore_feature_0.10.0.jar" id="mvcore_feature" version="0.10">
+   <feature url="features/mvcore_feature_0.12.0.jar" id="mvcore_feature" version="0.12">
       <category name="mvcore"/>
    </feature>
    <category-def name="mvcore" label="MVCore"/>

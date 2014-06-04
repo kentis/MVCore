@@ -1,4 +1,4 @@
-package no.friark.mvcore.handlers;
+package org.friark.mvcore.handlers;
 
 import static org.junit.Assert.*;
 

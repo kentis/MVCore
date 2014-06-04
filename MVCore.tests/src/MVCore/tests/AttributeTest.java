@@ -97,10 +97,10 @@ public class AttributeTest extends TestCase {
 	}
 
 	/**
-	 * Tests the '{@link MVCore.Attribute#getType() <em>Type</em>}' feature getter.
+	 * 
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see MVCore.Attribute#getType()
+	 * 
 	 * @generated
 	 */
 	public void testGetType() {

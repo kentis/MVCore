@@ -23,7 +23,7 @@ import java.io.StringWriter
 /**
  * A builder for Gorm classes
  * 
- * @author kent
+ * @author kent 
  *
  */
 class GormBuilder extends BuilderSupport {

@@ -1,4 +1,4 @@
-package mvcore.importer;
+package MVCore.importer;
 
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;

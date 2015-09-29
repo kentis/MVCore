@@ -2,7 +2,7 @@
 <feature
       id="mvcore_feature"
       label="MVCore-feature"
-      version="0.10">
+      version="0.14">
 
    <description url="http://www.example.com/description">
       [Enter Feature Description here.]
@@ -41,7 +41,7 @@
          id="MVCore"
          download-size="0"
          install-size="0"
-         version="0.0.7"
+         version="0.0.9"
          unpack="false"/>
 
 </feature>

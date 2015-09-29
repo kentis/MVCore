@@ -1,4 +1,4 @@
-package mvcore.importer;
+package MVCore.importer;
 
 import org.eclipse.emf.converter.ModelConverter;
 import org.eclipse.emf.importer.ui.contribution.base.ModelImporterDetailPage;

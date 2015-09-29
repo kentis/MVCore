@@ -17,6 +17,9 @@
          </appInfo>
       </annotation>
       <complexType>
+         <choice>
+            <element ref="generator"/>
+         </choice>
          <attribute name="point" type="string" use="required">
             <annotation>
                <documentation>
@@ -46,7 +49,7 @@
 
    <element name="generator">
       <complexType>
-         <attribute name="name" type="string">
+         <attribute name="name" type="string" use="required">
             <annotation>
                <documentation>
                   
@@ -56,11 +59,14 @@
                </appInfo>
             </annotation>
          </attribute>
-         <attribute name="class" type="string">
+         <attribute name="class" type="string" use="required">
             <annotation>
                <documentation>
                   A class implementing org.friark.mvcore.generator that defins the generator in this plugin.
                </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":org.friark.mvcore.generators.Generator"/>
+               </appInfo>
             </annotation>
          </attribute>
       </complexType>

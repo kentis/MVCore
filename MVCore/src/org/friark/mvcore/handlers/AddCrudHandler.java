@@ -50,19 +50,14 @@ public class AddCrudHandler extends AbstractHandler{
 		System.out.println("AddCrudHandler");
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
 		Controller eController = (Controller) ((TreeSelection) window.getSelectionService().getSelection()).getFirstElement();
-	
-		//MessageDialog.openInformation(
-	//			window.getShell(),
-		//		"MVCore Plug-in",
-			//	"HI");
 		try{
-		IEditorPart editor =  HandlerUtil.getActiveEditor(event);
-		System.out.println("editor: "+editor);
-		URI resourceURI = EditUIUtil.getURI(editor.getEditorInput());
-		ResourceSet resourceSet = new ResourceSetImpl();
+			IEditorPart editor =  HandlerUtil.getActiveEditor(event);
+			System.out.println("editor: "+editor);
+			URI resourceURI = EditUIUtil.getURI(editor.getEditorInput());
+			ResourceSet resourceSet = new ResourceSetImpl();
 		
-		Resource res = resourceSet.createResource(resourceURI);
-		res.load(Collections.emptyMap());
+			Resource res = resourceSet.createResource(resourceURI);
+			res.load(Collections.emptyMap());
 		
 			PopupDialog diag = new PopupDialog(window.getShell(), window.getShell().getStyle(), 
 							true, false, false, false, 
@@ -77,9 +72,6 @@ public class AddCrudHandler extends AbstractHandler{
 			Combo combo = new Combo (shell, SWT.DROP_DOWN);
 			
 			combo.setItems(getDomainClassNames(res));
-			
-			
-
 		    
 		    Button grails = new Button (shell, SWT.RADIO);
 			grails.setText ("Grails");

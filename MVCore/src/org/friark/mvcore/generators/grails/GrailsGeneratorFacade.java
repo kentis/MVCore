@@ -2,30 +2,24 @@ package org.friark.mvcore.generators.grails;
 
 
 import groovy.lang.GroovyClassLoader;
-import groovy.lang.GroovyShell;
-
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.SequenceInputStream;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.Enumeration;
-
 import org.codehaus.groovy.control.CompilationFailedException;
-import org.codehaus.groovy.tools.Compiler;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.friark.mvcore.Utils;
 import org.friark.mvcore.generators.Generator;
 import org.osgi.framework.Bundle;
 
 public class GrailsGeneratorFacade implements Generator{
 
-
+	String targetDir;
 	
 	@Override
 	public void generate(Resource resource, String projectName) {
@@ -33,7 +27,7 @@ public class GrailsGeneratorFacade implements Generator{
 			Bundle bundle = Platform.getBundle("MVCore");
 
 			// Plugins behave a bit differently, depending on how they are run.
-			// Therfore, this little hack.
+			// Therefore, this little hack.
 			Path genPath = new Path(
 					"src/org/friark/mvcore/generators/grails/GrailsGenerator.groovy");
 			URL generatorFileURL = FileLocator.find(bundle, genPath, null);
@@ -73,19 +67,37 @@ public class GrailsGeneratorFacade implements Generator{
 					.getClassLoader());
 
 			System.out.println(generatorFileURL.toString());
-			System.out.println(Utils.slurp(generatorFileURL.openStream()));
-			Class genClass = cl.parseClass(generatorFileURL.openStream());
-			Class builderClass = cl.parseClass(builderFileURL.openStream());
+			//System.out.println(Utils.slurp(generatorFileURL.openStream()));
+			Class genClass = cl.parseClass(generatorFileURL.openStream(),"GrailsGenerator.groovy");
+			Class builderClass = cl.parseClass(builderFileURL.openStream(),"GormBuilder.groovy");
 			//this.builderClass = builderClass;
+			/*Constructor[] consts = genClass.getConstructors();
+			for(Constructor c : consts){
+				System.out.println(c);
+				System.out.println(c.getParameterCount());
+			}*/
 			Constructor contr = genClass.getConstructor(Class.class);
+			/*Map m = new HashMap();
+			m.put("builderClass", builderClass);
+			new groovy.lang.Binding(m);*/
 //			Generator gen = (Generator) genClass.newInstance();
-			Generator gen = (Generator) contr.newInstance(new Object[] {builderClass});
+			Object gen =  contr.newInstance(new Object[] {builderClass});
 			//gen.builderClass = builderClass;
-			gen.generate(resource, projectName);
+			System.out.println("generating");
+			for(Method mm : genClass.getMethods()){
+				//if(mm.getName() == "generate"){
+					System.out.println(mm);
+					System.out.println(mm.getParameters());
+				//}
+			}
+			//genClass.getMethod("generate", Resource.class, projectName.getClass()).invoke(gen, resource, projectName);
+			//IProject project = org.eclipse.core.resources.ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
+			//((Generator)gen).setTargetDir(project.getPersistentProperty(
+			//		new QualifiedName(Platform.getBundle("MVCore").getSymbolicName(), "generateToDir")));
+			((Generator)gen).setTargetDir(this.targetDir);
+			((Generator)gen).generate(resource, projectName);
+			System.out.println("generated");
 		} catch (CompilationFailedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (InstantiationException e) {
@@ -106,10 +118,16 @@ public class GrailsGeneratorFacade implements Generator{
 		} catch (InvocationTargetException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch(Exception e){
+			e.printStackTrace();
 		}
-
+		
+		
 	}
-
+	public void setTargetDir(String dir) {
+		this.targetDir = dir;
+	}
+	
 	class Enu implements Enumeration<InputStream> {
 		URL[] urls = new URL[2];
 		int idx = 0;
@@ -150,8 +168,6 @@ public class GrailsGeneratorFacade implements Generator{
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
 		return "GrailsGenerator";
-	}
-	
+	}	
 }

@@ -18,6 +18,7 @@ import groovy.text.SimpleTemplateEngine;
 class GrailsGenerator implements Generator{
 	
 	Class builderClass;
+	String srcDir;
 	
 	public GrailsGenerator() {
 		builderClass = GormBuilder.class;
@@ -237,20 +238,24 @@ class GrailsGenerator implements Generator{
 		return type
 	}
 	
+	void setTargetDir(String dir){
+		srcDir = dir;
+	}
+	
 	/**
 	 * 
 	 * @param project the project containing the model
 	 * @return the output folder
 	 */
 	def getSrc(IProject project, String type){
-		String dir = "";
-		try {
+		String dir = this.srcDir;
+		
+	 /*   try {
 			dir = project.getPersistentProperty(
-					new QualifiedName(Platform.getBundle("MVCore").getSymbolicName(), "generateToDir")
-					);
+					new QualifiedName(Platform.getBundle("MVCore").getSymbolicName(), "generateToDir"));
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 		
 		def src
 		if(dir != ""){

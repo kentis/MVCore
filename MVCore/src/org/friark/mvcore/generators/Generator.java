@@ -18,5 +18,5 @@ public interface Generator {
 	 */
 	public String getName();
 	
-	
+	public void setTargetDir(String dir);
 }

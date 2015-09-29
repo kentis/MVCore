@@ -16,4 +16,10 @@ public class RailsGenerator implements Generator {
 		return "Rails";
 	}
 
+
+	@Override
+	public void setTargetDir(String dir) {
+		
+	}
+	
 }

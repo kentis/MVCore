@@ -161,7 +161,7 @@ public class AttributeImpl extends EObjectImpl implements Attribute {
 	 */
 	public Domain getDomain() {
 		if (eContainerFeatureID() != MVCorePackage.ATTRIBUTE__DOMAIN) return null;
-		return (Domain)eContainer();
+		return (Domain)eInternalContainer();
 	}
 
 	/**

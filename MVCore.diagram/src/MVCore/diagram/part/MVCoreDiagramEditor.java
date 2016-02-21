@@ -268,6 +268,9 @@ public class MVCoreDiagramEditor extends DiagramDocumentEditor implements
 			return StructuredSelection.EMPTY;
 		}
 		Diagram diagram = document.getDiagram();
+		if (diagram == null || diagram.eResource() == null) {
+			return StructuredSelection.EMPTY;
+		}
 		IFile file = WorkspaceSynchronizer.getFile(diagram.eResource());
 		if (file != null) {
 			MVCore.diagram.navigator.MVCoreNavigatorItem item = new MVCore.diagram.navigator.MVCoreNavigatorItem(

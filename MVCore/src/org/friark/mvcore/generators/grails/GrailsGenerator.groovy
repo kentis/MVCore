@@ -55,6 +55,23 @@ class GrailsGenerator implements Generator{
 					break;
 			}
 		}
+		
+		generateResources(pack.eContents(), project);
+	}
+	
+	
+	void generateResources(contents, project){
+	   println "Generaing resource"
+	   def defaultTemplate = getResourcesTemplate()
+		
+	   def engine = new SimpleTemplateEngine()
+	   def template = engine.createTemplate(defaultTemplate).make([contents: contents.findAll{it instanceof Domain}])
+		
+	   def klassContent = template.toString()
+	   def src = getSrc(project, "conf_spring")
+	   println src
+	   def f = new File(src.getAbsolutePath() + File.separator + "resources.groovy")
+	   f.write(klassContent)
 	}
 	
 	void handleEControllerClass(Controller klass, String packageName, project){
@@ -84,9 +101,28 @@ class GrailsGenerator implements Generator{
 		InputStream is = fileURL.openStream();
 		return is.getText()
 	}
+	
+	
+	private String getResourcesTemplate(){
+		Bundle bundle = Platform.getBundle("MVCore")
+		
+		//Plugins behave a bit differently, depending on how they are run. Therfore, this little hack.
+		Path path =  new Path("src/org/friark/mvcore/generators/grails/templates/resources.tmpl")
+		URL fileURL = FileLocator.find(bundle, path, null);
+		if(fileURL == null){
+			path =  new Path("org/friark/mvcore/generators/grails/templates/resources.tmpl")
+			fileURL = FileLocator.find(bundle, path, null);
+		}
+		
+		println "fileURL: ${fileURL}"
+		InputStream is = fileURL.openStream();
+		return is.getText()
+	}
+	
 	void handleEDomainClass(Domain klass, String packageName, project){
 		def klassContent = buildEDomainClass( klass, packageName)
 		writeKlassToFile(klassContent, klass, "domain", packageName, project)
+		
 	}
 	
 	String buildEDomainClass(Domain klass, String packageName){
@@ -234,6 +270,7 @@ class GrailsGenerator implements Generator{
 		if(type == "EByteArray") return "byte[]"
 		if(type == "EDouble") return "double"
 		if(type == "EDate") return "date"
+		if(type == "EBoolean") return "boolean"
 		if(type == null || type == "null") return "String"
 		return type
 	}
@@ -261,6 +298,8 @@ class GrailsGenerator implements Generator{
 		if(dir != ""){
 			if(type == "controller") dir += "/grails-app/controllers"
 			if(type == "domain") dir += "/grails-app/domain"
+			if(type == "conf") dir += "/grails-app/conf"
+			if(type == "conf_spring") dir += "/grails-app/conf/spring"
 			src = new File(dir)
 			def getFile = {String file ->
 				if(delegate.isDirectory()){

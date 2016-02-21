@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 
 /**
  * @generated
@@ -26,11 +27,11 @@ public class MVCoreDiagramUpdater {
 		case MVCore.diagram.edit.parts.PackageEditPart.VISUAL_ID:
 			return getPackage_1000SemanticChildren(view);
 		case MVCore.diagram.edit.parts.ControllerEditPart.VISUAL_ID:
-			return getController_2002SemanticChildren(view);
+			return getController_2005SemanticChildren(view);
 		case MVCore.diagram.edit.parts.DomainEditPart.VISUAL_ID:
-			return getDomain_2003SemanticChildren(view);
+			return getDomain_2006SemanticChildren(view);
 		case MVCore.diagram.edit.parts.Package2EditPart.VISUAL_ID:
-			return getPackage_2004SemanticChildren(view);
+			return getPackage_2007SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
@@ -78,7 +79,7 @@ public class MVCoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MVCore.diagram.part.MVCoreNodeDescriptor> getController_2002SemanticChildren(
+	public static List<MVCore.diagram.part.MVCoreNodeDescriptor> getController_2005SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
@@ -102,7 +103,7 @@ public class MVCoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MVCore.diagram.part.MVCoreNodeDescriptor> getDomain_2003SemanticChildren(
+	public static List<MVCore.diagram.part.MVCoreNodeDescriptor> getDomain_2006SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
@@ -126,7 +127,7 @@ public class MVCoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MVCore.diagram.part.MVCoreNodeDescriptor> getPackage_2004SemanticChildren(
+	public static List<MVCore.diagram.part.MVCoreNodeDescriptor> getPackage_2007SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
@@ -167,21 +168,21 @@ public class MVCoreDiagramUpdater {
 		case MVCore.diagram.edit.parts.PackageEditPart.VISUAL_ID:
 			return getPackage_1000ContainedLinks(view);
 		case MVCore.diagram.edit.parts.ControllerEditPart.VISUAL_ID:
-			return getController_2002ContainedLinks(view);
+			return getController_2005ContainedLinks(view);
 		case MVCore.diagram.edit.parts.DomainEditPart.VISUAL_ID:
-			return getDomain_2003ContainedLinks(view);
+			return getDomain_2006ContainedLinks(view);
 		case MVCore.diagram.edit.parts.Package2EditPart.VISUAL_ID:
-			return getPackage_2004ContainedLinks(view);
+			return getPackage_2007ContainedLinks(view);
 		case MVCore.diagram.edit.parts.ActionEditPart.VISUAL_ID:
-			return getAction_3001ContainedLinks(view);
+			return getAction_3005ContainedLinks(view);
 		case MVCore.diagram.edit.parts.AttributeEditPart.VISUAL_ID:
-			return getAttribute_3002ContainedLinks(view);
+			return getAttribute_3006ContainedLinks(view);
 		case MVCore.diagram.edit.parts.MVCoreClassEditPart.VISUAL_ID:
-			return getMVCoreClass_3003ContainedLinks(view);
+			return getMVCoreClass_3007ContainedLinks(view);
 		case MVCore.diagram.edit.parts.Package3EditPart.VISUAL_ID:
-			return getPackage_3004ContainedLinks(view);
+			return getPackage_3008ContainedLinks(view);
 		case MVCore.diagram.edit.parts.ReferenceEditPart.VISUAL_ID:
-			return getReference_4001ContainedLinks(view);
+			return getReference_4002ContainedLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -193,21 +194,21 @@ public class MVCoreDiagramUpdater {
 			View view) {
 		switch (MVCore.diagram.part.MVCoreVisualIDRegistry.getVisualID(view)) {
 		case MVCore.diagram.edit.parts.ControllerEditPart.VISUAL_ID:
-			return getController_2002IncomingLinks(view);
+			return getController_2005IncomingLinks(view);
 		case MVCore.diagram.edit.parts.DomainEditPart.VISUAL_ID:
-			return getDomain_2003IncomingLinks(view);
+			return getDomain_2006IncomingLinks(view);
 		case MVCore.diagram.edit.parts.Package2EditPart.VISUAL_ID:
-			return getPackage_2004IncomingLinks(view);
+			return getPackage_2007IncomingLinks(view);
 		case MVCore.diagram.edit.parts.ActionEditPart.VISUAL_ID:
-			return getAction_3001IncomingLinks(view);
+			return getAction_3005IncomingLinks(view);
 		case MVCore.diagram.edit.parts.AttributeEditPart.VISUAL_ID:
-			return getAttribute_3002IncomingLinks(view);
+			return getAttribute_3006IncomingLinks(view);
 		case MVCore.diagram.edit.parts.MVCoreClassEditPart.VISUAL_ID:
-			return getMVCoreClass_3003IncomingLinks(view);
+			return getMVCoreClass_3007IncomingLinks(view);
 		case MVCore.diagram.edit.parts.Package3EditPart.VISUAL_ID:
-			return getPackage_3004IncomingLinks(view);
+			return getPackage_3008IncomingLinks(view);
 		case MVCore.diagram.edit.parts.ReferenceEditPart.VISUAL_ID:
-			return getReference_4001IncomingLinks(view);
+			return getReference_4002IncomingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -219,21 +220,21 @@ public class MVCoreDiagramUpdater {
 			View view) {
 		switch (MVCore.diagram.part.MVCoreVisualIDRegistry.getVisualID(view)) {
 		case MVCore.diagram.edit.parts.ControllerEditPart.VISUAL_ID:
-			return getController_2002OutgoingLinks(view);
+			return getController_2005OutgoingLinks(view);
 		case MVCore.diagram.edit.parts.DomainEditPart.VISUAL_ID:
-			return getDomain_2003OutgoingLinks(view);
+			return getDomain_2006OutgoingLinks(view);
 		case MVCore.diagram.edit.parts.Package2EditPart.VISUAL_ID:
-			return getPackage_2004OutgoingLinks(view);
+			return getPackage_2007OutgoingLinks(view);
 		case MVCore.diagram.edit.parts.ActionEditPart.VISUAL_ID:
-			return getAction_3001OutgoingLinks(view);
+			return getAction_3005OutgoingLinks(view);
 		case MVCore.diagram.edit.parts.AttributeEditPart.VISUAL_ID:
-			return getAttribute_3002OutgoingLinks(view);
+			return getAttribute_3006OutgoingLinks(view);
 		case MVCore.diagram.edit.parts.MVCoreClassEditPart.VISUAL_ID:
-			return getMVCoreClass_3003OutgoingLinks(view);
+			return getMVCoreClass_3007OutgoingLinks(view);
 		case MVCore.diagram.edit.parts.Package3EditPart.VISUAL_ID:
-			return getPackage_3004OutgoingLinks(view);
+			return getPackage_3008OutgoingLinks(view);
 		case MVCore.diagram.edit.parts.ReferenceEditPart.VISUAL_ID:
-			return getReference_4001OutgoingLinks(view);
+			return getReference_4002OutgoingLinks(view);
 		}
 		return Collections.emptyList();
 	}
@@ -249,7 +250,7 @@ public class MVCoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getController_2002ContainedLinks(
+	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getController_2005ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -257,18 +258,18 @@ public class MVCoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getDomain_2003ContainedLinks(
+	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getDomain_2006ContainedLinks(
 			View view) {
 		MVCore.Domain modelElement = (MVCore.Domain) view.getElement();
 		LinkedList<MVCore.diagram.part.MVCoreLinkDescriptor> result = new LinkedList<MVCore.diagram.part.MVCoreLinkDescriptor>();
-		result.addAll(getContainedTypeModelFacetLinks_Reference_4001(modelElement));
+		result.addAll(getContainedTypeModelFacetLinks_Reference_4002(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getPackage_2004ContainedLinks(
+	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getPackage_2007ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -276,7 +277,7 @@ public class MVCoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getAction_3001ContainedLinks(
+	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getAction_3005ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -284,7 +285,7 @@ public class MVCoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getAttribute_3002ContainedLinks(
+	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getAttribute_3006ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -292,7 +293,7 @@ public class MVCoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getMVCoreClass_3003ContainedLinks(
+	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getMVCoreClass_3007ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -300,7 +301,7 @@ public class MVCoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getPackage_3004ContainedLinks(
+	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getPackage_3008ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -308,7 +309,7 @@ public class MVCoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getReference_4001ContainedLinks(
+	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getReference_4002ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -316,7 +317,7 @@ public class MVCoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getController_2002IncomingLinks(
+	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getController_2005IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -324,13 +325,13 @@ public class MVCoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getDomain_2003IncomingLinks(
+	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getDomain_2006IncomingLinks(
 			View view) {
 		MVCore.Domain modelElement = (MVCore.Domain) view.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<MVCore.diagram.part.MVCoreLinkDescriptor> result = new LinkedList<MVCore.diagram.part.MVCoreLinkDescriptor>();
-		result.addAll(getIncomingTypeModelFacetLinks_Reference_4001(
+		result.addAll(getIncomingTypeModelFacetLinks_Reference_4002(
 				modelElement, crossReferences));
 		return result;
 	}
@@ -338,7 +339,7 @@ public class MVCoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getPackage_2004IncomingLinks(
+	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getPackage_2007IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -346,7 +347,7 @@ public class MVCoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getAction_3001IncomingLinks(
+	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getAction_3005IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -354,7 +355,7 @@ public class MVCoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getAttribute_3002IncomingLinks(
+	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getAttribute_3006IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -362,7 +363,7 @@ public class MVCoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getMVCoreClass_3003IncomingLinks(
+	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getMVCoreClass_3007IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -370,7 +371,7 @@ public class MVCoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getPackage_3004IncomingLinks(
+	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getPackage_3008IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -378,7 +379,7 @@ public class MVCoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getReference_4001IncomingLinks(
+	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getReference_4002IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -386,7 +387,7 @@ public class MVCoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getController_2002OutgoingLinks(
+	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getController_2005OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -394,18 +395,18 @@ public class MVCoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getDomain_2003OutgoingLinks(
+	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getDomain_2006OutgoingLinks(
 			View view) {
 		MVCore.Domain modelElement = (MVCore.Domain) view.getElement();
 		LinkedList<MVCore.diagram.part.MVCoreLinkDescriptor> result = new LinkedList<MVCore.diagram.part.MVCoreLinkDescriptor>();
-		result.addAll(getOutgoingTypeModelFacetLinks_Reference_4001(modelElement));
+		result.addAll(getOutgoingTypeModelFacetLinks_Reference_4002(modelElement));
 		return result;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getPackage_2004OutgoingLinks(
+	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getPackage_2007OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -413,7 +414,7 @@ public class MVCoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getAction_3001OutgoingLinks(
+	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getAction_3005OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -421,7 +422,7 @@ public class MVCoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getAttribute_3002OutgoingLinks(
+	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getAttribute_3006OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -429,7 +430,7 @@ public class MVCoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getMVCoreClass_3003OutgoingLinks(
+	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getMVCoreClass_3007OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -437,7 +438,7 @@ public class MVCoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getPackage_3004OutgoingLinks(
+	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getPackage_3008OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -445,7 +446,7 @@ public class MVCoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getReference_4001OutgoingLinks(
+	public static List<MVCore.diagram.part.MVCoreLinkDescriptor> getReference_4002OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -453,7 +454,7 @@ public class MVCoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<MVCore.diagram.part.MVCoreLinkDescriptor> getContainedTypeModelFacetLinks_Reference_4001(
+	private static Collection<MVCore.diagram.part.MVCoreLinkDescriptor> getContainedTypeModelFacetLinks_Reference_4002(
 			MVCore.Domain container) {
 		LinkedList<MVCore.diagram.part.MVCoreLinkDescriptor> result = new LinkedList<MVCore.diagram.part.MVCoreLinkDescriptor>();
 		for (Iterator<?> links = container.getReferences().iterator(); links
@@ -471,7 +472,7 @@ public class MVCoreDiagramUpdater {
 			MVCore.Domain src = link.getSrc();
 			result.add(new MVCore.diagram.part.MVCoreLinkDescriptor(src, dst,
 					link,
-					MVCore.diagram.providers.MVCoreElementTypes.Reference_4001,
+					MVCore.diagram.providers.MVCoreElementTypes.Reference_4002,
 					MVCore.diagram.edit.parts.ReferenceEditPart.VISUAL_ID));
 		}
 		return result;
@@ -480,7 +481,7 @@ public class MVCoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<MVCore.diagram.part.MVCoreLinkDescriptor> getIncomingTypeModelFacetLinks_Reference_4001(
+	private static Collection<MVCore.diagram.part.MVCoreLinkDescriptor> getIncomingTypeModelFacetLinks_Reference_4002(
 			MVCore.Domain target,
 			Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
 		LinkedList<MVCore.diagram.part.MVCoreLinkDescriptor> result = new LinkedList<MVCore.diagram.part.MVCoreLinkDescriptor>();
@@ -500,7 +501,7 @@ public class MVCoreDiagramUpdater {
 			MVCore.Domain src = link.getSrc();
 			result.add(new MVCore.diagram.part.MVCoreLinkDescriptor(src,
 					target, link,
-					MVCore.diagram.providers.MVCoreElementTypes.Reference_4001,
+					MVCore.diagram.providers.MVCoreElementTypes.Reference_4002,
 					MVCore.diagram.edit.parts.ReferenceEditPart.VISUAL_ID));
 		}
 		return result;
@@ -509,7 +510,7 @@ public class MVCoreDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	private static Collection<MVCore.diagram.part.MVCoreLinkDescriptor> getOutgoingTypeModelFacetLinks_Reference_4001(
+	private static Collection<MVCore.diagram.part.MVCoreLinkDescriptor> getOutgoingTypeModelFacetLinks_Reference_4002(
 			MVCore.Domain source) {
 		MVCore.Domain container = null;
 		// Find container element for the link.
@@ -543,10 +544,51 @@ public class MVCoreDiagramUpdater {
 			}
 			result.add(new MVCore.diagram.part.MVCoreLinkDescriptor(src, dst,
 					link,
-					MVCore.diagram.providers.MVCoreElementTypes.Reference_4001,
+					MVCore.diagram.providers.MVCoreElementTypes.Reference_4002,
 					MVCore.diagram.edit.parts.ReferenceEditPart.VISUAL_ID));
 		}
 		return result;
 	}
+
+	/**
+	 * @generated
+	 */
+	public static final DiagramUpdater TYPED_INSTANCE = new DiagramUpdater() {
+		/**
+		 * @generated
+		 */
+		@Override
+		public List<MVCore.diagram.part.MVCoreNodeDescriptor> getSemanticChildren(
+				View view) {
+			return MVCoreDiagramUpdater.getSemanticChildren(view);
+		}
+
+		/**
+		 * @generated
+		 */
+		@Override
+		public List<MVCore.diagram.part.MVCoreLinkDescriptor> getContainedLinks(
+				View view) {
+			return MVCoreDiagramUpdater.getContainedLinks(view);
+		}
+
+		/**
+		 * @generated
+		 */
+		@Override
+		public List<MVCore.diagram.part.MVCoreLinkDescriptor> getIncomingLinks(
+				View view) {
+			return MVCoreDiagramUpdater.getIncomingLinks(view);
+		}
+
+		/**
+		 * @generated
+		 */
+		@Override
+		public List<MVCore.diagram.part.MVCoreLinkDescriptor> getOutgoingLinks(
+				View view) {
+			return MVCoreDiagramUpdater.getOutgoingLinks(view);
+		}
+	};
 
 }

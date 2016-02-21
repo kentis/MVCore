@@ -288,22 +288,102 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String MVCoreClass5CreationTool_title;
+	public static String Package5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String MVCoreClass5CreationTool_desc;
+	public static String Package5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String Package6CreationTool_title;
+	public static String View6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String Package6CreationTool_desc;
+	public static String View6CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String DomainSuper7CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String DomainSuper7CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ActionOperatesOn8CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ActionOperatesOn8CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String MVCoreClass9CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String MVCoreClass9CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Reference10CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Reference10CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Constraint11CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Constraint11CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Documentation12CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Documentation12CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String Annotation13CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String Annotation13CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ViewViewParts14CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ViewViewParts14CreationTool_desc;
 
 	/**
 	 * @generated
@@ -313,47 +393,227 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Domain_2003_incominglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Domain_2003_outgoinglinks;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Reference_4001_target;
-
-	/**
-	 * @generated
-	 */
-	public static String NavigatorGroupName_Reference_4001_source;
-
-	/**
-	 * @generated
-	 */
 	public static String NavigatorGroupName_Package_1000_links;
 
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_Controller_2005_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Domain_2006_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Domain_2006_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Package_2007_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Package_2007_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_View_2009_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_View_2009_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Reference_4002_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Reference_4002_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Documentation_4003_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_View_4004_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_View_4004_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_View_4004_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_View_4004_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Attribute_4005_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Attribute_4005_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Domain_4006_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Domain_4006_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Domain_4006_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Domain_4006_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Annotation_4007_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Action_4008_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Action_4008_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Action_4008_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Constraint_4009_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Package_4010_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Package_4010_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Package_4010_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Controller_4011_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Controller_4011_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_Controller_4011_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ViewViewParts_4012_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ViewViewParts_4012_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_PackageParent_4013_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_PackageParent_4013_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ViewActions_4014_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ViewActions_4014_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ViewData_4015_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ViewData_4015_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_DomainSuper_4016_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_DomainSuper_4016_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_MVCoreClassPackage_4017_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_MVCoreClassPackage_4017_source;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorActionProvider_OpenDiagramActionName;
-
-	/**
-	 * @generated
-	 */
-	public static String AbstractParser_UnexpectedValueType;
-
-	/**
-	 * @generated
-	 */
-	public static String AbstractParser_WrongStringConversion;
-
-	/**
-	 * @generated
-	 */
-	public static String AbstractParser_UnknownLiteral;
 
 	/**
 	 * @generated

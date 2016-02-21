@@ -9,6 +9,7 @@ import java.util.List;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
 import org.eclipse.gmf.runtime.diagram.ui.commands.DeferredLayoutCommand;
@@ -28,6 +29,18 @@ public class DomainCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
+	protected void refreshOnActivate() {
+		// Need to activate editpart children before invoking the canonical refresh for EditParts to add event listeners
+		List<?> c = getHost().getChildren();
+		for (int i = 0; i < c.size(); i++) {
+			((EditPart) c.get(i)).activate();
+		}
+		super.refreshOnActivate();
+	}
+
+	/**
+	 * @generated
+	 */
 	protected EStructuralFeature getFeatureToSynchronize() {
 		return MVCore.MVCorePackage.eINSTANCE.getDomain_Attributes();
 	}
@@ -40,7 +53,7 @@ public class DomainCanonicalEditPolicy extends CanonicalEditPolicy {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<MVCore.diagram.part.MVCoreNodeDescriptor> childDescriptors = MVCore.diagram.part.MVCoreDiagramUpdater
-				.getDomain_2003SemanticChildren(viewObject);
+				.getDomain_2006SemanticChildren(viewObject);
 		for (MVCore.diagram.part.MVCoreNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -73,7 +86,7 @@ public class DomainCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<MVCore.diagram.part.MVCoreNodeDescriptor> childDescriptors = MVCore.diagram.part.MVCoreDiagramUpdater
-				.getDomain_2003SemanticChildren((View) getHost().getModel());
+				.getDomain_2006SemanticChildren((View) getHost().getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours
 		LinkedList<View> knownViewChildren = new LinkedList<View>();

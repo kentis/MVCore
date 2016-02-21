@@ -64,7 +64,7 @@ public class ReferenceCreateCommand extends EditElementCommand {
 			return false;
 		}
 		return MVCore.diagram.edit.policies.MVCoreBaseItemSemanticEditPolicy
-				.getLinkConstraints().canCreateReference_4001(getContainer(),
+				.getLinkConstraints().canCreateReference_4002(getContainer(),
 						getSource(), getTarget());
 	}
 

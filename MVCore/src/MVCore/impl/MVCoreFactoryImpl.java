@@ -7,6 +7,7 @@
 package MVCore.impl;
 
 import MVCore.Action;
+import MVCore.Annotation;
 import MVCore.Attribute;
 import MVCore.Constraint;
 import MVCore.ConstraintType;
@@ -18,6 +19,7 @@ import MVCore.MVCoreFactory;
 import MVCore.MVCorePackage;
 
 import MVCore.Reference;
+import MVCore.View;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
@@ -47,7 +49,7 @@ public class MVCoreFactoryImpl extends EFactoryImpl implements MVCoreFactory {
 	 */
 	public static MVCoreFactory init() {
 		try {
-			MVCoreFactory theMVCoreFactory = (MVCoreFactory)EPackage.Registry.INSTANCE.getEFactory("http://mvcore.org/mvcore"); 
+			MVCoreFactory theMVCoreFactory = (MVCoreFactory)EPackage.Registry.INSTANCE.getEFactory(MVCorePackage.eNS_URI);
 			if (theMVCoreFactory != null) {
 				return theMVCoreFactory;
 			}
@@ -85,6 +87,8 @@ public class MVCoreFactoryImpl extends EFactoryImpl implements MVCoreFactory {
 			case MVCorePackage.REFERENCE: return createReference();
 			case MVCorePackage.CONSTRAINT: return createConstraint();
 			case MVCorePackage.DOCUMENTATION: return createDocumentation();
+			case MVCorePackage.ANNOTATION: return createAnnotation();
+			case MVCorePackage.VIEW: return createView();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -208,6 +212,26 @@ public class MVCoreFactoryImpl extends EFactoryImpl implements MVCoreFactory {
 	public Documentation createDocumentation() {
 		DocumentationImpl documentation = new DocumentationImpl();
 		return documentation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Annotation createAnnotation() {
+		AnnotationImpl annotation = new AnnotationImpl();
+		return annotation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public View createView() {
+		ViewImpl view = new ViewImpl();
+		return view;
 	}
 
 	/**

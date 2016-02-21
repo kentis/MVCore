@@ -67,7 +67,7 @@ public class ReferenceReorientCommand extends EditElementCommand {
 		}
 		MVCore.Domain container = (MVCore.Domain) getLink().eContainer();
 		return MVCore.diagram.edit.policies.MVCoreBaseItemSemanticEditPolicy
-				.getLinkConstraints().canExistReference_4001(container,
+				.getLinkConstraints().canExistReference_4002(container,
 						getLink(), getNewSource(), target);
 	}
 
@@ -84,7 +84,7 @@ public class ReferenceReorientCommand extends EditElementCommand {
 		}
 		MVCore.Domain container = (MVCore.Domain) getLink().eContainer();
 		return MVCore.diagram.edit.policies.MVCoreBaseItemSemanticEditPolicy
-				.getLinkConstraints().canExistReference_4001(container,
+				.getLinkConstraints().canExistReference_4002(container,
 						getLink(), source, getNewTarget());
 	}
 

@@ -1,6 +1,8 @@
 package ${packageName}
 
 import grails.converters.XML
+import grails.converters.JSON
+
 import javax.annotation.Generated
 <% def imports = []
 klass.actions.each { action -> 
@@ -27,6 +29,9 @@ class ${klass.name}${klass.name.endsWith('Controller') ? '' : 'Controller'} {
 			xml{
 				render ${action.operatesOn.name}.list() as XML
 			}
+			hal {
+			    respond ${action.operatesOn.name}.list()
+			}
 		}
 		<% } else if("show" == action.name) { %>
 		withFormat{
@@ -35,6 +40,14 @@ class ${klass.name}${klass.name.endsWith('Controller') ? '' : 'Controller'} {
 			}
 			xml{
 				render ${action.operatesOn.name}.get(params.id) as XML
+			}
+			json {
+			   def retval = ${action.operatesOn.name}.get(params.id) 
+			   
+			   render retval as JSON
+			}
+			hal {
+			    respond ${action.operatesOn.name}.get(params.id)
 			}
 		}
 		<% } else if("index" == action.name) {%>

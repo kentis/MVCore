@@ -90,13 +90,22 @@ public interface MVCorePackage extends EPackage {
 	int MV_CORE_CLASS__PACKAGE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Annotation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MV_CORE_CLASS__ANNOTATION = 2;
+
+	/**
 	 * The number of structural features of the '<em>Class</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MV_CORE_CLASS_FEATURE_COUNT = 2;
+	int MV_CORE_CLASS_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link MVCore.impl.DomainImpl <em>Domain</em>}' class.
@@ -125,6 +134,15 @@ public interface MVCorePackage extends EPackage {
 	 * @ordered
 	 */
 	int DOMAIN__PACKAGE = MV_CORE_CLASS__PACKAGE;
+
+	/**
+	 * The feature id for the '<em><b>Annotation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOMAIN__ANNOTATION = MV_CORE_CLASS__ANNOTATION;
 
 	/**
 	 * The feature id for the '<em><b>Searchable</b></em>' attribute.
@@ -227,6 +245,15 @@ public interface MVCorePackage extends EPackage {
 	int CONTROLLER__PACKAGE = MV_CORE_CLASS__PACKAGE;
 
 	/**
+	 * The feature id for the '<em><b>Annotation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTROLLER__ANNOTATION = MV_CORE_CLASS__ANNOTATION;
+
+	/**
 	 * The feature id for the '<em><b>Actions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -282,13 +309,22 @@ public interface MVCorePackage extends EPackage {
 	int ACTION__DOCUMENTATION = 2;
 
 	/**
+	 * The feature id for the '<em><b>Annotation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__ANNOTATION = 3;
+
+	/**
 	 * The number of structural features of the '<em>Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_FEATURE_COUNT = 3;
+	int ACTION_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link MVCore.impl.PackageImpl <em>Package</em>}' class.
@@ -569,6 +605,116 @@ public interface MVCorePackage extends EPackage {
 	int DOCUMENTATION_FEATURE_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link MVCore.impl.AnnotationImpl <em>Annotation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see MVCore.impl.AnnotationImpl
+	 * @see MVCore.impl.MVCorePackageImpl#getAnnotation()
+	 * @generated
+	 */
+	int ANNOTATION = 9;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__TYPE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION__VALUE = 1;
+
+	/**
+	 * The number of structural features of the '<em>Annotation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ANNOTATION_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link MVCore.impl.ViewImpl <em>View</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see MVCore.impl.ViewImpl
+	 * @see MVCore.impl.MVCorePackageImpl#getView()
+	 * @generated
+	 */
+	int VIEW = 10;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW__NAME = MV_CORE_CLASS__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Package</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW__PACKAGE = MV_CORE_CLASS__PACKAGE;
+
+	/**
+	 * The feature id for the '<em><b>Annotation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW__ANNOTATION = MV_CORE_CLASS__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>View Parts</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW__VIEW_PARTS = MV_CORE_CLASS_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Data</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW__DATA = MV_CORE_CLASS_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Actions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW__ACTIONS = MV_CORE_CLASS_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>View</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VIEW_FEATURE_COUNT = MV_CORE_CLASS_FEATURE_COUNT + 3;
+
+	/**
 	 * The meta object id for the '{@link MVCore.ConstraintType <em>Constraint Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -576,7 +722,7 @@ public interface MVCorePackage extends EPackage {
 	 * @see MVCore.impl.MVCorePackageImpl#getConstraintType()
 	 * @generated
 	 */
-	int CONSTRAINT_TYPE = 9;
+	int CONSTRAINT_TYPE = 11;
 
 
 	/**
@@ -729,6 +875,17 @@ public interface MVCorePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getAction_Documentation();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link MVCore.Action#getAnnotation <em>Annotation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Annotation</em>'.
+	 * @see MVCore.Action#getAnnotation()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EReference getAction_Annotation();
 
 	/**
 	 * Returns the meta object for class '{@link MVCore.Package <em>Package</em>}'.
@@ -904,6 +1061,17 @@ public interface MVCorePackage extends EPackage {
 	EReference getMVCoreClass_Package();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link MVCore.MVCoreClass#getAnnotation <em>Annotation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Annotation</em>'.
+	 * @see MVCore.MVCoreClass#getAnnotation()
+	 * @see #getMVCoreClass()
+	 * @generated
+	 */
+	EReference getMVCoreClass_Annotation();
+
+	/**
 	 * Returns the meta object for class '{@link MVCore.Reference <em>Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1031,6 +1199,81 @@ public interface MVCorePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDocumentation_Value();
+
+	/**
+	 * Returns the meta object for class '{@link MVCore.Annotation <em>Annotation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Annotation</em>'.
+	 * @see MVCore.Annotation
+	 * @generated
+	 */
+	EClass getAnnotation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link MVCore.Annotation#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see MVCore.Annotation#getType()
+	 * @see #getAnnotation()
+	 * @generated
+	 */
+	EAttribute getAnnotation_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link MVCore.Annotation#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see MVCore.Annotation#getValue()
+	 * @see #getAnnotation()
+	 * @generated
+	 */
+	EAttribute getAnnotation_Value();
+
+	/**
+	 * Returns the meta object for class '{@link MVCore.View <em>View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>View</em>'.
+	 * @see MVCore.View
+	 * @generated
+	 */
+	EClass getView();
+
+	/**
+	 * Returns the meta object for the reference list '{@link MVCore.View#getViewParts <em>View Parts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>View Parts</em>'.
+	 * @see MVCore.View#getViewParts()
+	 * @see #getView()
+	 * @generated
+	 */
+	EReference getView_ViewParts();
+
+	/**
+	 * Returns the meta object for the reference list '{@link MVCore.View#getData <em>Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Data</em>'.
+	 * @see MVCore.View#getData()
+	 * @see #getView()
+	 * @generated
+	 */
+	EReference getView_Data();
+
+	/**
+	 * Returns the meta object for the reference list '{@link MVCore.View#getActions <em>Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Actions</em>'.
+	 * @see MVCore.View#getActions()
+	 * @see #getView()
+	 * @generated
+	 */
+	EReference getView_Actions();
 
 	/**
 	 * Returns the meta object for enum '{@link MVCore.ConstraintType <em>Constraint Type</em>}'.
@@ -1183,6 +1426,14 @@ public interface MVCorePackage extends EPackage {
 		EReference ACTION__DOCUMENTATION = eINSTANCE.getAction_Documentation();
 
 		/**
+		 * The meta object literal for the '<em><b>Annotation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTION__ANNOTATION = eINSTANCE.getAction_Annotation();
+
+		/**
 		 * The meta object literal for the '{@link MVCore.impl.PackageImpl <em>Package</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1317,6 +1568,14 @@ public interface MVCorePackage extends EPackage {
 		EReference MV_CORE_CLASS__PACKAGE = eINSTANCE.getMVCoreClass_Package();
 
 		/**
+		 * The meta object literal for the '<em><b>Annotation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MV_CORE_CLASS__ANNOTATION = eINSTANCE.getMVCoreClass_Annotation();
+
+		/**
 		 * The meta object literal for the '{@link MVCore.impl.ReferenceImpl <em>Reference</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1417,6 +1676,66 @@ public interface MVCorePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DOCUMENTATION__VALUE = eINSTANCE.getDocumentation_Value();
+
+		/**
+		 * The meta object literal for the '{@link MVCore.impl.AnnotationImpl <em>Annotation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see MVCore.impl.AnnotationImpl
+		 * @see MVCore.impl.MVCorePackageImpl#getAnnotation()
+		 * @generated
+		 */
+		EClass ANNOTATION = eINSTANCE.getAnnotation();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANNOTATION__TYPE = eINSTANCE.getAnnotation_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ANNOTATION__VALUE = eINSTANCE.getAnnotation_Value();
+
+		/**
+		 * The meta object literal for the '{@link MVCore.impl.ViewImpl <em>View</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see MVCore.impl.ViewImpl
+		 * @see MVCore.impl.MVCorePackageImpl#getView()
+		 * @generated
+		 */
+		EClass VIEW = eINSTANCE.getView();
+
+		/**
+		 * The meta object literal for the '<em><b>View Parts</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VIEW__VIEW_PARTS = eINSTANCE.getView_ViewParts();
+
+		/**
+		 * The meta object literal for the '<em><b>Data</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VIEW__DATA = eINSTANCE.getView_Data();
+
+		/**
+		 * The meta object literal for the '<em><b>Actions</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VIEW__ACTIONS = eINSTANCE.getView_Actions();
 
 		/**
 		 * The meta object literal for the '{@link MVCore.ConstraintType <em>Constraint Type</em>}' enum.

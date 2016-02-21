@@ -18,7 +18,7 @@ public class Package3ItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public Package3ItemSemanticEditPolicy() {
-		super(MVCore.diagram.providers.MVCoreElementTypes.Package_3004);
+		super(MVCore.diagram.providers.MVCoreElementTypes.Package_3008);
 	}
 
 	/**

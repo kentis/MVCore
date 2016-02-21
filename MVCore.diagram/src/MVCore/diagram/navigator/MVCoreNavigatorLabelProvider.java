@@ -76,33 +76,36 @@ public class MVCoreNavigatorLabelProvider extends LabelProvider implements
 	 */
 	public Image getImage(View view) {
 		switch (MVCore.diagram.part.MVCoreVisualIDRegistry.getVisualID(view)) {
-		case MVCore.diagram.edit.parts.ControllerEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?org.friark?Controller", MVCore.diagram.providers.MVCoreElementTypes.Controller_2002); //$NON-NLS-1$
 		case MVCore.diagram.edit.parts.PackageEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Diagram?org.friark?Package", MVCore.diagram.providers.MVCoreElementTypes.Package_1000); //$NON-NLS-1$
+					"Navigator?Diagram?http://mvcore.org/mvcore?Package", MVCore.diagram.providers.MVCoreElementTypes.Package_1000); //$NON-NLS-1$
+		case MVCore.diagram.edit.parts.ControllerEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://mvcore.org/mvcore?Controller", MVCore.diagram.providers.MVCoreElementTypes.Controller_2005); //$NON-NLS-1$
 		case MVCore.diagram.edit.parts.DomainEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?org.friark?Domain", MVCore.diagram.providers.MVCoreElementTypes.Domain_2003); //$NON-NLS-1$
-		case MVCore.diagram.edit.parts.MVCoreClassEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?org.friark?MVCoreClass", MVCore.diagram.providers.MVCoreElementTypes.MVCoreClass_3003); //$NON-NLS-1$
+					"Navigator?TopLevelNode?http://mvcore.org/mvcore?Domain", MVCore.diagram.providers.MVCoreElementTypes.Domain_2006); //$NON-NLS-1$
 		case MVCore.diagram.edit.parts.Package2EditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?TopLevelNode?org.friark?Package", MVCore.diagram.providers.MVCoreElementTypes.Package_2004); //$NON-NLS-1$
-		case MVCore.diagram.edit.parts.ReferenceEditPart.VISUAL_ID:
+					"Navigator?TopLevelNode?http://mvcore.org/mvcore?Package", MVCore.diagram.providers.MVCoreElementTypes.Package_2007); //$NON-NLS-1$
+		case MVCore.diagram.edit.parts.RoundedRectangleEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?org.friark?Reference", MVCore.diagram.providers.MVCoreElementTypes.Reference_4001); //$NON-NLS-1$
-		case MVCore.diagram.edit.parts.AttributeEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?org.friark?Attribute", MVCore.diagram.providers.MVCoreElementTypes.Attribute_3002); //$NON-NLS-1$
+					"Navigator?TopLevelNode?org.eclipse.draw2d.RoundedRectangle", MVCore.diagram.providers.MVCoreElementTypes.Node_2008); //$NON-NLS-1$
 		case MVCore.diagram.edit.parts.ActionEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?org.friark?Action", MVCore.diagram.providers.MVCoreElementTypes.Action_3001); //$NON-NLS-1$
+					"Navigator?Node?http://mvcore.org/mvcore?Action", MVCore.diagram.providers.MVCoreElementTypes.Action_3005); //$NON-NLS-1$
+		case MVCore.diagram.edit.parts.AttributeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://mvcore.org/mvcore?Attribute", MVCore.diagram.providers.MVCoreElementTypes.Attribute_3006); //$NON-NLS-1$
+		case MVCore.diagram.edit.parts.MVCoreClassEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://mvcore.org/mvcore?MVCoreClass", MVCore.diagram.providers.MVCoreElementTypes.MVCoreClass_3007); //$NON-NLS-1$
 		case MVCore.diagram.edit.parts.Package3EditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Node?org.friark?Package", MVCore.diagram.providers.MVCoreElementTypes.Package_3004); //$NON-NLS-1$
+					"Navigator?Node?http://mvcore.org/mvcore?Package", MVCore.diagram.providers.MVCoreElementTypes.Package_3008); //$NON-NLS-1$
+		case MVCore.diagram.edit.parts.ReferenceEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://mvcore.org/mvcore?Reference", MVCore.diagram.providers.MVCoreElementTypes.Reference_4002); //$NON-NLS-1$
 		}
 		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
@@ -158,131 +161,28 @@ public class MVCoreNavigatorLabelProvider extends LabelProvider implements
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (MVCore.diagram.part.MVCoreVisualIDRegistry.getVisualID(view)) {
-		case MVCore.diagram.edit.parts.ControllerEditPart.VISUAL_ID:
-			return getController_2002Text(view);
 		case MVCore.diagram.edit.parts.PackageEditPart.VISUAL_ID:
 			return getPackage_1000Text(view);
+		case MVCore.diagram.edit.parts.ControllerEditPart.VISUAL_ID:
+			return getController_2005Text(view);
 		case MVCore.diagram.edit.parts.DomainEditPart.VISUAL_ID:
-			return getDomain_2003Text(view);
-		case MVCore.diagram.edit.parts.MVCoreClassEditPart.VISUAL_ID:
-			return getMVCoreClass_3003Text(view);
+			return getDomain_2006Text(view);
 		case MVCore.diagram.edit.parts.Package2EditPart.VISUAL_ID:
-			return getPackage_2004Text(view);
-		case MVCore.diagram.edit.parts.ReferenceEditPart.VISUAL_ID:
-			return getReference_4001Text(view);
-		case MVCore.diagram.edit.parts.AttributeEditPart.VISUAL_ID:
-			return getAttribute_3002Text(view);
+			return getPackage_2007Text(view);
+		case MVCore.diagram.edit.parts.RoundedRectangleEditPart.VISUAL_ID:
+			return getNode_2008Text(view);
 		case MVCore.diagram.edit.parts.ActionEditPart.VISUAL_ID:
-			return getAction_3001Text(view);
+			return getAction_3005Text(view);
+		case MVCore.diagram.edit.parts.AttributeEditPart.VISUAL_ID:
+			return getAttribute_3006Text(view);
+		case MVCore.diagram.edit.parts.MVCoreClassEditPart.VISUAL_ID:
+			return getMVCoreClass_3007Text(view);
 		case MVCore.diagram.edit.parts.Package3EditPart.VISUAL_ID:
-			return getPackage_3004Text(view);
+			return getPackage_3008Text(view);
+		case MVCore.diagram.edit.parts.ReferenceEditPart.VISUAL_ID:
+			return getReference_4002Text(view);
 		}
 		return getUnknownElementText(view);
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getPackage_3004Text(View view) {
-		IParser parser = MVCore.diagram.providers.MVCoreParserProvider
-				.getParser(
-						MVCore.diagram.providers.MVCoreElementTypes.Package_3004,
-						view.getElement() != null ? view.getElement() : view,
-						MVCore.diagram.part.MVCoreVisualIDRegistry
-								.getType(MVCore.diagram.edit.parts.Package3EditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			MVCore.diagram.part.MVCoreDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 3004); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getDomain_2003Text(View view) {
-		IParser parser = MVCore.diagram.providers.MVCoreParserProvider
-				.getParser(
-						MVCore.diagram.providers.MVCoreElementTypes.Domain_2003,
-						view.getElement() != null ? view.getElement() : view,
-						MVCore.diagram.part.MVCoreVisualIDRegistry
-								.getType(MVCore.diagram.edit.parts.DomainNameEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			MVCore.diagram.part.MVCoreDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5002); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getController_2002Text(View view) {
-		IParser parser = MVCore.diagram.providers.MVCoreParserProvider
-				.getParser(
-						MVCore.diagram.providers.MVCoreElementTypes.Controller_2002,
-						view.getElement() != null ? view.getElement() : view,
-						MVCore.diagram.part.MVCoreVisualIDRegistry
-								.getType(MVCore.diagram.edit.parts.ControllerNameEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			MVCore.diagram.part.MVCoreDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5001); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getAction_3001Text(View view) {
-		IParser parser = MVCore.diagram.providers.MVCoreParserProvider
-				.getParser(
-						MVCore.diagram.providers.MVCoreElementTypes.Action_3001,
-						view.getElement() != null ? view.getElement() : view,
-						MVCore.diagram.part.MVCoreVisualIDRegistry
-								.getType(MVCore.diagram.edit.parts.ActionEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			MVCore.diagram.part.MVCoreDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 3001); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getReference_4001Text(View view) {
-		IParser parser = MVCore.diagram.providers.MVCoreParserProvider
-				.getParser(
-						MVCore.diagram.providers.MVCoreElementTypes.Reference_4001,
-						view.getElement() != null ? view.getElement() : view,
-						MVCore.diagram.part.MVCoreVisualIDRegistry
-								.getType(MVCore.diagram.edit.parts.ReferenceLowerBoundUpperBoundEditPart.VISUAL_ID));
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
-		} else {
-			MVCore.diagram.part.MVCoreDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 6001); //$NON-NLS-1$
-			return ""; //$NON-NLS-1$
-		}
 	}
 
 	/**
@@ -304,20 +204,20 @@ public class MVCoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getAttribute_3002Text(View view) {
+	private String getController_2005Text(View view) {
 		IParser parser = MVCore.diagram.providers.MVCoreParserProvider
 				.getParser(
-						MVCore.diagram.providers.MVCoreElementTypes.Attribute_3002,
+						MVCore.diagram.providers.MVCoreElementTypes.Controller_2005,
 						view.getElement() != null ? view.getElement() : view,
 						MVCore.diagram.part.MVCoreVisualIDRegistry
-								.getType(MVCore.diagram.edit.parts.AttributeEditPart.VISUAL_ID));
+								.getType(MVCore.diagram.edit.parts.ControllerNameEditPart.VISUAL_ID));
 		if (parser != null) {
 			return parser.getPrintString(new EObjectAdapter(
 					view.getElement() != null ? view.getElement() : view),
 					ParserOptions.NONE.intValue());
 		} else {
 			MVCore.diagram.part.MVCoreDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 3002); //$NON-NLS-1$
+					.logError("Parser was not found for label " + 5004); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -325,10 +225,31 @@ public class MVCoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getPackage_2004Text(View view) {
+	private String getDomain_2006Text(View view) {
 		IParser parser = MVCore.diagram.providers.MVCoreParserProvider
 				.getParser(
-						MVCore.diagram.providers.MVCoreElementTypes.Package_2004,
+						MVCore.diagram.providers.MVCoreElementTypes.Domain_2006,
+						view.getElement() != null ? view.getElement() : view,
+						MVCore.diagram.part.MVCoreVisualIDRegistry
+								.getType(MVCore.diagram.edit.parts.DomainNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			MVCore.diagram.part.MVCoreDiagramEditorPlugin.getInstance()
+					.logError("Parser was not found for label " + 5005); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getPackage_2007Text(View view) {
+		IParser parser = MVCore.diagram.providers.MVCoreParserProvider
+				.getParser(
+						MVCore.diagram.providers.MVCoreElementTypes.Package_2007,
 						view.getElement() != null ? view.getElement() : view,
 						MVCore.diagram.part.MVCoreVisualIDRegistry
 								.getType(MVCore.diagram.edit.parts.PackageNameEditPart.VISUAL_ID));
@@ -338,7 +259,7 @@ public class MVCoreNavigatorLabelProvider extends LabelProvider implements
 					ParserOptions.NONE.intValue());
 		} else {
 			MVCore.diagram.part.MVCoreDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5003); //$NON-NLS-1$
+					.logError("Parser was not found for label " + 5006); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}
@@ -346,10 +267,59 @@ public class MVCoreNavigatorLabelProvider extends LabelProvider implements
 	/**
 	 * @generated
 	 */
-	private String getMVCoreClass_3003Text(View view) {
+	private String getNode_2008Text(View view) {
+		return ""; //$NON-NLS-1$
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getAction_3005Text(View view) {
 		IParser parser = MVCore.diagram.providers.MVCoreParserProvider
 				.getParser(
-						MVCore.diagram.providers.MVCoreElementTypes.MVCoreClass_3003,
+						MVCore.diagram.providers.MVCoreElementTypes.Action_3005,
+						view.getElement() != null ? view.getElement() : view,
+						MVCore.diagram.part.MVCoreVisualIDRegistry
+								.getType(MVCore.diagram.edit.parts.ActionEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			MVCore.diagram.part.MVCoreDiagramEditorPlugin.getInstance()
+					.logError("Parser was not found for label " + 3005); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getAttribute_3006Text(View view) {
+		IParser parser = MVCore.diagram.providers.MVCoreParserProvider
+				.getParser(
+						MVCore.diagram.providers.MVCoreElementTypes.Attribute_3006,
+						view.getElement() != null ? view.getElement() : view,
+						MVCore.diagram.part.MVCoreVisualIDRegistry
+								.getType(MVCore.diagram.edit.parts.AttributeEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			MVCore.diagram.part.MVCoreDiagramEditorPlugin.getInstance()
+					.logError("Parser was not found for label " + 3006); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getMVCoreClass_3007Text(View view) {
+		IParser parser = MVCore.diagram.providers.MVCoreParserProvider
+				.getParser(
+						MVCore.diagram.providers.MVCoreElementTypes.MVCoreClass_3007,
 						view.getElement() != null ? view.getElement() : view,
 						MVCore.diagram.part.MVCoreVisualIDRegistry
 								.getType(MVCore.diagram.edit.parts.MVCoreClassEditPart.VISUAL_ID));
@@ -359,7 +329,49 @@ public class MVCoreNavigatorLabelProvider extends LabelProvider implements
 					ParserOptions.NONE.intValue());
 		} else {
 			MVCore.diagram.part.MVCoreDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 3003); //$NON-NLS-1$
+					.logError("Parser was not found for label " + 3007); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getPackage_3008Text(View view) {
+		IParser parser = MVCore.diagram.providers.MVCoreParserProvider
+				.getParser(
+						MVCore.diagram.providers.MVCoreElementTypes.Package_3008,
+						view.getElement() != null ? view.getElement() : view,
+						MVCore.diagram.part.MVCoreVisualIDRegistry
+								.getType(MVCore.diagram.edit.parts.Package3EditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			MVCore.diagram.part.MVCoreDiagramEditorPlugin.getInstance()
+					.logError("Parser was not found for label " + 3008); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getReference_4002Text(View view) {
+		IParser parser = MVCore.diagram.providers.MVCoreParserProvider
+				.getParser(
+						MVCore.diagram.providers.MVCoreElementTypes.Reference_4002,
+						view.getElement() != null ? view.getElement() : view,
+						MVCore.diagram.part.MVCoreVisualIDRegistry
+								.getType(MVCore.diagram.edit.parts.ReferenceLowerBoundUpperBoundEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			MVCore.diagram.part.MVCoreDiagramEditorPlugin.getInstance()
+					.logError("Parser was not found for label " + 6002); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
 	}

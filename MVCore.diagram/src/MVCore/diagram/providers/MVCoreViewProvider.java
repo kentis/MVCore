@@ -137,6 +137,8 @@ public class MVCoreViewProvider extends AbstractProvider implements
 					return false; // foreign diagram
 				}
 				switch (visualID) {
+				case MVCore.diagram.edit.parts.RoundedRectangleEditPart.VISUAL_ID:
+					break; // pure design element
 				case MVCore.diagram.edit.parts.ControllerEditPart.VISUAL_ID:
 				case MVCore.diagram.edit.parts.DomainEditPart.VISUAL_ID:
 				case MVCore.diagram.edit.parts.ActionEditPart.VISUAL_ID:
@@ -159,6 +161,7 @@ public class MVCoreViewProvider extends AbstractProvider implements
 		return MVCore.diagram.edit.parts.ControllerEditPart.VISUAL_ID == visualID
 				|| MVCore.diagram.edit.parts.DomainEditPart.VISUAL_ID == visualID
 				|| MVCore.diagram.edit.parts.Package2EditPart.VISUAL_ID == visualID
+				|| MVCore.diagram.edit.parts.RoundedRectangleEditPart.VISUAL_ID == visualID
 				|| MVCore.diagram.edit.parts.ActionEditPart.VISUAL_ID == visualID
 				|| MVCore.diagram.edit.parts.AttributeEditPart.VISUAL_ID == visualID
 				|| MVCore.diagram.edit.parts.MVCoreClassEditPart.VISUAL_ID == visualID
@@ -223,25 +226,28 @@ public class MVCoreViewProvider extends AbstractProvider implements
 		}
 		switch (visualID) {
 		case MVCore.diagram.edit.parts.ControllerEditPart.VISUAL_ID:
-			return createController_2002(domainElement, containerView, index,
+			return createController_2005(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case MVCore.diagram.edit.parts.DomainEditPart.VISUAL_ID:
-			return createDomain_2003(domainElement, containerView, index,
+			return createDomain_2006(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case MVCore.diagram.edit.parts.Package2EditPart.VISUAL_ID:
-			return createPackage_2004(domainElement, containerView, index,
+			return createPackage_2007(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case MVCore.diagram.edit.parts.RoundedRectangleEditPart.VISUAL_ID:
+			return createNode_2008(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case MVCore.diagram.edit.parts.ActionEditPart.VISUAL_ID:
-			return createAction_3001(domainElement, containerView, index,
+			return createAction_3005(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case MVCore.diagram.edit.parts.AttributeEditPart.VISUAL_ID:
-			return createAttribute_3002(domainElement, containerView, index,
+			return createAttribute_3006(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case MVCore.diagram.edit.parts.MVCoreClassEditPart.VISUAL_ID:
-			return createMVCoreClass_3003(domainElement, containerView, index,
+			return createMVCoreClass_3007(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case MVCore.diagram.edit.parts.Package3EditPart.VISUAL_ID:
-			return createPackage_3004(domainElement, containerView, index,
+			return createPackage_3008(domainElement, containerView, index,
 					persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
@@ -259,7 +265,7 @@ public class MVCoreViewProvider extends AbstractProvider implements
 		switch (MVCore.diagram.part.MVCoreVisualIDRegistry
 				.getVisualID(elementTypeHint)) {
 		case MVCore.diagram.edit.parts.ReferenceEditPart.VISUAL_ID:
-			return createReference_4001(getSemanticElement(semanticAdapter),
+			return createReference_4002(getSemanticElement(semanticAdapter),
 					containerView, index, persisted, preferencesHint);
 		}
 		// can never happen, provided #provides(CreateEdgeViewOperation) is correct
@@ -269,7 +275,7 @@ public class MVCoreViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createController_2002(EObject domainElement,
+	public Node createController_2005(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
@@ -307,7 +313,7 @@ public class MVCoreViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5001 = createLabel(
+		Node label5004 = createLabel(
 				node,
 				MVCore.diagram.part.MVCoreVisualIDRegistry
 						.getType(MVCore.diagram.edit.parts.ControllerNameEditPart.VISUAL_ID));
@@ -317,7 +323,7 @@ public class MVCoreViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createDomain_2003(EObject domainElement, View containerView,
+	public Node createDomain_2006(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -354,7 +360,7 @@ public class MVCoreViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5002 = createLabel(
+		Node label5005 = createLabel(
 				node,
 				MVCore.diagram.part.MVCoreVisualIDRegistry
 						.getType(MVCore.diagram.edit.parts.DomainNameEditPart.VISUAL_ID));
@@ -364,7 +370,7 @@ public class MVCoreViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createPackage_2004(EObject domainElement, View containerView,
+	public Node createPackage_2007(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Shape node = NotationFactory.eINSTANCE.createShape();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -401,7 +407,7 @@ public class MVCoreViewProvider extends AbstractProvider implements
 		ViewUtil.setStructuralFeatureValue(node,
 				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
 				FigureUtilities.RGBToInteger(fillRGB));
-		Node label5003 = createLabel(
+		Node label5006 = createLabel(
 				node,
 				MVCore.diagram.part.MVCoreVisualIDRegistry
 						.getType(MVCore.diagram.edit.parts.PackageNameEditPart.VISUAL_ID));
@@ -411,7 +417,50 @@ public class MVCoreViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createAction_3001(EObject domainElement, View containerView,
+	public Node createNode_2008(EObject domainElement, View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(MVCore.diagram.part.MVCoreVisualIDRegistry
+				.getType(MVCore.diagram.edit.parts.RoundedRectangleEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		stampShortcut(containerView, node);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+				FigureUtilities.RGBToInteger(fillRGB));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createAction_3005(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
@@ -425,7 +474,7 @@ public class MVCoreViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createAttribute_3002(EObject domainElement, View containerView,
+	public Node createAttribute_3006(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
@@ -439,7 +488,7 @@ public class MVCoreViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createMVCoreClass_3003(EObject domainElement,
+	public Node createMVCoreClass_3007(EObject domainElement,
 			View containerView, int index, boolean persisted,
 			PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
@@ -454,7 +503,7 @@ public class MVCoreViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Node createPackage_3004(EObject domainElement, View containerView,
+	public Node createPackage_3008(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
@@ -468,7 +517,7 @@ public class MVCoreViewProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	public Edge createReference_4001(EObject domainElement, View containerView,
+	public Edge createReference_4002(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Connector edge = NotationFactory.eINSTANCE.createConnector();
 		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
@@ -514,15 +563,15 @@ public class MVCoreViewProvider extends AbstractProvider implements
 					NotationPackage.eINSTANCE.getRoutingStyle_Routing(),
 					routing);
 		}
-		Node label6001 = createLabel(
+		Node label6002 = createLabel(
 				edge,
 				MVCore.diagram.part.MVCoreVisualIDRegistry
 						.getType(MVCore.diagram.edit.parts.ReferenceLowerBoundUpperBoundEditPart.VISUAL_ID));
-		label6001.setLayoutConstraint(NotationFactory.eINSTANCE
+		label6002.setLayoutConstraint(NotationFactory.eINSTANCE
 				.createLocation());
-		Location location6001 = (Location) label6001.getLayoutConstraint();
-		location6001.setX(0);
-		location6001.setY(40);
+		Location location6002 = (Location) label6002.getLayoutConstraint();
+		location6002.setX(0);
+		location6002.setY(40);
 		return edge;
 	}
 

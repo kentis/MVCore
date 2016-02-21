@@ -1,11 +1,8 @@
 package MVCore.diagram.providers;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
@@ -25,108 +22,6 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
  * @generated
  */
 public class MVCoreModelingAssistantProvider extends ModelingAssistantProvider {
-
-	/**
-	 * @generated
-	 */
-	public List getTypesForPopupBar(IAdaptable host) {
-		IGraphicalEditPart editPart = (IGraphicalEditPart) host
-				.getAdapter(IGraphicalEditPart.class);
-		if (editPart instanceof MVCore.diagram.edit.parts.PackageEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
-			types.add(MVCore.diagram.providers.MVCoreElementTypes.Controller_2002);
-			types.add(MVCore.diagram.providers.MVCoreElementTypes.Domain_2003);
-			types.add(MVCore.diagram.providers.MVCoreElementTypes.Package_2004);
-			return types;
-		}
-		if (editPart instanceof MVCore.diagram.edit.parts.ControllerEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(MVCore.diagram.providers.MVCoreElementTypes.Action_3001);
-			return types;
-		}
-		if (editPart instanceof MVCore.diagram.edit.parts.DomainEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-			types.add(MVCore.diagram.providers.MVCoreElementTypes.Attribute_3002);
-			return types;
-		}
-		if (editPart instanceof MVCore.diagram.edit.parts.Package2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-			types.add(MVCore.diagram.providers.MVCoreElementTypes.MVCoreClass_3003);
-			types.add(MVCore.diagram.providers.MVCoreElementTypes.Package_3004);
-			return types;
-		}
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List getRelTypesOnSource(IAdaptable source) {
-		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
-				.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof MVCore.diagram.edit.parts.DomainEditPart) {
-			return ((MVCore.diagram.edit.parts.DomainEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
-		}
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List getRelTypesOnTarget(IAdaptable target) {
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
-				.getAdapter(IGraphicalEditPart.class);
-		if (targetEditPart instanceof MVCore.diagram.edit.parts.DomainEditPart) {
-			return ((MVCore.diagram.edit.parts.DomainEditPart) targetEditPart)
-					.getMARelTypesOnTarget();
-		}
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List getRelTypesOnSourceAndTarget(IAdaptable source,
-			IAdaptable target) {
-		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
-				.getAdapter(IGraphicalEditPart.class);
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
-				.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof MVCore.diagram.edit.parts.DomainEditPart) {
-			return ((MVCore.diagram.edit.parts.DomainEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
-		}
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List getTypesForSource(IAdaptable target,
-			IElementType relationshipType) {
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
-				.getAdapter(IGraphicalEditPart.class);
-		if (targetEditPart instanceof MVCore.diagram.edit.parts.DomainEditPart) {
-			return ((MVCore.diagram.edit.parts.DomainEditPart) targetEditPart)
-					.getMATypesForSource(relationshipType);
-		}
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public List getTypesForTarget(IAdaptable source,
-			IElementType relationshipType) {
-		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
-				.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof MVCore.diagram.edit.parts.DomainEditPart) {
-			return ((MVCore.diagram.edit.parts.DomainEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
-		}
-		return Collections.EMPTY_LIST;
-	}
 
 	/**
 	 * @generated
@@ -203,4 +98,5 @@ public class MVCoreModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		return selected;
 	}
+
 }

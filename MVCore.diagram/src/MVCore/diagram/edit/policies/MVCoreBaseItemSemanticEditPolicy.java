@@ -30,6 +30,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelations
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
 
 /**
  * @generated
@@ -121,21 +122,15 @@ public class MVCoreBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		if (editPolicyCommand != null) {
 			ICommand command = editPolicyCommand instanceof ICommandProxy ? ((ICommandProxy) editPolicyCommand)
 					.getICommand() : new CommandProxy(editPolicyCommand);
-			request.setParameter(
-					MVCore.diagram.edit.helpers.MVCoreBaseEditHelper.EDIT_POLICY_COMMAND,
+			request.setParameter(GeneratedEditHelperBase.EDIT_POLICY_COMMAND,
 					command);
 		}
 		IElementType requestContextElementType = getContextElementType(request);
-		request.setParameter(
-				MVCore.diagram.edit.helpers.MVCoreBaseEditHelper.CONTEXT_ELEMENT_TYPE,
+		request.setParameter(GeneratedEditHelperBase.CONTEXT_ELEMENT_TYPE,
 				requestContextElementType);
 		ICommand command = requestContextElementType.getEditCommand(request);
-		request.setParameter(
-				MVCore.diagram.edit.helpers.MVCoreBaseEditHelper.EDIT_POLICY_COMMAND,
-				null);
-		request.setParameter(
-				MVCore.diagram.edit.helpers.MVCoreBaseEditHelper.CONTEXT_ELEMENT_TYPE,
-				null);
+		request.setParameter(GeneratedEditHelperBase.EDIT_POLICY_COMMAND, null);
+		request.setParameter(GeneratedEditHelperBase.CONTEXT_ELEMENT_TYPE, null);
 		if (command != null) {
 			if (!(command instanceof CompositeTransactionalCommand)) {
 				command = new CompositeTransactionalCommand(getEditingDomain(),
@@ -324,15 +319,15 @@ public class MVCoreBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 		/**
 		 * @generated
 		 */
-		public boolean canCreateReference_4001(MVCore.Domain container,
+		public boolean canCreateReference_4002(MVCore.Domain container,
 				MVCore.Domain source, MVCore.Domain target) {
-			return canExistReference_4001(container, null, source, target);
+			return canExistReference_4002(container, null, source, target);
 		}
 
 		/**
 		 * @generated
 		 */
-		public boolean canExistReference_4001(MVCore.Domain container,
+		public boolean canExistReference_4002(MVCore.Domain container,
 				MVCore.Reference linkInstance, MVCore.Domain source,
 				MVCore.Domain target) {
 			return true;

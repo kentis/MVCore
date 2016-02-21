@@ -14,6 +14,7 @@ import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.friark.mvcore.Utils;
 import org.friark.mvcore.generators.Generator;
 import org.osgi.framework.Bundle;
 

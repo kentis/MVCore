@@ -26,14 +26,14 @@ public class DomainItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public DomainItemSemanticEditPolicy() {
-		super(MVCore.diagram.providers.MVCoreElementTypes.Domain_2003);
+		super(MVCore.diagram.providers.MVCoreElementTypes.Domain_2006);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (MVCore.diagram.providers.MVCoreElementTypes.Attribute_3002 == req
+		if (MVCore.diagram.providers.MVCoreElementTypes.Attribute_3006 == req
 				.getElementType()) {
 			return getGEFWrapper(new MVCore.diagram.edit.commands.AttributeCreateCommand(
 					req));
@@ -118,7 +118,7 @@ public class DomainItemSemanticEditPolicy extends
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (MVCore.diagram.providers.MVCoreElementTypes.Reference_4001 == req
+		if (MVCore.diagram.providers.MVCoreElementTypes.Reference_4002 == req
 				.getElementType()) {
 			return getGEFWrapper(new MVCore.diagram.edit.commands.ReferenceCreateCommand(
 					req, req.getSource(), req.getTarget()));
@@ -131,7 +131,7 @@ public class DomainItemSemanticEditPolicy extends
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		if (MVCore.diagram.providers.MVCoreElementTypes.Reference_4001 == req
+		if (MVCore.diagram.providers.MVCoreElementTypes.Reference_4002 == req
 				.getElementType()) {
 			return getGEFWrapper(new MVCore.diagram.edit.commands.ReferenceCreateCommand(
 					req, req.getSource(), req.getTarget()));

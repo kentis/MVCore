@@ -6,6 +6,7 @@
  */
 package MVCore.impl;
 
+import MVCore.Annotation;
 import MVCore.Documentation;
 import MVCore.MVCoreClass;
 import MVCore.MVCorePackage;
@@ -36,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link MVCore.impl.MVCoreClassImpl#getName <em>Name</em>}</li>
  *   <li>{@link MVCore.impl.MVCoreClassImpl#getPackage <em>Package</em>}</li>
+ *   <li>{@link MVCore.impl.MVCoreClassImpl#getAnnotation <em>Annotation</em>}</li>
  * </ul>
  * </p>
  *
@@ -61,6 +63,16 @@ public class MVCoreClassImpl extends EObjectImpl implements MVCoreClass {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getAnnotation() <em>Annotation</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnnotation()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Annotation> annotation;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -109,7 +121,7 @@ public class MVCoreClassImpl extends EObjectImpl implements MVCoreClass {
 	 */
 	public MVCore.Package getPackage() {
 		if (eContainerFeatureID() != MVCorePackage.MV_CORE_CLASS__PACKAGE) return null;
-		return (MVCore.Package)eContainer();
+		return (MVCore.Package)eInternalContainer();
 	}
 
 	/**
@@ -148,6 +160,18 @@ public class MVCoreClassImpl extends EObjectImpl implements MVCoreClass {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Annotation> getAnnotation() {
+		if (annotation == null) {
+			annotation = new EObjectContainmentEList<Annotation>(Annotation.class, this, MVCorePackage.MV_CORE_CLASS__ANNOTATION);
+		}
+		return annotation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -170,6 +194,8 @@ public class MVCoreClassImpl extends EObjectImpl implements MVCoreClass {
 		switch (featureID) {
 			case MVCorePackage.MV_CORE_CLASS__PACKAGE:
 				return basicSetPackage(null, msgs);
+			case MVCorePackage.MV_CORE_CLASS__ANNOTATION:
+				return ((InternalEList<?>)getAnnotation()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -200,6 +226,8 @@ public class MVCoreClassImpl extends EObjectImpl implements MVCoreClass {
 				return getName();
 			case MVCorePackage.MV_CORE_CLASS__PACKAGE:
 				return getPackage();
+			case MVCorePackage.MV_CORE_CLASS__ANNOTATION:
+				return getAnnotation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -219,6 +247,10 @@ public class MVCoreClassImpl extends EObjectImpl implements MVCoreClass {
 			case MVCorePackage.MV_CORE_CLASS__PACKAGE:
 				setPackage((MVCore.Package)newValue);
 				return;
+			case MVCorePackage.MV_CORE_CLASS__ANNOTATION:
+				getAnnotation().clear();
+				getAnnotation().addAll((Collection<? extends Annotation>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -237,6 +269,9 @@ public class MVCoreClassImpl extends EObjectImpl implements MVCoreClass {
 			case MVCorePackage.MV_CORE_CLASS__PACKAGE:
 				setPackage((MVCore.Package)null);
 				return;
+			case MVCorePackage.MV_CORE_CLASS__ANNOTATION:
+				getAnnotation().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -253,6 +288,8 @@ public class MVCoreClassImpl extends EObjectImpl implements MVCoreClass {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case MVCorePackage.MV_CORE_CLASS__PACKAGE:
 				return getPackage() != null;
+			case MVCorePackage.MV_CORE_CLASS__ANNOTATION:
+				return annotation != null && !annotation.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

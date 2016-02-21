@@ -2,6 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="MVCore" nsURI="http://mvcore.org/mvcore" nsPrefix="MVCore">
   <eClassifiers xsi:type="ecore:EClass" name="Domain" eSuperTypes="#//MVCoreClass">
+    <eAnnotations source="k1s.org/wmf/node"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Searchable" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
         defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Loggable" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"
@@ -17,6 +18,7 @@
         eType="#//Documentation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Controller" eSuperTypes="#//MVCoreClass">
+    <eAnnotations source="k1s.org/wmf/node"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
         eType="#//Action" containment="true"/>
   </eClassifiers>
@@ -25,6 +27,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="operatesOn" eType="#//Domain"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="documentation" upperBound="-1"
         eType="#//Documentation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="annotation" upperBound="-1"
+        eType="#//Annotation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Package">
     <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
@@ -58,8 +62,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="package" lowerBound="1"
         eType="#//Package" eOpposite="#//Package/members"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="annotation" upperBound="-1"
+        eType="#//Annotation" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Reference">
+    <eAnnotations source="k1s.org/wmf/arc?srcField=src&amp;target=target"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="target" unique="false"
         lowerBound="1" eType="#//Domain"/>
@@ -83,5 +90,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="Documentation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" lowerBound="1"
         eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Annotation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" unique="false" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" unique="false" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="View" eSuperTypes="#//MVCoreClass">
+    <eAnnotations source="k1s.org/wmf/node"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="viewParts" upperBound="-1"
+        eType="#//View"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="data" unique="false" upperBound="-1"
+        eType="#//Domain"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Actions" unique="false"
+        upperBound="-1" eType="#//Action"/>
   </eClassifiers>
 </ecore:EPackage>

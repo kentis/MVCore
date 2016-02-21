@@ -22,160 +22,160 @@ public class MVCoreParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser controllerName_5001Parser;
+	private IParser controllerName_5004Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getControllerName_5001Parser() {
-		if (controllerName_5001Parser == null) {
+	private IParser getControllerName_5004Parser() {
+		if (controllerName_5004Parser == null) {
 			EAttribute[] features = new EAttribute[] { MVCore.MVCorePackage.eINSTANCE
 					.getMVCoreClass_Name() };
 			EAttribute[] editableFeatures = new EAttribute[] { MVCore.MVCorePackage.eINSTANCE
 					.getMVCoreClass_Name() };
 			MVCore.diagram.parsers.MessageFormatParser parser = new MVCore.diagram.parsers.MessageFormatParser(
 					features, editableFeatures);
-			controllerName_5001Parser = parser;
+			controllerName_5004Parser = parser;
 		}
-		return controllerName_5001Parser;
+		return controllerName_5004Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser domainName_5002Parser;
+	private IParser domainName_5005Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getDomainName_5002Parser() {
-		if (domainName_5002Parser == null) {
+	private IParser getDomainName_5005Parser() {
+		if (domainName_5005Parser == null) {
 			EAttribute[] features = new EAttribute[] { MVCore.MVCorePackage.eINSTANCE
 					.getMVCoreClass_Name() };
 			EAttribute[] editableFeatures = new EAttribute[] { MVCore.MVCorePackage.eINSTANCE
 					.getMVCoreClass_Name() };
 			MVCore.diagram.parsers.MessageFormatParser parser = new MVCore.diagram.parsers.MessageFormatParser(
 					features, editableFeatures);
-			domainName_5002Parser = parser;
+			domainName_5005Parser = parser;
 		}
-		return domainName_5002Parser;
+		return domainName_5005Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser packageName_5003Parser;
+	private IParser packageName_5006Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getPackageName_5003Parser() {
-		if (packageName_5003Parser == null) {
+	private IParser getPackageName_5006Parser() {
+		if (packageName_5006Parser == null) {
 			EAttribute[] features = new EAttribute[] { MVCore.MVCorePackage.eINSTANCE
 					.getPackage_Name() };
 			EAttribute[] editableFeatures = new EAttribute[] { MVCore.MVCorePackage.eINSTANCE
 					.getPackage_Name() };
 			MVCore.diagram.parsers.MessageFormatParser parser = new MVCore.diagram.parsers.MessageFormatParser(
 					features, editableFeatures);
-			packageName_5003Parser = parser;
+			packageName_5006Parser = parser;
 		}
-		return packageName_5003Parser;
+		return packageName_5006Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser action_3001Parser;
+	private IParser action_3005Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getAction_3001Parser() {
-		if (action_3001Parser == null) {
+	private IParser getAction_3005Parser() {
+		if (action_3005Parser == null) {
 			EAttribute[] features = new EAttribute[] { MVCore.MVCorePackage.eINSTANCE
 					.getAction_Name() };
 			EAttribute[] editableFeatures = new EAttribute[] { MVCore.MVCorePackage.eINSTANCE
 					.getAction_Name() };
 			MVCore.diagram.parsers.MessageFormatParser parser = new MVCore.diagram.parsers.MessageFormatParser(
 					features, editableFeatures);
-			action_3001Parser = parser;
+			action_3005Parser = parser;
 		}
-		return action_3001Parser;
+		return action_3005Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser attribute_3002Parser;
+	private IParser attribute_3006Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getAttribute_3002Parser() {
-		if (attribute_3002Parser == null) {
+	private IParser getAttribute_3006Parser() {
+		if (attribute_3006Parser == null) {
 			EAttribute[] features = new EAttribute[] { MVCore.MVCorePackage.eINSTANCE
 					.getAttribute_Name() };
 			EAttribute[] editableFeatures = new EAttribute[] { MVCore.MVCorePackage.eINSTANCE
 					.getAttribute_Name() };
 			MVCore.diagram.parsers.MessageFormatParser parser = new MVCore.diagram.parsers.MessageFormatParser(
 					features, editableFeatures);
-			attribute_3002Parser = parser;
+			attribute_3006Parser = parser;
 		}
-		return attribute_3002Parser;
+		return attribute_3006Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser mVCoreClass_3003Parser;
+	private IParser mVCoreClass_3007Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getMVCoreClass_3003Parser() {
-		if (mVCoreClass_3003Parser == null) {
+	private IParser getMVCoreClass_3007Parser() {
+		if (mVCoreClass_3007Parser == null) {
 			EAttribute[] features = new EAttribute[] { MVCore.MVCorePackage.eINSTANCE
 					.getMVCoreClass_Name() };
 			EAttribute[] editableFeatures = new EAttribute[] { MVCore.MVCorePackage.eINSTANCE
 					.getMVCoreClass_Name() };
 			MVCore.diagram.parsers.MessageFormatParser parser = new MVCore.diagram.parsers.MessageFormatParser(
 					features, editableFeatures);
-			mVCoreClass_3003Parser = parser;
+			mVCoreClass_3007Parser = parser;
 		}
-		return mVCoreClass_3003Parser;
+		return mVCoreClass_3007Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser package_3004Parser;
+	private IParser package_3008Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getPackage_3004Parser() {
-		if (package_3004Parser == null) {
+	private IParser getPackage_3008Parser() {
+		if (package_3008Parser == null) {
 			EAttribute[] features = new EAttribute[] { MVCore.MVCorePackage.eINSTANCE
 					.getPackage_Name() };
 			EAttribute[] editableFeatures = new EAttribute[] { MVCore.MVCorePackage.eINSTANCE
 					.getPackage_Name() };
 			MVCore.diagram.parsers.MessageFormatParser parser = new MVCore.diagram.parsers.MessageFormatParser(
 					features, editableFeatures);
-			package_3004Parser = parser;
+			package_3008Parser = parser;
 		}
-		return package_3004Parser;
+		return package_3008Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	private IParser referenceLowerBoundUpperBound_6001Parser;
+	private IParser referenceLowerBoundUpperBound_6002Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getReferenceLowerBoundUpperBound_6001Parser() {
-		if (referenceLowerBoundUpperBound_6001Parser == null) {
+	private IParser getReferenceLowerBoundUpperBound_6002Parser() {
+		if (referenceLowerBoundUpperBound_6002Parser == null) {
 			EAttribute[] features = new EAttribute[] {
 					MVCore.MVCorePackage.eINSTANCE.getReference_LowerBound(),
 					MVCore.MVCorePackage.eINSTANCE.getReference_UpperBound() };
@@ -187,9 +187,9 @@ public class MVCoreParserProvider extends AbstractProvider implements
 			parser.setViewPattern("{0}..{1,choice,-1#*|-1<{1}}"); //$NON-NLS-1$
 			parser.setEditorPattern("{0}..{1}"); //$NON-NLS-1$
 			parser.setEditPattern("{0}..{1}"); //$NON-NLS-1$
-			referenceLowerBoundUpperBound_6001Parser = parser;
+			referenceLowerBoundUpperBound_6002Parser = parser;
 		}
-		return referenceLowerBoundUpperBound_6001Parser;
+		return referenceLowerBoundUpperBound_6002Parser;
 	}
 
 	/**
@@ -198,21 +198,21 @@ public class MVCoreParserProvider extends AbstractProvider implements
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case MVCore.diagram.edit.parts.ControllerNameEditPart.VISUAL_ID:
-			return getControllerName_5001Parser();
+			return getControllerName_5004Parser();
 		case MVCore.diagram.edit.parts.DomainNameEditPart.VISUAL_ID:
-			return getDomainName_5002Parser();
+			return getDomainName_5005Parser();
 		case MVCore.diagram.edit.parts.PackageNameEditPart.VISUAL_ID:
-			return getPackageName_5003Parser();
+			return getPackageName_5006Parser();
 		case MVCore.diagram.edit.parts.ActionEditPart.VISUAL_ID:
-			return getAction_3001Parser();
+			return getAction_3005Parser();
 		case MVCore.diagram.edit.parts.AttributeEditPart.VISUAL_ID:
-			return getAttribute_3002Parser();
+			return getAttribute_3006Parser();
 		case MVCore.diagram.edit.parts.MVCoreClassEditPart.VISUAL_ID:
-			return getMVCoreClass_3003Parser();
+			return getMVCoreClass_3007Parser();
 		case MVCore.diagram.edit.parts.Package3EditPart.VISUAL_ID:
-			return getPackage_3004Parser();
+			return getPackage_3008Parser();
 		case MVCore.diagram.edit.parts.ReferenceLowerBoundUpperBoundEditPart.VISUAL_ID:
-			return getReferenceLowerBoundUpperBound_6001Parser();
+			return getReferenceLowerBoundUpperBound_6002Parser();
 		}
 		return null;
 	}

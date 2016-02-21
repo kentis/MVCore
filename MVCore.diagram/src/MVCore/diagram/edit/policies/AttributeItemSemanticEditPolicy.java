@@ -18,7 +18,7 @@ public class AttributeItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public AttributeItemSemanticEditPolicy() {
-		super(MVCore.diagram.providers.MVCoreElementTypes.Attribute_3002);
+		super(MVCore.diagram.providers.MVCoreElementTypes.Attribute_3006);
 	}
 
 	/**

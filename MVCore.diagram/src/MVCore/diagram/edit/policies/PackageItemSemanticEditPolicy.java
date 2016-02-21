@@ -24,17 +24,17 @@ public class PackageItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (MVCore.diagram.providers.MVCoreElementTypes.Controller_2002 == req
+		if (MVCore.diagram.providers.MVCoreElementTypes.Controller_2005 == req
 				.getElementType()) {
 			return getGEFWrapper(new MVCore.diagram.edit.commands.ControllerCreateCommand(
 					req));
 		}
-		if (MVCore.diagram.providers.MVCoreElementTypes.Domain_2003 == req
+		if (MVCore.diagram.providers.MVCoreElementTypes.Domain_2006 == req
 				.getElementType()) {
 			return getGEFWrapper(new MVCore.diagram.edit.commands.DomainCreateCommand(
 					req));
 		}
-		if (MVCore.diagram.providers.MVCoreElementTypes.Package_2004 == req
+		if (MVCore.diagram.providers.MVCoreElementTypes.Package_2007 == req
 				.getElementType()) {
 			return getGEFWrapper(new MVCore.diagram.edit.commands.PackageCreateCommand(
 					req));

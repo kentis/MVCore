@@ -7,6 +7,7 @@
 package MVCore.impl;
 
 import MVCore.Action;
+import MVCore.Annotation;
 import MVCore.Documentation;
 import MVCore.Domain;
 import MVCore.MVCorePackage;
@@ -35,6 +36,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link MVCore.impl.ActionImpl#getName <em>Name</em>}</li>
  *   <li>{@link MVCore.impl.ActionImpl#getOperatesOn <em>Operates On</em>}</li>
  *   <li>{@link MVCore.impl.ActionImpl#getDocumentation <em>Documentation</em>}</li>
+ *   <li>{@link MVCore.impl.ActionImpl#getAnnotation <em>Annotation</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,6 +82,16 @@ public class ActionImpl extends EObjectImpl implements Action {
 	 * @ordered
 	 */
 	protected EList<Documentation> documentation;
+
+	/**
+	 * The cached value of the '{@link #getAnnotation() <em>Annotation</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnnotation()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Annotation> annotation;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -176,11 +188,25 @@ public class ActionImpl extends EObjectImpl implements Action {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Annotation> getAnnotation() {
+		if (annotation == null) {
+			annotation = new EObjectContainmentEList<Annotation>(Annotation.class, this, MVCorePackage.ACTION__ANNOTATION);
+		}
+		return annotation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case MVCorePackage.ACTION__DOCUMENTATION:
 				return ((InternalEList<?>)getDocumentation()).basicRemove(otherEnd, msgs);
+			case MVCorePackage.ACTION__ANNOTATION:
+				return ((InternalEList<?>)getAnnotation()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -200,6 +226,8 @@ public class ActionImpl extends EObjectImpl implements Action {
 				return basicGetOperatesOn();
 			case MVCorePackage.ACTION__DOCUMENTATION:
 				return getDocumentation();
+			case MVCorePackage.ACTION__ANNOTATION:
+				return getAnnotation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -223,6 +251,10 @@ public class ActionImpl extends EObjectImpl implements Action {
 				getDocumentation().clear();
 				getDocumentation().addAll((Collection<? extends Documentation>)newValue);
 				return;
+			case MVCorePackage.ACTION__ANNOTATION:
+				getAnnotation().clear();
+				getAnnotation().addAll((Collection<? extends Annotation>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -244,6 +276,9 @@ public class ActionImpl extends EObjectImpl implements Action {
 			case MVCorePackage.ACTION__DOCUMENTATION:
 				getDocumentation().clear();
 				return;
+			case MVCorePackage.ACTION__ANNOTATION:
+				getAnnotation().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -262,6 +297,8 @@ public class ActionImpl extends EObjectImpl implements Action {
 				return operatesOn != null;
 			case MVCorePackage.ACTION__DOCUMENTATION:
 				return documentation != null && !documentation.isEmpty();
+			case MVCorePackage.ACTION__ANNOTATION:
+				return annotation != null && !annotation.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

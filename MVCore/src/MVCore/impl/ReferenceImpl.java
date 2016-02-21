@@ -276,7 +276,7 @@ public class ReferenceImpl extends EObjectImpl implements Reference {
 	 */
 	public Domain getSrc() {
 		if (eContainerFeatureID() != MVCorePackage.REFERENCE__SRC) return null;
-		return (Domain)eContainer();
+		return (Domain)eInternalContainer();
 	}
 
 	/**

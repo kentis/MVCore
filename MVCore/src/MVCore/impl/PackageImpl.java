@@ -169,7 +169,7 @@ public class PackageImpl extends EObjectImpl implements MVCore.Package {
 	 */
 	public MVCore.Package getParent() {
 		if (eContainerFeatureID() != MVCorePackage.PACKAGE__PARENT) return null;
-		return (MVCore.Package)eContainer();
+		return (MVCore.Package)eInternalContainer();
 	}
 
 	/**

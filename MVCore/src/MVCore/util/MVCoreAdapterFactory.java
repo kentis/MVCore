@@ -7,6 +7,7 @@
 package MVCore.util;
 
 import MVCore.Action;
+import MVCore.Annotation;
 import MVCore.Attribute;
 import MVCore.Constraint;
 import MVCore.Controller;
@@ -15,6 +16,7 @@ import MVCore.Domain;
 import MVCore.MVCoreClass;
 import MVCore.MVCorePackage;
 import MVCore.Reference;
+import MVCore.View;
 import MVCore.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -115,6 +117,14 @@ public class MVCoreAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseDocumentation(Documentation object) {
 				return createDocumentationAdapter();
+			}
+			@Override
+			public Adapter caseAnnotation(Annotation object) {
+				return createAnnotationAdapter();
+			}
+			@Override
+			public Adapter caseView(View object) {
+				return createViewAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -259,6 +269,34 @@ public class MVCoreAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDocumentationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link MVCore.Annotation <em>Annotation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see MVCore.Annotation
+	 * @generated
+	 */
+	public Adapter createAnnotationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link MVCore.View <em>View</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see MVCore.View
+	 * @generated
+	 */
+	public Adapter createViewAdapter() {
 		return null;
 	}
 

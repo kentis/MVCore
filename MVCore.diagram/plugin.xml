@@ -80,6 +80,10 @@
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart">
                <GlobalActionId actionId="save"/>
             </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="save">
+               </GlobalActionId>
+            </ElementType>        
          </ViewId>
       </GlobalActionHandlerProvider>
       <GlobalActionHandlerProvider
@@ -213,8 +217,8 @@
       <viewProvider class="MVCore.diagram.providers.MVCoreViewProvider">
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="MVCore"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2002,2003,2004,3001,3002,3003,3004"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2005,2006,2007,2008,3005,3006,3007,3008"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4002"/>
       </viewProvider>
    </extension>
 
@@ -226,13 +230,13 @@
             <method name="getType()" value="MVCore"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2002,2003,2004,3001,3002,3003,3004"/>
+            <method name="getType()" value="2005,2006,2007,2008,3005,3006,3007,3008"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="4001"/>
+            <method name="getType()" value="4002"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5001,5002,5003"/>
+            <method name="getType()" value="5004,5005,5006"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
             <method name="getType()" value=""/>
@@ -243,14 +247,52 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
       <?gmfgen generated="true"?>
-      <modelingAssistantProvider class="MVCore.diagram.providers.MVCoreModelingAssistantProvider">
+      <modelingAssistantProvider class="MVCore.diagram.providers.assistants.MVCoreModelingAssistantProviderOfPackageEditPart">
          <Priority name="Lowest"/>
          <object class="MVCore.diagram.edit.parts.PackageEditPart" id="Package_1000"/>
-         <object class="MVCore.diagram.edit.parts.ControllerEditPart" id="Controller_2002"/>
-         <object class="MVCore.diagram.edit.parts.DomainEditPart" id="Domain_2003"/>
-         <object class="MVCore.diagram.edit.parts.Package2EditPart" id="Package_2004"/>
-         <context elements="Package_1000,Controller_2002,Domain_2003,Package_2004"/>
+         <context elements="Package_1000"/>
       </modelingAssistantProvider>
+            <modelingAssistantProvider class="MVCore.diagram.providers.assistants.MVCoreModelingAssistantProviderOfControllerEditPart">
+         <Priority name="Lowest"/>
+         <object class="MVCore.diagram.edit.parts.ControllerEditPart" id="Controller_2005"/>
+         <context elements="Controller_2005"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="MVCore.diagram.providers.assistants.MVCoreModelingAssistantProviderOfDomainEditPart">
+         <Priority name="Lowest"/>
+         <object class="MVCore.diagram.edit.parts.DomainEditPart" id="Domain_2006"/>
+         <context elements="Domain_2006"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="MVCore.diagram.providers.assistants.MVCoreModelingAssistantProviderOfPackage2EditPart">
+         <Priority name="Lowest"/>
+         <object class="MVCore.diagram.edit.parts.Package2EditPart" id="Package_2007"/>
+         <context elements="Package_2007"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="MVCore.diagram.providers.assistants.MVCoreModelingAssistantProviderOfRoundedRectangleEditPart">
+         <Priority name="Lowest"/>
+         <object class="MVCore.diagram.edit.parts.RoundedRectangleEditPart" id="Node_2008"/>
+         <context elements="Node_2008"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="MVCore.diagram.providers.assistants.MVCoreModelingAssistantProviderOfActionEditPart">
+         <Priority name="Lowest"/>
+         <object class="MVCore.diagram.edit.parts.ActionEditPart" id="Action_3005"/>
+         <context elements="Action_3005"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="MVCore.diagram.providers.assistants.MVCoreModelingAssistantProviderOfAttributeEditPart">
+         <Priority name="Lowest"/>
+         <object class="MVCore.diagram.edit.parts.AttributeEditPart" id="Attribute_3006"/>
+         <context elements="Attribute_3006"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="MVCore.diagram.providers.assistants.MVCoreModelingAssistantProviderOfMVCoreClassEditPart">
+         <Priority name="Lowest"/>
+         <object class="MVCore.diagram.edit.parts.MVCoreClassEditPart" id="MVCoreClass_3007"/>
+         <context elements="MVCoreClass_3007"/>
+      </modelingAssistantProvider>
+            <modelingAssistantProvider class="MVCore.diagram.providers.assistants.MVCoreModelingAssistantProviderOfPackage3EditPart">
+         <Priority name="Lowest"/>
+         <object class="MVCore.diagram.edit.parts.Package3EditPart" id="Package_3008"/>
+         <context elements="Package_3008"/>
+      </modelingAssistantProvider>
+      
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders" id="icon-provider">
@@ -269,7 +311,7 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
       <?gmfgen generated="true"?>
-      <metamodel nsURI="org.friark">
+      <metamodel nsURI="http://mvcore.org/mvcore">
          <metamodelType
                id="MVCore.diagram.Package_1000"
                name="%metatype.name.Package_1000"
@@ -279,82 +321,89 @@
             <param name="semanticHint" value="1000"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="org.friark">
+      <metamodel nsURI="http://mvcore.org/mvcore">
          <metamodelType
-               id="MVCore.diagram.Controller_2002"
-               name="%metatype.name.Controller_2002"
+               id="MVCore.diagram.Controller_2005"
+               name="%metatype.name.Controller_2005"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Controller"
                edithelper="MVCore.diagram.edit.helpers.ControllerEditHelper">
-            <param name="semanticHint" value="2002"/>
+            <param name="semanticHint" value="2005"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="org.friark">
+      <metamodel nsURI="http://mvcore.org/mvcore">
          <metamodelType
-               id="MVCore.diagram.Domain_2003"
-               name="%metatype.name.Domain_2003"
+               id="MVCore.diagram.Domain_2006"
+               name="%metatype.name.Domain_2006"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Domain"
                edithelper="MVCore.diagram.edit.helpers.DomainEditHelper">
-            <param name="semanticHint" value="2003"/>
+            <param name="semanticHint" value="2006"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="org.friark">
+      <metamodel nsURI="http://mvcore.org/mvcore">
          <specializationType
-               id="MVCore.diagram.Package_2004"
-               name="%metatype.name.Package_2004"
+               id="MVCore.diagram.Package_2007"
+               name="%metatype.name.Package_2007"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
             <specializes id="MVCore.diagram.Package_1000"/>
-            <param name="semanticHint" value="2004"/>
+            <param name="semanticHint" value="2007"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="org.friark">
+      <specializationType
+            id="MVCore.diagram.Node_2008"
+            name="%metatype.name.Node_2008"
+            kind="org.eclipse.gmf.runtime.diagram.ui.util.INotationType">
+         <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+         <param name="semanticHint" value="2008"/>
+      </specializationType>
+      <metamodel nsURI="http://mvcore.org/mvcore">
          <metamodelType
-               id="MVCore.diagram.Action_3001"
-               name="%metatype.name.Action_3001"
+               id="MVCore.diagram.Action_3005"
+               name="%metatype.name.Action_3005"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Action"
                edithelper="MVCore.diagram.edit.helpers.ActionEditHelper">
-            <param name="semanticHint" value="3001"/>
+            <param name="semanticHint" value="3005"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="org.friark">
+      <metamodel nsURI="http://mvcore.org/mvcore">
          <metamodelType
-               id="MVCore.diagram.Attribute_3002"
-               name="%metatype.name.Attribute_3002"
+               id="MVCore.diagram.Attribute_3006"
+               name="%metatype.name.Attribute_3006"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Attribute"
                edithelper="MVCore.diagram.edit.helpers.AttributeEditHelper">
-            <param name="semanticHint" value="3002"/>
+            <param name="semanticHint" value="3006"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="org.friark">
+      <metamodel nsURI="http://mvcore.org/mvcore">
          <metamodelType
-               id="MVCore.diagram.MVCoreClass_3003"
-               name="%metatype.name.MVCoreClass_3003"
+               id="MVCore.diagram.MVCoreClass_3007"
+               name="%metatype.name.MVCoreClass_3007"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="MVCoreClass"
                edithelper="MVCore.diagram.edit.helpers.MVCoreClassEditHelper">
-            <param name="semanticHint" value="3003"/>
+            <param name="semanticHint" value="3007"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="org.friark">
+      <metamodel nsURI="http://mvcore.org/mvcore">
          <specializationType
-               id="MVCore.diagram.Package_3004"
-               name="%metatype.name.Package_3004"
+               id="MVCore.diagram.Package_3008"
+               name="%metatype.name.Package_3008"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
             <specializes id="MVCore.diagram.Package_1000"/>
-            <param name="semanticHint" value="3004"/>
+            <param name="semanticHint" value="3008"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="org.friark">
+      <metamodel nsURI="http://mvcore.org/mvcore">
          <metamodelType
-               id="MVCore.diagram.Reference_4001"
-               name="%metatype.name.Reference_4001"
+               id="MVCore.diagram.Reference_4002"
+               name="%metatype.name.Reference_4002"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Reference"
                edithelper="MVCore.diagram.edit.helpers.ReferenceEditHelper">
-            <param name="semanticHint" value="4001"/>
+            <param name="semanticHint" value="4002"/>
          </metamodelType>
       </metamodel>
    </extension>
@@ -370,14 +419,15 @@
       </clientContext> 
       <binding context="MVCore.diagram.TypeContext">
          <elementType ref="MVCore.diagram.Package_1000"/>
-         <elementType ref="MVCore.diagram.Controller_2002"/>
-         <elementType ref="MVCore.diagram.Domain_2003"/>
-         <elementType ref="MVCore.diagram.Package_2004"/>
-         <elementType ref="MVCore.diagram.Action_3001"/>
-         <elementType ref="MVCore.diagram.Attribute_3002"/>
-         <elementType ref="MVCore.diagram.MVCoreClass_3003"/>
-         <elementType ref="MVCore.diagram.Package_3004"/>
-         <elementType ref="MVCore.diagram.Reference_4001"/>
+         <elementType ref="MVCore.diagram.Controller_2005"/>
+         <elementType ref="MVCore.diagram.Domain_2006"/>
+         <elementType ref="MVCore.diagram.Package_2007"/>
+         <elementType ref="MVCore.diagram.Node_2008"/>
+         <elementType ref="MVCore.diagram.Action_3005"/>
+         <elementType ref="MVCore.diagram.Attribute_3006"/>
+         <elementType ref="MVCore.diagram.MVCoreClass_3007"/>
+         <elementType ref="MVCore.diagram.Package_3008"/>
+         <elementType ref="MVCore.diagram.Reference_4002"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

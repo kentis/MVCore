@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link MVCore.MVCoreClass#getName <em>Name</em>}</li>
  *   <li>{@link MVCore.MVCoreClass#getPackage <em>Package</em>}</li>
+ *   <li>{@link MVCore.MVCoreClass#getAnnotation <em>Annotation</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,5 +81,21 @@ public interface MVCoreClass extends EObject {
 	 * @generated
 	 */
 	void setPackage(MVCore.Package value);
+
+	/**
+	 * Returns the value of the '<em><b>Annotation</b></em>' containment reference list.
+	 * The list contents are of type {@link MVCore.Annotation}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Annotation</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Annotation</em>' containment reference list.
+	 * @see MVCore.MVCorePackage#getMVCoreClass_Annotation()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Annotation> getAnnotation();
 
 } // MVCoreClass

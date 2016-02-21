@@ -14,7 +14,7 @@ public class ReferenceItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public ReferenceItemSemanticEditPolicy() {
-		super(MVCore.diagram.providers.MVCoreElementTypes.Reference_4001);
+		super(MVCore.diagram.providers.MVCoreElementTypes.Reference_4002);
 	}
 
 	/**

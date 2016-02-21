@@ -220,6 +220,11 @@ public class PackageItemProvider
 			(createChildParameter
 				(MVCorePackage.Literals.PACKAGE__MEMBERS,
 				 MVCoreFactory.eINSTANCE.createController()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MVCorePackage.Literals.PACKAGE__MEMBERS,
+				 MVCoreFactory.eINSTANCE.createView()));
 	}
 
 	/**

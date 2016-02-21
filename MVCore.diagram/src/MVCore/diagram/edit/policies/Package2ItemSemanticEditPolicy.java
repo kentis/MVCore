@@ -23,19 +23,19 @@ public class Package2ItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public Package2ItemSemanticEditPolicy() {
-		super(MVCore.diagram.providers.MVCoreElementTypes.Package_2004);
+		super(MVCore.diagram.providers.MVCoreElementTypes.Package_2007);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (MVCore.diagram.providers.MVCoreElementTypes.MVCoreClass_3003 == req
+		if (MVCore.diagram.providers.MVCoreElementTypes.MVCoreClass_3007 == req
 				.getElementType()) {
 			return getGEFWrapper(new MVCore.diagram.edit.commands.MVCoreClassCreateCommand(
 					req));
 		}
-		if (MVCore.diagram.providers.MVCoreElementTypes.Package_3004 == req
+		if (MVCore.diagram.providers.MVCoreElementTypes.Package_3008 == req
 				.getElementType()) {
 			return getGEFWrapper(new MVCore.diagram.edit.commands.Package2CreateCommand(
 					req));

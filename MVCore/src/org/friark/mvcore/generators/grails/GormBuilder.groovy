@@ -82,6 +82,9 @@ class GormBuilder extends BuilderSupport {
 				}
 				out.print "*/\n"
 			}
+			out.println "import grails.rest.*"
+			
+			out.println "@Resource(uri='/api/${name}', formats=['hal', 'json', 'xml'] )"
 			out.print "class ${name} "
 			
 			if(value.getSuper()){

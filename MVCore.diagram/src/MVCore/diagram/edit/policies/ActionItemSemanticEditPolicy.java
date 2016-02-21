@@ -18,7 +18,7 @@ public class ActionItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public ActionItemSemanticEditPolicy() {
-		super(MVCore.diagram.providers.MVCoreElementTypes.Action_3001);
+		super(MVCore.diagram.providers.MVCoreElementTypes.Action_3005);
 	}
 
 	/**

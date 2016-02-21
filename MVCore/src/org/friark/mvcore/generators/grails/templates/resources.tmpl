@@ -1,0 +1,9 @@
+import grails.rest.render.hal.*
+
+// Place your Spring DSL code here
+beans = {
+   <% contents.each{  %>
+   hal${it.name}Renderer(HalJsonRenderer, no.hib.msskjema.${it.name})
+   hal${it.name}CollectionRenderer(HalJsonCollectionRenderer,  no.hib.msskjema.${it.name})
+   <% } %>
+}

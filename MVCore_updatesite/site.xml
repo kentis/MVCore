@@ -18,5 +18,11 @@
    <feature url="features/mvcore_feature_0.14.0.jar" id="mvcore_feature" version="0.14">
       <category name="mvcore"/>
    </feature>
+   <feature url="features/mvcore_feature_0.15.0.jar" id="mvcore_feature" version="0.15">
+      <category name="mvcore"/>
+   </feature>
+   <feature url="features/mvcore_feature_0.16.0.jar" id="mvcore_feature" version="0.16">
+      <category name="mvcore"/>
+   </feature>
    <category-def name="mvcore" label="MVCore"/>
 </site>

@@ -5,6 +5,7 @@ import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 
 /**
  * This registry is used to determine which type of visual object should be
@@ -190,6 +191,9 @@ public class MVCoreVisualIDRegistry {
 			if (MVCore.diagram.edit.parts.Package2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (MVCore.diagram.edit.parts.RoundedRectangleEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case MVCore.diagram.edit.parts.ControllerEditPart.VISUAL_ID:
 			if (MVCore.diagram.edit.parts.ControllerNameEditPart.VISUAL_ID == nodeVisualID) {
@@ -250,5 +254,102 @@ public class MVCoreVisualIDRegistry {
 	private static boolean isDiagram(MVCore.Package element) {
 		return true;
 	}
+
+	/**
+	 * @generated
+	 */
+	public static boolean checkNodeVisualID(View containerView,
+			EObject domainElement, int candidate) {
+		if (candidate == -1) {
+			//unrecognized id is always bad
+			return false;
+		}
+		int basic = getNodeVisualID(containerView, domainElement);
+		return basic == candidate;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static boolean isCompartmentVisualID(int visualID) {
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static boolean isSemanticLeafVisualID(int visualID) {
+		switch (visualID) {
+		case MVCore.diagram.edit.parts.PackageEditPart.VISUAL_ID:
+			return false;
+		case MVCore.diagram.edit.parts.RoundedRectangleEditPart.VISUAL_ID:
+		case MVCore.diagram.edit.parts.ActionEditPart.VISUAL_ID:
+		case MVCore.diagram.edit.parts.AttributeEditPart.VISUAL_ID:
+		case MVCore.diagram.edit.parts.MVCoreClassEditPart.VISUAL_ID:
+		case MVCore.diagram.edit.parts.Package3EditPart.VISUAL_ID:
+			return true;
+		default:
+			break;
+		}
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static final DiagramStructure TYPED_INSTANCE = new DiagramStructure() {
+		/**
+		 * @generated
+		 */
+		@Override
+		public int getVisualID(View view) {
+			return MVCore.diagram.part.MVCoreVisualIDRegistry.getVisualID(view);
+		}
+
+		/**
+		 * @generated
+		 */
+		@Override
+		public String getModelID(View view) {
+			return MVCore.diagram.part.MVCoreVisualIDRegistry.getModelID(view);
+		}
+
+		/**
+		 * @generated
+		 */
+		@Override
+		public int getNodeVisualID(View containerView, EObject domainElement) {
+			return MVCore.diagram.part.MVCoreVisualIDRegistry.getNodeVisualID(
+					containerView, domainElement);
+		}
+
+		/**
+		 * @generated
+		 */
+		@Override
+		public boolean checkNodeVisualID(View containerView,
+				EObject domainElement, int candidate) {
+			return MVCore.diagram.part.MVCoreVisualIDRegistry
+					.checkNodeVisualID(containerView, domainElement, candidate);
+		}
+
+		/**
+		 * @generated
+		 */
+		@Override
+		public boolean isCompartmentVisualID(int visualID) {
+			return MVCore.diagram.part.MVCoreVisualIDRegistry
+					.isCompartmentVisualID(visualID);
+		}
+
+		/**
+		 * @generated
+		 */
+		@Override
+		public boolean isSemanticLeafVisualID(int visualID) {
+			return MVCore.diagram.part.MVCoreVisualIDRegistry
+					.isSemanticLeafVisualID(visualID);
+		}
+	};
 
 }

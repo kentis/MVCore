@@ -283,6 +283,52 @@ public class MVCoreItemProviderAdapterFactory extends MVCoreAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link MVCore.Annotation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AnnotationItemProvider annotationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link MVCore.Annotation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAnnotationAdapter() {
+		if (annotationItemProvider == null) {
+			annotationItemProvider = new AnnotationItemProvider(this);
+		}
+
+		return annotationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link MVCore.View} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ViewItemProvider viewItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link MVCore.View}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createViewAdapter() {
+		if (viewItemProvider == null) {
+			viewItemProvider = new ViewItemProvider(this);
+		}
+
+		return viewItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -390,6 +436,8 @@ public class MVCoreItemProviderAdapterFactory extends MVCoreAdapterFactory imple
 		if (referenceItemProvider != null) referenceItemProvider.dispose();
 		if (constraintItemProvider != null) constraintItemProvider.dispose();
 		if (documentationItemProvider != null) documentationItemProvider.dispose();
+		if (annotationItemProvider != null) annotationItemProvider.dispose();
+		if (viewItemProvider != null) viewItemProvider.dispose();
 	}
 
 }

@@ -23,14 +23,14 @@ public class ControllerItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public ControllerItemSemanticEditPolicy() {
-		super(MVCore.diagram.providers.MVCoreElementTypes.Controller_2002);
+		super(MVCore.diagram.providers.MVCoreElementTypes.Controller_2005);
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (MVCore.diagram.providers.MVCoreElementTypes.Action_3001 == req
+		if (MVCore.diagram.providers.MVCoreElementTypes.Action_3005 == req
 				.getElementType()) {
 			return getGEFWrapper(new MVCore.diagram.edit.commands.ActionCreateCommand(
 					req));

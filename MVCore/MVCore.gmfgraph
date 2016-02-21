@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<gmfgraph:Canvas xmi:version="2.0"
+<gmfgraph:Canvas
+    xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="MVCore">
+    xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition"
+    name="MVCore">
   <figures
       name="MVCore figures">
     <figures
@@ -16,6 +18,15 @@
           x="-1"
           y="-1"/>
     </figures>
+    <figures
+        xsi:type="gmfgraph:PolylineDecoration"
+        name="DomainSuperTargetDecoration"/>
+    <figures
+        xsi:type="gmfgraph:PolylineDecoration"
+        name="ActionOperatesOnTargetDecoration"/>
+    <figures
+        xsi:type="gmfgraph:PolylineDecoration"
+        name="ViewViewPartsTargetDecoration"/>
     <descriptors
         name="MVCoreControllerNode">
       <actualFigure
@@ -33,10 +44,16 @@
             xsi:type="gmfgraph:Label"
             name="mvcnode"
             text=""/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ControllerNameFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           accessor="Name"
           figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.0/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="MVCoreDomainNode">
@@ -55,16 +72,216 @@
             xsi:type="gmfgraph:Label"
             name="mvc_domain_node"
             text=""/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="DomainNameFigure"
+            text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="DomainSearchableFigure"
+            text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="DomainLoggableFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           accessor="Name"
           figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.1/@actualFigure/@children.1"/>
+      <accessors
+          figure="//@figures.0/@descriptors.1/@actualFigure/@children.2"/>
+      <accessors
+          figure="//@figures.0/@descriptors.1/@actualFigure/@children.3"/>
     </descriptors>
     <descriptors
         name="ConnectionArrow">
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
           targetDecoration="//@figures.0/@figures.0"/>
+    </descriptors>
+    <descriptors
+        name="MVCoreViewNode">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"
+            vertical="true"
+            matchMinorSize="true"
+            forceSingleLine="true"
+            majorAlignment="CENTER"
+            minorAlignment="CENTER"
+            majorSpacing="0"
+            minorSpacing="0"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="mvcnode"
+            text=""/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ViewNameFigure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          accessor="Name"
+          figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.3/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
+        name="DomainSuperFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="DomainSuperFigure"
+          targetDecoration="//@figures.0/@figures.1"/>
+    </descriptors>
+    <descriptors
+        name="ActionFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="ActionFigure">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ActionNameFigure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="ActionOperatesOnFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="ActionOperatesOnFigure"
+          targetDecoration="//@figures.0/@figures.2"/>
+    </descriptors>
+    <descriptors
+        name="PackageFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="PackageFigure">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="PackageNameFigure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.7/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="MVCoreClassFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="MVCoreClassFigure">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="MVCoreClassNameFigure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.8/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="ReferenceFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="ReferenceFigure">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ReferenceNameFigure"
+            text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ReferenceUpperBoundFigure"
+            text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ReferenceLowerBoundFigure"
+            text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ReferenceUniqueFigure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.9/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.9/@actualFigure/@children.1"/>
+      <accessors
+          figure="//@figures.0/@descriptors.9/@actualFigure/@children.2"/>
+      <accessors
+          figure="//@figures.0/@descriptors.9/@actualFigure/@children.3"/>
+    </descriptors>
+    <descriptors
+        name="ConstraintFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="ConstraintFigure">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ConstraintValueFigure"
+            text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ConstraintTypeFigure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.10/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.10/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
+        name="DocumentationFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="DocumentationFigure">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="DocumentationValueFigure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.11/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="AnnotationFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="AnnotationFigure">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="AnnotationTypeFigure"
+            text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="AnnotationValueFigure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.12/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.12/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
+        name="ViewViewPartsFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="ViewViewPartsFigure"
+          targetDecoration="//@figures.0/@figures.3"/>
     </descriptors>
   </figures>
   <nodes
@@ -78,9 +295,42 @@
     <figure
         href="../../plugin/org.eclipse.gmf.graphdef/models/basic.gmfgraph#NodeRectangle"/>
   </nodes>
+  <nodes
+      name="View"
+      figure="MVCoreViewNode"/>
+  <nodes
+      name="Action"
+      figure="ActionFigure"/>
+  <nodes
+      name="Package"
+      figure="PackageFigure"/>
+  <nodes
+      name="MVCoreClass"
+      figure="MVCoreClassFigure"/>
+  <nodes
+      name="Constraint"
+      figure="ConstraintFigure"/>
+  <nodes
+      name="Documentation"
+      figure="DocumentationFigure"/>
+  <nodes
+      name="Annotation"
+      figure="AnnotationFigure"/>
   <connections
       name="domainLink"
       figure="ConnectionArrow"/>
+  <connections
+      name="DomainSuper"
+      figure="DomainSuperFigure"/>
+  <connections
+      name="ActionOperatesOn"
+      figure="ActionOperatesOnFigure"/>
+  <connections
+      name="Reference"
+      figure="ReferenceFigure"/>
+  <connections
+      name="ViewViewParts"
+      figure="ViewViewPartsFigure"/>
   <compartments
       name="Attrib"
       figure="MVCoreControllerNode"/>
@@ -90,4 +340,100 @@
     <figure
         href="../../plugin/org.eclipse.gmf.graphdef/models/basic.gmfgraph#LabelFigure"/>
   </labels>
+  <labels
+      name="DomainName"
+      figure="MVCoreDomainNode"
+      accessor="//@figures.0/@descriptors.1/@accessors.1"/>
+  <labels
+      name="DomainSearchable"
+      figure="MVCoreDomainNode"
+      accessor="//@figures.0/@descriptors.1/@accessors.2"/>
+  <labels
+      name="DomainLoggable"
+      figure="MVCoreDomainNode"
+      accessor="//@figures.0/@descriptors.1/@accessors.3"/>
+  <labels
+      name="ControllerName"
+      figure="MVCoreControllerNode"
+      accessor="//@figures.0/@descriptors.0/@accessors.1"/>
+  <labels
+      name="ActionName"
+      figure="ActionFigure"
+      accessor="//@figures.0/@descriptors.5/@accessors.0"/>
+  <labels
+      name="PackageName"
+      figure="PackageFigure"
+      accessor="//@figures.0/@descriptors.7/@accessors.0"/>
+  <labels
+      name="AttributeName">
+    <figure
+        href="../../plugin/org.eclipse.gmf.graphdef/models/basic.gmfgraph#NodeRectangle"/>
+    <accessor
+        href="../../plugin/org.eclipse.gmf.graphdef/models/basic.gmfgraph#//@figures.0/@descriptors.0/@accessors.0"/>
+  </labels>
+  <labels
+      name="AttributeRequired">
+    <figure
+        href="../../plugin/org.eclipse.gmf.graphdef/models/basic.gmfgraph#NodeRectangle"/>
+    <accessor
+        href="../../plugin/org.eclipse.gmf.graphdef/models/basic.gmfgraph#//@figures.0/@descriptors.0/@accessors.1"/>
+  </labels>
+  <labels
+      name="AttributeMany">
+    <figure
+        href="../../plugin/org.eclipse.gmf.graphdef/models/basic.gmfgraph#NodeRectangle"/>
+    <accessor
+        href="../../plugin/org.eclipse.gmf.graphdef/models/basic.gmfgraph#//@figures.0/@descriptors.0/@accessors.2"/>
+  </labels>
+  <labels
+      name="AttributeUnique">
+    <figure
+        href="../../plugin/org.eclipse.gmf.graphdef/models/basic.gmfgraph#NodeRectangle"/>
+    <accessor
+        href="../../plugin/org.eclipse.gmf.graphdef/models/basic.gmfgraph#//@figures.0/@descriptors.0/@accessors.3"/>
+  </labels>
+  <labels
+      name="MVCoreClassName"
+      figure="MVCoreClassFigure"
+      accessor="//@figures.0/@descriptors.8/@accessors.0"/>
+  <labels
+      name="ReferenceName"
+      figure="ReferenceFigure"
+      accessor="//@figures.0/@descriptors.9/@accessors.0"/>
+  <labels
+      name="ReferenceUpperBound"
+      figure="ReferenceFigure"
+      accessor="//@figures.0/@descriptors.9/@accessors.1"/>
+  <labels
+      name="ReferenceLowerBound"
+      figure="ReferenceFigure"
+      accessor="//@figures.0/@descriptors.9/@accessors.2"/>
+  <labels
+      name="ReferenceUnique"
+      figure="ReferenceFigure"
+      accessor="//@figures.0/@descriptors.9/@accessors.3"/>
+  <labels
+      name="ConstraintValue"
+      figure="ConstraintFigure"
+      accessor="//@figures.0/@descriptors.10/@accessors.0"/>
+  <labels
+      name="ConstraintType"
+      figure="ConstraintFigure"
+      accessor="//@figures.0/@descriptors.10/@accessors.1"/>
+  <labels
+      name="DocumentationValue"
+      figure="DocumentationFigure"
+      accessor="//@figures.0/@descriptors.11/@accessors.0"/>
+  <labels
+      name="AnnotationType"
+      figure="AnnotationFigure"
+      accessor="//@figures.0/@descriptors.12/@accessors.0"/>
+  <labels
+      name="AnnotationValue"
+      figure="AnnotationFigure"
+      accessor="//@figures.0/@descriptors.12/@accessors.1"/>
+  <labels
+      name="ViewName"
+      figure="MVCoreViewNode"
+      accessor="//@figures.0/@descriptors.3/@accessors.1"/>
 </gmfgraph:Canvas>

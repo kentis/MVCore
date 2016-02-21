@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<gmfmap:Mapping xmi:version="2.0"
+<gmfmap:Mapping
+    xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
@@ -155,6 +156,31 @@
               href="../../plugin/org.eclipse.gmf.graphdef/models/basic.gmfgraph#Label"/>
         </ownedChild>
       </children>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="MVCore.ecore#//Package/members"/>
+    <ownedChild>
+      <domainMetaElement
+          href="MVCore.ecore#//View"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping"
+          viewPattern=""
+          editorPattern=""
+          editPattern="">
+        <diagramLabel
+            href="../../plugin/org.eclipse.gmf.graphdef/models/basic.gmfgraph#NamedNode_Name"/>
+        <features
+            href="MVCore.ecore#//MVCoreClass/name"/>
+        <editableFeatures
+            href="MVCore.ecore#//MVCoreClass/name"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="MVCore.gmftool#//@palette/@tools.0/@tools.5"/>
+      <diagramNode
+          href="MVCore.gmfgraph#View"/>
     </ownedChild>
   </nodes>
   <links>
